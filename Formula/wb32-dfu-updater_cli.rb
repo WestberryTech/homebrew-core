@@ -11,9 +11,7 @@ class Wb32DfuUpdaterCli < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "../source/wb32-dfu-updater_cli",
-                      "-CMAKE_INSTALL_PREFIX=#{rpath}"
-      system "make"
+      system "cmake", "../source/wb32-dfu-updater_cli"
       system "make", "install"
     end
   end
