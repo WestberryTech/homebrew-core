@@ -11,7 +11,8 @@ class Wb32DfuUpdaterCli < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "../source/wb32-dfu-updater_cli"
+      system "cmake", "../source/wb32-dfu-updater_cli",
+                      *std_cmake_args
       system "make", "install"
     end
   end
