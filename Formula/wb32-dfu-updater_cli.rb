@@ -10,11 +10,9 @@ class Wb32DfuUpdaterCli < Formula
   depends_on "libusb"
 
   def install
-    mkdir "build" do
-      system "cmake", "../source/wb32-dfu-updater_cli",
-                      *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", "source/wb32-dfu-updater_cli", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
