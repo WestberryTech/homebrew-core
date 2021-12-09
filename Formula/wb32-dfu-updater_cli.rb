@@ -1,8 +1,8 @@
 class DfuUtil < Formula
   desc "USB programmer"
   homepage "https://github.com/WestberryTech/wb32-dfu-updater"
-  url "https://github.com/WestberryTech/wb32-dfu-updater/releases/download/v0.0.1/wb32-dfu-updater_cli-v0.0.1-macos.tar.gz"
-  sha256 "09f890b7091788a62da607f391fdc44b8609e5657a901a3d9b06f8e677672835"
+  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/v0.0.1.tar.gz"
+  sha256 "33e7aeb616bdd8e4f4b92de9c7a15d35e0188683e18f2d394728e2c74798d900"
   license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "main"
