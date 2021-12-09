@@ -1,10 +1,9 @@
-class DfuUtil < Formula
+class Wb32DfuUpdaterCli < Formula
   desc "USB programmer"
   homepage "https://github.com/WestberryTech/wb32-dfu-updater"
-  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "33e7aeb616bdd8e4f4b92de9c7a15d35e0188683e18f2d394728e2c74798d900"
+  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "56f3bfaa6b71db8cdecd776f5f9a3db58632bce060cf921e20f8529e1648d7c8"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "main"
 
   depends_on "cmake" => :build
