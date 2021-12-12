@@ -1,8 +1,8 @@
 class Wb32DfuUpdaterCli < Formula
   desc "USB programmer"
   homepage "https://github.com/WestberryTech/wb32-dfu-updater"
-  url "https://github.com/WestberryTech/wb32-dfu-updater/files/7698411/wb32-dfu-updater_cli-v0.0.2-Darwin.tar.gz"
-  sha256 "69f13b90c1c4a2ba9fbb042f3d2841c7a2cd4b4234243b417985d62c788ba274"
+  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "56f3bfaa6b71db8cdecd776f5f9a3db58632bce060cf921e20f8529e1648d7c8"
   license "Apache-2.0"
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "master"
 
