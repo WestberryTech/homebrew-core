@@ -23,6 +23,9 @@ class Wb32DfuUpdaterCli < Formula
   end
 
   test do
-    assert_match "wb32-dfu-updater ver: #{version}\nlibusb version 1.0.24 (11584)\n----------------------------------------\n", shell_output(bin/"wb32-dfu-updater_cli --list")
+    printing_message = "wb32-dfu-updater ver: #{version}\n \
+                        libusb version 1.0.24 (11584)\n \
+                        ----------------------------------------\n"
+    assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli --list")
   end
 end
