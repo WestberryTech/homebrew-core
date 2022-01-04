@@ -24,5 +24,6 @@ class Wb32DfuUpdaterCli < Formula
 
   test do
     system bin/"wb32-dfu-updater_cli", "-V"
+    system bin/"wb32-dfu-updater_cli", "-l"
   end
 end
