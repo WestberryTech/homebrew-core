@@ -16,10 +16,9 @@ class Wb32DfuUpdaterCli < Formula
     args << "-DLIBUSB_INCLUDE_DIRS=#{libusb.opt_include}/libusb-1.0"
     args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib/shared_library("libusb-1.0")}"
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
