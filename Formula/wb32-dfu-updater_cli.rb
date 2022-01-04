@@ -23,9 +23,11 @@ class Wb32DfuUpdaterCli < Formula
   end
 
   test do
-    printing_message = "wb32-dfu-updater ver: #{version}\n \
-                        libusb version 1.0.24 (11584)\n \
-                        ----------------------------------------\n"
+    printing_message = <<~EOS
+      wb32-dfu-updater ver: #{version}
+      libusb version #{Formula["libusb"].version} (11584)
+      ----------------------------------------
+    EOS
     assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli --list")
   end
 end
