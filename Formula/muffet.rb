@@ -1,18 +1,18 @@
 class Muffet < Formula
   desc "Fast website link checker in Go"
   homepage "https://github.com/raviqqe/muffet"
-  url "https://github.com/raviqqe/muffet/archive/v2.4.7.tar.gz"
-  sha256 "3a50a5f2e4e5b0f061593e3407720cfb987d4a9a174aff311e885478535245eb"
+  url "https://github.com/raviqqe/muffet/archive/v2.4.8.tar.gz"
+  sha256 "82277a99a854fbf5dc84ac0a7eb2f43e46b93d690a121ae972ec07f7879b5585"
   license "MIT"
   head "https://github.com/raviqqe/muffet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5696204d9656e0d954125b8631bb6b95c67a1c9553591a377bf126d55e3a2992"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc861adf5a58fe8a99b03e1aa53fcbb6c66e43e99b526bcb395b9d35941ed817"
-    sha256 cellar: :any_skip_relocation, monterey:       "dffe8db2000f0e4ad66b4537627c881324e90e6ecbba5403b9bf5072c9f74004"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bc82c30d46d35db05a249eee1073f6776d848f8129386ad2980afab0e4af4f6a"
-    sha256 cellar: :any_skip_relocation, catalina:       "fa6d35eee44644b9ae7cd18839e9d37ca44367278afab274c7e4943a8ca4deb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ac5ec90441ee2664e5e5b65b867f3cb530d078b52f62f74d6710ab9543ff4c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d645af551cf6ac8e8f3303f6473fde6e80595843c003b7f3217a1d1be9614c20"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a016741345993a6acfe701c687fa94652b0f91aa733461ad0d4fbbdcc3adbe8"
+    sha256 cellar: :any_skip_relocation, monterey:       "c6a75fcda18098c883eec4e702a50d7a130f5a571a5b5537c04e0843217e9791"
+    sha256 cellar: :any_skip_relocation, big_sur:        "33c5f38df044aff19bd0a0623770e0d099bd725ec31cd2a91eeb84bd94b09264"
+    sha256 cellar: :any_skip_relocation, catalina:       "fe5e809693933bf8335a54196e575381b6d9960935ae6ea87726cf05736c47db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e4d2b84eddac85126f5f48ed8a4d20d0b761f115a787e91e1e576368cc4656d"
   end
 
   depends_on "go" => :build

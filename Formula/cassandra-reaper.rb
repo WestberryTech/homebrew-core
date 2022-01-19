@@ -1,17 +1,20 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.3.1/cassandra-reaper-2.3.1-release.tar.gz"
-  sha256 "3a6633e43ea99d295f61067f948d9918689589d70e09a541310c4c9fa9ecc268"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/3.1.0/cassandra-reaper-3.1.0-release.tar.gz"
+  sha256 "2e0d816a3b3659411be169a245b5e0a1e64c50c1aecaa3b1d33537be4649f297"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "fb19757d6d28a30eed71836a8e674e366ca4ac809fddc845f9f2a4f7cd602414"
+    sha256 cellar: :any_skip_relocation, big_sur:      "033a478cada5d4122b9d901933c04dff244766217b4011c54e903e698c8f30ed"
+    sha256 cellar: :any_skip_relocation, catalina:     "033a478cada5d4122b9d901933c04dff244766217b4011c54e903e698c8f30ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1332882726428c2293357e513c45fa9be9572dfefdebccaac29323b099e6f870"
   end
 
   depends_on "openjdk@8"
 
   def install
+    inreplace "bin/cassandra-reaper", "/usr/share", prefix
     prefix.install "bin"
     etc.install "resource" => "cassandra-reaper"
     share.install "server/target" => "cassandra-reaper"

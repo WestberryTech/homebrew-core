@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.4.5.tar.gz"
-  sha256 "e77e55384a410d75dc551d4d02726611f74d27dd29d58ef1d4179a5ed2fe6f14"
+  url "https://github.com/aws/aws-cli/archive/2.4.11.tar.gz"
+  sha256 "2f6d17068f7c0263af1bee4333aa95164b99a733ba6adc42658b8555f1cd2fdd"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "be59ba0e920a582832c3c0609e47b96c8f4dc5792dc30ed03cbbf31dd275895e"
-    sha256 cellar: :any,                 arm64_big_sur:  "cf3faaa2a821639d762a34e5a78abd77472fd4d604ccb7a6490aa5ee610eabfc"
-    sha256 cellar: :any,                 monterey:       "a9513062d047afff5431aea1e95f050587e004acd6f7aba4801bb4cb6d07a23d"
-    sha256 cellar: :any,                 big_sur:        "d41d3ee82bff3e297e5a203bb6ad651241fe884e202a19782c55313b8642122e"
-    sha256 cellar: :any,                 catalina:       "d4eb6d28fd2fcd2ee11124b3e0f1861c7b4370ae672b52a094c56ae69574d579"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd8eafa873360bdc891a8bd608722cfda73d3c594e0a922c94095331f32faa70"
+    sha256 cellar: :any,                 arm64_monterey: "12c38e09c2fbe9e2d0de3a782617d7a74fcf32ec28c17023c85a8b09ce24328e"
+    sha256 cellar: :any,                 arm64_big_sur:  "4f12e73577dfcbf7dd49ae7bc5b57d5c1f92c1425eba5986b89f629afee02a3e"
+    sha256 cellar: :any,                 monterey:       "02eee6b4296b6bfbb780d4ed1c72b07ea0d26821c2bf578810e65a1f8534f4ac"
+    sha256 cellar: :any,                 big_sur:        "c3ebab8e76ebaf0b4628654b7c414869e16e3b87f5c5c9ce995bac2e4f093105"
+    sha256 cellar: :any,                 catalina:       "82e2c1f5772cb5a4c68e79593175758978b0c4f16784c44d62b229f8e9313151"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54b8c4e5b3cbd9c104f5d5f82ad65ffdcf3f7972b8e31a703cc4e3e0a3174ce7"
   end
 
   depends_on "cmake" => :build
@@ -84,8 +84,8 @@ class Awscli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
+    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   resource "wcwidth" do

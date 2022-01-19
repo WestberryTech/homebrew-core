@@ -1,19 +1,18 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/3.0.17.tar.gz"
-  sha256 "107f94e045d930e88f5f5b4b484c8df1bf4834722943525765c271e0b5b34b78"
+  url "https://github.com/rizsotto/Bear/archive/3.0.18.tar.gz"
+  sha256 "ae94047c79b4f48462b66981f66a67b6a833d75d4c40e7afead491b1865f1142"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "785496b8cab60394408103af6756710bbb343dc28b32445cc135b28d619902d4"
-    sha256 arm64_big_sur:  "fd4e3b9051f5aa604266902d875ff7797ac9cd88663a571264fbfa41ecc72033"
-    sha256 monterey:       "3ac669791f381790a92cec62cffd2a7ceebed6a8f435f65ae649305fc491486f"
-    sha256 big_sur:        "aeab1fc4206a7112b4ebecc3cb9de4eb64a8fec3e448b3693cf5442e9b484a7f"
-    sha256 catalina:       "8c069138e3bd6a641f0aa669084b4d7f7edf0ae6ca6ce93f6a0bb0cdc518874f"
-    sha256 x86_64_linux:   "b666bb64cf3ef5dae4929a7c3b434a72ead10a9f421f133f2f79dda05d8819cb"
+    sha256 arm64_monterey: "47abebae1cf258209d197e76a6fb8ce0edfeed0f01b821072f3491b59915d609"
+    sha256 arm64_big_sur:  "c196537ebf6b8968cc41df1c07eefcbd2973964f80b5630e51b2376594e16deb"
+    sha256 monterey:       "722e43d8b17699af3c0d56dbba76352e7dedbd6f526168151d2f7e63c7344201"
+    sha256 big_sur:        "a09929d241011a491b564d62931f71cad4e6600869e24b3945f373dbef5f9317"
+    sha256 catalina:       "e3555e6ddbdd3c966f041780e1b2dd97b7f18734fcdd68c962e691450a13615d"
+    sha256 x86_64_linux:   "d1a99861791732f89f6642b8d86669d6edced638941672650b74bbe6f543ec56"
   end
 
   depends_on "cmake" => :build

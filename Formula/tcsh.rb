@@ -1,9 +1,9 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "https://astron.com/pub/tcsh/tcsh-6.23.00.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.23.00.tar.gz"
-  sha256 "4ebeb2f33633d115d9535f554c651a8523040d8d91e5de333fb2ee045b8e001e"
+  url "https://astron.com/pub/tcsh/tcsh-6.23.02.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.23.02.tar.gz"
+  sha256 "c03f80405136731b3091da735a81cdd848008510324ab325f235aff709e446eb"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Tcsh < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e47c7423c5a1f8bac8d8247dca0c94032a18a08b053f50d9d0754a9778ee6a85"
-    sha256 arm64_big_sur:  "06956d228817f2f2d70e17188e7b1b8d8819ae03c6e5945611a9efdd4b270533"
-    sha256 monterey:       "c95fd96b9bac7314b5e358e6b4b350523f61af3556004a5bb05256ec62f5eb7f"
-    sha256 big_sur:        "7fc2dbe2c64c70e4f041925dcc8a7842f8f62684ff428a1d09c739d311a2e75f"
-    sha256 catalina:       "4c37b7e1d07dea6661ae3f8d7784390d8a20852f3e2110a7f4dc8bb5e8bfd834"
-    sha256 x86_64_linux:   "08962f105120620fbdd5a0c62bf1458edb8e711fd0ac507af92cd386bb326e9b"
+    sha256 arm64_monterey: "a01e14e6ab82a7f0172b4efdd6382981aeaf32ba7c7c9fa30357d34acd23b52b"
+    sha256 arm64_big_sur:  "3c579927b9a7922a93891c60ddd27e534cf6209ff86ca6e216a61347635d1652"
+    sha256 monterey:       "4607119ab2a51dc3ef55bff4515054b9ec67839d5948efa54084a1548e5996c2"
+    sha256 big_sur:        "abbcce6bd543d058357ad15922fad064a60515bb70bd6e25310af0ac4d570d98"
+    sha256 catalina:       "1eacbca31f5f3e0df3e43c666984ea426e739a422136cc34fcb9c503f011bd18"
+    sha256 x86_64_linux:   "85121d826461baa3ef2fc1719e9430c8117f5a960628fb0f000b247859b4c11f"
   end
 
   uses_from_macos "ncurses"

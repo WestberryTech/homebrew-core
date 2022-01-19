@@ -2,18 +2,17 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.5.0",
-      revision: "584b45a9cca23340b756578b8a87377e5fc5ba8e"
+      tag:      "v1.5.2",
+      revision: "742c19f3ecf2135b4e008a4f4a10b59add8b1045"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c552f464f4d4495253f95450b5de0e771dca1b254d37b7ef3424c9a400765db5"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f1e8f289733cf64f8adb7a92db18709680659e0a46f42d9f224a56237d5e5ac"
-    sha256 cellar: :any,                 monterey:       "fdae6f196d251432a21e8fb9358db09919cd0252b0c1d06aa92f40ccea509b1f"
-    sha256 cellar: :any,                 big_sur:        "fa3a0b06fda339b4df1d9c42d4cb0e2b0645670d08a32a071edd55d512883b96"
-    sha256 cellar: :any,                 catalina:       "33ddba64fd315c61d60dabd6eb520b26ea7692e8c50ef361ca150f7f7e26cad4"
-    sha256 cellar: :any,                 mojave:         "0e0082761fbb1dada05c3498bae6e329c60b1ad6a4d1c288fa3e3f805412e456"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbcfa1bc15eec3a02476c1a9172cd3355ffb2de563bb82ef9aaa733e88527abc"
+    sha256 cellar: :any,                 arm64_monterey: "13de9936f61bf73fb626131adacfbe6e81de5aa8dfb1f8474520460e73a3caf1"
+    sha256 cellar: :any,                 arm64_big_sur:  "560109c6182da4022278f7f2f6f574bbc2396c492c4090d120b41359535160a0"
+    sha256 cellar: :any,                 monterey:       "a70ff0e77c3e4c2e189b347e704a5b1d9b16563e1059ee7bc8c48d9f9af9eceb"
+    sha256 cellar: :any,                 big_sur:        "6bbeac3b7dab98469c61412efdd933aa7baf09b3e467985641f590f66d71e063"
+    sha256 cellar: :any,                 catalina:       "d4e1ae7fbf7ece4221a7c6cc0bc31c2b35200ab16c6f66e00a74c0536c027ada"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08b4ea482b2ee5af89b0b218d50f3b3a51264c137b88a2578d6a8d46b9d83b39"
   end
 
   depends_on "cmake" => :build

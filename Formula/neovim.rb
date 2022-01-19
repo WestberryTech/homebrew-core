@@ -1,18 +1,23 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.6.0.tar.gz"
-  sha256 "2cfd600cfa5bb57564cc22ffbbbcb2c91531053fc3de992df33656614384fa4c"
+  url "https://github.com/neovim/neovim/archive/v0.6.1.tar.gz"
+  sha256 "dd882c21a52e5999f656cae3f336b5fc702d52addd4d9b5cd3dc39cfff35e864"
   license "Apache-2.0"
   head "https://github.com/neovim/neovim.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 arm64_monterey: "ec4155754605b16da518787995c7ab51e5b163792117f3183ea205cbae5c9e1c"
-    sha256 arm64_big_sur:  "4da15cf92d2cf0f113e190c00e431c06c997391be35b5144b81cc218028dc7c2"
-    sha256 monterey:       "a90d0aec8ef1002ff60c33d14cc7a073f4c16e68587333e4f0e3f8a6d55e1e82"
-    sha256 big_sur:        "c4f758136e1df30f2bfac31474755629af62fcfb084b8c880a3a22f599720d58"
-    sha256 catalina:       "1ccf9e973197b19275709afa60664d4da8e68732e018a9bae57c582bf718fcca"
-    sha256 x86_64_linux:   "be2d90349b6ae9d56f2e365deaf75e9c5122840e7e0bdbd53f4b741274ad159a"
+    sha256 arm64_monterey: "cb57c0fb2aca62d06e77176c7da2acae54c461293d93f66ac2f70cf5f00caf6e"
+    sha256 arm64_big_sur:  "1129c801c8e54eed760f10ae7ac6bcc2b5b9c3f9c55b3d40e2190546d7ffae9c"
+    sha256 monterey:       "3d5fad96914b500a9bf118d3cdbfa808639dbe003fa90f7b9230e5efa25a8a97"
+    sha256 big_sur:        "17d3d6e1b761650c2b4f623808d95d6884eee3fcc59ee47f75d2a777b3589ced"
+    sha256 catalina:       "8a39c2142e8f6d6335d83544af66c8e03599e50cd9a357257b777e6c48dbd089"
+    sha256 x86_64_linux:   "3287fadd7e5d8dae73b5055f6ae5f85391a4b8b29a6ab3fbbfbd4ca8f828f841"
   end
 
   depends_on "cmake" => :build
@@ -62,8 +67,12 @@ class Neovim < Formula
       r.stage(buildpath/"deps-build/build/src"/r.name)
     end
 
-    ENV.prepend_path "LUA_PATH", "#{buildpath}/deps-build/share/lua/5.1/?.lua"
-    ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
+    # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
+    ENV.prepend "LUA_PATH", buildpath/"deps-build/share/lua/5.1/?.lua", ";"
+    ENV.prepend "LUA_CPATH", buildpath/"deps-build/lib/lua/5.1/?.so", ";"
+    # Don't clobber the default search path
+    ENV.append "LUA_PATH", ";", ";"
+    ENV.append "LUA_CPATH", ";", ";"
     lua_path = "--lua-dir=#{Formula["luajit-openresty"].opt_prefix}"
 
     cd "deps-build/build/src" do

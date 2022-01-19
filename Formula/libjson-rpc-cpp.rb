@@ -1,18 +1,19 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.4.0.tar.gz"
-  sha256 "8fef7628eadbc0271c685310082ef4c47f1577c3df2e4c8bd582613d1bd10599"
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.4.1.tar.gz"
+  sha256 "7a057e50d6203e4ea0a10ba5e4dbf344c48b177e5a3bf82e850eb3a783c11eb5"
   license "MIT"
-  head "https://github.com/cinemast/libjson-rpc-cpp.git"
+  revision 1
+  head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "2d5595ba06ed6242ea57d93dffc02fbdd17acf0a59ef9c49a3fd5b248e0fd6cc"
-    sha256 cellar: :any,                 arm64_big_sur:  "8f6b4c50f9a8ba7f677f13ee5c3b8edbe18595c738093483ca77ae081949e7d9"
-    sha256 cellar: :any,                 monterey:       "b55de462ab58927008ac9aab8dfd734f17fe3d2ae8c784cabcc8516f9c459e27"
-    sha256 cellar: :any,                 big_sur:        "2665a82edb0caedbfdc16db5c9737bf9ce7d010312e4ef6959cac058ee880030"
-    sha256 cellar: :any,                 catalina:       "168b837f3b9eb9000703524bb3b61a04db09707de52d5bb6891e3a03f558da19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "388a0dfab5687e1031a4cf317aaae62c5e2673a58197da76547ac8b6e15cb1fc"
+    sha256 cellar: :any,                 arm64_monterey: "d17c63abe49e756cbcfa88f2d97f5d8f30064ad225171e8dfaf8e51e9a719fdf"
+    sha256 cellar: :any,                 arm64_big_sur:  "8018663da536a07ff3864df3d53efbca3c3e7283691062dde2765aa4988725ae"
+    sha256 cellar: :any,                 monterey:       "93d8287c0897ea594a31c04f6400e5ae39cd5339c536b814b914a3446cfef10f"
+    sha256 cellar: :any,                 big_sur:        "b025cc55d821bae9cdcc40714a2333f6919b2e6de461906f5bce5f1442d10ce4"
+    sha256 cellar: :any,                 catalina:       "d14d40ccb7de9443d39658cac84e2287ef78602b443f94887165e780046a0cfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ae9cf1ca4f9aeecb69ac5f4e2cba3b36a9ef8c7cf22c03dad78338dd39b22ec"
   end
 
   depends_on "cmake" => :build

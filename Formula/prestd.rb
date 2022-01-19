@@ -1,8 +1,8 @@
 class Prestd < Formula
   desc "Simplify and accelerate development on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v1.0.12.tar.gz"
-  sha256 "faffa19741dc8c23930043a46e646f86722e969eff8535fe3cc3c469a0d5489f"
+  url "https://github.com/prest/prest/archive/v1.0.14.tar.gz"
+  sha256 "65716a72f7dca448e0b4c7082dd8c7dee57c29320eae5c44b2f38fab0d77dae7"
   license "MIT"
   head "https://github.com/prest/prest.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Prestd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c8018e18630bd5672aa002bf1ed49849cbea5081304af595a3e5c9a5ce5bfe2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bced5ec4c410d35ba2538cff15e2476d87bae3469ed604546bad19377edf69d8"
-    sha256 cellar: :any_skip_relocation, monterey:       "b57bfcd36f46b4a9d82fc9e09c3d9b0801e39adc643c678759c4a27750aa1777"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4716d4eaf268a29c70073d8a09de92355cb4279d2197c21f6640d9b7aca5c16a"
-    sha256 cellar: :any_skip_relocation, catalina:       "d68fda822efd7d4085c76e0111292974d62306bd693927e12767d6ea1f0b21c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f292d11925e20fe33cfa1cda4988c707b44ff48caa8db4373a45576a6e6f3a4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d36101ed0dfe00423b432f2dd88bf9fb318329bb87d8707693887e7fb6ff0a0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1453c844c1b83b0cf1b1804e8dd816f67773a2748f1d6ab841c6677ba3626220"
+    sha256 cellar: :any_skip_relocation, monterey:       "8183621bcf2dd5e99b8018e0fd7bab2b1131e26359d1c3f24fce1279ae69f183"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1d6227ec3206bba71b3a54e8e3d9a0e6655c30b9faffac4cb643a544e940d33f"
+    sha256 cellar: :any_skip_relocation, catalina:       "d60f5161e40eee32173c42943c6db3f94a202771e21d8d5be299a86408cd9554"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "195f00694ec9027f6fbfc8c6321058802fe52e142336c3a7bf2828608836fa08"
   end
 
   depends_on "go" => :build

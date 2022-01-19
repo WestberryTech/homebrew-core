@@ -1,17 +1,16 @@
 class Ki < Formula
   desc "Kotlin Language Interactive Shell"
   homepage "https://github.com/Kotlin/kotlin-interactive-shell"
-  url "https://github.com/Kotlin/kotlin-interactive-shell/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "46913b17c85711213251948342d0f4d0fec7dc98dd11c1f24eedb0409338e273"
+  url "https://github.com/Kotlin/kotlin-interactive-shell/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "cb90a199f8e1742d7b4cd304d06108efa5d2c30ff7330d6e66ed0e9eed7a9505"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/Kotlin/kotlin-interactive-shell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05d9b0a276072071f22ea6dd9fd1b3b53b19dff3d94885331e8c85019ff7d12a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "208b95b7de1a9700dae6121fccee564a10080e18be39e4d690cfc04137efc9c7"
-    sha256 cellar: :any_skip_relocation, catalina:      "0d8918ccdeccdccd33c8d3712b67afd9355ac807b87b7e34308b169618dc993e"
-    sha256 cellar: :any_skip_relocation, mojave:        "e142eb441e6c5989155f7c57f257a2d02d42c764fff7974f21b3e82dcc00446a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "44a0b176b99d690c3612d10dd7e74e89681ed49ebe21a59d02b0f2385d9fb099"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e274b42061c74931ef8da5e556a7d7ef7ffeed29a73667f3ace4859a6a6329f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "9f8b79b2f38b559e36a8a5f44e658a7ae85d5e2d3bb8c9cd4691185f41446299"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "accc98d52e3ec26c07b35ac64e381b0d27c8639d5c32a76ccea4a8093635a28a"
   end
 
   depends_on "maven" => :build

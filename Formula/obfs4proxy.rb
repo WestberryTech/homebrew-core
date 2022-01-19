@@ -1,8 +1,8 @@
 class Obfs4proxy < Formula
   desc "Pluggable transport proxy for Tor, implementing obfs4"
   homepage "https://gitlab.com/yawning/obfs4"
-  url "https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.11/obfs4-obfs4proxy-0.0.11.tar.gz"
-  sha256 "46f621f1d94d244e7b1d0b93dafea7abadb2428f8b1d0463559426362ea98eae"
+  url "https://gitlab.com/yawning/obfs4/-/archive/obfs4proxy-0.0.12/obfs4-obfs4proxy-0.0.12.tar.gz"
+  sha256 "aac3d4c4ba30dd2d2ec7d9356b384ae87f688a0c3188020e7d54047228c6020e"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,19 +11,18 @@ class Obfs4proxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d7b477385d289553a2b0e4f24d388f4b5251050945b734c1bbf984352b6ab47"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4e7ffbf5b299d80b469fc0f4edbf44dcac2c698a7b5ac84f4d78632cc8888ce7"
-    sha256 cellar: :any_skip_relocation, monterey:       "a460c5414796f401619ddca98f9bb5c807dff41071099f0d3ae5fe0d85536538"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5918cdc41743f14ee4110b132361abe21b20445fb7afd4a60859b4b1e594462a"
-    sha256 cellar: :any_skip_relocation, catalina:       "4d22c53ebd7beaacc0c96b2af4fe3179f5b8a63f2f9bd624dc6d0d1d2867d40f"
-    sha256 cellar: :any_skip_relocation, mojave:         "75715a8bfc51f3ab2a3dd4e56077c27626ffd802a83f18da300d394091fb79cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4406d6bb3e815416d79ccdec2df0217aadc212387dce0adf64ad2cb9f6e56d09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93d62e389d2a95d99dbba3121c32c45fb9ddb495d45b23c6394f5eb4f9668439"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83afbaf10cebcf3ae178522b5736b999486cfc0f1fa5b8b6524fb37e19e4fed1"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d810f57725c7f3cca6dcc4cde5096c19394df798bd3bc3b34f3010b070f85ce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1785e03069eee6c6f1444d19c5324744b634d57a92cf4ad58903f758302488b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "f00212d4731738a98dd08a38f938d4c19ebb3e4fbdaa904ff14157d874ed25cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ccc315eaa5ed2e9eb9e4e094a9c04616dd3316d35cd7901a214843b7520cd75"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./obfs4proxy"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./obfs4proxy"
   end
 
   test do

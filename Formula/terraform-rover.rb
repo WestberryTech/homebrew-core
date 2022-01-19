@@ -5,20 +5,26 @@ class TerraformRover < Formula
   url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.2.2.tar.gz"
   sha256 "91dc4ff26e0adafde011db1e6111a8a3c545cddbae1a70c8f4c3abc484b0be0b"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5367581968ec927f8b2d8a5c576c5b9a381f45da7e135a03093772cc4d54c1f6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a074f14618b6eb3f4fa1f3538508322aeff9a4aafb6e13176a3ceaab56dcd8ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "052fed203465498fdacfd6d1ee2fe0d14ae4393eedf73cea25496357a6a169a9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb2dc4dab8d77371813992ead874a94223269ee42f489d95846a0be627adc9ea"
-    sha256 cellar: :any_skip_relocation, catalina:       "13de4d7c616eb75498f5f633025a6db46cd436d37386a5f94a97d120564fcb72"
-    sha256 cellar: :any_skip_relocation, mojave:         "865c313e1f50c9da29fc570cc602727cf222050b337ab8e61b35ed544be145bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64b4259285d662de26aec694874b0503ec05edc271915f8535c3b1b2afd35080"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3412ce96504fca6f97e7d041c06ea24a83969e03e0a5881b17196821c9a4d14e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cb3a9c5cc5f962b6cba348de4223ed38d43447ab7d7b1e307de00aa8c83154f"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e6f0533ac17e4171553c1c3451beef2efe7520cabe2e79738312fa2dcdeab0b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "57d45f46ff3c9a782680138a46ce2de96e784f40492dda446f3181d6279c969b"
+    sha256 cellar: :any_skip_relocation, catalina:       "37d1af5fad6d3192ba56c1b6ae2b8c0da9f20b96d3f0c09a840d00bd5ef80095"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2186246152a9c36aaf4cbdb54b51ad37bceedca3e268131df54c06e053a43ac5"
   end
 
   depends_on "go" => :build
   depends_on "node"
   depends_on "terraform"
+
+  # Update terraform components, remove in next version
+  patch do
+    url "https://github.com/im2nguyen/rover/commit/a2a1e57ffcbedcc9a8d39c2696d4cee84eec8cd6.patch?full_index=1"
+    sha256 "d085834625def68e9ebaaee89a6d077fba12220df5347529412f82c9cc69d7cd"
+  end
 
   def install
     Language::Node.setup_npm_environment

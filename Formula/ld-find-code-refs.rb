@@ -1,18 +1,18 @@
 class LdFindCodeRefs < Formula
   desc "Build tool for sending feature flag code references to LaunchDarkly"
   homepage "https://github.com/launchdarkly/ld-find-code-refs"
-  url "https://github.com/launchdarkly/ld-find-code-refs/archive/2.2.3.tar.gz"
-  sha256 "3224e9eadbc13a6eaaef22f5b8ba7bd32723cbac95b8513aa3b7776d8b7955e5"
+  url "https://github.com/launchdarkly/ld-find-code-refs/archive/2.4.1.tar.gz"
+  sha256 "4f964c13de856e2b548ee6a87e9ad1790476e3d3650e221bc6eb50ce19dafcbf"
   license "Apache-2.0"
   head "https://github.com/launchdarkly/ld-find-code-refs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "354aa4da53d2f8df4154b2cf9d71b444020f2b20bf8af9acc25a995afd875108"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "726e6e93834ae526104c86d97499650e8258a569dc8ab2876497c447fba1e2ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "52c2c7d74446cfb5272137d04b9710d8df8804cceda0654d800bf7b978b4bae0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50a65a662b9fa349254f2fa6b093fe8d94ebb6308538252dcdbdb92c51cb7ce0"
-    sha256 cellar: :any_skip_relocation, catalina:       "b5ae0b0c2b01e6e2a846788d329e71d6e27210a7c14d8da465841f755fa13445"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33eba7847e1671d9edc0196b227b7b73b07446e297e284e8fb6814353eb0906d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b23bec45976ffaf80b1351a02e8059e207d8e63f37a5deaa46b45f60fee537f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a80469e7b9ea6604b1a148d9d1b6e006da67901441676d2916b8e7e682f47170"
+    sha256 cellar: :any_skip_relocation, monterey:       "2dd7c86e3634cad302c609cccdbff4d3cfc17e7992d1a9cde7638bf38a9ca7e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2451a559af68f58111480e3bb282109e7b6c6e52b66a2dab443f8d8334903665"
+    sha256 cellar: :any_skip_relocation, catalina:       "72ad39ef67542a4f7afc46d08416a0748b05a7dd1f72822daca74ebdd5105d26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17c84bc9fc9f0d9c064b7b88425379b94ce6f8ce4033af4faf0b77c8cb9f43fa"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Meilisearch < Formula
   desc "Ultra relevant, instant and typo-tolerant full-text search API"
   homepage "https://docs.meilisearch.com/"
-  url "https://github.com/meilisearch/MeiliSearch/archive/v0.24.0.tar.gz"
-  sha256 "35254c739830d17953194c5817e6b6684d716e3046b2d78f4c89a03ae9c88f4e"
+  url "https://github.com/meilisearch/MeiliSearch/archive/v0.25.1.tar.gz"
+  sha256 "e33d6b8568a14b7cc81060b8f42d784c077cde2059f0d2492784f71775612e96"
   license "MIT"
 
   livecheck do
@@ -11,18 +11,21 @@ class Meilisearch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5bda44bb3624f70ad5028b9c2c4c8c0e2e234e23203f9560ffb54516a7ab4ca4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ff63030e0002c68d46e0d4338a0fdafe4abd3f0678211854accd4c608eb76df"
-    sha256 cellar: :any_skip_relocation, monterey:       "f5e041424211b26948eaa482717287f4b698858e0e9f3440f9bd9c591949856b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b2b3854d72d1c4b80555c652ea31a7bd66ea59adb0051a3bf04ce0fe473af66f"
-    sha256 cellar: :any_skip_relocation, catalina:       "ae35aea30e946852fa1f3c09dddcf8ff94658d37fc85d61b7465a9ceef9d1e71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e45dc54e12985166082be01aad04effb77b3dd518b3801389d35424afd8f778"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "72eeb5857aa49f897d376d543afa266eadf86723e5893b1121261a94cd041c49"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7733022639e2bb6b95e9cd564ecd96baffb96fa10751fff584cc89d1db3da8d"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4a0fc84b692b7d73f808f2cf529dd11a44091f98acf8ca5c3700e891b42e613"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3869418dccbe55fdeb2ffb96c0eb85208a45246a531773161555f352b57959d2"
+    sha256 cellar: :any_skip_relocation, catalina:       "089dc54516a3182dba3a4da57bdae8fd9dad556c358deac59bb21e469d2a08ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e10ecd1b56a032de09d98dad94a9b8b77acb764d7fff7d1864c29a5e3dde527"
   end
 
   depends_on "rust" => :build
 
   def install
     cd "meilisearch-http" do
+      # remove when version > 0.25.1 is released, see https://github.com/meilisearch/MeiliSearch/issues/2078
+      inreplace "Cargo.toml", "0.25.0", "0.25.1"
+
       system "cargo", "install", *std_cargo_args
     end
   end

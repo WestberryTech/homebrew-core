@@ -3,17 +3,17 @@ class CyralGimmeDbToken < Formula
 
   desc "Eases using Cyral for SSO login to databases"
   homepage "https://cyral.com/docs/connect/repo-connect/#cli-token-retriever-for-sso"
-  url "https://files.pythonhosted.org/packages/cf/79/0a26383c600658d42a874297550f14b031bf491db8b74db8e241cf0f9e6d/cyral-gimme-db-token-0.6.1.tar.gz"
-  sha256 "45997cb8f6b425a45d09b9ac2f7859a9e9472e388a3b1ed3b3920f085f7ae433"
+  url "https://files.pythonhosted.org/packages/56/53/978bedcc5ba6190b145728cc44b030938bc3f6c3002bbb620902b84f0445/cyral-gimme-db-token-0.7.1.tar.gz"
+  sha256 "df96ffb40ce828957ec1be584ba60b64def3fda3b36273fa4bfd51efbfb69a9e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6fb4f11cbca45087cb09695046051e37c35634d64ee762f7fe4c59ec52bb2a31"
-    sha256 cellar: :any,                 arm64_big_sur:  "c63d64b7508559e9de6fc4bdb6c9801f1c777b9a06ca8ab035680b67e42f9cda"
-    sha256 cellar: :any,                 monterey:       "fca95f3f6ca99bec53ec0ce59b27b0d1aa8c552bdb2548f5973d95aa38c35fd6"
-    sha256 cellar: :any,                 big_sur:        "ff7ad42d0384ece2bbed04803048fca5f0880eae981c6d7bb3e0ed422f0202fc"
-    sha256 cellar: :any,                 catalina:       "45b2377cb206fc5aed3c2cd2381b2c4b6ae03b530c06462e1874a8cd45ea28df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e326d45049106fa3c4cfa9c13f2f85e4c0726c35372d2284f3840e0f774db43"
+    sha256 cellar: :any,                 arm64_monterey: "e4403eb45a14e0f568b8e7f04a0dff577623fb94b007f0e686ac200d53e02766"
+    sha256 cellar: :any,                 arm64_big_sur:  "70b5f68eb04ce38608038f0a39122646b5e2397fdb20e0a3ab76d0e39603832c"
+    sha256 cellar: :any,                 monterey:       "444cc9ff3ad8928da1d44f57cd58f1bafef675f91735d9bc020a35d4ed1911ac"
+    sha256 cellar: :any,                 big_sur:        "102ee5376f3a09c1f77b1e141ef8265f5933448423e941a436dfefae234a7fdc"
+    sha256 cellar: :any,                 catalina:       "b0b5d30e52307fcf6b9024762f46b23daf4ec9cf235a8b66a4b0dc1c92eda534"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cde2c78662df698ac895ddf1f72fe810c588e9e8d90702b0040e3bfca6085c5e"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -28,13 +28,13 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/24/90/d2daeb4a893e92112ce6b0f9c752a0c617a0e601f3088fac56632b5c5312/awscli-1.21.7.tar.gz"
-    sha256 "6a180b0eca109055bd97a6e85597e340cdb1071bb90eb208ead9d0487d5ad80e"
+    url "https://files.pythonhosted.org/packages/e1/04/b3281ebad507cd1fbfc5a3053f95aaf33104c08f01ce02c152dbd26b85ed/awscli-1.22.26.tar.gz"
+    sha256 "cd4f526b492bb1491b01360e08d9e0abe309d783dbeebbbfc2b733a74c370542"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5d/28/de19b5fc27fc41dce0a315d7558e7d11e7cac73f34038e495a8095af0d36/botocore-1.22.7.tar.gz"
-    sha256 "d7c190ed4e1ddb24f9872a0641b28da4afc04b6b993f0ec3dd5224a847df5519"
+    url "https://files.pythonhosted.org/packages/d0/c0/0f8026e7d0bbb633ab048cdd121aa4446e30c39aada083af4d724be0822a/botocore-1.23.26.tar.gz"
+    sha256 "0a933e3af6ecf79666beb2dfcb52a60f8ad1fee7df507f2a9202fe26fe569483"
   end
 
   resource "certifi" do
@@ -48,8 +48,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/68/e4/e014e7360fc6d1ccc507fe0b563b4646d00e0d4f9beec4975026dd15850b/charset-normalizer-2.0.9.tar.gz"
+    sha256 "b0b883e8e874edfdece9c28f314e3dd5badf067342e42fb162203335ae61aa2c"
   end
 
   resource "click" do
@@ -88,8 +88,8 @@ class CyralGimmeDbToken < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "python-dateutil" do

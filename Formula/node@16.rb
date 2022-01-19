@@ -1,8 +1,8 @@
 class NodeAT16 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.13.1/node-v16.13.1.tar.xz"
-  sha256 "4c23004fd75eaf799ad8e76fe34f53e0327f433d4acbfc883396f72e96cc63ad"
+  url "https://nodejs.org/dist/v16.13.2/node-v16.13.2.tar.xz"
+  sha256 "98b1de1ff92a292b93d2b2c93bc2a98656647b3d0c0d5623069f4f8047a8b4a0"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT16 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "62a661315fd8bc15fca85e9ffdf93024654105f0008addb211d68fd3e870588b"
-    sha256 cellar: :any,                 arm64_big_sur:  "7ae530cfd3a4cd81be03b8e4578d468d472a70a22817ff38b442c87abf0e1b10"
-    sha256 cellar: :any,                 monterey:       "4465b9b8ed6129176069413cdacbbc6fe46846385ec3c1ebd3e996e6a6e0510e"
-    sha256 cellar: :any,                 big_sur:        "06d9dbc8ffe74d5c2578d1f5d20fc284c4a35216b934137f746dd6cb300a94f8"
-    sha256 cellar: :any,                 catalina:       "3949d2fdea27661aab1cf3d51214969199f73686a2f98605c6c521dcf9c28e2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8f539a1ba5aa93cb4c0084041fd166c3e8275f73434051b03c4a79fb7376bcd"
+    sha256 cellar: :any,                 arm64_monterey: "29aa5d9aea29b4e5f03b9c6d72e7c19389fcb28a117a37531061d54934722969"
+    sha256 cellar: :any,                 arm64_big_sur:  "9bca2da2dfb03a46a8673639b7e8e44c5c605fcf1f80dc6bb3eef3bf487dcac4"
+    sha256 cellar: :any,                 monterey:       "a38170c8983bb2b3721e209ef67767486f31346d66cac9183a4e5fa40cb9b956"
+    sha256 cellar: :any,                 big_sur:        "1dd88b692f0fd5a6f9f8ba37c1f9d9b3833a902ca94b657f1669910c74e8d0bc"
+    sha256 cellar: :any,                 catalina:       "2ce28873b8224b1445bbc02bcc59c11e957cd4242fb339bba0e53ff156681278"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "510f036e1a74acf8f358d3944e1eaebf934300eb4bcfaaab68dec00372678e24"
   end
 
   keg_only :versioned_formula
@@ -78,11 +78,6 @@ class NodeAT16 < Formula
     ]
     system "python3", "configure.py", *args
     system "make", "install"
-
-    # Make sure that:
-    # - `node` can find our keg-only `python3`
-    # - npm and npx use our keg-only `node`
-    bin.env_script_all_files libexec, PATH: "#{which("python3").dirname}:#{bin}:${PATH}"
   end
 
   def post_install
@@ -112,6 +107,6 @@ class NodeAT16 < Formula
     system "#{bin}/npm", *npm_args, "install", "ref-napi"
     assert_predicate bin/"npx", :exist?, "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
-    assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
+    assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
 end

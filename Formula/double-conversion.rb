@@ -1,18 +1,18 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
   homepage "https://github.com/google/double-conversion"
-  url "https://github.com/google/double-conversion/archive/v3.1.6.tar.gz"
-  sha256 "8a79e87d02ce1333c9d6c5e47f452596442a343d8c3e9b234e8a62fce1b1d49c"
+  url "https://github.com/google/double-conversion/archive/v3.2.0.tar.gz"
+  sha256 "3dbcdf186ad092a8b71228a5962009b5c96abde9a315257a3452eb988414ea3b"
   license "BSD-3-Clause"
-  head "https://github.com/google/double-conversion.git"
+  head "https://github.com/google/double-conversion.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ba80263bde683392415555020c38aa1d86e81f5ec14f2f7ade34bca13a78d148"
-    sha256 cellar: :any,                 arm64_big_sur:  "021d47d6e30a4e1768cd51f8a9d5cbe0078ba006322b84dda0a7c65c31b00da6"
-    sha256 cellar: :any,                 monterey:       "d389a17b220811792370cfa604aa57dafb176261076d363b5a778d825f1b00da"
-    sha256 cellar: :any,                 big_sur:        "b58094fe44c3a64cfd22c9302ec2816b0df1e6d8a40351f70708d6046a65eda5"
-    sha256 cellar: :any,                 catalina:       "1a2c54c892d245d1ddb3cfe8214f800c36a947df01abe9925754afc0638e05d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d75bf94e7f5f4bbbd7ee74092985c70954472561aaaad14bb6bafc866352ce69"
+    sha256 cellar: :any,                 arm64_monterey: "d627d25a62f2676f3977dd2001f99d6b6ec00ac1297b682a3a28b1f6a2378100"
+    sha256 cellar: :any,                 arm64_big_sur:  "e2d2777917015468fc626f90340aceea357c644dfb4f6af8080ce577ec66374c"
+    sha256 cellar: :any,                 monterey:       "9aa635e1048ea42d5242a867a538fa5689e25078e75b4c643c4a4234cf911578"
+    sha256 cellar: :any,                 big_sur:        "b12bc5e7981c0ccdd2a69e1a9dd76627de9c712e0efb7128fffedbac8d4404fd"
+    sha256 cellar: :any,                 catalina:       "2aa2c11ee0d8c58d58c7e1b3fc083326ed9248300cb1aadcb4776b41d67993ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c369ccd5f912a3e9d3cdebe0b663a22f19dfaea14c22b6e3b2feab5f6180b35"
   end
 
   depends_on "cmake" => :build

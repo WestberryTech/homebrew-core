@@ -6,8 +6,8 @@ class Ffmpeg < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 3
-  head "https://github.com/FFmpeg/FFmpeg.git"
+  revision 5
+  head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -15,12 +15,12 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3f0fd439dab73037bf1577aeef75fe61693a8c7d231db15355685aa27d998503"
-    sha256 arm64_big_sur:  "595897c60fd28be047977306a35e53fc6f6f29b021af7b0ee542719bf892eca4"
-    sha256 monterey:       "d86a545fd61b459c1adafcec61bf1803f8f632fe527a88682af4fb89c37056fd"
-    sha256 big_sur:        "b3e866d21b8a51653e294e08c8be65e5095894f52f6cb6b914025992191c1c50"
-    sha256 catalina:       "ea2431a650ae91eb8ea197d7e1d8e82f50d5dfdaad08a0da7c067609e8b1922f"
-    sha256 x86_64_linux:   "a91fa175c2f2a47c9afd240bf2cf97064b14647077be5804da159b6a4244fe62"
+    sha256 arm64_monterey: "79a60ab7e4ada765345aeab4077aa05020177541b0072243b61d724fd179028d"
+    sha256 arm64_big_sur:  "70be47d05dd62d0dd3b4f0a11645f3077ccd1c25915c2547ed86f0ec805182e1"
+    sha256 monterey:       "e791acf371c9c47751c12cfb6bcf6ef26cecc118ad58b66392719fb27870cd8a"
+    sha256 big_sur:        "063c0b23f9cd31948ca8401f6bf70e519724b05d7c22f3c104a7dffc0b751582"
+    sha256 catalina:       "28558f89b59df9051b758a16be4188f612cd7733c1aac532a53c11b3c825d223"
+    sha256 x86_64_linux:   "08cae19b018db1ca647b775c0c9fceead58a2f39652f5bce9b350883c20a06b4"
   end
 
   depends_on "nasm" => :build
@@ -65,7 +65,10 @@ class Ffmpeg < Formula
 
   on_linux do
     depends_on "libxv"
+    depends_on "gcc" # because rubbernand is compiled with gcc
   end
+
+  fails_with gcc: "5"
 
   def install
     args = %W[

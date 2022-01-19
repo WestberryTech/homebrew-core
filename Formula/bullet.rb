@@ -1,25 +1,24 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/3.17.tar.gz"
-  sha256 "baa642c906576d4d98d041d0acb80d85dd6eff6e3c16a009b1abf1ccd2bc0a61"
+  url "https://github.com/bulletphysics/bullet3/archive/3.21.tar.gz"
+  sha256 "49d1ee47aa8cbb0bc6bb459f0a4cfb9579b40e28f5c7d9a36c313e3031fb3965"
   license "Zlib"
   head "https://github.com/bulletphysics/bullet3.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "9ebae8edbbf4df12b7190daa7ef11f32651a478dd5ac3e07c81c2d4378bdf554"
-    sha256 cellar: :any,                 arm64_big_sur:  "1f2000191b311d231c5e1a949aba892992e533df61cb3cf05cd1ec7ded01cb3f"
-    sha256 cellar: :any,                 monterey:       "2ccc0eff9a5116600282123ebaa2d3adaed572103a4c372467577b4aa5e02671"
-    sha256 cellar: :any,                 big_sur:        "85bf74ad7500b0bc9b15f212cc45d1d3ad6e2a2e427a1878ac571e7fd7007d97"
-    sha256 cellar: :any,                 catalina:       "76e1c4ed888700e335545275f080f954071d76164784881488b0b31f295bdbb3"
-    sha256 cellar: :any,                 mojave:         "3b39c389a9b532dfdbc0f3652bf9530fc68e1d453d1df5e017028b41f448e6c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2887fa28d8a3e81b07eff60948ee01179438333e826e1692799d6253e3fcc27"
+    sha256 cellar: :any,                 arm64_monterey: "30a87e90fe654bae66c48b1992d4626c6ae46b4eefa2c0ce5032527df006d75c"
+    sha256 cellar: :any,                 arm64_big_sur:  "19b6ccc0cbf6aeb43f9ef9eb89f5f74d0c33e0e7d2a4a81e86f93a402bf092e2"
+    sha256 cellar: :any,                 monterey:       "5b24686d6901127967ba097dfa0200c2b17eba48600d480cb310e8d3f1ea554b"
+    sha256 cellar: :any,                 big_sur:        "c9801c68a5705930efd11f8c5a4d07f95d69a36ecf303e0914c50fe2cc5f1dac"
+    sha256 cellar: :any,                 catalina:       "42924c0b6e8d5641fdee26791f7726d8615b568c5eec64207d14836638251677"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2edebdf03c1345f393e924a68f24b6a92041b9de14ad99bd126d4c57791e23b"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   def install
     common_args = %w[

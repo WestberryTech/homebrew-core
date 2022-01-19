@@ -6,16 +6,16 @@ class Mitmproxy < Formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.4.tar.gz"
   sha256 "8728d18c69053f0043acebcdabf46f2eeea51f0f0b60c528e1d356cf48ed2ca2"
   license "MIT"
-  revision 1
-  head "https://github.com/mitmproxy/mitmproxy.git"
+  revision 2
+  head "https://github.com/mitmproxy/mitmproxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6fb2d7d8085b8bc9d29d2809ea71d938231e95604fe0ed53b31753287ae08b96"
-    sha256 cellar: :any,                 arm64_big_sur:  "cd60880fbcc188dce8dea404bee86bc8e30c21e730f98c6a1dfa8a3b9d4d883e"
-    sha256 cellar: :any,                 monterey:       "a174dd8bc068468b83a6308e00521b095e5d11eee40d5264d80b26844f0c584b"
-    sha256 cellar: :any,                 big_sur:        "303fc0c22a55497d03387fa8d87dbabf7dd458d0f44fd61e1333ec3fb0c9bc2d"
-    sha256 cellar: :any,                 catalina:       "78e3e827696328572b8c2e73fc945a588302d077f1557722317485bf183d351c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9a37141f5a0eae06547195269489c93b069b88fe3010c4ea62233ece16b0f0f"
+    sha256 cellar: :any,                 arm64_monterey: "82720389d6d732a203539de6208e87b071ed5dec58d5e5cb8fbb832a4b765e9e"
+    sha256 cellar: :any,                 arm64_big_sur:  "0e802ad765b310514bfbe6b5a34b2a3c85a3657374cd188304cb34eaa57efcb1"
+    sha256 cellar: :any,                 monterey:       "acf6124d1a71b344133bb68e008f172b3d2f8808c81a2e78897c15c8640941af"
+    sha256 cellar: :any,                 big_sur:        "967a1e2dee1979e09840d1198d1e62d5a3bd0c4fcb8a5694bbf1b1edd7281044"
+    sha256 cellar: :any,                 catalina:       "f8b83e857b89e36ac9e4a0942e4e41fbf7819a16bc5c5460d6df341fb76e648c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de0f52599abb7474932540d9a1a9fe9f2275504beefd052f6b3094974e97669e"
   end
 
   depends_on "rust" => :build # for cryptography
@@ -195,6 +195,11 @@ class Mitmproxy < Formula
     sha256 "52de08355fd5cfb3ef4533891092bb96229d43c2069703d4aff04fdbedf9c92f"
   end
 
+  # Allow protobuf 3.19 usage
+  # Remove with next release
+  # see https://github.com/mitmproxy/mitmproxy/commit/9249c0ddd37a55657e3714bff0bbef5bba464631#diff-60f61ab7a8d1910d86d9fda2261620314edcae5894d5aaa236b821c7256badd7
+  patch :DATA
+
   def install
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("cffi")
@@ -207,3 +212,17 @@ class Mitmproxy < Formula
     assert_match version.to_s, shell_output("#{bin}/mitmproxy --version 2>&1")
   end
 end
+
+__END__
+diff -Naur a/setup.py b/setup.py
+--- a/setup.py	2021-09-28 18:43:29.000000000 +0200
++++ b/setup.py	2021-12-18 23:05:52.000000000 +0100
+@@ -81,7 +81,7 @@
+         "ldap3>=2.8,<2.10",
+         "msgpack>=1.0.0, <1.1.0",
+         "passlib>=1.6.5, <1.8",
+-        "protobuf>=3.14,<3.19",
++        "protobuf>=3.14,<3.20",
+         "pyOpenSSL>=20.0,<20.1",
+         "pyparsing>=2.4.2,<2.5",
+         "pyperclip>=1.6.0,<1.9",

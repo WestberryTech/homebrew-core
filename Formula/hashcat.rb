@@ -6,7 +6,12 @@ class Hashcat < Formula
   sha256 "6f6899d7ad899659f7b43a4d68098543ab546d2171f8e51d691d08a659378969"
   license "MIT"
   version_scheme 1
-  head "https://github.com/hashcat/hashcat.git"
+  head "https://github.com/hashcat/hashcat.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?hashcat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_monterey: "fa6cfd37e7dcc83390159e971d314cde0af53ab58e41c8f669919d8db1acd1f6"

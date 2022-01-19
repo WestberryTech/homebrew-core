@@ -1,21 +1,28 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/wsmoses/Enzyme/archive/v0.0.23.tar.gz"
-  sha256 "ce15ce1b839ba68e0941ce39730ab4df938eb1a6383feaffbccd3276fac22d14"
+  url "https://github.com/wsmoses/Enzyme/archive/v0.0.26.tar.gz", using: :homebrew_curl
+  sha256 "b212bf13a50c3297fb0ca9fa3094cfd16b399f7c57a928b8eb9e293006fa0c32"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "075c0ab8b00947778ad2212f10fbd17af50734a44329c395265554b8640cafca"
-    sha256 cellar: :any, arm64_big_sur:  "bf75d152afa4d751187cf264be677dd42af65cdb9e77253a983da3af32f3caf4"
-    sha256 cellar: :any, monterey:       "3d7434b30582befaf9a41d23f0a27976f526269887788623a62c3dea19296a6c"
-    sha256 cellar: :any, big_sur:        "efcf36a8941ced366f358d3ea166fa17a9a185040ffc740e4b1f4c45a8497d2b"
-    sha256 cellar: :any, catalina:       "e5a48739c72c69f13f6a38765ba1bad0651e400f37b448ea20c68a85beb464d6"
+    sha256 cellar: :any,                 arm64_monterey: "c3a732216ec6777c8fdeae23f7d5f21830cfd468a114009f56ef941b0bf6aeca"
+    sha256 cellar: :any,                 arm64_big_sur:  "10c7234e26194d88b5e2d4410134ef75cb37321f489cef274a1930315d302382"
+    sha256 cellar: :any,                 monterey:       "2a295c1e70cf5386a82d37c96f7e5246052f3fa7abff1fed9970adeabf29d0d8"
+    sha256 cellar: :any,                 big_sur:        "b42c1a22302500732113bfb7416ccf5c0ed1b6079777057a10661c6a08bd4192"
+    sha256 cellar: :any,                 catalina:       "5d684f37160344c929e98970b10a04e7070eb023b606df4119e3f244ed93eef4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec8260a6af9e931658c8a006d04c40b7cee3ef3adb7ef30d97e3f57e9fcbf57a"
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
 
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }

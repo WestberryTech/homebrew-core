@@ -3,17 +3,17 @@ require "language/node"
 class Eslint < Formula
   desc "AST-based pattern checker for JavaScript"
   homepage "https://eslint.org"
-  url "https://registry.npmjs.org/eslint/-/eslint-8.4.1.tgz"
-  sha256 "d75751e92d4d5b96d981ab902d667fe1b5bb31521c8155fa51dfad1553336ce8"
+  url "https://registry.npmjs.org/eslint/-/eslint-8.7.0.tgz"
+  sha256 "4995e96e0abdc29ca40a564ff572f248f6910eb06083a0cf1488a889ac6cbfab"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cca15db1177ea56733133aa8b8d5265d6a4b483dca6fac56875e69d92bd0c51e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cca15db1177ea56733133aa8b8d5265d6a4b483dca6fac56875e69d92bd0c51e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f89a271a691b4c6ae06f22c2349396407d175fc8ac772d567f5e63d104a65d0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7f89a271a691b4c6ae06f22c2349396407d175fc8ac772d567f5e63d104a65d0"
-    sha256 cellar: :any_skip_relocation, catalina:       "7f89a271a691b4c6ae06f22c2349396407d175fc8ac772d567f5e63d104a65d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cca15db1177ea56733133aa8b8d5265d6a4b483dca6fac56875e69d92bd0c51e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba8527ff3a50bbd8c18ceb53545248f9a4097ae93ff196ab2f990d0eb0ecfbe2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba8527ff3a50bbd8c18ceb53545248f9a4097ae93ff196ab2f990d0eb0ecfbe2"
+    sha256 cellar: :any_skip_relocation, monterey:       "428f82e41f6fadee7a2cff55139327f2f757c5d3fca030451e13ca98dbcf3564"
+    sha256 cellar: :any_skip_relocation, big_sur:        "428f82e41f6fadee7a2cff55139327f2f757c5d3fca030451e13ca98dbcf3564"
+    sha256 cellar: :any_skip_relocation, catalina:       "428f82e41f6fadee7a2cff55139327f2f757c5d3fca030451e13ca98dbcf3564"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba8527ff3a50bbd8c18ceb53545248f9a4097ae93ff196ab2f990d0eb0ecfbe2"
   end
 
   depends_on "node"

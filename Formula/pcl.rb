@@ -1,18 +1,18 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.0.tar.gz"
-  sha256 "21dfa9a268de9675c1f94d54d9402e4e02120a0aa4215d064436c52b7d5bd48f"
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.1.tar.gz"
+  sha256 "dc0ac26f094eafa7b26c3653838494cc0a012bd1bdc1f1b0dc79b16c2de0125a"
   license "BSD-3-Clause"
   revision 1
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a79c6632a39fa1ffc97b27466802dc20128bfc23b4cfa76103aea3d040a04267"
-    sha256 cellar: :any,                 arm64_big_sur:  "e496a31533633ec5cf7be22fb21263b055bb687d26f32eaafbe4c73730f4d06a"
-    sha256 cellar: :any,                 big_sur:        "b88a242bc2fffa34de88c90bead3d90b6d70164b16794f76e35a06729d481ca2"
-    sha256 cellar: :any,                 catalina:       "73b9c13e364e61267c1aace859a398bde588e6ee6504a386884c83f3df2224c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92b130c0b6d7ebe1af990efd4dd1cdc2042125477a139b8a3cc4163da7dfc7ef"
+    sha256 cellar: :any,                 arm64_monterey: "b88503dddcfc24dc9f4895cff63529ee6419e9ae461965d2df86dd29230203a8"
+    sha256 cellar: :any,                 arm64_big_sur:  "34615bdcf42b1ae9e0800254bb1da7af1dd795a5bc5dcb362d1b0651b46b61cb"
+    sha256 cellar: :any,                 big_sur:        "0829beb4a476a0731360d0c6e14d2a460e8fc7dffced8afa5c1f32b969c81a59"
+    sha256 cellar: :any,                 catalina:       "551149340d128a93f9c30ca840b3d1b3425fc3b824387399a6bee1aafb30f885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "888bebebf1b11119618123a38ec87ef1c54d7c4ef310dd66dacd76bdbf14d9b8"
   end
 
   depends_on "cmake" => [:build, :test]

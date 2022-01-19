@@ -1,9 +1,9 @@
 class GoBoring < Formula
   desc "Go programming language with BoringCrypto"
   homepage "https://go.googlesource.com/go/+/dev.boringcrypto/README.boringcrypto.md"
-  url "https://go-boringcrypto.storage.googleapis.com/go1.17.4b7.src.tar.gz"
-  version "1.17.4b7"
-  sha256 "0151f947e1da7a9cec63b06276b9ed4b92d2e5113ae254ebbdb9191b65c711f6"
+  url "https://go-boringcrypto.storage.googleapis.com/go1.17.6b7.src.tar.gz"
+  version "1.17.6b7"
+  sha256 "5178f595dea6d618f7cdf6b9e2346a1a28430b4d547996b766fcd5b34379ca2f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class GoBoring < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "878c538076d278bd37c9b66298d205448c4c15bf9fd0f46b1c35b5f81d8f7afd"
-    sha256 arm64_big_sur:  "8508b04fbdce64cc54f33f6a613519c9bab7eb46616340044bd152bd7b8e6b04"
-    sha256 monterey:       "616244e82d0d1bd761fc2f40348becc886c2051b39e44a89462756059bb2605d"
-    sha256 big_sur:        "1e9b951373144b74fafa06107d624aefd5149f9539393acc5456688d427b9460"
-    sha256 catalina:       "6880e038174b755d3fb8e01591406421b1b1cd2f02bf6d076c90cf2019de5dd3"
-    sha256 x86_64_linux:   "3239404e57e41ade9a6ee345b7f7623d141b8c58577808f0889a862bf703f912"
+    sha256 arm64_monterey: "e60cc45d9c228cb27d3efd6fbdc429234ff7816432000c5925dcc5e132dfdbd3"
+    sha256 arm64_big_sur:  "112c2326f18885b6b12062d2cc6d91d446e492a5f8b350d22da5e8de0f8ea241"
+    sha256 monterey:       "1fcdf7072c647df018f9707011bbafa481ced55963ffff2a6b6360c0be1088ca"
+    sha256 big_sur:        "825f2280b5b8915ceb809f9e4b021e7571b87084f82824e517aa08da842bce7c"
+    sha256 catalina:       "5fde892e5370cd328cdcc3aa1c58a1593c6dc766ee85af50e4fbacf54894fd84"
+    sha256 x86_64_linux:   "70278da72c6707eb1a2cd4684a0411f891edaa44d9528eab3c2d77facad8f0b9"
   end
 
   keg_only "it conflicts with the Go formula"

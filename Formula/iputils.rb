@@ -1,13 +1,13 @@
 class Iputils < Formula
   desc "Set of small useful utilities for Linux networking"
   homepage "https://github.com/iputils/iputils"
-  url "https://github.com/iputils/iputils/archive/refs/tags/20210202.tar.gz"
-  sha256 "3f557ecfd2ace873801231d2c1f42de73ced9fbc1ef3a438d847688b5fb0e8ab"
+  url "https://github.com/iputils/iputils/archive/refs/tags/20211215.tar.gz"
+  sha256 "b6f67fc705490673ff4471d006221b4a2f1b1180b929d9fefd771352621ccedf"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/iputils/iputils.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "19797621e4a456d613be44ea617efc4ed12209525136131b2c640ff82367e403"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2cd8e8342e42158cbb2483ba6ef8eeb6f1a882d7c0ec2e2877f7fdf44ec15821"
   end
 
   depends_on "meson" => :build
@@ -19,6 +19,7 @@ class Iputils < Formula
     args = %w[
       -DBUILD_MANS=true
       -DUSE_CAP=false
+      -DSKIP_TESTS=true
     ]
     mkdir "build" do
       system "meson", *std_meson_args, *args, ".."

@@ -2,8 +2,8 @@ class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://k3d.io"
   url "https://github.com/rancher/k3d.git",
-    tag:      "v5.2.0",
-    revision: "3c783bf523011f82decd99638a5a97813e59b36d"
+    tag:      "v5.2.2",
+    revision: "0c57cf24ca65fecba4dd24624a27364def22fbca"
   license "MIT"
 
   livecheck do
@@ -12,12 +12,12 @@ class K3d < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ee6942f80b2ecd9fbf4309ad8236723e0e516bbb7168d9dc962c65e69441580"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6dc99402a1c2fec8900d8178d9554d9be86e66f343535c47e681c866af63c1a5"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b3eb3facc73a85bec8594ea731d9c208179f6e62ecc5c239aa43345a48cadb2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "337f797f3d2dd70287722488c772e73742aa2ee2d15bec4ee4d6ad7c5a042ef4"
-    sha256 cellar: :any_skip_relocation, catalina:       "261d07c7803b4c5af2903d80ce030175880954a8b87659b3aaeeaebf1605fc65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6db5631a490b52e64bf7449c80fb3c264305be0a24666ec9990c02713a1b2e7d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9dfc266b1c1cd74e9b7966c64ddfdf95e9fa6a176ad2b6a58e34a17fec508265"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94ab53847ee937274e0141112854aa0d4c48d8e17c8f1f164a19db87fe00453b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0496fc879f0295747b92973e5f121245fa5b1ac8f9e784a4fd9d43e3b78d8a6e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6bc6f5f71bca1616ebb8b1ba95ccd146f71bfc064f5d3732ac56155a989246cb"
+    sha256 cellar: :any_skip_relocation, catalina:       "37f98a449a10e6e999600119d232ef150664740eaae3a5b691aaaeece7bebc29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4eae51434c99ffd5bd21d595d89f490a06064dd1e51f29f45f2f068cd5b0d764"
   end
 
   depends_on "go" => :build
@@ -37,7 +37,7 @@ class K3d < Formula
 
     system "go", "build",
            "-mod", "vendor",
-           *std_go_args(ldflags: ldflags.join(" "))
+           *std_go_args(ldflags: ldflags)
 
     # Install bash completion
     output = Utils.safe_popen_read(bin/"k3d", "completion", "bash")

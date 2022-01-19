@@ -1,17 +1,17 @@
 class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.20.tar.gz"
-  sha256 "3f436ef2e07697e56e6a14cc9abbf0661190d60923691dadb7de5c84476a7b8b"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.23.tar.gz"
+  sha256 "60e77b5ca3ce11771469bcc2e009c49c8aadb831faebd170e7abcedc16b3e36d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a59702e05554f76d89c4f3d29559f96b908e9fb93cfaa7e8a4d8abcff6435ed"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a59702e05554f76d89c4f3d29559f96b908e9fb93cfaa7e8a4d8abcff6435ed"
-    sha256 cellar: :any_skip_relocation, monterey:       "bbd66108c17e3232e286afe600af9351f69dbbbad03c76852f6d279717b58002"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bbd66108c17e3232e286afe600af9351f69dbbbad03c76852f6d279717b58002"
-    sha256 cellar: :any_skip_relocation, catalina:       "bbd66108c17e3232e286afe600af9351f69dbbbad03c76852f6d279717b58002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06d6fa29d877bcfc3f5a5fe5694c4028ed7322442cc75c88a1df7932036aa8b2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4db242272e294706f8cf26a6d4d33b8c68a9e47db10d7d8ca84d2a3139a39311"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4db242272e294706f8cf26a6d4d33b8c68a9e47db10d7d8ca84d2a3139a39311"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
+    sha256 cellar: :any_skip_relocation, catalina:       "3d77a4b086fa69e59b3f33b344131868588bcb558035b862961e514a0c3273e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae05feeb52801460e639d2440e3a523c4d5d0ca0626cc609cfb2dd1414fa5101"
   end
 
   keg_only :versioned_formula

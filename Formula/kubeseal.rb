@@ -2,8 +2,8 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets.git",
-      tag:      "v0.17.0",
-      revision: "cb9e180eefb854c68d113470994a180466066b59"
+      tag:      "v0.17.2",
+      revision: "bbfe9db5dfc7a1db6b0716b3d15ec502c12293ec"
   license "Apache-2.0"
 
   livecheck do
@@ -12,12 +12,12 @@ class Kubeseal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3228247b370a1853879a1e8c904bb34ade32c4b75261f339a5f329b300aec3a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a04108bc852dd0e7ae229497e936d65d503514d56c4cdb25964a9b984d7fedf"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7215b2fb78d69731b84a2b9157e9e0cea06a21873d808a2aab83258be7c7b2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "53df6a14ef55d2a3b073172c8fcca3f57aac614f4906075a6088642aeadf1217"
-    sha256 cellar: :any_skip_relocation, catalina:       "3ff405bbcf0e2444dad98869c4d90c3f26a5dca1fb080f923bed982a403f2fd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae74d15cf7899448047bb2ddf55f3f415ec994c141808a60aacf6599c397bc36"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05e29ca9ccd1fd005cb775b26343d8067bcadda1ecc7c4c3eced0c59a7b53874"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61c7e052f69d2f13de739e5cfa455a39dc01e955f2a6f4ac21dc2bcfad7c94aa"
+    sha256 cellar: :any_skip_relocation, monterey:       "117f898d43915494a86b42eee10fce5d97a5fdc1010411f3b3177ae11c62005c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4fad2e6b2468751ddecf306f90f9a73d7229c4acccee54b935416fff3dc38697"
+    sha256 cellar: :any_skip_relocation, catalina:       "02c7e00d17057726c57f4f59b142216c03153d3f4662c824689dc022c7d0675c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2339ae88bec3a873cb3049d9e8be3e9abec049b26daf90dce8631d6e48201244"
   end
 
   depends_on "go" => :build

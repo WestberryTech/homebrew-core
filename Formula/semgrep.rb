@@ -4,10 +4,9 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.75.0",
-      revision: "d786313c7bfdaac0c53e07cffc6fcb91a1b5c0ee"
+      tag:      "v0.78.0",
+      revision: "9714b025ceb831573c6ba6c0e5053f98f4e246d6"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -16,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "5f1eaa8e44be3d73edd4160c34b21269a36daa8fc0aebc21ab73a9d64fcd5d2b"
-    sha256 cellar: :any, arm64_big_sur:  "7c5b6cbdf761cab2bfc285e2874d07fa082ef3e0df98b3848890975096af3d10"
-    sha256 cellar: :any, monterey:       "862546e93481a1f815a874ec0992e9983303e1f7f9ef5aef64334d79309c67cc"
-    sha256 cellar: :any, big_sur:        "22dc5dbdf5c549194ea60b92d03b959cfb14569302286ffda1f321de0d91f508"
-    sha256 cellar: :any, catalina:       "abfb03fa46f8e5d82b0efe16a7a8b91b1c6de95871f461b7a41ffa51cc788a5d"
-    sha256               x86_64_linux:   "e05007ecae77aa863bec312f1a5314a226f0661dfdeb0755ba31c2d1533cc6ab"
+    sha256 cellar: :any, arm64_monterey: "27be4b43988395f74aa2136616095ce2f6f3bb295235c7e3c08fc6d3f1dff9e9"
+    sha256 cellar: :any, arm64_big_sur:  "ba05fc60ece433941e7b27e7b18f1185e950172e7e45c053c001ecc4b914b501"
+    sha256 cellar: :any, monterey:       "cafa0823cffc46c20117ca9466c210769820f670694927ac5f399840c961314f"
+    sha256 cellar: :any, big_sur:        "15eeb51248423f4e906226650daa8391e5a0c3ea940fe49c405ab12d554728f1"
+    sha256 cellar: :any, catalina:       "b151e730cdf558a9cb4f76d511ddb941a5ae92ed344e53af143aaf9bfe588197"
+    sha256               x86_64_linux:   "770120d6313253004c5c3a4ba73e0b3c3ddd666a6a762c90d8228f34c5cbc3ee"
   end
 
   depends_on "cmake" => :build
@@ -29,9 +28,10 @@ class Semgrep < Formula
   depends_on "dune" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "tree-sitter"
 
   uses_from_macos "rsync" => :build
@@ -43,8 +43,8 @@ class Semgrep < Formula
   fails_with gcc: "5"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
-    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
+    url "https://files.pythonhosted.org/packages/d7/77/ebb15fc26d0f815839ecd897b919ed6d85c050feeb83e100e020df9153d2/attrs-21.4.0.tar.gz"
+    sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
   resource "bracex" do
@@ -58,8 +58,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
+    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
   end
 
   resource "click" do
@@ -83,8 +83,8 @@ class Semgrep < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/26/67/36cfd516f7b3560bbf7183d7a0f82bb9514d2a5f4e1d682a8a1d55d8031d/jsonschema-4.4.0.tar.gz"
+    sha256 "636694eb41b3535ed608fe04129f26542b59ed99808b4f688aa32dcf55317a83"
   end
 
   resource "packaging" do
@@ -108,23 +108,18 @@ class Semgrep < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
-    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+    url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
+    sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/4d/15/7fc04de02ca774342800c9adf1a8239703977c49c5deaadec1689ec85506/ruamel.yaml-0.17.17.tar.gz"
-    sha256 "9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be"
+    url "https://files.pythonhosted.org/packages/2d/b1/b672cbe8be9ea09d85d2be8c3693811362295aa8483849e85b41caaadb85/ruamel.yaml-0.17.20.tar.gz"
+    sha256 "4b8a33c1efb2b443a93fcaafcfa4d2e445f8e8c29c528d9f5cdafb7cc9e4004c"
   end
 
   resource "ruamel.yaml.clib" do
     url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
     sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "tqdm" do
@@ -133,13 +128,13 @@ class Semgrep < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
+    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/47/63/88168196fdcd77e012944bb83ab589a9d53336b8094703a64567f0bf218c/wcmatch-8.2.tar.gz"
-    sha256 "4d54ddb506c90b5a5bba3a96a1cfb0bb07127909e19046a71d689ddfb18c3617"
+    url "https://files.pythonhosted.org/packages/a7/73/7c739ae235b7e3ee36f2c0084a595b89c62aefeafa52df8d54d26846b32b/wcmatch-8.3.tar.gz"
+    sha256 "371072912398af61d1e4e78609e18801c6faecd3cb36c54c82556a60abc965db"
   end
 
   def install
@@ -179,7 +174,7 @@ class Semgrep < Formula
     ENV["SEMGREP_SKIP_BIN"] = "1"
     python_path = "semgrep"
     cd python_path do
-      venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
+      venv = virtualenv_create(libexec, Formula["python@3.10"].bin/"python3.10")
       venv.pip_install resources.reject { |r| r.name == "ocaml-tree-sitter" }
       venv.pip_install_and_link buildpath/python_path
     end

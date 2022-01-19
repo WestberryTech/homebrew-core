@@ -4,7 +4,12 @@ class Innoextract < Formula
   url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
   sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
   license "Zlib"
-  head "https://github.com/dscharrer/innoextract.git"
+  head "https://github.com/dscharrer/innoextract.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?innoextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_monterey: "2d6ec2e245a2ba6eab0039a3ed0b958c280a38f1a6914e8da041b45d299c4e7d"

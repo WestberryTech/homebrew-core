@@ -1,18 +1,18 @@
 class Jql < Formula
   desc "JSON query language CLI tool"
   homepage "https://github.com/yamafaktory/jql"
-  url "https://github.com/yamafaktory/jql/archive/v3.0.4.tar.gz"
-  sha256 "4d916c75184742b98c1df6b21641647b9150992314a8ae19940a44a6a65ade89"
+  url "https://github.com/yamafaktory/jql/archive/v3.0.7.tar.gz"
+  sha256 "cce5e6b0c5523526e2d70f57895c336cf31c4f87a8d0c59f94e6a3d7ed35713d"
   license "MIT"
-  head "https://github.com/yamafaktory/jql.git"
+  head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02fe34f50bc92d3119e017a1e2b8c00fbf69d8135618e7c36da58636e76ef38b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b20de9e169918a6eacc431d9fb3077d3f745e895c0d006e61266e864556feeb3"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bae74313a81f7a96b74c1e378242cf4444fd7e8cc6d8d2f7735dad650f03251"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f574c701e1a5bbfc0c3cfb445bcab47e099ece7941f90f23a832d215a0921d6"
-    sha256 cellar: :any_skip_relocation, catalina:       "59e2a8de0c17be47b53a2de3dfe81eeb662a253376052342e4a1c67c1d8f7df6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "819f270bb6ad8523bd1171036fa1d4bf76a7053667f9feca541fb7f23d2ed5b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bbf76df33ded11594628c00c0c1348a052f82ee18a2c88569c2b8ab2b78711b9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18169e5e6905095ff5942cf5139ce8bdfa084e53e9dfcac8a48a6e1535a0131a"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffe36ac903af5881e233681510dc476980903f74f73f48eec27ad904aed11680"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4ff47c98ee26bd5374ce908ffee6f5f8e98b79260a42d435713c70ee1300d69e"
+    sha256 cellar: :any_skip_relocation, catalina:       "a7138abb881566dc395d86f1210ad15b5474ceedf996c95d0282e138fe19a94c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "876f5cd7dcabdd565907d7e346c13cf6ee6f8acc9950b7c37c4d85c0a79926c6"
   end
 
   depends_on "rust" => :build

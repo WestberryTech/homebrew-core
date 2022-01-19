@@ -1,8 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-7.3.1-all.zip"
-  sha256 "b75392c5625a88bccd58a574552a5a323edca82dab5942d2d41097f809c6bcce"
+  url "https://services.gradle.org/distributions/gradle-7.3.3-all.zip"
+  sha256 "c9490e938b221daf0094982288e4038deed954a3f12fb54cbf270ddf4e37d879"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Gradle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "63fe4cbac397a4347c7c33517719a07f93798d2cb2c6259bd87cb50fa124eab6"
+    sha256 cellar: :any_skip_relocation, all: "09ae079017b02f06a30fa5b2a917f299353bcf437389144f1e7ce87d1c420b03"
   end
 
   depends_on "openjdk"

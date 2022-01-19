@@ -1,8 +1,8 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://solana.com"
-  url "https://github.com/solana-labs/solana/archive/v1.8.5.tar.gz"
-  sha256 "1d8077fea0638afec44096786146e21ea17b1a9f606cd88b03e6c18f3608ffca"
+  url "https://github.com/solana-labs/solana/archive/v1.9.4.tar.gz"
+  sha256 "6a01faca50d4507b21c63e7e2ba4351c5be7765796aafc45b02ff32d3ff5d303"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19cbf1dbaad7410a6a1029a7a7baba39394d8d4fe7a839082569473699c86dfa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2f39d1433e9ca4cc5ca63448e0df872f1765ab062e6e080bd74e9fe523f72b10"
-    sha256 cellar: :any_skip_relocation, monterey:       "53a45b976264755143a440e23b2eea19ec17e04ba1ee5bbffb4499718b22f055"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3cfc35ef0b80423e4447a85e467ab2a20c1e7bfb754501f13f96b46f849ec4ad"
-    sha256 cellar: :any_skip_relocation, catalina:       "15f19bf42b61e275c25bc997e08fc94756ebf4f9e897d495ff98a200c3096172"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59c8f56a3a9afdbd3405ea581741052f44cb3f7a535fcb5c0761c875e51dcf98"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8cc98a9734fd0af66b7305573d08aebbf21ff4cfd157334dd8cf447c80018f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "175bfb26ddf2a5854fd06998972dcbf1e96e4ead70d2c931aa65ed722f6c4734"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6ab03696d1cd7ec5b33c1f7340f1ed27ad30875edbb36d31f977fb7776c6594"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2d6ab547741b9b6c4510c01039ef815dab3e26720ccdb7c93798ae1f93f4a553"
+    sha256 cellar: :any_skip_relocation, catalina:       "f5d103d689b988c5e6d51efd1ff58aaf1b82c456b8e0fe0ae22d6b4651b9b9a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11f1dfc1e2b6ad7e2a1b9ddcf22ccfcb1d1532396c9e9bb74b4bc99dd407b01a"
   end
 
   depends_on "protobuf" => :build
@@ -51,6 +51,8 @@ class Solana < Formula
   end
 
   test do
-    assert_match(/pubkey: \w{44}/, shell_output("#{bin}/solana-keygen new --no-bip39-passphrase --no-outfile"))
+    assert_match "Generating a new keypair",
+      shell_output("#{bin}/solana-keygen new --no-bip39-passphrase --no-outfile")
+    assert_match version.to_s, shell_output("#{bin}/solana-keygen --version")
   end
 end

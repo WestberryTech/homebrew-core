@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final.tar.gz"
-  sha256 "1cbe9e62107b98d5bdf7c4ebd068372460fbd6b1559de639cf9de143d55d04e1"
+  url "https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-26.0.0.Final.tar.gz"
+  sha256 "f6ff4dcd5312f83e37b663e2e16ce6474f09324c11dc1712b79320aabfcd096f"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, all: "3641d0a611965b1f4c704fbc3ec112edb9bcfaddb9379edf323b3219cd6e5ec2"
+    sha256 cellar: :any, all: "ec3636a690b0e62f4d12875a33efd6b2215b1cfa05365cf8fef4f854ca8de391"
   end
 
   # Installs a pre-built x86_64-only `libwfssl`

@@ -1,8 +1,8 @@
 class Onednn < Formula
   desc "Basic building blocks for deep learning applications"
   homepage "https://01.org/oneDNN"
-  url "https://github.com/oneapi-src/oneDNN/archive/v2.4.4.tar.gz"
-  sha256 "29ce33da3eaf48cbc39cfd9e9af0d7d00e256dcd84168b906df48fb75f5f844e"
+  url "https://github.com/oneapi-src/oneDNN/archive/v2.5.2.tar.gz"
+  sha256 "11d50235afa03571dc70bb6d96a98bfb5d9b53e8c00cc2bfbde78588bd01f6a3"
   license "Apache-2.0"
   head "https://github.com/oneapi-src/onednn.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Onednn < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c88c9ffdba5b3640190d3d7adcee9f56175aaab7264132b6faa7dc1bdd2faa83"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c720b5af591aef146c87549acac7677d25966e4a3de49c85dbbaa6717193082"
-    sha256 cellar: :any,                 monterey:       "ac09dbb2968bb3a16b5af32f66b6db28af8178dd2cdf350efd43d960a8d50c92"
-    sha256 cellar: :any,                 big_sur:        "b6c5a9a22b333c62f5e83cd9b3e9efcbfc9af30293efb3247ba8dac90008d213"
-    sha256 cellar: :any,                 catalina:       "3cb2ace8b3250a9a73aea15a186974f278e528c1dcd2473b2a3eed42b566c044"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a569e52a0deea5aa3b86974eee7830fd1ba44590e93879ee094b69e8f345397b"
+    sha256 cellar: :any,                 arm64_monterey: "29bf4d8de6c2f251d47d2555c5f40c22477ec41e745a92aeed200027911d00c9"
+    sha256 cellar: :any,                 arm64_big_sur:  "3d442363b6d7a6dfdba5b454b72f5fcbceb3d2d6fbabfd21dadb0b11313bd346"
+    sha256 cellar: :any,                 monterey:       "95d3d8545206ae998666f387a7ba77cca4e9ef394285c6b2f926ad47c4c8bf4f"
+    sha256 cellar: :any,                 big_sur:        "73af69316c055c5ef8ee9cf0e50afccf9b105b407c6416bfa1a3c995e9a578fd"
+    sha256 cellar: :any,                 catalina:       "6f381f0863435671822ca956dcfc272965653ee426e0babd73b1c2165ed3b128"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de6964e2207f35e9c43b751d37935872cf853a24548d2a61fa116c5ba7039a2a"
   end
 
   depends_on "cmake" => :build
@@ -32,14 +32,14 @@ class Onednn < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <mkldnn.h>
+      #include <oneapi/dnnl/dnnl.h>
       int main() {
-        mkldnn_engine_t engine;
-        mkldnn_status_t status = mkldnn_engine_create(&engine, mkldnn_cpu, 0);
-        return !(status == mkldnn_success);
+        dnnl_engine_t engine;
+        dnnl_status_t status = dnnl_engine_create(&engine, dnnl_cpu, 0);
+        return !(status == dnnl_success);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lmkldnn", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ldnnl", "-o", "test"
     system "./test"
   end
 end

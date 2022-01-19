@@ -1,8 +1,8 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/4.12.1.tar.gz"
-  sha256 "d23514cb0140926c929b18b09db01c439b822db3243a13bc907f38adeca0252b"
+  url "https://github.com/Ultimaker/CuraEngine/archive/4.13.0.tar.gz"
+  sha256 "7da1600dafb0a4dafa1fa8d545879e13688b43cd3b318fa22a67de4f87e67ca0"
   license "AGPL-3.0-or-later"
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
@@ -18,12 +18,12 @@ class Curaengine < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "4ec8b65f2c7ff131da49e2a500215ba000bbfa33b32d51c80af826282b526006"
-    sha256 cellar: :any,                 arm64_big_sur:  "aee3f05efb64f5e3c618c71969ddfbc3636c045e440c54c552d13dd99cee0e1d"
-    sha256 cellar: :any,                 monterey:       "8f28ed0eb7ba6c0925a989eff24bed86e5564b5f33c66951b0691d9efc9ae88f"
-    sha256 cellar: :any,                 big_sur:        "3d02937ef79535528e2588efda8f6611900adff47d88e5ec16c6392b229f056d"
-    sha256 cellar: :any,                 catalina:       "0c83cdbdf5e6d72bb7bd71986206287509179b37431e2909d1dfb70e07967c2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cd89a04116be9455a2b5f5fd64df3ca2b4b3707bd381e3f3ac5c7da6ca8b0eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70ae70cd08537fa72252acb5dff6adcf53590fd0f6b53d8a9086467268fa0a0e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "785b4583e5c9dbbd9f96aaa4ffd9d1fd220ec0249ce7078258af6e24ba1f5c21"
+    sha256 cellar: :any_skip_relocation, monterey:       "f1ff180d451a0920cc216c27f0925224b335539dea2661f19c868e5ef555bdce"
+    sha256 cellar: :any_skip_relocation, big_sur:        "daec837ab750b488dda7f16682577d599afddc946c8f4bddadf416166b71c9f9"
+    sha256 cellar: :any_skip_relocation, catalina:       "4520ab1977dc1de4c1881b3ffa5d432502d8d4c290df9a51efe4eea6bc24a0d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd5b8cda799f82c437e9828ee4065b25b9050c7fece76d2c2bcaaa923e6b9956"
   end
 
   depends_on "cmake" => :build
@@ -37,13 +37,13 @@ class Curaengine < Formula
   # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
   # part of updating this formula to a new version.
   resource "fdmextruder_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.11.0/resources/definitions/fdmextruder.def.json"
-    sha256 "331c3e203eaf012b19b62795235becec9f1da8939e96fc6834213291269c769e"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.13.0/resources/definitions/fdmextruder.def.json"
+    sha256 "c03847252f9dea37277a3151c0eaeec32ded5e4cd91eed62b58e420ad8cb7fef"
   end
 
   resource "fdmprinter_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.11.0/resources/definitions/fdmprinter.def.json"
-    sha256 "7e6d73c6165c6d50e09ed2b6cd417ebb82fe6832e99ebfec19f7584224ffd60c"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.13.0/resources/definitions/fdmprinter.def.json"
+    sha256 "6634679e3a9571f877e52e57a688d883dc4dc9fe6855a04c3b7be19b60f3a0b7"
   end
 
   def install

@@ -2,9 +2,10 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.17.2.3",
-      revision: "2222bea92fdeef7e6449d2d784cdfc3012641ee1"
+      tag:      "v0.17.3.0",
+      revision: "ab18fea3500841fc312630d49ed6840b3aedb34d"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,12 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "277c948b74a235441cfe17bf401a3c1867e464063ec5632b145f1863098e3dc4"
-    sha256 cellar: :any,                 arm64_big_sur:  "13245ecf80fad0038bef6dedd713f9e97ef64c7d3985bc68dd4a8597646b4059"
-    sha256 cellar: :any,                 monterey:       "f7491c58eb20dda7631ab70fa4770df2a0aa0318692ab11f9cff527af46f079d"
-    sha256 cellar: :any,                 big_sur:        "bad7e328cceef655c092f5555e16a92c4c8841fc93ad8152058327be3bf8625d"
-    sha256 cellar: :any,                 catalina:       "b416b9387fd77c4b8041864c590b233d1dc6645e3a6cca6c23ba7bf233b16d3c"
-    sha256 cellar: :any,                 mojave:         "64fa20b4cf46cc810fd8aae3b28adaa346ba0f223a196489311eab03870df2fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d43bb2f040234a457f756d77ed4f6f596115fadd1189071e2a32f570d14ac233"
+    sha256 cellar: :any,                 arm64_monterey: "4f067219be06a643049ea8e4089ce988df64c71d290ba22d765f840b0e724aff"
+    sha256 cellar: :any,                 arm64_big_sur:  "44fc5b9a7ee3bbda3814a9b52996de2026336c84d7b2df2e1cbbb7cb5f1fa762"
+    sha256 cellar: :any,                 monterey:       "eea3e891de39cefcd32755707137417bcb1a4e3cfea78f50874cab1535f8eb2b"
+    sha256 cellar: :any,                 big_sur:        "eadf7f106af20240df858218a7263a51c232914b2c73f8adef706331e485129e"
+    sha256 cellar: :any,                 catalina:       "45f53509ab80f8e31ab278145c9ffb2d118f7e8bfc01f75dde4e7e53b6217912"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edb06cb5dea479099bcd88422f8fddb03f1bcc30796c439242d6efa9916ea9d8"
   end
 
   depends_on "cmake" => :build
@@ -37,10 +37,6 @@ class Monero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # Fix conflict with miniupnpc.
-    # This has been reported at https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
   end
 
   service do

@@ -2,23 +2,23 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.15.2",
-      revision: "fd322dad6ceafec40c84df4d2a0694ea357d16cc"
+      tag:      "v7.16.3",
+      revision: "d420ccdaf201e32a524632b5da729522e50257ae"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git"
+  head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0afe68820ec5233979bc019d3376d59441ff76cc04b90dc9c82020854fe8301"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0abec415cc3a756583e2ecb831d6264869d18a5ac02faae0097b5d3b141335c8"
-    sha256 cellar: :any_skip_relocation, monterey:       "3228c5a4d0963f3c56bdb128f930eb04cf5ecbce0a062ae7baa49c99d0ad9658"
-    sha256 cellar: :any_skip_relocation, big_sur:        "af1e9a8ea6438c0cb0d5eb742e5afc8b95d94f0c30ac9424ead1dc942c55e1bb"
-    sha256 cellar: :any_skip_relocation, catalina:       "e5c99b0b0a2188403979317b4911e5b5bb8521d17c84e0c449be65009f25dfbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f4fadd93b78a4de8ca92ea6d463613f8c144fff093dc1341b20fdf85f4ebadc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70acc8e7f1afa5cfdca8b1adb6dc1232da52dc27016141f1a90613504f17bc48"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d16008d5b6fe090655ede666e9fecb953f4776e72d790bcc746906935a6b7ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "03005c7765a3a148ebb0fb37ceda111e28a8bb3b30f349fe7424c08e06f46f8f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "388af0a6475f1551f4d9e639ebc884bca4d4867ddcbf7656380df8e3bcaab7f1"
+    sha256 cellar: :any_skip_relocation, catalina:       "b8386a097ad81d2f2227f69b05d1f3aa0d429a22ea4be3347e549f276609f51e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4969a3cf78c692cfe260530cdd588d04265d1afd45ca3d23bd22cde5c8f1a067"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
 
   def install
     # remove non open source files

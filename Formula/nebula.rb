@@ -1,24 +1,25 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v1.5.0.tar.gz"
-  sha256 "f67684a8eba6da91de3601afc97567fddd0e198973bba950fcf15cded92cdc50"
+  url "https://github.com/slackhq/nebula/archive/v1.5.2.tar.gz"
+  sha256 "391ac38161561690a65c0fa5ad65a2efb2d187323cc8ee84caa95fa24cb6c36a"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e955bd38d760c7f66411a3432f6530889c35301c78a627a6e8df13d65231d0ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
-    sha256 cellar: :any_skip_relocation, big_sur:        "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
-    sha256 cellar: :any_skip_relocation, catalina:       "467b8e9d7393b316a9bf6534f77cfe6ebfe48a1277d1c461c590f75eacb5f506"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fc370039758afb61a206aa131ffb9a282b5fb1b32de43a21d15da5dbce68d3b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73fca38859544c8961c7c633a61216942d8e28bc317616757418ed6f9d42f5d9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "73fca38859544c8961c7c633a61216942d8e28bc317616757418ed6f9d42f5d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "3062dbc1b1bb998fe479edab971aa765acb115d67722fadef68287700b69ea60"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3062dbc1b1bb998fe479edab971aa765acb115d67722fadef68287700b69ea60"
+    sha256 cellar: :any_skip_relocation, catalina:       "3062dbc1b1bb998fe479edab971aa765acb115d67722fadef68287700b69ea60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f77fc3a0eeab07fc1157cfaaa39bc4d95da85c19859ca54f6ccdc320d4b12fe"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["BUILD_NUMBER"] = version
-    system "make", "bin"
+    system "make", "service"
     bin.install "./nebula"
     bin.install "./nebula-cert"
     prefix.install_metafiles

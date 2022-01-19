@@ -3,29 +3,34 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/3d/8f/d9ac8adbbc13e43c4c8bcc50128c9fef7a04e9bbe0b7a5d5aaeb95b97573/jc-1.17.3.tar.gz"
-  sha256 "0ded7234ec0ab648724b1bff78ef71c0b078feed462f2bd2a3e34f3cdf040728"
+  url "https://files.pythonhosted.org/packages/74/47/d7c87db3a15e3b0cf16a37a64c38653b24334ba71238cdfa7972ba533483/jc-1.17.7.tar.gz"
+  sha256 "d31c05b51d08fd6677266722e6388292dec14559f0aba16363a93ed654557595"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc6c8f5cee0f18c56e911fb013a7595c016dd73a76d673270817880e6cee9c8b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc6c8f5cee0f18c56e911fb013a7595c016dd73a76d673270817880e6cee9c8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "18dfb467d7a5e04aaae6726b9eed5051ee804c940fdb09a656492b0a46dce8a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "18dfb467d7a5e04aaae6726b9eed5051ee804c940fdb09a656492b0a46dce8a7"
-    sha256 cellar: :any_skip_relocation, catalina:       "18dfb467d7a5e04aaae6726b9eed5051ee804c940fdb09a656492b0a46dce8a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2c90bd9bc57fd4af8b373360a322f36867d0a6980669a8ae2649c1d4ea6764c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "69eafcb3dc46c65d6938ac9ca6eeebefe22380652d809f28c6cf1c9d951cfd83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a14ee11d9b35c69d409c53e2d53de5df2d5fad0a9c865324aac791848cce2f62"
+    sha256 cellar: :any_skip_relocation, monterey:       "18a512344d6f59c096aa1dc0e46f3d46e0c0b9f74f67ad1ba9fdbacc74bd194f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ae8e8dd91105fac4766eb66062f771f7c0cd88c8dbec68c02eb856d7017805a"
+    sha256 cellar: :any_skip_relocation, catalina:       "e5c548190f6e33342656af9154eb54a026d9efc618cd41ec3da6751dfe804de5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d42a88969adbffb8533b86a09022f4af021f6d57783a742d904b66b5cf56f18"
   end
 
   depends_on "python@3.10"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/4d/15/7fc04de02ca774342800c9adf1a8239703977c49c5deaadec1689ec85506/ruamel.yaml-0.17.17.tar.gz"
-    sha256 "9751de4cbb57d4bfbf8fc394e125ed4a2f170fbff3dc3d78abf50be85924f8be"
+    url "https://files.pythonhosted.org/packages/2d/b1/b672cbe8be9ea09d85d2be8c3693811362295aa8483849e85b41caaadb85/ruamel.yaml-0.17.20.tar.gz"
+    sha256 "4b8a33c1efb2b443a93fcaafcfa4d2e445f8e8c29c528d9f5cdafb7cc9e4004c"
+  end
+
+  resource "ruamel.yaml.clib" do
+    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
+    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
   end
 
   resource "xmltodict" do

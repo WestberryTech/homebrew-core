@@ -1,18 +1,18 @@
 class Dprint < Formula
   desc "Pluggable and configurable code formatting platform written in Rust"
   homepage "https://dprint.dev/"
-  url "https://github.com/dprint/dprint/archive/0.19.1.tar.gz"
-  sha256 "c4019e8d0fd5301bc2752ebc7dfea10de7410f77ce8c74e2ac5a7a0eafcd3772"
+  url "https://github.com/dprint/dprint/archive/0.20.0.tar.gz"
+  sha256 "bb3cc57c0b9da7de1cd764baae9babb7bdd9ccaef1324cdc4a6679af9542a7ab"
   license "MIT"
-  head "https://github.com/dprint/dprint.git"
+  head "https://github.com/dprint/dprint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83f6ce5ccfc0b4f9fd2acf8a3851724c473a5be4aefc96b035c73877292b1f18"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5762c44fbcd619b3f4bf1433d81fe832b137953171fbbf15d2d6fd00505ddad4"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7c3aba22efc307aa5acf1a57c07535cdb94500d97e3a3f7d96c0285fdbf4fdd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3455fa678ea12f1e261106d452f7010b6b630f6e296360e1a1c0c1466c4b2100"
-    sha256 cellar: :any_skip_relocation, catalina:       "a563464d98464550db326452d722399391a816fbe7a8c9052030ffb1ca97bcac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a688cc66f9ceb1553d3bf3d13763138d56e2adfec3d28f140be2a2d780aacf93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17e71f4024d07600cf2f3973a49396125fae83f01caccac18ae6319309161085"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2d1ffda4811485861f53a31e5fc16da47b13521be04e6d3a2921866b9a8918a"
+    sha256 cellar: :any_skip_relocation, monterey:       "3db8ee58b7619597db16b52dfd6a861bc81749aa2a165de59c0eadf0560a575c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a6271d83e5437548aa7c9064b24a5cc1830d20a54d5d39ba2567be9769381e2a"
+    sha256 cellar: :any_skip_relocation, catalina:       "6c6da33b86545e82e68e45d5ccb7ee5e2d23e148e7947ef4bdb83ecccd2923bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db79a47230230f542d047dcd7aa9abb1930d10ab84b4585951ac78c82421f275"
   end
 
   depends_on "rust" => :build

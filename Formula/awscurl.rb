@@ -6,15 +6,16 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/6e/95/74209c24ac099c109109229bee14886c210edefb3f6bd73096e3a2277a93/awscurl-0.26.tar.gz"
   sha256 "5cb14aa948160e8fda1e1285ab4824ee0f54b0af87f9bd169ee49fab0c09cb6c"
   license "MIT"
+  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c766f40b782e20ab1f6b431b0061cf67cd27780184eeb0f9fb7b8333c4f8293f"
-    sha256 cellar: :any,                 arm64_big_sur:  "5db7d043fa495d89a02e532df8d6ab6ffc4ab53907c6afd71cbe9d5f98ae896f"
-    sha256 cellar: :any,                 monterey:       "4d76541fa100f58d7cf9d67b411f95494f822b2aae1472deab20f05c029f6ec3"
-    sha256 cellar: :any,                 big_sur:        "87227d9721d1ceb8d30f735fee431c152769d490c740f03ef6cfcd44253306e1"
-    sha256 cellar: :any,                 catalina:       "735b681b8c7b614ce3685f08b6309bd6fab171abecb0be7eec38421190878e22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfc92fe305ec2e0963c6f64453769a8ff5688964aa21af2e0d3f3d9cca9fb28b"
+    sha256 cellar: :any,                 arm64_monterey: "cc1c76a0950ca8db5882e6ff1f9ce5cf674ca200eda0546cdad927c86332cce0"
+    sha256 cellar: :any,                 arm64_big_sur:  "7216b2622a8fb8bc0fef57870a3003d8b099f3245c117436c70e899b9d3cd1e6"
+    sha256 cellar: :any,                 monterey:       "c74c2b4cf6e468f5f583b89fb3f3bb0556bbfba5f73eb56d4108680985d02d95"
+    sha256 cellar: :any,                 big_sur:        "c41b11f156735253dff9923fd7adc0718f267f4817ae51df27a2950cabebc276"
+    sha256 cellar: :any,                 catalina:       "1be8ac2c2acb8caa14c118d389279fecd1f295fc3d6a84cdbe37bfac34b243d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd0a50d5936a3994e44430548c148513b08a13012c104cd55b83250b77270d7f"
   end
 
   depends_on "rust" => :build
@@ -53,8 +54,8 @@ class Awscurl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/60/06/d9109aba62c0b42466195e5b9b30dded26621a675b73998218070d8cc637/cryptography-36.0.0.tar.gz"
-    sha256 "52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "idna" do

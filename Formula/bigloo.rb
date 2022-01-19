@@ -1,8 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c.tar.gz"
-  sha256 "6646b76382f56d320135a4f6b8eba3e2133d53256f9ff3646b97866a2576062c"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4c-4.tar.gz"
+  version "4.4c-4"
+  sha256 "4ed71a86c6d762c35352e9f04871a11fe90fa5dbc974e728a86d9e8229d7c70f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,9 +12,10 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 monterey: "065f60592a082b1eee01474e340c8c0f0e37ae8d15924c7b55af77b19fa43e96"
-    sha256 big_sur:  "5936c6ee277a018c104dc82e23517229725df62e960135ad93429d18d5bdbbdd"
-    sha256 catalina: "76981333f401b289c59e90f44b107f0b799511a790b5af4cf962763781c09e2b"
+    sha256 monterey:     "5584d706ebdcabd22decf7b6c21437f518f02b42b93290c9d6e2f2cccbc578cb"
+    sha256 big_sur:      "c960e247b0ea8492e1afde1fd02e76723651a4cd05fd5d4cd5ce4f8b653e09fb"
+    sha256 catalina:     "2f33fa4caac94d93c2657a8d670fd4256876bcd15e20b4cff6cc2526bc2ee03a"
+    sha256 x86_64_linux: "c02ce6371b839fe6910178f12668da807b581b72d251327ea9c2f4e635f52860"
   end
 
   depends_on "autoconf" => :build
@@ -27,7 +29,11 @@ class Bigloo < Formula
   depends_on "libuv"
   depends_on "openjdk"
   depends_on "openssl@1.1"
-  depends_on "pcre"
+  depends_on "pcre2"
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
 
   def install
     # Force bigloo not to use vendored libraries
@@ -39,16 +45,22 @@ class Bigloo < Formula
       --prefix=#{prefix}
       --mandir=#{man1}
       --infodir=#{info}
-      --os-macosx
       --customgc=no
+      --customgmp=no
       --customlibuv=no
+      --customunistring=no
       --native=yes
-      --disable-alsa
       --disable-mpg123
       --disable-flac
-      --disable-srfi27
       --jvm=yes
     ]
+
+    if OS.mac?
+      args += %w[
+        --os-macosx
+        --disable-alsa
+      ]
+    end
 
     system "./configure", *args
 

@@ -1,18 +1,18 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.35.0.tar.gz"
-  sha256 "4107a58ee7e6db9304924ce77c1250a6449dccc3f6f7c1abb24b9fd457c3110d"
+  url "https://github.com/open-policy-agent/opa/archive/v0.36.1.tar.gz"
+  sha256 "cb6d1be6341d2cb7094228a95fc6036883dddec98bfa77d8498685e8e7e7becb"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/opa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "31394f50d0a9045503e837354026ea166d982ca93cb7075f52edaa3e18eec34b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2ba195a3e0f31f2d678e7fd30b7f2818d410293baa818827a4dd511df87a027"
-    sha256 cellar: :any_skip_relocation, monterey:       "39c4ad7bc1d232ff4cc1155f9b784f7354f21ba12a806844d6ff3fa55ccae30d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "036422c4f762d1bc9dac96770df7d0cd64786cc072c7e9ff8defe74166a960e0"
-    sha256 cellar: :any_skip_relocation, catalina:       "ad3cf40d5cb8cc1ec760a26cc8e4030871e8b40bfa4dc13d10e4b12a462434a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a541845843d9f995ed20f33133450e16ef22bf07e4c552c279d52868b61fb9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7fe9ce6f21aabd0071578b0f8dd0ea882dc44414b05158fc26406b89e55a440"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "042dc4ec152218944d198e83de31a58aa24e6ef8856d6c0db6fcf24e85daf777"
+    sha256 cellar: :any_skip_relocation, monterey:       "21adb7d007f39400e0859d7a828e629e294a20439adbe0841d87f2dbbf0c18ba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ed8017417d750f428baf620d87df4ce278927c05965d1b6e7554d439e806b1c3"
+    sha256 cellar: :any_skip_relocation, catalina:       "f62632126360eaad947698c2f367fe2b5edacf766d9c662276d0672d64cce691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf6b32eff4cf53808854f0f949a94cb3d4b9e8d417446491db89c4bef0bbb265"
   end
 
   depends_on "go" => :build
@@ -22,6 +22,15 @@ class Opa < Formula
               "-ldflags", "-X github.com/open-policy-agent/opa/version.Version=#{version}"
     system "./build/gen-man.sh", "man1"
     man.install "man1"
+
+    bash_output = Utils.safe_popen_read(bin/"opa", "completion", "bash")
+    (bash_completion/"opa").write bash_output
+
+    zsh_output = Utils.safe_popen_read(bin/"opa", "completion", "zsh")
+    (zsh_completion/"_opa").write zsh_output
+
+    fish_output = Utils.safe_popen_read(bin/"opa", "completion", "fish")
+    (fish_completion/"opa.fish").write fish_output
   end
 
   test do

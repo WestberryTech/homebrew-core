@@ -3,8 +3,8 @@ class ElanInit < Formula
   homepage "https://github.com/leanprover/elan"
   url "https://github.com/leanprover/elan/archive/v1.3.1.tar.gz"
   sha256 "8e1380a1cb20cec54f07e30519ad7bc0179d9e3d68d33c02d0476248322b5015"
-  license "Apache-2.0"
-  head "https://github.com/leanprover/elan.git"
+  license any_of: ["Apache-2.0", "MIT"]
+  head "https://github.com/leanprover/elan.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, monterey:     "b3fe1b75cae3f28df2396ed8135c81cce9aba4983818c23cc512e9f5bf7fad1d"

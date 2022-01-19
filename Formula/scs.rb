@@ -1,22 +1,27 @@
 class Scs < Formula
   desc "Conic optimization via operator splitting"
   homepage "https://web.stanford.edu/~boyd/papers/scs.html"
-  url "https://github.com/cvxgrp/scs/archive/v2.1.4.tar.gz"
-  sha256 "5583c70e97e4897bcac32ec487225c3e49161a7e2c8135d1d1a07e4be0375057"
+  url "https://github.com/cvxgrp/scs/archive/v3.0.0.tar.gz"
+  sha256 "95ab61495db72b18d6bb690cd2ae2ce88134d078c473da6cb8750857ea17f732"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "314ba6c1d1f05470bdb444d392083c2989cd6391bc525f53d719e5b5f7cd17d8"
-    sha256 cellar: :any, arm64_big_sur:  "fdbe71dc5aff701be00e9629c5ee27cdf0d5942aebea202da39a78217569097e"
-    sha256 cellar: :any, monterey:       "6555694ae2fdca5f72009c124eb7f801ed45bd9b9fdc05945fe9a92bcfaa3308"
-    sha256 cellar: :any, big_sur:        "1d41b23aceb11793eb5fed5caa703818f62636ae23e70134ae064a4d829f59d0"
-    sha256 cellar: :any, catalina:       "37e188ea7df7a55ee087a32743bfce52cdb0acd91ddcffff629659f3c6a326bc"
-    sha256 cellar: :any, mojave:         "99764bf3362d0dd01f78337f1f943e77b48d68ffc8ef18fffa811516f9763e4f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "7396232a2441de245f2833b8b1503a9ccb892ba74d32a0fe791aec30a3f2950a"
+    sha256 cellar: :any,                 arm64_big_sur:  "1e0d76bd37e43f488204b8601b3d2d34cfb6bdac82ee1c0f9d326ca06b14b1a4"
+    sha256 cellar: :any,                 monterey:       "77ed8f0663cfa9f7784a75481115d10342fed9f3e6b701cdb71bb38d4ad6ebeb"
+    sha256 cellar: :any,                 big_sur:        "5956182473063c3d2e47270913d4d007545ac06b03b14889dcf0393579882639"
+    sha256 cellar: :any,                 catalina:       "f4bb9a6a92cf7fbdae23f4cc939c89b39d0bd8c2dfb55eb179805a7e94446a21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39d905ace10ceac5e2e8137afb6cdfe09c4c9dd8d920b0a9377836de182447a9"
+  end
+
+  on_linux do
+    depends_on "openblas"
   end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
-    pkgshare.install "test/data/small_random_socp"
+    pkgshare.install "test/problems/random_prob"
   end
 
   test do
@@ -25,13 +30,15 @@ class Scs < Formula
       #include <scs.h>
       #include <util.h>
       int main() {
-        ScsData *data; ScsCone *cone;
-        const int status = scs_read_data("#{pkgshare}/small_random_socp",
-                                         &data, &cone);
-        ScsSolution *solution = scs_calloc(1, sizeof(ScsSolution));
+        ScsData *d; ScsCone *k; ScsSettings *stgs;
+        ScsSolution *sol = scs_calloc(1, sizeof(ScsSolution));
         ScsInfo info;
-        const int result = scs(data, cone, solution, &info);
-        scs_free_data(data, cone); scs_free_sol(solution);
+        scs_int result;
+
+        scs_read_data("#{pkgshare}/random_prob", &d, &k, &stgs);
+        result = scs(d, k, stgs, sol, &info);
+
+        scs_free_data(d, k, stgs); scs_free_sol(sol);
         return result - SCS_SOLVED;
       }
     EOS

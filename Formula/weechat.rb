@@ -1,19 +1,18 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-3.3.tar.xz"
-  sha256 "cafeab8af8be4582ccfd3e74fd40e5086a1efa158231f2c26b8b05c3950fcbdf"
+  url "https://weechat.org/files/src/weechat-3.4.tar.xz"
+  sha256 "7cd3dcc7029e888de49e13ebbcc3749586ff59c9d97f89f5eeb611067c7bb94c"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "4a1e008cf76feb26be4037753389ddd5259768e40478dce3e43089cb576ff12e"
-    sha256 arm64_big_sur:  "e4f9d439f3a83efdf7c0f88fcc7d638c1b4b8a1bff55e6c6215c174ac3cddf16"
-    sha256 monterey:       "c8c53f4df53f45f666515d0e012b54c05625a8fd9e155bcf964131bd96298c12"
-    sha256 big_sur:        "f176eda50d9ef8ab5858b35a1a572c0bd50fd531f912f33210afdebb3e200677"
-    sha256 catalina:       "ccfa0fff385966e6ff08de5e280f49defac48eafc0d649c3ebe983e0475631ff"
-    sha256 mojave:         "e68941b11b7b86d8603c809420ac6fba6761ad095bcf5c6087d0f560dd542114"
-    sha256 x86_64_linux:   "d7d367abe8fe2a22ac47b929332176d22215fa230f886d52be5f5f78e1c4c940"
+    sha256 arm64_monterey: "c1c9f65f6c343bbd625dac9607d443c277a854f55ebf51ef37b92de0f80d4f76"
+    sha256 arm64_big_sur:  "1309d99b85db77c50c7b292c6e81d68df82497e69339323d5b299b2ddfb676a1"
+    sha256 monterey:       "7336cd13c98d0f443c3d5f1ab202e237a4d50d3f651b1cf8e5b98d4cf983755b"
+    sha256 big_sur:        "886971ad9b19c9e9a1f326d87609d99cf2875d2c584c3346d3b6b57276b49152"
+    sha256 catalina:       "62ae5119738167c6686f23a1deddcfaaa995b2c5c8e43716a49df92df6eacf9d"
+    sha256 x86_64_linux:   "9b4e1e7b7487683d97b9473fbaa4e58a5f86a8272d80744075def1d37f28590c"
   end
 
   depends_on "asciidoctor" => :build
@@ -26,7 +25,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "ruby"
 
   uses_from_macos "curl"

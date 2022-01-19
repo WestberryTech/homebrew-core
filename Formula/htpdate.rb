@@ -1,8 +1,9 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "https://www.vervest.org/htp/"
-  url "https://www.vervest.org/htp/archive/c/htpdate-1.2.3.tar.xz"
-  sha256 "6b4e3fbf93d552a3a20f30a3906bf0caac05d9626bd508220744010fe9dd53f0"
+  url "https://www.vervest.org/htp/archive/c/htpdate-1.3.2.tar.gz"
+  sha256 "7b73897d45e1da20e63b65b311513f359bc975d5a29d6bd2aae27b4e13a89e31"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.vervest.org/htp/?download"
@@ -10,15 +11,13 @@ class Htpdate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81c655e005bf2af4bd331e785fb9ffaceffa0c9b3162f8a3cbe97d67c187f072"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47ae85d154cd8ed33adefe6703738680842e47a4e881ac61717e663e316074b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "f95d60bb2de0850225a56c239dd231ffe842641cbb606097868e0806924266ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b916f25708092eb35e3b4154932c593bf0bb13444f50c0f147494596705574a"
-    sha256 cellar: :any_skip_relocation, catalina:       "f8467bdd46f2b8755dfa6b93c0c915bf0ab50cf46cca136a85fdc9a660ea274e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fae6bf9320dd8e15bf17edb55f5d7cc7c282a18fe1df7390bc8b09eded4645b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f9327fd22d0fcb9bf906cfd89629e4feb85e1e8b52be8539bcd97fa8c6a504d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f21fd808e29fa9d850a82a2992576bce261950aaec18faac522df8b118cf0f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "9947935a042ed1ca4d417f70c919d714270ebadd7cc1131f67a7cd3d530442c2"
+    sha256 cellar: :any_skip_relocation, big_sur:        "86d1f4a02269aeb784a30ffbe34d0c5443765b9a5900f7bb69f88f5b8bc65149"
+    sha256 cellar: :any_skip_relocation, catalina:       "5586c55878b1c1a8fc54d80bc56806eb1afec98645f1497c1d7562c045f531c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "830922f150f61f77f03c310093472e54d6c7e2004be8e726347a83ba8381f91b"
   end
-
-  depends_on macos: :high_sierra # needs <sys/timex.h>
 
   def install
     system "make", "prefix=#{prefix}",
@@ -29,6 +28,6 @@ class Htpdate < Formula
   end
 
   test do
-    system "#{bin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
+    system "#{sbin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end

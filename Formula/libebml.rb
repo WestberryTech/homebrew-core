@@ -2,7 +2,7 @@ class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
   license "LGPL-2.1-or-later"
-  head "https://github.com/Matroska-Org/libebml.git"
+  head "https://github.com/Matroska-Org/libebml.git", branch: "master"
 
   # Remove stable block in next release with merged patch
   stable do
@@ -13,6 +13,11 @@ class Libebml < Formula
     # Ported from https://github.com/Matroska-Org/libebml/commit/f0bfd53647961e799a43d918c46cf3b6bff89806
     # Remove in the next release
     patch :DATA
+  end
+
+  livecheck do
+    url "https://dl.matroska.org/downloads/libebml/"
+    regex(/href=.*?libebml[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do

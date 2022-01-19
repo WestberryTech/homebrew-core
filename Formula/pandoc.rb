@@ -1,18 +1,18 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.16.2/pandoc-2.16.2.tar.gz"
-  sha256 "72f291c5b9642309ff1010eed2c990d0893923e52982f7864c710111cb26dc5e"
+  url "https://hackage.haskell.org/package/pandoc-2.17.0.1/pandoc-2.17.0.1.tar.gz"
+  sha256 "276467f08335d495340d2ec439a1734101068f690c8b53f16c3d736e39df05f6"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65b87339c01f5311f37c91d67f620abc7c3684b40498aa6e19036f911f68969a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "670abca89612e7e0905a9a93ea9adffcc5756f62c147c5eaf7a73454738bcd54"
-    sha256 cellar: :any_skip_relocation, monterey:       "139b66f7708b91a435fd1b3329cd1259a0543130a70da481db07bdfcdec61b8c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5cf1538dd40056f3ac27d87b08021095be3e05b6bedc51a83f73bfc349a853f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "ac8c43af1661e7304c44bd9443c5485152fdbd284babfbc7eaef1247816ced48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e5354e16aa00389fd0aace7eef9ef235ce2f9af74e2e35b8a413e277aa09b6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2440d38332c41dfe4855c6fe4116aac4e7bb3e65b9bebdff9ec52e6699869e3e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ab6490ff8c1ac3653cfb9f94c29fb86459064a7205ca7ea48dbf9062cfe3f86d"
+    sha256 cellar: :any_skip_relocation, monterey:       "7583795e55fccd6bd62060a388f6a157290b7e0f882a4e92fa4b6648d779960c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "23574c76bddca7a0d6fb69026264965cfe682e7ccbb8bc73aa3e4e128d379971"
+    sha256 cellar: :any_skip_relocation, catalina:       "925542afc6f1385a2a99c9a58f9298c18aac040ebd729dd9b7cb0a907b0d6557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76b135d40890fe5ee4acd1d2c11e599caa1f5ec45aafa4d9248be2120f5be65a"
   end
 
   depends_on "cabal-install" => :build
@@ -36,7 +36,8 @@ class Pandoc < Formula
     EOS
     expected_html = <<~EOS
       <h1 id="homebrew">Homebrew</h1>
-      <p>A package manager for humans. Cats should take a look at Tigerbrew.</p>
+      <p>A package manager for humans. Cats should take a look at
+      Tigerbrew.</p>
     EOS
     assert_equal expected_html, pipe_output("#{bin}/pandoc -f markdown -t html5", input_markdown)
   end

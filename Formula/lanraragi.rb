@@ -3,18 +3,18 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.8.1.tar.gz"
-  sha256 "b87ca0f3b08147308d2ceee344c77e9f7068742f9b4705ed0ac298f08b4a5bad"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.8.4.tar.gz"
+  sha256 "c812c93c29cc69a7b513a9d34168816182cdd71fef93bba8575e9370b9ca855c"
   license "MIT"
-  head "https://github.com/Difegue/LANraragi.git"
+  head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9ee88f05aaa4fe5775a41068b26450ac766ebc8520ab596107a64f1cf7a61dc8"
-    sha256 cellar: :any, big_sur:       "b6f9247a0587e23fac302d70ca69f1d07cd73f3194ea1da37e0a5f3b4bb2fb86"
-    sha256 cellar: :any, catalina:      "a3608bc9c711fc8f8cc5c051b14ef89b882bfc3a4420e2cfbf63eb6ebaee617e"
-    sha256 cellar: :any, mojave:        "fb8c7b0db15297e6174933b439a816ff4bd9eacee21779d322973a619a249d22"
+    sha256 cellar: :any, arm64_big_sur: "7474aa535beace739f725a4e9d66d73301710a4048060661f1f9632e806e35f7"
+    sha256 cellar: :any, big_sur:       "6146ead7d4a4657c429573cfe7efebfac85af5c1662f9b4a848f91034eb45ac9"
+    sha256 cellar: :any, catalina:      "44b49568d0ee0e1f2da3329f111313bf34920c2e6b27b0038e5df91bd3c20127"
   end
 
+  depends_on "nettle" => :build
   depends_on "pkg-config" => :build
   depends_on "cpanminus"
   depends_on "ghostscript"
@@ -38,11 +38,6 @@ class Lanraragi < Formula
   resource "libarchive-headers" do
     url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
     sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
-  end
-
-  resource "Archive::Peek::Libarchive" do
-    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Archive-Peek-Libarchive-0.38.tar.gz"
-    sha256 "332159603c5cd560da27fd80759da84dad7d8c5b3d96fbf7586de2b264f11b70"
   end
 
   def install
@@ -69,17 +64,7 @@ class Lanraragi < Formula
       end
     end
 
-    resource("Archive::Peek::Libarchive").stage do
-      inreplace "Makefile.PL" do |s|
-        s.gsub! "$autoconf->_get_extra_compiler_flags", "$autoconf->_get_extra_compiler_flags .$ENV{CFLAGS}"
-      end
-
-      system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
-    end
-
+    system "cpanm", "Config::AutoConf", "--notest", "-l", libexec
     system "npm", "install", *Language::Node.local_npm_install_args
     system "perl", "./tools/install.pl", "install-full"
 

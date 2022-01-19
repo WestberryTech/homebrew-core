@@ -3,17 +3,17 @@ class Restview < Formula
 
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://files.pythonhosted.org/packages/30/c8/c4907d4691571f1a3c829be6b14ae2a6029a2c4c899612b84f580a6183e7/restview-2.9.3.tar.gz"
-  sha256 "5951aa2182e7a9aa3ab906dbd0f0d33df8fe93e66318a8689649c1228ad74cd8"
+  url "https://files.pythonhosted.org/packages/df/57/c39171d211168008153b00c0dd9b873afb6d9e76eecbd3496c86aeaac8bf/restview-3.0.0.tar.gz"
+  sha256 "2b989610aaed2fd42da64f6cdc539cf3ee70ce370bcba872db72421ad515dd1e"
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25bdde1068a90f0b5b030a2ee7727a522c1b06b6a79b342ab37539eae39ff6af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c1dab0313f25fb77df00e8ed8eb51014db13a592fe35dd9b1556b4fa9c6130ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "1fabd7eb4695e0c1785505fe4bc23112dd8804f7e768a65dc6ea619f287d4a53"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d837e34e985d71fa7f063902ba72afe79619c3a7c2990b021da0ab89b59078bf"
-    sha256 cellar: :any_skip_relocation, catalina:       "ebd512148e990f5149eebd7d85e841537e020e5228583b96c2df8e2b445eb2ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cb120a5db503baff138112eaec3bbba487ba050883db36e1f9e4ab09a14f25c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75222c9a80589397d43420afc5cba5d73976a93d8233b82285f778c7ac57dc12"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41ab5c0a14611252d535453bd87c54c6bf0070d3ee786bf39c171dff8cba23ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ea3915d3a778e23677a900c3aab7425b028468150e266e74e5b6adb1e083a05"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c897987aa35d178a5c1b7a9d4bc1fc6dcad8a094d850e245f91c82ace51d410d"
+    sha256 cellar: :any_skip_relocation, catalina:       "892229bead0eeddd16397bd8f6adae818bed7269a1f8ca89e7cc67c1224c08bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04ddf5e1109e7978a814dfa5824461b7e70679754a3aba9b08e2618b87504ee4"
   end
 
   depends_on "python@3.10"
@@ -35,8 +35,8 @@ class Restview < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   resource "pyparsing" do
@@ -45,8 +45,8 @@ class Restview < Formula
   end
 
   resource "readme-renderer" do
-    url "https://files.pythonhosted.org/packages/cb/a5/9d2333bd020bb1979ba51ab5acf59d77559951405e024e49576b5bee1a90/readme_renderer-30.0.tar.gz"
-    sha256 "8299700d7a910c304072a7601eafada6712a5b011a20139417e1b1e9f04645d8"
+    url "https://files.pythonhosted.org/packages/5a/3e/e368a390fe7ffcfd0bfd2ec5220ece8907b4b79d0e9f1356c7ae27f03e54/readme_renderer-32.0.tar.gz"
+    sha256 "b512beafa6798260c7d5af3e1b1f097e58bfcd9a575da7c4ddd5e037490a5b85"
   end
 
   resource "webencodings" do

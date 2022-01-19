@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.4/qjackctl-0.9.4.tar.gz"
-  sha256 "febf7019f775a07d167f255756c27e55832656ccf69d1c744b4ce563e478d9a0"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.6/qjackctl-0.9.6.tar.gz"
+  sha256 "39ca2b9d83acfdd16a4c9b3eccd80e1483e1f9a446626f5d00ac297e6f8a166b"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -12,28 +12,28 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "b351350ffcca1515d3d77b7eea70504f98d0eec29d4ef29599ef9cbfa7aea1d1"
-    sha256 arm64_big_sur:  "186c081fcdb6bdd0fd58175c8aea96f164bfaa465da97136cd2f8ab9ee1b2227"
-    sha256 big_sur:        "4ed17595db8a68f83e15117bd056b3e67fc45b0f35f22dcd5bbc25c321ad407b"
-    sha256 catalina:       "616930b85129a5cc17239da15363b37c6037731858a17c493fa3dbef737f1373"
-    sha256 mojave:         "c1b716c18fb6fa8c3fd6b4745aa86692666625ae4ab45fd2bb9fa59e22b7eeaf"
+    sha256 cellar: :any, arm64_monterey: "1b144f9e426d110c45baf9947c91d772a6b009ce7782caafc0b534e22873cd05"
+    sha256 cellar: :any, arm64_big_sur:  "2ab81b4a160c701801c3fb1fb825f25604b6033be11b47e5e1780f4301d7d7a0"
+    sha256 cellar: :any, monterey:       "563f4b996a365640d37b858a47d7db2b958f5caae9fab93aedfdaaa980140153"
+    sha256 cellar: :any, big_sur:        "a66f26c99a0f9ee7a7b8c7c935a54aa6280e35363b9f7ba0b3a935743366c7fa"
+    sha256 cellar: :any, catalina:       "2a245cbda6afc11f608f59149efa21219b40f3e77711e39032ba94c92ff3e439"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "jack"
-  depends_on "qt@5"
+  depends_on "qt"
 
   def install
-    ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dbus",
-                          "--disable-portaudio",
-                          "--disable-xunique",
-                          "--prefix=#{prefix}",
-                          "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt=#{Formula["qt@5"].opt_prefix}"
+    args = std_cmake_args + %w[
+      -DCONFIG_DBUS=OFF
+      -DCONFIG_PORTAUDIO=OFF
+      -DCONFIG_XUNIQUE=OFF
+    ]
 
-    system "make", "install"
+    system "cmake", *args
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
+
     prefix.install bin/"qjackctl.app"
     bin.install_symlink prefix/"qjackctl.app/Contents/MacOS/qjackctl"
   end

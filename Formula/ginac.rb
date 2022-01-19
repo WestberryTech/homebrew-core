@@ -1,8 +1,8 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
-  url "https://www.ginac.de/ginac-1.8.1.tar.bz2"
-  sha256 "f1695dbd6b187061ef3fba507648c9d6dba438f733b058c16f9278cbdcf5e1ab"
+  url "https://www.ginac.de/ginac-1.8.2.tar.bz2"
+  sha256 "bfcd751abcaf8afddb83958c2ad22763a75ea24032553e503ee9b38e3ea3b6c3"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,16 +11,15 @@ class Ginac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "1fab055efe4ce1208e59f0a91dc7f34abd4a2890d07f04fe8dce3e8d7eaee80b"
-    sha256 cellar: :any,                 big_sur:      "d1001c3d4a1975402462d266d715a584dc63b8ea9221cd680de70818237785f1"
-    sha256 cellar: :any,                 catalina:     "3b28c3417ab90c06f4d86556bc51d51e7c17b05930adba6b71bd7091e22ade48"
-    sha256 cellar: :any,                 mojave:       "bb5a12c6fa1e5ad8e5d29304c0ca6e7bef7bf83799545ee45a4b5608a0ef7a88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "218209fcd3fab207b046dc8bbb781f8cf4831e97df1c38c657258d2ddd517d38"
+    sha256 cellar: :any,                 monterey:     "8f0a3d73801e6075b0d327b96163cdee33f343f4e92b98b3afc17cb647aef67f"
+    sha256 cellar: :any,                 big_sur:      "d4506efbe735f7e139855cfe63089fe8f69ad79332ef6a6e52191666af53c552"
+    sha256 cellar: :any,                 catalina:     "91f8da2327e83022ab1198c80a3aea34d2bed2cd12d1940915f3963aa9f15351"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0f3350bc62359b413ec62d69009139977641a97068edf8ae8aad7bb5c7eaa6f1"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cln"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "readline"
 
   # Fix -flat_namespace being used on Big Sur and later.

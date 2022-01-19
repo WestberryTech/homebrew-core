@@ -4,16 +4,22 @@ class Xkeyboardconfig < Formula
   url "https://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2"
   sha256 "b321d27686ee7e6610ffe7b56e28d5bbf60625a1f595124cd320c0caa717b8ce"
   license "MIT"
-  head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git"
+  head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "398ac2d1d40d278c0fd762e2d092db031ae082e0279a376a7e956c423b21d200"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e38b424812f6c9a373e850a76fadb56e6fc9a0545885fa5ac5869f064c4decf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e38b424812f6c9a373e850a76fadb56e6fc9a0545885fa5ac5869f064c4decf"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e38b424812f6c9a373e850a76fadb56e6fc9a0545885fa5ac5869f064c4decf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0e38b424812f6c9a373e850a76fadb56e6fc9a0545885fa5ac5869f064c4decf"
+    sha256 cellar: :any_skip_relocation, catalina:       "0e38b424812f6c9a373e850a76fadb56e6fc9a0545885fa5ac5869f064c4decf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e78229dda1c08ec348dc229354d8039f7632dffa2603319a48942718984fe3"
   end
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   uses_from_macos "libxslt" => :build
 
   def install

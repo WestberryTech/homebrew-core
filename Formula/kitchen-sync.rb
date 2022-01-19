@@ -1,11 +1,10 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/v2.11.tar.gz"
-  sha256 "8755c79d18054ae842b8744575fdfb55b76a8667cea8186fa22cb68bd5fa60ba"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.14.tar.gz"
+  sha256 "bcdcb1ea70ed29b6a298782513edd29b5f804b19c6a4c26defdaeaabc249165a"
   license "MIT"
-  revision 1
-  head "https://github.com/willbryant/kitchen_sync.git"
+  head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,11 +12,12 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7cb0c51fd57fa314a05bbd4ea90690ddbc9c9c550898a97d7ab5915a495b1634"
-    sha256 cellar: :any,                 big_sur:       "fadb1e90edb4391bbf7514c5f2cc6f6d4373b10962b4806f991879fddad8ac69"
-    sha256 cellar: :any,                 catalina:      "5e929e6f0cfb76aa6bd98a160c649136f7770090085253add3c8105013ac8000"
-    sha256 cellar: :any,                 mojave:        "deb520f2995563451f9695efc970af7b8b8eafad7ca1c55efb0b75320b057876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d26fd4ba6991e01a5a5178228e936e1e89868d2d1a70ab9bb5bed7e16c2b6da"
+    sha256 cellar: :any,                 arm64_monterey: "b090e8487ec4755755e726638f6d23e1146c63bab3abdca1abfd9eb5729a9c9b"
+    sha256 cellar: :any,                 arm64_big_sur:  "b66ded8959d88193f30ed3bd7cb3dfbf81316f6cbef82e77fda85e227772cb40"
+    sha256 cellar: :any,                 monterey:       "5106166e0e08e91b0703c38bce5e864cefd09ce016f91e989a895daa22c4796d"
+    sha256 cellar: :any,                 big_sur:        "d02d2abaf4098fb1fa07bcf8a28193ebb762409a010d20be595706205d69a886"
+    sha256 cellar: :any,                 catalina:       "d452e4f3e29836a4919108df9209af24a58562c77dadc46e47900fd63c78e840"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a073dc3cf0f4db1a641de2931020ef4f27a4db5416e907ed53233ddd937a5f37"
   end
 
   depends_on "cmake" => :build

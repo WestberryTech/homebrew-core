@@ -1,16 +1,17 @@
 class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2021.10/nqp-2021.10.tar.gz"
-  sha256 "48135bc1b3ce22c1c57ccef46531e7688eec83d6b905b502ffcefd6c23294b49"
+  url "https://github.com/Raku/nqp/releases/download/2021.12/nqp-2021.12.tar.gz"
+  sha256 "0e1d534fd1ee61a4c8072309bafbc04660e9ae72d88618daa0e8f15022f0d913"
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_monterey: "fa8be8f0cd2637a23e450f2729c8610d434a2148079762680de1d6a7fe2be519"
-    sha256 arm64_big_sur:  "d88b5bd9088506af32d032e087212734a9dd01c2e5d4055e2199a1fdd573a527"
-    sha256 monterey:       "1d4f83aaa382a6480f9aa348d5aa7410a701f1bcec5d81aa1cd360eb9d75c199"
-    sha256 big_sur:        "df4eef111e52728d766a4a645da78cc7e168df3a4e63f0c70ab6adcd3b1f5a4b"
-    sha256 catalina:       "169de627fe293e3ddd52d65e76d0fc4ccb05506aa34a9c92fa9613ce86d8a511"
+    sha256 arm64_monterey: "83cbb6ee55df08529dea5cca71affed02eadfb43c220f09507ea62e926871280"
+    sha256 arm64_big_sur:  "d5d5978f0e615fe8b3c025c009332abf1218276409a5e897fe69232c36e33118"
+    sha256 monterey:       "3e449242b4202a403c3fcd39c1729770f80d4c7c62840bd6b4858b09e7838be6"
+    sha256 big_sur:        "6746068c6c8dee7d9b348b91d83768f8e4a4e7f25de1c3b27d077ed7f626fbd2"
+    sha256 catalina:       "bd27609db30fa8a17e20102817ceb28658633f9271e0cd22d334654ba1ddf555"
+    sha256 x86_64_linux:   "163368f3774f31d8538a7e0eda2c6e88e39d6e81aa6ec8bb06652f27a5059ce3"
   end
 
   depends_on "libtommath"

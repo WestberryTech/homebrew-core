@@ -2,17 +2,17 @@ class Argocd < Formula
   desc "GitOps Continuous Delivery for Kubernetes"
   homepage "https://argoproj.github.io/cd"
   url "https://github.com/argoproj/argo-cd.git",
-      tag:      "v2.1.7",
-      revision: "a408e299ffa743213df3aa9135bf7945644ec936"
+      tag:      "v2.2.2",
+      revision: "03b17e0233e64787ffb5fcf65c740cc2a20822ba"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f5ccb37e71ade8c364d47acfcc746a86c07c0fc31808dc9888ab67e4be436ad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "91a0f87666cbd890cad991ded3d2c6f933e493db47dc11c36bfffd36e81b2c9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4289a5c3a45c2f140b3812c5e1327d0ad5da07a894e47f1f3e125812fb09dab"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b19a1eda014dcbc2cf7b53118519ab8cb9cff3eb60b5cb3bc2d34ab22e3d9de7"
-    sha256 cellar: :any_skip_relocation, catalina:       "1c19f428a405a95a24e5b8a87029d0d809fa29cb963fa11a58cc54dbfefb4ebc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b5ca6b3c698c8abfd8bac02cf0b71f12372870e40345edbfcfb9063bb473e02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9de469fcd14b4d01ad4a3ab6599e400587d674b4eb09a52fad811374ddcab16c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "125454fe29c8c4f4a3406c5cbe631d4f9c3164894737bb7f2bb44423b76c41a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "3155751b4db275587d904ecd90f55c5557db984fe9e57864725e796317f7b214"
+    sha256 cellar: :any_skip_relocation, big_sur:        "aebc1b6acb5f729aac1e9110c949220f5bb6a019882d3aa7daed8628419e782c"
+    sha256 cellar: :any_skip_relocation, catalina:       "d214fb349371ae3ad155644be33237014cab1c07adb655051efec1d4ca93a770"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f7f72969c162d5d9ef248c74861b438e230d8843ea742d351ecb1c7d857da57"
   end
 
   depends_on "go" => :build

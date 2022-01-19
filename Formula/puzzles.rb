@@ -2,9 +2,9 @@ class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
-  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20211031.640f923.tar.gz"
-  version "20211031"
-  sha256 "7562d65731d98b5d07d3bb5c0f5bf3704ea2279156ff41012a48e69d0f3d50cd"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20220109.229d062.tar.gz"
+  version "20220109"
+  sha256 "daad329df79ee1dd43252e074c7e37188efd569d0205b50f807c77c66a1e09c2"
   license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
@@ -18,12 +18,12 @@ class Puzzles < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5059bad798c405f1e6268af42b2c9c4f75ef64a5604cc3ab072c96ec4f0f901f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61f2053aa5f6794ef359d106120dfd954c5fd4ce4ef8f23b81f0092825aabd20"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa2b5ced7280a325621b4abb3da7cdf58459fafc5aa80746197803ce69608382"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a097c3141b50047cce69fd444ca52c83d35f7b2c6484908f3200d2339261cf51"
-    sha256 cellar: :any_skip_relocation, catalina:       "3a8b5fc472830793d11bfbcc0643b983a5bf31d151692fa77102013b91688ed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09e61d6c7ca035c75d55ba06c22aa6a730d456d138fd904bcbcc7183c7a718df"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7372bb81f474b804b57d1b82289d0627a56407b2832f07265a4ad8e8483a99ca"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "64a0c58cd6b3a4d29f3fe7e67e857b1ab3a9484678f67eccb26d26ceefbf49be"
+    sha256 cellar: :any_skip_relocation, monterey:       "33cad9d3b818cc62e83df38f1a796b81192def7e7c542d7548f0e78811a20b10"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b340b40d55c443cb8acee6b84917d1f004d18aec3d5be6d95aa8a94051ca56cc"
+    sha256 cellar: :any_skip_relocation, catalina:       "6dd263fd82480d43397af54e6c2bedcf9a5a6e6843be9e690b2f2b8ef504814d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bbd8921fbeff48f96283cc9bd931efe2d358516b88c7daff8cd7daa581c5573"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jul2021-SP1/MonetDB-11.41.11.tar.xz"
-  sha256 "2e81a98e06820dfaf56770af027e8da4a8dcc533d3599b9cc2b5a2e1efdc07af"
+  url "https://www.monetdb.org/downloads/sources/Jul2021-SP2/MonetDB-11.41.13.tar.xz"
+  sha256 "7738e106ac3a39bfb37feb8efa9a050a412fb332ab58c29a8aad23c01ba42197"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
@@ -12,19 +12,18 @@ class Monetdb < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "033a246468cf78e11bee28e8f72898bde13a8744b9c1419dd01c3af0a96ccc42"
-    sha256 arm64_big_sur:  "6d8d1d9adac551e246d2079458e9adf3838ada6ce4d37baabf60837e9aab953f"
-    sha256 monterey:       "053ea139c78f4f2d1922217603e8d76624745c98c8e9fb9989ec1d2605663a20"
-    sha256 big_sur:        "94f9b822f40a13cb4188b0308f59c66549356f03db8c63c3b621d79b4ed3ec28"
-    sha256 catalina:       "0559cff129551b30d75668d818bce67e1d210b3dba3673c174341d8cd5d3f8e4"
-    sha256 mojave:         "ed43da831a5b713d0f37f2c105b8bfb6983902def2379dfd6b0c8872ef293460"
-    sha256 x86_64_linux:   "43cc8b7b220456f0098613659cf7db0c389de3971eb7679e619726cebf486b45"
+    sha256 arm64_monterey: "c47194f10b937efa2b057a22f970109e60db4cac5b99bac5a4b11a043228ee7b"
+    sha256 arm64_big_sur:  "81575c800a177c23b9331eef5ceece3eaab94d871365293bfbe8f12d1c728721"
+    sha256 monterey:       "8e9b479f25719178a5e0bbe097a8f8c77e7efad7d92a28d14984b2a22eefc188"
+    sha256 big_sur:        "c2b01158faec5f4f561cc1077853b1cbb8f0c7d9851b06cc74bef7341a929066"
+    sha256 catalina:       "a4675e586bf8ddf34197c39c603b3acae8f13beab67130fb91e54c3e95ed8c65"
+    sha256 x86_64_linux:   "a37636ba4d3b0cfd60138403d33175efacecf9707a99521d9cad60eb4d784caa"
   end
 
   depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "pcre"

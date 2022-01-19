@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.2.0/node-v17.2.0.tar.xz"
-  sha256 "2b47cc7b5ec189d7b637454732f36f8d3c2c0ef81bec3c278b566f67159e659a"
+  url "https://nodejs.org/dist/v17.4.0/node-v17.4.0.tar.xz"
+  sha256 "cf8c71f07706c75178fb904a6d54ab33e9b3781287dfface5c7804860b8301b2"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "f3efe9900c885d5bcc3a3992b8e4806664febcdf7c84226fce212f83cc451970"
-    sha256 cellar: :any,                 arm64_big_sur:  "1c87ead04222fd774d031e782c20c1c2b8ca747795c4558fcc07a132da062b97"
-    sha256 cellar: :any,                 monterey:       "74827302aea2c8479851b0f93ccebabb10bfc531454d5d1fc10a4b72998bb167"
-    sha256 cellar: :any,                 big_sur:        "c3bb3798aa08850da5bd8ea4a914cd46e0b6bbab93e0e4e24c2111135f773b30"
-    sha256 cellar: :any,                 catalina:       "7753ed975b8ea68e1ba4b64998607ea443c2ffaa17eaed38d37c8d2e4186920b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb5758a31ad206a41dc7e9003a0d5beccd4c0d7bcf69cf0aeff51a9279545ef8"
+    sha256 cellar: :any,                 arm64_monterey: "1954cb0ba19e7426054249eda70dff8bda197a960f4e0524af717245faa13529"
+    sha256 cellar: :any,                 arm64_big_sur:  "fa2cbc9edc3856ff3ee3e72afce0eb571792e9be9c412ac8dba83cd786199ea3"
+    sha256 cellar: :any,                 monterey:       "0edf47d70e3f0b237cf86d4d686b2831ab2ed98cc689137d1bf0ee9461510c1a"
+    sha256 cellar: :any,                 big_sur:        "d88af78db80aa2ca0cf0208d5a1d252d51c3bddc1c9327e3594ea6c797b50f62"
+    sha256 cellar: :any,                 catalina:       "57da3233c07a99a6b828570609daaea2df4b20242bf612f7f204bdfc18e27524"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "295464dcaee12c5317aafd2bf82d09072e5e3591434cb7fbb4c1940ae46acc74"
   end
 
   depends_on "pkg-config" => :build
@@ -52,8 +52,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.1.4.tgz"
-    sha256 "3959175ecd0a8ad86a6e8a63819fb200fb10a795f077ae22b241bac639bb6a17"
+    url "https://registry.npmjs.org/npm/-/npm-8.3.1.tgz"
+    sha256 "314a6f525c60c81bb1d87d1028731777642836457e5eaed76b96e3d9e38f2f16"
   end
 
   # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
@@ -75,6 +75,7 @@ class Node < Formula
     args = %W[
       --prefix=#{prefix}
       --without-npm
+      --without-corepack
       --with-intl=system-icu
       --shared-libuv
       --shared-nghttp2

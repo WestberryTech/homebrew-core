@@ -5,7 +5,7 @@ class Kubebuilder < Formula
       tag:      "v3.2.0",
       revision: "b7a730c84495122a14a0faff95e9e9615fffbfc5"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-sigs/kubebuilder.git"
+  head "https://github.com/kubernetes-sigs/kubebuilder.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2a4dad1daa9263ce2173869c13261c0ec572538bd26527e442fc88f0480fba8a"
@@ -29,7 +29,7 @@ class Kubebuilder < Formula
       -X main.gitCommit=#{Utils.git_head}
       -X main.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
 
     output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "bash")
     (bash_completion/"kubebuilder").write output

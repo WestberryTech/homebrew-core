@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.70/asymptote-2.70.src.tgz"
-  sha256 "f5cc913a858c33e92f79ab421d354c0fe2babd87f452ae9dff729a902aa80c3f"
+  url "https://downloads.sourceforge.net/project/asymptote/2.75/asymptote-2.75.src.tgz"
+  sha256 "9c8b3fe89df45e6e799ef422fe7231fe87ba681908364eb0cd08b51910476c77"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -12,13 +12,12 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "e922efa8bd5a20f0904538590ab9a16bb1ace1098b310b738abb2d4420ee4a3e"
-    sha256 arm64_big_sur:  "51b5992d115848c87754a30dc0341c73119294eb80f882b2ccf363215b276715"
-    sha256 monterey:       "43fee389478b409929b52ae0bbf32ca37d3dbd6628f2b041aa9d9ce9527caf2d"
-    sha256 big_sur:        "d6631cfaf7909cfd8a38c7e655411b69248d395531589f7562b66b36ad9ccedf"
-    sha256 catalina:       "b906f3cbeda2861975792c6279df7c2e22738c8ae232bfb5e4cf4ec1a37c0725"
-    sha256 mojave:         "c7d65e0093978726a703585d8155862b1b7e10ba47f531f907c106b65bead23c"
-    sha256 x86_64_linux:   "f3918cb9c194f0eb86d9b86d5ce4d6fcb721214a70b9e9e7658a547d6490e635"
+    sha256 arm64_monterey: "bc36b73452d0d9986d676b44f6cfe1fe66a90765ea2e776a978a47d3ccea35fe"
+    sha256 arm64_big_sur:  "2527026c063bf26d17c27b70d4832dc8224e1162df48f351c5c9c8cd8c8c9f4c"
+    sha256 monterey:       "e1fbc082c18d809f85d657ad3206fe6b184c5215d1b786b23d5a9fb6a5536406"
+    sha256 big_sur:        "334094e612c41a0072bc3027a6e85463b44ad156f0c6ac9250bd531798aff539"
+    sha256 catalina:       "f62ae59ffce773212dc8a2dd01f91304ac72be5eb339ebe7db7938593ed8fb3f"
+    sha256 x86_64_linux:   "21ce391dc447e2f165622459a0fee6ef7b823ec2e833ddfa9154b8784656bcb9"
   end
 
   depends_on "glm" => :build
@@ -29,13 +28,17 @@ class Asymptote < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.69/asymptote.pdf"
-    sha256 "d87538cadf1af08ef2217165de6b88b0520eeb67a9e5f1a6bb8f9e3f67e09704"
+    url "https://downloads.sourceforge.net/project/asymptote/2.75/asymptote.pdf"
+    sha256 "090fb10f9a2cb58781af38974cedd64ea1d7a9f4b0a379660b1a0fc9688654ca"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
 
     # Avoid use of MacTeX with these commands
     # (instead of `make all && make install`)

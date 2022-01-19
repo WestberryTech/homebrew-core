@@ -6,14 +6,15 @@ class Esptool < Formula
   url "https://files.pythonhosted.org/packages/60/a4/33907f5b735f9179061bd6b6cae7123d4a2d0cdf46c879fa55e66edef24f/esptool-3.2.tar.gz"
   sha256 "9638ff11c68e621e08e7c3335d4fd9d70b2ddcf7caae778073cd8cc27be1216f"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9c52ff396b766dc0d886049143a1e07ae5a4ae66fd9324d8d7086e4cc4300278"
-    sha256 cellar: :any,                 arm64_big_sur:  "dd42a3301e863b412b9a51a73359b6f3cc030abc0aee8a7b02a6432e0bceeb11"
-    sha256 cellar: :any,                 monterey:       "f0c4671413f88b73105da8362db9aaf9bc41a6b21a26b60a9bb8d6bd06ea8d25"
-    sha256 cellar: :any,                 big_sur:        "0cfc27468d292253ff44cb4a51176b68e472fa3bad740235eaaa419d7bcb3eec"
-    sha256 cellar: :any,                 catalina:       "06d4d81d98e1bb77bd2c975658179b9a1c13b01a51ef5d44c887c13401a0e8d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a83eeba0b8aa49af1da4af3f3c21b3396221a5b0b9100df7bf7a4170d943b68"
+    sha256 cellar: :any,                 arm64_monterey: "74011061e4a4653c2f249402f7b6c2eb8e00fcda4b4e8355bea1c20487096ce0"
+    sha256 cellar: :any,                 arm64_big_sur:  "7ff5d0f1168c00e6793634b93fefaddfee5ecd8a473b829a854f9c5f203f42b6"
+    sha256 cellar: :any,                 monterey:       "f558be94d16775ef52d65784dfa9522e37b19fc6414d3de892c5c9e80eaf937c"
+    sha256 cellar: :any,                 big_sur:        "18bd6da1c6043223de47829a32cba269279aa725b4b901c75e393db69af946d1"
+    sha256 cellar: :any,                 catalina:       "75820854327d3f002f2c3e75bba6f56e85d2d57e0f83ec088c564290bf6089c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3b6a1c7d875fbbb1f225b45f886f6230f5bbc639f71be8832f989f6f82e18cf"
   end
 
   depends_on "rust" => :build
@@ -31,8 +32,8 @@ class Esptool < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/10/91/90b8d4cd611ac2aa526290ae4b4285aa5ea57ee191c63c2f3d04170d7683/cryptography-35.0.0.tar.gz"
-    sha256 "9933f28f70d0517686bd7de36166dda42094eac49415459d9bdf5e7df3e0086d"
+    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
+    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
   end
 
   resource "ecdsa" do
@@ -41,8 +42,8 @@ class Esptool < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pyserial" do

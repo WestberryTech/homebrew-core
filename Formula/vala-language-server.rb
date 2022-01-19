@@ -1,19 +1,17 @@
 class ValaLanguageServer < Formula
   desc "Code Intelligence for Vala & Genie"
   homepage "https://github.com/Prince781/vala-language-server"
-  url "https://github.com/Prince781/vala-language-server/archive/3e01b8383b3db3c39af276528663d6084c671455.tar.gz"
-  version "0.48.3"
-  sha256 "6f3b34bcb4e049c299ae3d5433153e4b685b0bace0ea8d761ffea266714ce841"
+  url "https://github.com/Prince781/vala-language-server/releases/download/0.48.4/vala-language-server-0.48.4.tar.xz"
+  sha256 "0fd65b641a4bd6e0385502f0536f803bf542fd8bae6a2adb04e2e299ccca4551"
   license "LGPL-2.1-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8dd0c7a04c35f113e4790087e83862b0678a3378471710cbab086785443e9a1e"
-    sha256 cellar: :any, monterey:      "22d04a5dfd33e1fee166a4497ec10914eb56d9835af038e49183d864589112bf"
-    sha256 cellar: :any, big_sur:       "522ff0afde99dc62e32af3df6d40138c4d115591a7d2c9ddf99a7ffb5c2354d8"
-    sha256 cellar: :any, catalina:      "fc5ee5ec8ca3e5d41bc7cb5edd7a85540f5bce64d8d625548d706d884c28f83a"
-    sha256 cellar: :any, mojave:        "13333288fba772232a82c3b16c10df48a6d41d4345897cbcba5e21fc0b15a2b4"
-    sha256               x86_64_linux:  "abc6b06e996a54dd2c3c2e8567637cda104b0e4a975c9e3143519095429ab758"
+    sha256 cellar: :any, arm64_monterey: "aafa52097b542644b26934efca5da76c93acf015870c0f1cddb6977d76884afd"
+    sha256 cellar: :any, arm64_big_sur:  "d0c7d068b5bec716e17c39591384d60a08bdd82b655bca866840878c67f9358c"
+    sha256 cellar: :any, monterey:       "fa3273c84ac17406a6bc1601613565036766021e734ce3e04b0a4b1be15070e6"
+    sha256 cellar: :any, big_sur:        "d296ad4b78e5929b7d40b4396935c1f73421306065a3d41d223c2206f5adafe2"
+    sha256 cellar: :any, catalina:       "080acb613db0332326799ef24609f56e443e087f192709ea6cd32827d35dc855"
+    sha256               x86_64_linux:   "078aeddd7a515c66e5bc58dc569e77ec0f578647c3f4aa154f34f8193e5b7f6f"
   end
 
   depends_on "meson" => :build

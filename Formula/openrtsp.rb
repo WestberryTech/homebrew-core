@@ -1,10 +1,10 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2021.11.01.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2021.11.01.tar.gz"
+  url "http://www.live555.com/liveMedia/public/live.2022.01.11.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2022.01.11.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "abb649a344a1e84538d44ecaf4bc8c65b01b3c698480bac4706fc3043f60eda5"
+  sha256 "3c72cf04ae80655e9d566f18114a01b9a5f12fb4123350286922e03a09af37ec"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,11 +13,11 @@ class Openrtsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "eb8e6f17f603992db2cefdefd3f453c8fd98aa12c675ff23de34133fba2af3bc"
-    sha256 cellar: :any, arm64_big_sur:  "b2efe494ce7ea9a932a1988eee80eda484dadf7efe57229daef2a43c78add6df"
-    sha256 cellar: :any, monterey:       "73b085518868f56bcfa4810d8b8f5ae1980060ca924c69af78e095dc0e85e12d"
-    sha256 cellar: :any, big_sur:        "56f1ebaad15212a06af9a97fad53e8e7a10f2bc5e0bc00ce1688ca3d1be1ae2b"
-    sha256 cellar: :any, catalina:       "1155cae9d2720ff34fc809b59cd2128a9f2a2acd808e675718a49b184a6391a0"
+    sha256 cellar: :any, arm64_monterey: "352e4842b8692f182488dff823ff611d481ceba25941b0e4af6dacd913e149a2"
+    sha256 cellar: :any, arm64_big_sur:  "d609c87b7b7c05a167282604702698e6df60b87b9545eecdb1d1e252bbaeb5e7"
+    sha256 cellar: :any, monterey:       "cfdbfcad9c88a43ef6c31367d1a6b70b5a5b77e94f6cd063f9791ba51ecf6eb7"
+    sha256 cellar: :any, big_sur:        "46fb4c525109a675409dde205bbc55400966a2b82d6cf13182ed9ed8614f10cb"
+    sha256 cellar: :any, catalina:       "ef870488ee01aa32a61779d6dbd88487291a709c8b8fac26f8fe5e606bc3ace9"
   end
 
   depends_on "openssl@1.1"
@@ -29,7 +29,8 @@ class Openrtsp < Formula
       Formula["openssl@1.1"].opt_lib/"libssl.dylib",
     ]
 
-    system "./genMakefiles", "macosx-no-openssl"
+    os_flag = OS.mac? ? "macosx-no-openssl" : "linux-no-openssl"
+    system "./genMakefiles", os_flag
     system "make", "PREFIX=#{prefix}",
            "LIBS_FOR_CONSOLE_APPLICATION=#{libs.join(" ")}", "install"
 

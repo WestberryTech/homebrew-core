@@ -1,9 +1,10 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v9.1.tar.gz"
-  sha256 "b51ca3b08f768de5a0c1029f7127264640e50d9c7b83383a175109ef213bd307"
+  url "https://github.com/google/or-tools/archive/v9.2.tar.gz"
+  sha256 "5337935ea1fa010bb62cf0fc8bedd6de07dda77bff3db7a0f6a36c84c7bd58db"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -12,11 +13,12 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9029930836f9fd35b49b3b3ec2a2f3e2dac8bd6879168b84433be3c5119c0536"
-    sha256 cellar: :any, monterey:      "1b6a64ab3510bc8e2e8b578eb8d8a58615d100519bb230007dc8a0aa835f7b1f"
-    sha256 cellar: :any, big_sur:       "8c009bad27a131ab9fc5bec04f69ba1ea52c644415448aef82b363f3f94d3a42"
-    sha256 cellar: :any, catalina:      "3da9d30729e68264508a4f2015029cb782acf58bd2fbf2a14bfc586fecf1b4f1"
-    sha256 cellar: :any, mojave:        "9f6650ce096366942f5de4bf97ca02879303f21aa2562fee137d168eb3d75fc8"
+    sha256 cellar: :any,                 arm64_monterey: "02a9fbeef13c7d71d23e90813d2146839d27a33bb7505ad7b9fa5307e417103e"
+    sha256 cellar: :any,                 arm64_big_sur:  "c444da980eb616ab64cbff22a3ca3ce3d3b63ddf12d3cce759e18927f232eb7b"
+    sha256 cellar: :any,                 monterey:       "76da45521f1c59e6f743946fef2423dd87b7fb1f22cfc9b41fa2cd90cac422f5"
+    sha256 cellar: :any,                 big_sur:        "53f217259a3740dadce9070892a9119203a96f17040aa11109791bda6ee0993d"
+    sha256 cellar: :any,                 catalina:       "8dd8f31ead4765391179b20f26e735e3fbbe3e25f52fe05ba89483badfb8bb12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efe55ab7e49dc5d27d859137b9151dcc045da0c8a1bf28032a26df451cfc554f"
   end
 
   depends_on "cmake" => :build
@@ -26,8 +28,17 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
+  depends_on "openblas"
   depends_on "osi"
   depends_on "protobuf"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", "-S.", "-Bbuild", *std_cmake_args,
@@ -54,6 +65,7 @@ class OrTools < Formula
     # Sat Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
+           "-L#{Formula["abseil"].opt_lib}", "-labsl_raw_hash_set",
            pkgshare/"simple_sat_program.cc", "-o", "simple_sat_program"
     system "./simple_sat_program"
   end

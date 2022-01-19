@@ -1,22 +1,21 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-11.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-11.1.tar.xz"
-  sha256 "cccfcc407b20d343fb320d4a9a2110776dd3165118ffd41f4b1b162340333f94"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-11.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-11.2.tar.xz"
+  sha256 "1497c36a71881b8671a9a84a0ee40faab788ca30d7ba19d8463c3cc787152e32"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 monterey:     "c4d3d881ae2ae938b37031f94c9b2780e53f78fa224fe64532b08656157f9afe"
-    sha256 big_sur:      "ce7aa7f3589b5833ff0ace1afb6e43ea01860666bf34ad7f941b9cab5c7ab5ab"
-    sha256 catalina:     "7543956f666aae922d34accd371fbc57d901adb386776b47e079163933e75755"
-    sha256 mojave:       "1d315c9b2213bfe09533c05beb2221a68ae816dc92c321d966c3fe1974e95913"
-    sha256 x86_64_linux: "e83bcc7a2b903fb7e76b2d4b2ae2935d96100385a5cbae4316641c90fc724685"
+    sha256 monterey:     "4c57b1959063153df73c7df07418e3ad59b730567ada8e2320f940a4026df479"
+    sha256 big_sur:      "6d7c793bde6483c24cd905b4ed8bb0e295bc6c5f0f441cc2637a78782cd423b6"
+    sha256 catalina:     "e56c861c6ea4d560c61efb1a360343514162142c07604751a8107e625cb01d6e"
+    sha256 x86_64_linux: "271013a91e3dbc94654df18414018c4a66af56ef3976ae37263fada80e76a070"
   end
 
   depends_on "gmp"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "xz" # required for lzma support
 
   uses_from_macos "texinfo" => :build
@@ -46,7 +45,7 @@ class Gdb < Formula
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
-      --with-python=#{Formula["python@3.9"].opt_bin}/python3
+      --with-python=#{Formula["python@3.10"].opt_bin}/python3
       --disable-binutils
     ]
 

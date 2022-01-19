@@ -1,23 +1,23 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/1.19.0.tar.gz"
-  sha256 "37c9dff5eb61be1aa4dc08f6c7fe910385e12244c14c6b163e2ffab373d779d7"
+  url "https://github.com/libtcod/libtcod/archive/1.20.1.tar.gz"
+  sha256 "e36dccd1ad531503d1ceefe794a57b3b661e5e669c3d1db1d5bfaf0b95c933df"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "8e3b9a6286afa8f99a943808d73b4b168124a7bfd97b9d3d3b6288d24ea013cd"
-    sha256 cellar: :any, arm64_big_sur:  "f6fb5f18b6567e290ff6e35ad4aaa178839566856003bf2218a1e1c96f6ac3db"
-    sha256 cellar: :any, monterey:       "7c50042db8c573c9d014a95141110a866af161381fcae7efd69e22a9c469e714"
-    sha256 cellar: :any, big_sur:        "d14e704c0eb78e5251a059688da572e52a3a8673e655ae7da1ca48ddb704bb59"
-    sha256 cellar: :any, catalina:       "e6cfce5f2fe46470b24de30b62a463ad94e020cafa4497cee5ea2a9c85e37bed"
+    sha256 cellar: :any, arm64_monterey: "ad5ff63a79a4dc88a396c2354a35069b1b6a071f1a74fe1bc1c7409cee7a3306"
+    sha256 cellar: :any, arm64_big_sur:  "e0c79bd33806e5778030ed58f8713f20ba330abb8db1863e35a30fa296233986"
+    sha256 cellar: :any, monterey:       "a48f8f4b894bf0bdf686e32b68aaec6f3c7b542b6ceb6e034fa28e3460653a84"
+    sha256 cellar: :any, big_sur:        "b0b8a769e7517133a3b18afb736818f33f1f43bffa7e5bad6718d1d5b9a8b4a6"
+    sha256 cellar: :any, catalina:       "42fae47e69489901101dd96237ee313752814f58a07f2470d00354e34b90eb72"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "sdl2"
 
   conflicts_with "libzip", "minizip-ng", because: "libtcod, libzip and minizip-ng install a `zip.h` header"

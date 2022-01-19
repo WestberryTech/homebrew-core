@@ -1,22 +1,21 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/v0.18.0.tar.gz"
-  sha256 "9aead695a3baf2e62b462dbacb588be3f3ac778415afc57ab85087fc7955f0ac"
+  url "https://github.com/gleam-lang/gleam/archive/v0.19.0.tar.gz"
+  sha256 "4aeadce8a4ecb56f4c66190b8cc97702f7dfccf2bb4b9ffe18b2de2317f55d84"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "830000afc81d902711b369ecdb8cdc258015ad38d735c162a64d084a52ec829d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a302f1308e00e73f9a319d6cc50491e627f43ca54bca0402a79951894749b57"
-    sha256 cellar: :any_skip_relocation, monterey:       "916e2e52da573c4f2ce85a4e0123ef75c8242da4c944263508df9d2ad614c2f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5d224fc1348e60b39604bea981449d8da80382c6d3e46be17b7eb38b5e76a09"
-    sha256 cellar: :any_skip_relocation, catalina:       "746d22a1362f949c8e38d62b9471d8c2b0db7a782188a3b1a8063a8d8277245a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e0f15fecda49b9d4b1e56bd93cc10bd6e161bd0f64bf07257c9df4d46fce4a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b81fa3e68d36ed8b5464b576e9fe4f2b29936d36f7799b2e8c6851d4c010fee4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dbe137d4ffdda5baa1e532fb9bed7846d48955784dda64ba71fcb2a5bb6c2e78"
+    sha256 cellar: :any_skip_relocation, monterey:       "2979beb9f05c816ee2c56073d5f3968f3d231116bf791064dff7fbdfe76eaf9a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c2b447422ce6a2e8107507c90ffcda5586630652ad7698233fc4c9c4b28dfb9d"
+    sha256 cellar: :any_skip_relocation, catalina:       "43358f38198accc1ff0235bb2722481bf10cdc0682531d0b70970d3756356506"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "668f54b6186fda669d9dcfd47f6221ac8299e936ff2b3f446d092049a9759ff0"
   end
 
   depends_on "rust" => :build
   depends_on "erlang"
-  depends_on "rebar3"
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -30,6 +29,6 @@ class Gleam < Formula
     Dir.chdir testpath
     system bin/"gleam", "new", "test_project"
     Dir.chdir "test_project"
-    system "rebar3", "eunit"
+    system "gleam", "test"
   end
 end

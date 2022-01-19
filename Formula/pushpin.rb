@@ -1,15 +1,14 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fanout/pushpin/releases/download/v1.33.1/pushpin-1.33.1.tar.bz2"
-  sha256 "37b8ed8a262492e86fd02fe55c3b6f280cff2da718400ce926b5480745cec4a4"
+  url "https://github.com/fanout/pushpin/releases/download/v1.34.0/pushpin-1.34.0.tar.bz2"
+  sha256 "b6142650bccbc766d98782ce6489b62cf0f7d6e30784fa0b02ffa5307184d572"
   license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "5d4b6f4f552d6e2ce51e7b69c460841b10544061291f01d7935457a4fe59514d"
-    sha256 catalina: "459df44b74ec23db384e8e6235de59e2a8c2e74bb4199c71fcbb391982a58c1e"
-    sha256 mojave:   "ec5af70cb4c9164cb881fa0bc63ce8809b351b28db3188e8e17d578150f63beb"
+    sha256 big_sur:  "80c0c9374635cbff196946f23e9d301d7a3d61c5fd333c65f79b089614bc2fbb"
+    sha256 catalina: "f997d4655fd9176f796270774f20fab10686a4d9076cf67dd81e60ddc639a396"
   end
 
   depends_on "pkg-config" => :build
@@ -22,11 +21,13 @@ class Pushpin < Formula
   depends_on "zurl"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--configdir=#{etc}",
-                          "--rundir=#{var}/run",
-                          "--logdir=#{var}/log",
-                          "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    args = *std_configure_args + ["--configdir=#{etc}",
+                                  "--rundir=#{var}/run",
+                                  "--logdir=#{var}/log"]
+
+    args << "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
+    system "./configure", *args
+
     system "make"
     system "make", "install"
   end

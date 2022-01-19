@@ -3,18 +3,18 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-9.23.0.tgz"
-  sha256 "0486fcf8ab0797e3a18952315352ab760e03a15d4a980bf03c32ab74d2eb9862"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-10.1.1.tgz"
+  sha256 "a306345a4631ff6098d2374352ba0b472b5fdf1f0b012d54c116c39b006c087c"
   license "MIT"
-  head "https://github.com/firebase/firebase-tools.git"
+  head "https://github.com/firebase/firebase-tools.git", branch: "master"
 
   bottle do
-    sha256                               arm64_monterey: "49701c2d8a531f538dcb90cc0f0ac71246a8ab245a41792aed18ce8fc2f61991"
-    sha256                               arm64_big_sur:  "ac226bb813e56009a93bb76efc0c0f62657fc08ae1f7d9f0e38d4d7b4f551917"
-    sha256                               monterey:       "89236ef6f8c1e7212bf7f5391b22827b17482634c1aacb36c66957c6d79756fe"
-    sha256                               big_sur:        "dc991866658e94b9dc29a5b9d45405c9b0bd63d799f353ede727f3d177100436"
-    sha256                               catalina:       "09e75eef9da7a7fa2b266b81344564b776779422b882a715a78497770c1b4d3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96af4201a8f20eb29e295391fdfb835942e21beec7837e9e975d8fa6a4c03d0c"
+    sha256                               arm64_monterey: "b5e2003745f0c1deb42b58c5a1fa18e32a9f6a10a65096f0a238adb038a3323c"
+    sha256                               arm64_big_sur:  "f46cd2b8316321442de031146cd77fefda9e46c1c2ac2b4d86f5aed255058417"
+    sha256 cellar: :any_skip_relocation, monterey:       "2440954b6997f1bb769ec242bb351ce622fa7bda002a76df5adf6ad1b69150b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2440954b6997f1bb769ec242bb351ce622fa7bda002a76df5adf6ad1b69150b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "2440954b6997f1bb769ec242bb351ce622fa7bda002a76df5adf6ad1b69150b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "828495fad670c71dbbadd564d57e552a8fcdb8c13aed8c0ca938584f1f38b5e6"
   end
 
   depends_on "node"

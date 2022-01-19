@@ -1,8 +1,8 @@
 class Onedpl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/dpc-library.html"
-  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.5.0-release.tar.gz"
-  sha256 "b79237ff55b74d4758c481d6262bb367483dbdb21185dab53accb63f307525bc"
+  url "https://github.com/oneapi-src/oneDPL/archive/refs/tags/oneDPL-2021.6.0-release.tar.gz"
+  sha256 "c05738365b359e662234a25d7093314ba550f79ac8eb918e87116246b934470b"
   # Apache License Version 2.0 with LLVM exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
 
@@ -12,7 +12,7 @@ class Onedpl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7130aaba10f1f733e4cac0c799662b4eaefeceb486c5b062d2055dc595d41306"
+    sha256 cellar: :any_skip_relocation, all: "8a307d3e91cbb538c3490711f980cfe94376a69987679bb52b4de424140f9954"
   end
 
   depends_on "cmake" => :build
@@ -41,8 +41,8 @@ class Onedpl < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-L#{tbb.opt_lib}", "-ltbb", "-I#{tbb.opt_include}",
-                    "-I#{prefix}/stdlib", "-I#{include}", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{tbb.opt_lib}", "-ltbb", "-I#{tbb.opt_include}",
+                    "-I#{prefix}/stdlib", "-I#{include}", "-o", "test"
     system "./test"
   end
 end

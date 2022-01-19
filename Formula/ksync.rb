@@ -5,7 +5,7 @@ class Ksync < Formula
       tag:      "0.4.7-hotfix",
       revision: "14ec9e24670b90ee45d4571984e58d3bff02c50e"
   license "Apache-2.0"
-  head "https://github.com/ksync/ksync.git"
+  head "https://github.com/ksync/ksync.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -34,7 +34,7 @@ class Ksync < Formula
       -X #{project}/pkg/ksync.BuildDate=#{time.rfc3339(9)}
       -X #{project}/pkg/ksync.VersionString=#{tap.user}
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
-    ].join(" ")
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags), "#{project}/cmd/ksync"
   end
 

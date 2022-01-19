@@ -1,40 +1,32 @@
 class Libraqm < Formula
   desc "Library for complex text layout"
   homepage "https://github.com/HOST-Oman/libraqm"
-  url "https://github.com/HOST-Oman/libraqm/archive/v0.7.2.tar.gz"
-  sha256 "eeccbb0bf23ef77d8ff2be24a9c6c1547cc8e443d3d6b57814d73d44758d95c2"
+  url "https://github.com/HOST-Oman/libraqm/archive/v0.8.0.tar.gz"
+  sha256 "6429e35f69f5e7d514877624fb73ae6d07a7e9ac746ae6a1cf2bf1277bb5b68d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "31633bafe07acbb111d61d6903d1d31fdfa1442017083a656f45cec235b126a2"
-    sha256 cellar: :any,                 arm64_big_sur:  "05c31c92e29b7202d42cb892a327ed2c5ca4e7f211020dcf4b54d1d08937479a"
-    sha256 cellar: :any,                 monterey:       "472153565affc24e276667fb48629d8dabd9908ca23f45e5835889d096a39dac"
-    sha256 cellar: :any,                 big_sur:        "66f14af1e2afb8aa3f89cb6b2bc0e0274a260bf832250364ec691e398296fe8b"
-    sha256 cellar: :any,                 catalina:       "d619aee4f8e198220d88df6c68ab19ad4b4dbb1a16a4c910ffe923281461d4a5"
-    sha256 cellar: :any,                 mojave:         "cd4063f2520edce76e7a53a676508410ba42bdfe34f3a49c58414f94ea2ab647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9435ed91d1d18865b406874aedd92b2b7c34e211970d19aaccf550b20a68303a"
+    sha256 cellar: :any, arm64_monterey: "23048011f5f6d2fa3873cf87782cba708deb09fe1e5c06e21f4e1dbfb3ab498e"
+    sha256 cellar: :any, arm64_big_sur:  "4d741a5af66aa2e094bb55cd2592ffa2e6ac5f38e064e99eeb16faec7a324866"
+    sha256 cellar: :any, monterey:       "df6c8ca6fb30b138e31e998c646aee64673f5083294d96074f3c094818f2a00f"
+    sha256 cellar: :any, big_sur:        "aa6b25d03cd705846e465ff578a6fea2a2cb2249cef9092cdfb08d79c563cf5e"
+    sha256 cellar: :any, catalina:       "a954e77a4271fb93d16dbeb178913d294fc2eb90370d8367a9bf7b21e373be49"
+    sha256               x86_64_linux:   "0d5b7bb663f0c7325333ddf8c70b53f6fb1124f22afaf4bd67bfd2d3afb9b746"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "harfbuzz"
 
   def install
-    ENV["LIBTOOL"] = Formula["libtool"].bin
-    ENV["PKG_CONFIG"] = Formula["pkg-config"].bin/"pkg-config"
-
-    # for the docs
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--enable-gtk-doc"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do

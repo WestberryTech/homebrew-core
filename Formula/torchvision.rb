@@ -1,17 +1,18 @@
 class Torchvision < Formula
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.1.tar.gz"
-  sha256 "32a06ccf755e4d75006ce03701f207652747a63dbfdf65f0f20a1b6f93a2e834"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "55689c57c29f82438a133d0af3315991037be59c8e02471bdcaa31731154a714"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "944aa1410b5facf24e763d0820cda7b713cdad1cd75664754dfd5af1ecdd6850"
-    sha256 cellar: :any,                 arm64_big_sur:  "e22a045506f3805a5e6cedf8edb833df331ea3d2a62923a2d59531f05c31aa36"
-    sha256 cellar: :any,                 monterey:       "ec7a4080578e012b13aacee6a4501911451d8e6800c58657f875796144683e04"
-    sha256 cellar: :any,                 big_sur:        "1af21c171813ccf37d82a21c00f932dea60cd925a74f6934bf407d30abcb3024"
-    sha256 cellar: :any,                 catalina:       "21c19ae566a5850dd94bfb5147c82797ad6c6177a5be8c9becf87fe4b1f0cc71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e539b96c551baffb301517f8f111238e7fdc4d3a0695dfb38a66855434c8bc94"
+    sha256 cellar: :any,                 arm64_monterey: "56d44e29f256c6910b9e934245a16596470928d313740cd7f85f20a3cfcb9a8a"
+    sha256 cellar: :any,                 arm64_big_sur:  "a14bc100a71305de6ed2c8203e86f84fc5c46c42ba7b5e3fe43b3233886747a8"
+    sha256 cellar: :any,                 monterey:       "7f2107b6c338e4c7a2591b5f9d4b4ad5015820bcc950543b9015633b99be54a8"
+    sha256 cellar: :any,                 big_sur:        "eac9cb6c3f454d09fde67ea0e99699d4ac4dfb9dd76403b1f2494b09dc9e91ce"
+    sha256 cellar: :any,                 catalina:       "c2891965afae03ac7e11464b727e09af3a9251bd49a814dd664ff0cf5926e2ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cc62bcfd4c2a7726201863b1771031b9c37ba5bdd2128c90c4c37fe8475d7cd"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,17 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "b4839108ca8f9aef31d2f537485cbd878356bbcd4ad4f7a4dd19e72201d01cee"
+  url "https://github.com/dankamongmen/notcurses/archive/v3.0.4.tar.gz"
+  sha256 "467f826ab98e80a35a0ed10ff8f402fa6eba7e9d8cc297980856d73f659f4c19"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_monterey: "3f3e0ae16d53e70cf75f524cafa33ab4d3788a3506034c60f0e7d95bbc9df270"
-    sha256 arm64_big_sur:  "f0288ba7187d310ebd1351d1ea2cf6544db314ce56bed73b6051c0da1911a423"
-    sha256 monterey:       "cc70b219fb6d8d484f2ef75c22ebd9b246491c2b1bae7759192eb10b718b0f2e"
-    sha256 big_sur:        "f3d7743f9536342395d835f3a053d003d5005c62ed53b1a027357ad865cbd963"
-    sha256 catalina:       "54c05406d94551aa9f702e7346b148dcf37aa7d376c6b7ba35bbc94c4aa1e4cf"
-    sha256 x86_64_linux:   "309ac26c730b2faeb2bce1b9d8e631cc168aded7e8b35ef17c691e471e50869f"
+    sha256 arm64_monterey: "fbe5cda9ec9f391e93b2d09f428fab5680a33e5bb9d8482c1d2329fbaeba3eaa"
+    sha256 arm64_big_sur:  "b63269cd0d70300626d812300e7e6c33cfe110067ff8e300c2d4f189c0e3a6fd"
+    sha256 monterey:       "457d7fc4620bd063d36f876f7569bed2e31cf949e53aea067a4d6fa6f93b5e32"
+    sha256 big_sur:        "f3ce9cce402f0f573afa712e628ce347afd9eae4fd4e34345a21aa844ddd23e5"
+    sha256 catalina:       "f16ca2fbd8649a8bbf76cb86c4c215c871c6f3052ea13b1d62fb120f22128671"
+    sha256 x86_64_linux:   "f7b5551398c9aac9b4671e73b7c55570d70013f60b0fdf7d5d54f35bd671a672"
   end
 
   depends_on "cmake" => :build
@@ -24,11 +24,6 @@ class Notcurses < Formula
   depends_on "ncurses"
 
   fails_with gcc: "5"
-
-  patch do
-    url "https://nick-black.com/strndup-mingw-only.patch"
-    sha256 "8ea4a3be2181e1091e44868646830ea37f2efcfcde984a57e5d8dd48d6bb43e0"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"

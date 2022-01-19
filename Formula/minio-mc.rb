@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      tag:      "RELEASE.2021-11-16T20-37-36Z",
-      revision: "d0c62eb584e57387fa62a8b6637b077aa3b2717d"
-  version "20211116203736"
+      tag:      "RELEASE.2022-01-07T06-01-38Z",
+      revision: "aed4d3062f80d44384637832ad54c530ec32924e"
+  version "20220107060138"
   license "AGPL-3.0-or-later"
   head "https://github.com/minio/mc.git", branch: "master"
 
@@ -17,12 +17,12 @@ class MinioMc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d50394babe372d7ceca71efd90a8a53281f7a6d9b1c833067ce1b36ffb1e3c75"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f49b6280e7e5c36a7004ec44d75c702ddc93f765354d4ccd8dba5534536e171"
-    sha256 cellar: :any_skip_relocation, monterey:       "5df688d10cadaa235e8c2de92108205bcfecf42279ca2b84ed7bec0e0402cec9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fca1e25a1e867e6a9df081cc330a59e06f2b24ab08e481ee9fc2c51f421b6277"
-    sha256 cellar: :any_skip_relocation, catalina:       "66ad2b6e1a7a262bd910a16ec2e81044fc7adc44bf2f5dd285bcbb51f58597e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4df017330db97f94560392a5f61eceb33daee3277fba20d40e3a32718b085089"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea008d8685ff39877edcf2dd7568d9983e8e834f626ae578a4e9723bc544e52a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc86d8e703b044d831e2749795922a039aed4018fcd3b39b7d45e1cd026eb99f"
+    sha256 cellar: :any_skip_relocation, monterey:       "e87f539238a6ef8b93436593862623344b526d20bd27fdf3747775c8406ef4ab"
+    sha256 cellar: :any_skip_relocation, big_sur:        "379e4ff6a04b63fe882156d41632d176d867cc9cdbbb70f69c589b613a03dc87"
+    sha256 cellar: :any_skip_relocation, catalina:       "0974d8027fe701e44970c46c2d366da360e3361b419d2526fa223b806dd3b78d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dbb3e72e2d98e13651dac16cb4b9c935068ec772d5b4b00618ca5cacf21c048"
   end
 
   depends_on "go" => :build

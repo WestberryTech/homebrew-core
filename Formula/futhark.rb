@@ -1,18 +1,18 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.20.7.tar.gz"
-  sha256 "d73e34e989f458c564138bf1b0238944dea53bc1821ffb4cd470eac91ff865e1"
+  url "https://github.com/diku-dk/futhark/archive/v0.21.4.tar.gz"
+  sha256 "047995fb924ebb89decd6417ab39fb77ef58576cc42cd594c7677376a0397538"
   license "ISC"
-  head "https://github.com/diku-dk/futhark.git"
+  head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3746692e2a1bdb6222a290f5db42f50dadd38b3a6e8f2c46938c319f1dcf77d2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24d3cea6b0878d73227efb6149d45675225607b339186b8f5527db5b1b32934d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4a66367a06db8d2540bd9b5d30a18bf67055884d121586fa71de66c2d59a332"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b0349ee3f62f4823f7e99566466f8a348e4ab3d3ae1e61e25d7407f99654d59c"
-    sha256 cellar: :any_skip_relocation, catalina:       "9375b8265cd423f7414ce0a326eca07132936364037d06c40266c29bca694dff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e93710146a8c568ff9ca4da5198cb2fb2d108525e02a0741880a98f01d4bc5f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "08ea84d5e1b088b1a00fe7f0fe3b8ed68a9f9bba4b124c6cb5825a3d218ac38d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9a8c569e4812856840b5d99776cd9c8232dc5c6b80548b9e0d653e74b9ac5e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "a7510d8be10de227b6668fa16a7272a69695035a4ca94862414fe2d783901574"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e69f7f307b943a5e1582452979755202812b4df48d380ed86323a41ad29e95d7"
+    sha256 cellar: :any_skip_relocation, catalina:       "93e6ac2ffd3a2f946825ed9f5026e7be63f69abd886dbe1fbceb8cbb717b6c03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e630a51f2793a5d6e9f5bc462479b553f45172db5652659de42635632f8a7cab"
   end
 
   depends_on "cabal-install" => :build

@@ -1,8 +1,8 @@
 class Fnm < Formula
   desc "Fast and simple Node.js version manager"
   homepage "https://github.com/Schniz/fnm"
-  url "https://github.com/Schniz/fnm/archive/v1.28.2.tar.gz"
-  sha256 "02bec72f9978fc2fd7b2671b25cc2bb019a64c0f2d2fe7ab72ec0add91288599"
+  url "https://github.com/Schniz/fnm/archive/v1.29.2.tar.gz"
+  sha256 "dca05a18787945d3d47882223266185045f9d806f1bcd193d14774f461280e30"
   license "GPL-3.0-only"
   head "https://github.com/Schniz/fnm.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Fnm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f6ee5ae14fc036bc1989af6d83416c3793e091f63b54c4af462e3409f09cdc7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c5620a20e911f6467dfc7b56d0e50ccceecb5be10745c26f305d277253ee706"
-    sha256 cellar: :any_skip_relocation, monterey:       "49bedcc76bb5488f235e7304e36ca7d5d364d441d805d9ba983872c5312a74ad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eff23089c17c17df042730f1125174053abfd8d91eac6a2fffe434cc728efc7e"
-    sha256 cellar: :any_skip_relocation, catalina:       "0bacd34d125aa95236c003806e70214749c51be3c0c1ef74298d38d8a281aba4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab90af7e99ac6bb83bd05de1ac4f0c7cd38dec616b3081979ee4b490986accfd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "29570693bdf0f2b7dc3e126660216b13d540b2d8a263f34ef2598d536746a844"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce103b0afaf0c2f3a0bd99d0047b5a70dc01a2f94fea11026f951d077b8e7c2e"
+    sha256 cellar: :any_skip_relocation, monterey:       "df1c73e0461744d0fac8d7cad29a75e681440f58939e3ed4f1cd20895f12cca8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8691b496054008a60e8c2cd9b096fe39a91ebbd70aa8e7b6baa67ce34483e2ab"
+    sha256 cellar: :any_skip_relocation, catalina:       "7fc6c132604886baf82e6f20587ad1c6db34e11acfbd6a4bb13418e8518b01d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "621c18f5695b7f992429cb1c998aa6991c35bcada5151784ce740ba568860652"
   end
 
   depends_on "rust" => :build

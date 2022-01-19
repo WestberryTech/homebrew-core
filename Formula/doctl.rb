@@ -1,18 +1,18 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.67.0.tar.gz"
-  sha256 "97c9ee6f28efd621f04ff4bafa269d4f7f6632f5884178f443a22cb610e086a7"
+  url "https://github.com/digitalocean/doctl/archive/v1.69.0.tar.gz"
+  sha256 "4ffbfe07ba2ea7d830855eb302f605c006bc5721c8c3288ed9b974d8c44e4fc6"
   license "Apache-2.0"
-  head "https://github.com/digitalocean/doctl.git"
+  head "https://github.com/digitalocean/doctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60bac0c13b24ac0d609d48309f1097558279d6d16f5408a83b194ea1f984cb84"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "108e2c7dcd8584626956f213b110af99c6f5bb2a773998f58ea77d3df45862e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "afe1274a41e8db9bb426773d749cc5e96254466126e0e5813b6bc158dfd449b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "44846d72f1c5e2de4728736e1ff79c70599ddd922998c274470c4a08e97c82ea"
-    sha256 cellar: :any_skip_relocation, catalina:       "20df5d8937d68868ae375fa197dd64af25ab7f88a70643cab1cac271e70df363"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c235dbbf49483325e38b76cb72263ec9301e1a6ffd958ee5d155bfb7024ce2e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b337eb11ddce1016c2555699de61088d17efb9eaff28829bde664f309ca8b77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cddfd1b7963998e1a16c70a783be3e5a070ade9a7d1256e437eeb32984979ee3"
+    sha256 cellar: :any_skip_relocation, monterey:       "5efb1a209cf0f28da7afea08944cd5c70b9acbd772fb0a6b522aecb68da64993"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1249fceae9b79e191104a6a0fdb11fd193b3efbd79b7623b3f983abe20c78737"
+    sha256 cellar: :any_skip_relocation, catalina:       "a9f8bca2ba666c31603dae004ae525c0fa93110633bb1ada5fdf691eb4626a96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bdb79a5e704c18b62d537e42ed5fac0e4aa24888e8c203190e09c6c04beaec4"
   end
 
   depends_on "go" => :build

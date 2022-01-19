@@ -2,16 +2,16 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASEmulators/fceux.git",
-      tag:      "fceux-2.5.0",
-      revision: "6c3a31a4f2c09be297a32f510e74b383f858773b"
+      tag:      "fceux-2.6.1",
+      revision: "7173d283c3a12f634ad5189c5a90ff495e1d266a"
   license "GPL-2.0-only"
-  head "https://github.com/TASEmulators/fceux.git"
+  head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "87c20cd5b6be81a5119f9efbe9dd5d6d7a7fd63c3c6eddaa09357d3dff75835a"
-    sha256 cellar: :any, arm64_big_sur:  "87a20edafd956612816fc6ab2ab6aff610cad26f598c718a0864333b656e81f7"
-    sha256 cellar: :any, big_sur:        "00cf9aad03f57fe2d8131171d706442630b8c641aec6cbd142a287cdd77a0f11"
-    sha256 cellar: :any, catalina:       "f19d56cd871170a429c0ca92e188c45122f97c1896d153caf9a2b26bb4c88979"
+    sha256 cellar: :any, arm64_monterey: "703f7ec022ed71552e97c4ef5a5360ffce048e67d47fa30afd1f1afa553efff6"
+    sha256 cellar: :any, arm64_big_sur:  "77420fc7beb82bee75341c2f5d3a3dfe345c157d38da236b76f7661240cbc419"
+    sha256 cellar: :any, big_sur:        "f5f782bb0539fbaac000448965e9793700fddeed03f016e5f99b64a4966fd52f"
+    sha256 cellar: :any, catalina:       "362643ca9ed5af946a9ce13a92f92c765c33cca3fbf47e0fcf5d2409c227589f"
   end
 
   depends_on "cmake" => :build

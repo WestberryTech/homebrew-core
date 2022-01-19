@@ -1,10 +1,10 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.4.2.tar.xz"
-  sha256 "ea6a219571a752056669bae3f2c0c3ed0bec58af5ab832d505a3ec9c4063a58b"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.4.4.tar.xz"
+  sha256 "588964319e943679d391cc9c886d40ef858ecd9b33ae160023b4e2b5182b2cea"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
+  head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
     url "https://secure.nic.cz/files/knot-resolver/"
@@ -12,13 +12,12 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "452c25e1ae99d18a9a1b46357644b43f0edb0b89460e444dbba49fbed6e39d71"
-    sha256 arm64_big_sur:  "cacea8251a555de1f374ad7a62d4b33bd73181f429e235cedc4de8be00090097"
-    sha256 monterey:       "8b61ef0569ab3a124830b8f0c71106dfdbd490a5e4b130c46cf0597da5f384de"
-    sha256 big_sur:        "91405319bf4bce33774c1ef2c42802d5405c12cb74c87637206266444de3163b"
-    sha256 catalina:       "afe54507119237bae07e93a5f975032db883061e062638dad73489afb1935dde"
-    sha256 mojave:         "d7b924de8d80867a074635aae109dc7af1814425e4a0ba159f271ba9c8b8732d"
-    sha256 x86_64_linux:   "3ac89256654cabe6135e52677a28e133997d832aceeb39e5edd4a21e1a40ed1a"
+    sha256 arm64_monterey: "b1db8a9e181b036f6122fe8cb83089d8f451f594d6a34032b27e58ea66da793d"
+    sha256 arm64_big_sur:  "4ec405fdef8c144a00d35476fbb21b569755fd1ae09c3b103408f517936c4a4c"
+    sha256 monterey:       "d36b64e2ec17cb4ff5b06172cb5933a7e1b5513f1bd1d026819bc9dc45f6409d"
+    sha256 big_sur:        "9014ad846f4b11d71d1d93c674c1b84f97565167e3e095892133e0bee4e8fd04"
+    sha256 catalina:       "563a96d9410b904657f2af7e5534c4dc8d1677b46a61b4dc6f89b32da05eea3d"
+    sha256 x86_64_linux:   "249d48e86d8b9f41d68706d9e3a7b18ee3f263fbf41db32ac2c276ae406cd822"
   end
 
   depends_on "meson" => :build

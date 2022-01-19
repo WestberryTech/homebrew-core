@@ -4,7 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.5.1.tar.gz"
   sha256 "fa2b1d39d413283202ee1f75e4ad9fc44544535741370d6f1e63afd5878d9e40"
   license "Apache-2.0"
-  head "https://github.com/haskell/haskell-language-server.git"
+  head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
   # we need :github_latest here because otherwise
   # livecheck picks up spurious non-release tags
@@ -14,12 +14,13 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a1af899ccff618cd5461b26b5af64db7361f3626c7a3b63a130eb323ecb7f65"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23e6513586c02b6053e9591c2b111502640742fea5705be5684cd45fe6e77db9"
-    sha256 cellar: :any_skip_relocation, monterey:       "27d80ef80a6988cdbde053d39c25fb9461c20811cb109e3592fd2370243d3f6d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a9f6ee6100f166fb7804dbbc0ed991f1e1e7a93c911c5d2e36c5630a18035e41"
-    sha256 cellar: :any_skip_relocation, catalina:       "67da1bed090719a7a37e0bcfc60b8d01d7235adb4b7daea5122c0be17d3131df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3847655ae8f0663df52e1571bda9ba1b5aacc21a14c3b3e4af1e8776cae725ce"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a26d77567fa8fc4c67c991b1faa82dc37c39f3a0db1b6870c0e01b81db4cb0fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33578298ae6b72c32495694103b0ffbaaab4cc682e0caaecb3d1deb055c2b341"
+    sha256 cellar: :any_skip_relocation, monterey:       "f71a41af48ba7329d2f74e286c0d3e4a1bde06d695fffc2f738a1cf340966819"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6ecf558e3c8bb158360117c84d7dee13b4c93ab3d399c0cfe47f40a43c39f815"
+    sha256 cellar: :any_skip_relocation, catalina:       "28b669b2e8b50d94e8619eaee00707336160b98f7c6ba15a0c30dbabd84a6148"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42f93080567942fe97558d0356674ca5308bddeef806fe10ac5814ab092c1c9f"
   end
 
   depends_on "cabal-install" => [:build, :test]
@@ -44,7 +45,10 @@ class HaskellLanguageServer < Formula
     newest_ghc = ghcs.max_by(&:version)
 
     ghcs.each do |ghc|
-      system "cabal", "v2-install", "-w", ghc.bin/"ghc", *std_cabal_v2_args
+      # for --enable-executable-dynamic flag, explained in
+      # https://haskell-language-server.readthedocs.io/en/latest/troubleshooting.html#support-for-template-haskell
+      args = ["-w", ghc.bin/"ghc", "--enable-executable-dynamic"]
+      system "cabal", "v2-install", *args, *std_cabal_v2_args
 
       hls = "haskell-language-server"
       bin.install bin/hls => "#{hls}-#{ghc.version}"

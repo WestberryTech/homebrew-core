@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-6.0.tar.gz"
-  sha256 "53b68b7e592adce3a4e421da3bffaacfc7721f403aac319e6d2c5122574de62f"
+  url "https://www.mercurial-scm.org/release/mercurial-6.0.1.tar.gz"
+  sha256 "05fd0b480389c96547f5a6c769e90ee00f1d13f7ac0d465e40a381c6cf3a56e2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -13,25 +13,28 @@ class Mercurial < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "73acfd2122f602b764da76d5694f4d652fb249659bf9a67195587a9446075372"
-    sha256 arm64_big_sur:  "c05c1171ba3f8dd4dced739d762cb6917b775b029867d1a8c4925ca841887525"
-    sha256 monterey:       "37c1a285f5eae584fec4a97c4a540d82076640324370f6357afb635197844c45"
-    sha256 big_sur:        "55e663fe6806e6276e9325061100d536a0e10ed4713c01feed4b4bed9d4c802f"
-    sha256 catalina:       "587a7e2aeb114f44edcf6503d8a0789fe05db0a85d3a9a29cc628a72fc0b2821"
-    sha256 x86_64_linux:   "3e2f28ff2702e50f54199485a43cb3719593ea462ff0ffc0365fd87c02bac407"
+    sha256 arm64_monterey: "9b729e24f606d7de61f824d16e5b9c83bad97cab4bb2202619ddb922b2a02110"
+    sha256 arm64_big_sur:  "15d56b6215edf56fada3dce41d6403f1ce52ced10ee0d4b28d312a897d2780ca"
+    sha256 monterey:       "d03179e44f80b5ebc04634cf39a4b11a3f30ec73ed2688246853c57316ee281a"
+    sha256 big_sur:        "459ad969cafefa1d4f2b12b06771ab031bc98d033bac58f8000b3ea187f611ff"
+    sha256 catalina:       "d95d6ed1f4d4fffff85da10dbaeb7102ea3cce4db6ec13edc6c86411b0d86ec4"
+    sha256 x86_64_linux:   "fc73709c8fbb7b801e4c243d05a9cc6a279e6d2f043e18b49ecf9039a6b99fca"
   end
 
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   def install
     ENV["HGPYTHON3"] = "1"
 
-    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
+    system "make", "PREFIX=#{prefix}",
+                   "PYTHON=#{which("python3")}",
+                   "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "PYTHON=python3", "HGPATH=#{bin}/hg",
-                     "HG=#{bin}/hg"
+      system "make", "PREFIX=#{prefix}",
+                     "PYTHON=#{which("python3")}",
+                     "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
       bin.install "chg"
     end
 

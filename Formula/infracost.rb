@@ -1,18 +1,18 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/v0.9.14.tar.gz"
-  sha256 "1c4e62fc70b70be5c5592a2b41c0d869a34b1f4a540ff101d9b6349bba399af4"
+  url "https://github.com/infracost/infracost/archive/v0.9.16.tar.gz"
+  sha256 "f22776d297465ecd1c00520ee4f138d68d9e765c380e020096484d9260806e41"
   license "Apache-2.0"
-  head "https://github.com/infracost/infracost.git"
+  head "https://github.com/infracost/infracost.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d3b08f3790610729127e796283fbc9047f68232beab9dc1aa56c59d297e25f0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d3b08f3790610729127e796283fbc9047f68232beab9dc1aa56c59d297e25f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "8ec722aaa1309eff58336e95755a3702cac0cce68c73bfccc36d4d6b5d8292fb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ec722aaa1309eff58336e95755a3702cac0cce68c73bfccc36d4d6b5d8292fb"
-    sha256 cellar: :any_skip_relocation, catalina:       "8ec722aaa1309eff58336e95755a3702cac0cce68c73bfccc36d4d6b5d8292fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86d401daa88c2351af3b87aa8c1c4bedb38bb1baf92a92bbd20a0e10068780d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fb88dfa66780d506fed3f5beeb091bce9802ff1c7f0e8dddf3b09eb86adf60c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fb88dfa66780d506fed3f5beeb091bce9802ff1c7f0e8dddf3b09eb86adf60c"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c3c19823588cae14e62c971167c3a1792ef500e67c416ac8474bcb15c17422c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2c3c19823588cae14e62c971167c3a1792ef500e67c416ac8474bcb15c17422c"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c3c19823588cae14e62c971167c3a1792ef500e67c416ac8474bcb15c17422c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73f38c76dc6dd7457916876f46ba69df926115ca250f757cd893f1e91aa49f63"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Infracost < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = "-X github.com/infracost/infracost/internal/version.Version=v#{version}"
-    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/infracost"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/infracost"
   end
 
   test do

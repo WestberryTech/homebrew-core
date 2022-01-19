@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_73_RTM/src/nss-3.73.tar.gz"
-  sha256 "566d3a68da9b10d7da9ef84eb4fe182f8f04e20d85c55d1bf360bb2c0096d8e5"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_74_RTM/src/nss-3.74.tar.gz"
+  sha256 "88928811f9f40f87d42e2eaccdf6e454562e51486067f2ddbe90aa47ea6cd056"
   license "MPL-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "e51ce17c4fb57e516c28ae80300afdb186bf9f66258a98bccc560e7d2922f93d"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ab53bfe8d3c862613e4fa8086a3393ade1bdfd5a972aa6086ce66744859cfe6"
-    sha256 cellar: :any,                 monterey:       "5518521ecac3f280451519c0504c3d6caa52e052908cdd9608fbc4719a3ca0d6"
-    sha256 cellar: :any,                 big_sur:        "c8154e711fab4e3c93aef828ec88d67c38f26b591a93285102bea74bdb120fb5"
-    sha256 cellar: :any,                 catalina:       "5d91a68dcee125e0a04edf826449afb4f988cb2062d221a9a763dd249a90b636"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0202206639c9f4fa461deefb77ce18233935ac369a2432770faf683768b0bbb"
+    sha256 cellar: :any,                 arm64_monterey: "bcadb2b42b34d5fdcfc549baa9eaa5a135a4606150061c82902dbb6d05adf233"
+    sha256 cellar: :any,                 arm64_big_sur:  "74a5c018bd4d9ae51b736b8d14eed1f2b62e8212749ffa1efe203ca778cc0d85"
+    sha256 cellar: :any,                 monterey:       "dd78686dabd11e48f53c126cb11a13831e99aebe242a959b53d1e6d5cb0b81fc"
+    sha256 cellar: :any,                 big_sur:        "79359ad7312b4658dabb1db922ed52ce54264534da24ebcb72ff34c62de9964c"
+    sha256 cellar: :any,                 catalina:       "0b55501276d866858272d075df659ab01bbf3ddbac3cbdb2b5815f2b6ec35ad7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f3520de03df679a4bd0f85c7088d9a2c0ad40499042b269096ee8628a1fb888"
   end
 
   depends_on "nspr"

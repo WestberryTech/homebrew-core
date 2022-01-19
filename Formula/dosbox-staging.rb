@@ -1,18 +1,25 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.1.tar.gz"
-  sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.78.1.tar.gz"
+  sha256 "dcd93ce27f5f3f31e7022288f7cbbc1f1f6eb7cc7150c2c085eeff8ba76c3690"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/dosbox-staging/dosbox-staging.git"
+  head "https://github.com/dosbox-staging/dosbox-staging.git", branch: "main"
+
+  # New releases of dosbox-staging are indicated by a GitHub release (and
+  # an announcement on the homepage), not just a new version tag.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "88b43a601ab9da67fc95ad8f6300ed97bb1712c88c59823ad958846b48d6c6c8"
-    sha256 cellar: :any, arm64_big_sur:  "1e3a2ef4d27acdb78a630db92d2c0442ce1d31ab680d09af3c83e262821ba661"
-    sha256 cellar: :any, monterey:       "540c94977bfa670042463b1b56ca86949231f87ba86058a5aaca909db8cdfe7a"
-    sha256 cellar: :any, big_sur:        "8631465cffcb93e671bc1aae412f7e4444be46108cb78615fa5e6b21f3fb6aa5"
-    sha256 cellar: :any, catalina:       "48cd7e24deaab11eff764602bd0c1060e500c3f9cb0bb7f67a3b547ff13065f4"
+    sha256 cellar: :any, arm64_monterey: "1d186ea2c0a3ca07ffa8c1ddd02d34832d7c50d4c718dd50c7aa5469489e4901"
+    sha256 cellar: :any, arm64_big_sur:  "92315173b7a51d4af3db388cb65420026d7864aa27f5ef89a03942bf42afcf79"
+    sha256 cellar: :any, monterey:       "7ca82e1f018eebd2650823754122b999dba06cd3c923edb7fec0cf07d356e54e"
+    sha256 cellar: :any, big_sur:        "48c5d2212056baf6bf7cf5ac1db657148322f8e90a70fd065f11df3dc0262e98"
+    sha256 cellar: :any, catalina:       "12ee01a5d78a0d1b24c51deccc311b2ab8bddec499265c088d5174a16a49837f"
   end
 
   depends_on "meson" => :build
@@ -20,6 +27,7 @@ class DosboxStaging < Formula
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "libpng"
+  depends_on "libslirp"
   depends_on "mt32emu"
   depends_on "opusfile"
   depends_on "sdl2"

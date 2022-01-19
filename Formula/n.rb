@@ -1,18 +1,18 @@
 class N < Formula
   desc "Node version management"
   homepage "https://github.com/tj/n"
-  url "https://github.com/tj/n/archive/v8.0.0.tar.gz"
-  sha256 "9e8879dc4f1c4c0fe4e08a108ed6c23046419b6865fe922ca5176ff7998ae6ff"
+  url "https://github.com/tj/n/archive/v8.0.2.tar.gz"
+  sha256 "1cdc34d3a53a13a23675797dd775d562e33e64877e367df9d1afe863719de973"
   license "MIT"
   head "https://github.com/tj/n.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fa15a18556ed914c2a8ff7505ea084e4685e8da5d166c96a98e3297ddefc000"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9fa15a18556ed914c2a8ff7505ea084e4685e8da5d166c96a98e3297ddefc000"
-    sha256 cellar: :any_skip_relocation, monterey:       "43dbc0e42d23a9c30454f177dbe2ee6b65db1d967b7b0a8c15552087bf2f8dd3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "43dbc0e42d23a9c30454f177dbe2ee6b65db1d967b7b0a8c15552087bf2f8dd3"
-    sha256 cellar: :any_skip_relocation, catalina:       "43dbc0e42d23a9c30454f177dbe2ee6b65db1d967b7b0a8c15552087bf2f8dd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fa15a18556ed914c2a8ff7505ea084e4685e8da5d166c96a98e3297ddefc000"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54fb0e61bcd717cfd807d422985396dc3841870064205013895fa5928acb94bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54fb0e61bcd717cfd807d422985396dc3841870064205013895fa5928acb94bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "daf8a144b8334522a1a43eac4e1d82eee64667e3e54e0e3eaddb69fb02b9ced1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "daf8a144b8334522a1a43eac4e1d82eee64667e3e54e0e3eaddb69fb02b9ced1"
+    sha256 cellar: :any_skip_relocation, catalina:       "daf8a144b8334522a1a43eac4e1d82eee64667e3e54e0e3eaddb69fb02b9ced1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54fb0e61bcd717cfd807d422985396dc3841870064205013895fa5928acb94bf"
   end
 
   def install

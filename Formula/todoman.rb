@@ -3,18 +3,18 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/57/54/04a7c526a466932cf8a72a5b164befe7ec43fe176d89210fa9aafacd99ce/todoman-4.0.1.tar.gz"
-  sha256 "ec88f8009321e77deb0ae682f7d036c139edf4175f8413011b532905c6e7d2b1"
+  url "https://files.pythonhosted.org/packages/2d/b0/ffe9e812fa710579d07369763262e418cadb2a99fc5d0ec0d685c7f33a69/todoman-4.1.0.tar.gz"
+  sha256 "ce3caa481d923e91da9b492b46509810a754e2d3ef857f5d20bc5a8e362b50c8"
   license "ISC"
   head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6c2af04903a260b7d977146bfaf37f7239b9ab01ef4e9e0e0ba9625f8ff02ff"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae641aabd1dc241c88f4e6abb9d1db2cfa169c7ae902f0d37fd5c6130d4c4deb"
-    sha256 cellar: :any_skip_relocation, monterey:       "22bac2606d49bc37ca21031aa173ba2c03966c14790c277a0b98ac70e77d19f7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "55297d4fd483f7aabb103bccabe2c4cd9b52fe697a2ae790e60d1bd995f23308"
-    sha256 cellar: :any_skip_relocation, catalina:       "f7ba9f55948f95f1bc7fd41fdef78674879455b6d6a4539a3e93ebf084acb199"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc0e96695214b98a726cc06e605cc446459880e6937d48d4bc256ea90ff8f05"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbc49789ca82123ddb165380dc10fa598335b9c892b05012174f091185886e06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ad8941910dd324c0c9a1eff79fec0313fef5a53bf547c632c24de57e396c5fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4da34ad0ce35739040ebac5ba8da6eba936a9fb67487ab6db6cf1b6db332b56e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "72cac8ed69f61678a2e8b665b550e27694325811ab5ace67b60772a9c4d5831f"
+    sha256 cellar: :any_skip_relocation, catalina:       "6f5089d7b1405734c1a88c1caf07f1c995606cb8c41f61a80b04ea06d2d1756a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8487a64b4a5ba1f7fa89426140d104e9c41e53de6a4008920bd2887867050194"
   end
 
   depends_on "python-tabulate"
@@ -39,8 +39,8 @@ class Todoman < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/4f/95/e097e65913e9b5ce68a576cf3ea364eb240973cc15c6a8184047a3571290/humanize-3.12.0.tar.gz"
-    sha256 "5ec1a66e230a3e31fb3f184aab9436ea13d4e37c168e0ffc345ae5bb57e58be6"
+    url "https://files.pythonhosted.org/packages/8a/b6/e7d99d1cc225a069f3f7a906a213cb1a0148dac27119290c41dc257ffe53/humanize-3.13.1.tar.gz"
+    sha256 "12f113f2e369dac7f35d3823f49262934f4a22a53a6d3d4c86b736f50db88c7b"
   end
 
   resource "icalendar" do

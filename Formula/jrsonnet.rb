@@ -4,7 +4,12 @@ class Jrsonnet < Formula
   url "https://github.com/CertainLach/jrsonnet/archive/refs/tags/v0.4.2.tar.gz"
   sha256 "2396c57a49a20db99da17b8ddd1b0b283f1a6e7c5ae1dc94823e7503cbb6ce3f"
   license "MIT"
-  head "https://github.com/CertainLach/jrsonnet.git"
+  head "https://github.com/CertainLach/jrsonnet.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb5b5d99df55c43c70b475ea291ee1d614b76e705be867d688f17bb22ac9842"

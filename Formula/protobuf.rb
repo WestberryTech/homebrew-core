@@ -1,10 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-all-3.17.3.tar.gz"
-  sha256 "77ad26d3f65222fd96ccc18b055632b0bfedf295cb748b712a98ba1ac0b704b2"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.19.3/protobuf-all-3.19.3.tar.gz"
+  sha256 "84cca73ed97abce159c381e682ba0237bc21952359b07d8d45dc7e6399edd923"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,12 +11,12 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "633a92077a0e73eefc11011d4a4a2ed5239cdca4ad9ad121d4e6ac3d8db0db0b"
-    sha256 cellar: :any,                 arm64_big_sur:  "953c8ae501f9eeabda1bece1967b88c89dbc0b42d7275f1c16e2560ab75a198d"
-    sha256 cellar: :any,                 monterey:       "62aa16f54a1bd191176e7ac12a77ecb664652dc68a426e40e91db8d68b8e158e"
-    sha256 cellar: :any,                 big_sur:        "5113d9a71911466bcf7da5d833729c39e43459dd7c4ddccbd96c0f97b957e36f"
-    sha256 cellar: :any,                 catalina:       "4a1e16ab36f8cef5e952b9ccae77cfaac942129ffc0935c95665fd834a5e428a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da773f604fe7f3db1e9ead0986fb3fad67bcea2b9df1b0442b07a26eec472d77"
+    sha256 cellar: :any,                 arm64_monterey: "f122e809592df08a909c7d3734f4465c72f91e810a94763f1109cdbbe56c9263"
+    sha256 cellar: :any,                 arm64_big_sur:  "32e803cab25eba87d46820ed672dd16e64c586b3e6127c6fc492489477e4655b"
+    sha256 cellar: :any,                 monterey:       "d114e3895ae26496f6939cfb7926c9536a636ba369a62541dfbaa7328bf90195"
+    sha256 cellar: :any,                 big_sur:        "8922f3c0b2cfa6a4f4e1810b7a22ff8887489a26d65dc84d2a1841d13854e62e"
+    sha256 cellar: :any,                 catalina:       "4405f9ea2271adb38d4a0fe9dcf5c160a46c14e66a1a71ae8cd57aa58afe2b8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd5c8aaadc4639176cf9aab1f6474038afecf26a63ed3b58dd49ca18bd7866d6"
   end
 
   head do

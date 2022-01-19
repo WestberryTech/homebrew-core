@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://github.com/lammps/lammps/archive/stable_29Sep2021_update1.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_29Sep2021_update2.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "20210929-update1"
-  sha256 "5000b422c9c245b92df63507de5aa2ea4af345ea1f00180167aaa084b711c27c"
+  version "20210929-update2"
+  sha256 "9318ca816cde16a9a4174bf22a1966f5f2155cb32c0ad5a6757633276411fb36"
   license "GPL-2.0-only"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -27,12 +27,12 @@ class Lammps < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "6c3b306434ba69ef17805862d59bc6ebcbdfc7ce85884379874cd5811c8140db"
-    sha256 cellar: :any,                 arm64_big_sur:  "d70926aca441eb764f2bb06fc24ea6668e192d977d938f80d03e36d0ca7edcd0"
-    sha256 cellar: :any,                 monterey:       "5ca9669e6ed7ecacf6071abd43f8864a3255e0bc20b413135e5ca3138513bb3d"
-    sha256 cellar: :any,                 big_sur:        "f76682e33b45cf0a0ce399e15ec84f13c26a43e51ab7ccecc823ac3edc1265b4"
-    sha256 cellar: :any,                 catalina:       "4b875ec8c8e097e9827c81a828f2c6d2c0a0f498060d0238dcff7ed136911170"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "218af2d8d0296d555f87dd1cd28ca62a07b8b3f8733c476844b2e1adaf808248"
+    sha256 cellar: :any,                 arm64_monterey: "ddbc228b7a75c1ea980547c0f9d15a3382ad54c1cb04d86d3bd978d6f630373f"
+    sha256 cellar: :any,                 arm64_big_sur:  "a37ac1c4a96100ddddba2556c8571979d1b13fa8e02b6a475c58796b599cf180"
+    sha256 cellar: :any,                 monterey:       "4f32639cc94f897865625b349ad006c63d52557c36f9f2b57a9aa7283e7cd1b1"
+    sha256 cellar: :any,                 big_sur:        "f8d05a7c23a946d084d91db6023b1ae47d9fce6cf8022a23c6da65dba25708c9"
+    sha256 cellar: :any,                 catalina:       "4725428ec5b6caa5d6fa07a2aaeae1a0b8a152a81be27aaf6e0be2fcaef21f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "061e465b59c754ec3cd801ca1fa51cf311d9a92a2da55049e92bb87c520ab98c"
   end
 
   depends_on "pkg-config" => :build
@@ -40,23 +40,19 @@ class Lammps < Formula
   depends_on "gcc" # for gfortran
   depends_on "jpeg"
   depends_on "kim-api"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "open-mpi"
 
   def install
     ENV.cxx11
 
-    # Disable some packages for which we do not have dependencies, that are
-    # deprecated or require too much configuration.
-    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems python voronoi]
-
     %w[serial mpi].each do |variant|
       cd "src" do
-        disabled_packages.each do |package|
-          system "make", "no-#{package}"
-        end
-
-        system "make", "yes-basic"
+        system "make", "yes-all"
+        system "make", "no-lib"
+        system "make", "no-intel"
+        system "make", "yes-kim"
 
         system "make", variant,
                        "LMP_INC=-DLAMMPS_GZIP",

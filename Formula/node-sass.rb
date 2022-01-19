@@ -3,17 +3,17 @@ class NodeSass < Formula
 
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
-  url "https://registry.npmjs.org/sass/-/sass-1.44.0.tgz"
-  sha256 "b9aa8a6b9ede9f8187e3405e0df2480e7a759c4a77bdf45a666526c3c49e556c"
+  url "https://registry.npmjs.org/sass/-/sass-1.48.0.tgz"
+  sha256 "c7d3de04598166fe3842cf57b358d49a4a36a999929ca6ac1602419c7620291a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1632207b2369cbd56e0b3d68b3c21f868cbdbdf4265adc0c0ee42d1b776cda06"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1632207b2369cbd56e0b3d68b3c21f868cbdbdf4265adc0c0ee42d1b776cda06"
-    sha256 cellar: :any_skip_relocation, monterey:       "1632207b2369cbd56e0b3d68b3c21f868cbdbdf4265adc0c0ee42d1b776cda06"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1632207b2369cbd56e0b3d68b3c21f868cbdbdf4265adc0c0ee42d1b776cda06"
-    sha256 cellar: :any_skip_relocation, catalina:       "1632207b2369cbd56e0b3d68b3c21f868cbdbdf4265adc0c0ee42d1b776cda06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dab99aa5a8a25cccc376f11177415e155b70fc6435df920213a07804a5a90a84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7b36b30001c5058a17ec030901d458b5dd2b089c9dc41e659003b58204fe262"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f7b36b30001c5058a17ec030901d458b5dd2b089c9dc41e659003b58204fe262"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7b36b30001c5058a17ec030901d458b5dd2b089c9dc41e659003b58204fe262"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7b36b30001c5058a17ec030901d458b5dd2b089c9dc41e659003b58204fe262"
+    sha256 cellar: :any_skip_relocation, catalina:       "f7b36b30001c5058a17ec030901d458b5dd2b089c9dc41e659003b58204fe262"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f61828ccb22133f91a868b13125ebc4865a1d1cec5e4cdac12757b5574a8ad2e"
   end
 
   depends_on "node"

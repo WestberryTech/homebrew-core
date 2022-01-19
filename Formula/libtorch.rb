@@ -4,9 +4,10 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.10.0",
-      revision: "36449ea93134574c2a22b87baad3de0bf8d64d42"
+      tag:      "v1.10.1",
+      revision: "302ee7bfb604ebef384602c56e3853efed262030"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -14,12 +15,12 @@ class Libtorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9ca5919b519a2f8c8179314a0029cbdaf2e8f7c4981fd116d1f8b11b11975283"
-    sha256 cellar: :any,                 arm64_big_sur:  "2623fb8ead1974ac75ec72f1152c80380587562665f2e1c0358e0d97cac55205"
-    sha256 cellar: :any,                 monterey:       "b860b964aaf29c54c4a939796e94c80ab6c29d6bbc01614e73814d77e0951b04"
-    sha256 cellar: :any,                 big_sur:        "fb8ec24294a323907c2ae56098b73df212f31b070ea3bd10388487d5863a643d"
-    sha256 cellar: :any,                 catalina:       "5df152e022bc15e1b5af984ddbc7fe8ad38a41bb7f5d40ac81ae2c9a6a3931d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9faff6e2057a418851e39bc9dbbc5b06e31d56eca28418d5e04e6635f017dee5"
+    sha256 cellar: :any,                 arm64_monterey: "aa6da3e784849b35d69bf25445bc4c8f9dc7349d860bb48e7fa2d9c3a8ec97d0"
+    sha256 cellar: :any,                 arm64_big_sur:  "90359d7a71c27ee0e39f8c1fba9e6481ccaf61ac3eed5c90a63ed833c50e4e20"
+    sha256 cellar: :any,                 monterey:       "ce508d0f36449d28f9439eb9557be2a2841df10e7460ca06bfe8f03919881aa5"
+    sha256 cellar: :any,                 big_sur:        "bff45c48480510c69e0cb0fcc8a3e8157315e3e5968beaad1e78490a6622952a"
+    sha256 cellar: :any,                 catalina:       "43f82b7fc95313453390a85888bee794b40fa9dbf569e5390738c3e9b9622adf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "692b4c045c53528e1c26f09f23111a7c49cd8ee759b585d902820ce5b6e0132e"
   end
 
   depends_on "cmake" => :build

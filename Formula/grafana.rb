@@ -1,18 +1,18 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v8.3.0.tar.gz"
-  sha256 "e416b87558d34432560f8b7e7f20e376072ddf2900b631080898d66cc6d78029"
+  url "https://github.com/grafana/grafana/archive/v8.3.4.tar.gz"
+  sha256 "5cbbb7dd8a7a7717e8d4aa2b3a9a3ed27825e8a11d68f00da0eb36ab8002ff09"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1dbbd2ef50ea8db97ede52ca69f601283cb32c357b5109e328aa92dd08772b96"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "840cd0ffce5969f0fabb7e225953ca238e4899b1d9b948dae947e01eec4c6564"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ed1933f8674928e3164443b6005a0136102077300f456a30783c75ef47f7568"
-    sha256 cellar: :any_skip_relocation, big_sur:        "93f6e2a064d6331091512fb24d8936434fe22c2713c94baf381a085ff748fbae"
-    sha256 cellar: :any_skip_relocation, catalina:       "43c988235823da42c1f6935ff1f13b12799530b4e884b0dc2dd96be80561d42f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20c707527f746e55659a26340e2d11cf3fe2d59db4fd3b515358d4f0e0d534f7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "714f8b948fd98b01264304287b90b3cd1f0b6930debc0ea025a1c69d1c3eba08"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a2c395ea63685a7f22fcd5e781ac43c8bc2a9c7178647c79ebce1411a4483a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bc850531bca43178b31bc28284ce1b400b4ae10a4c4375d9f8421a18bead986"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b79a2571ff6aa78d5cece16489f3dd95416750ef65edb067d8217d9f55d166dc"
+    sha256 cellar: :any_skip_relocation, catalina:       "c65dea8f526db0befff0f15a0ded433060ad3996c5feaa72d029db418dc45850"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1c555a72c7e19f8c4859b469ab6350cf11ed1b7699944df5d766fa8e2e78d36"
   end
 
   depends_on "go" => :build

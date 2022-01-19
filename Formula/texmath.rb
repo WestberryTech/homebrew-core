@@ -1,18 +1,18 @@
 class Texmath < Formula
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "https://johnmacfarlane.net/texmath.html"
-  url "https://hackage.haskell.org/package/texmath-0.12.3.2/texmath-0.12.3.2.tar.gz"
-  sha256 "d6ec8b7ecb60ca73d56d8043ec79a006144ab50645bb6124c86f5678941d39b5"
+  url "https://hackage.haskell.org/package/texmath-0.12.4/texmath-0.12.4.tar.gz"
+  sha256 "4373bb9db8f977f37b9c1316c65ca97bae7600277e4f79d681dabf2fcb81f0cc"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/texmath.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b471c89345030b451f57970937d314f89515dacd1a3a8624483e9c7ead6b1fa3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2374d6c7a8858e0d005b81872b2e1b7c0109113ef594a3de561d4cd2bc8ff5a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "d010ba604cbc5df04ccc3a6469815dd67c7e9975af2420cfb6b4e6a43b13f294"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ad0caecd1adc1f06e432ff9142365231cc5e1fdb1e98528d3a63f93bc89a2ead"
-    sha256 cellar: :any_skip_relocation, catalina:       "339a5893be78ab0bdefbdbd167c46080b8769be0c5975244fe16a03ceb32dd61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad04d10c6f5ccee591a33987d8fa1a4c906e9ccbf0f4c813427129748cda6ed5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18d378f0da033e241105b60fc78f00353f473801d3e65ec4f97c3164d7e00ba9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "502447a67f42878d59de604e8ed6407e5f9b5aeebc83a76735daccaffb73f139"
+    sha256 cellar: :any_skip_relocation, monterey:       "38071c1bce3a47486f4fa12dc71bebcd03381092aea02fe22da51d3a2566f45f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cbf6c3426a1140be297313d5c3dd9866424c896426a89b21206cd5e36b083764"
+    sha256 cellar: :any_skip_relocation, catalina:       "85b7f4f74bd19e97531ea774c54bc1be9a80da775527e76a254f3e7c4a8e8b7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b702cb496423536ec348153a56f6f3f2577a21308296469dd43834b23ccb52d"
   end
 
   depends_on "cabal-install" => :build

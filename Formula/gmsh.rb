@@ -1,8 +1,8 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-4.9.0-source.tgz"
-  sha256 "b8ef133c9b66ffe12df1747e72d4acf19f1eb1e9cd95eb0f577cbc4081d9bea3"
+  url "https://gmsh.info/src/gmsh-4.9.3-source.tgz"
+  sha256 "9e06751e9fef59ba5ba8e6feded164d725d7e9bc63e1cb327b083cbc7a993adb"
   license "GPL-2.0-or-later"
   head "https://gitlab.onelab.info/gmsh/gmsh.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Gmsh < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "bae73b509084f7dbadf0e50f566cef1275d1e1ce343f556994474d979ce13a4f"
-    sha256 cellar: :any, arm64_big_sur:  "6c67fa550d5e9d1dfe7d688e8d79f52221c97face9b604806926cda3d12bda05"
-    sha256 cellar: :any, monterey:       "cdb0739ee040cc1d543690179833deb53b8801242ef6e7901dd71662a1163297"
-    sha256 cellar: :any, big_sur:        "c59269d9afca414090382ef66a2595c5028e865a32c8cf59f47f20f921a46fb8"
-    sha256 cellar: :any, catalina:       "b582d3e4e4492bac6c1d4b749ef3b681401ab6a7b2188e8f65d8e3b67bfb3bd2"
+    sha256 cellar: :any,                 arm64_monterey: "17f4f32b17f3b0336f74f2fa86f5276ace4b0afb7b84e509836ff47f72188ff3"
+    sha256 cellar: :any,                 arm64_big_sur:  "6ca22d722f78238c30b5521b350ed60691d6ac8765d83cfabe45ca43e5f56ea9"
+    sha256 cellar: :any,                 monterey:       "676413ef23ae0a544a5a526bb4296aa14ff7ddc805526f6b75607bd4b7f6271e"
+    sha256 cellar: :any,                 big_sur:        "68107a309bd102ca33867b07f715dde2ea30e961fe83406bdfb2a8ec9665e1ef"
+    sha256 cellar: :any,                 catalina:       "f19bd77bd94525ba0c0f7d2b05c415b99779bec59ee147f5ca2f763c89881f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a943e7b41a9c95b3d42b7a31cc47aed783cb8cd4f3c5cc0904a9a69115ae20c"
   end
 
   depends_on "cmake" => :build
@@ -55,6 +56,6 @@ class Gmsh < Formula
   end
 
   test do
-    system "#{bin}/gmsh", "#{share}/doc/gmsh/tutorial/t1.geo", "-parse_and_exit"
+    system "#{bin}/gmsh", "#{share}/doc/gmsh/examples/simple_geo/tower.geo", "-parse_and_exit"
   end
 end

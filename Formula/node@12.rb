@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.22.7/node-v12.22.7.tar.xz"
-  sha256 "cc6a23b44870679a94bd8f3c8d4e1f4b77bb2712a36888ab87463459e6785f6b"
+  url "https://nodejs.org/dist/v12.22.9/node-v12.22.9.tar.xz"
+  sha256 "da982c03e584c2b6e50f432cc5e46605d4e3d8451125be25a645fe716873e24a"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,12 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "852bbcd8a35c647f1c3bcacbd8ea3367171f043037894174e5de3b302aac8635"
-    sha256 cellar: :any,                 arm64_big_sur:  "dc0b9ba4edc54658398d773c5223e339ef5b406c06c5494e7e68f7c490081677"
-    sha256 cellar: :any,                 monterey:       "65ea462fffc38965193813d88d7536d0aaef9e15d75cb8968a5e3870d9d88e14"
-    sha256 cellar: :any,                 big_sur:        "4b182fb0bb0634af76a2c2b20f9c32454a4107682af31df2ac7c329340779648"
-    sha256 cellar: :any,                 catalina:       "7f0aff2700d2914da161f62ff1c744c36ab0dda3e9a22cb78778f15b836c959f"
-    sha256 cellar: :any,                 mojave:         "4d651ee1724446252579bb639a374913e7a30dc20a2a9bf0f4e504ce2e9cc4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e45d7f449a3cc34bcc0fbe775ed6f85cff4a61f5d038b80503056070b3bf3b"
+    sha256 cellar: :any,                 arm64_monterey: "bd8e7c10aff49ccc4a6bc4885ff1368863ced239dc795db73fb357707fae8bd1"
+    sha256 cellar: :any,                 arm64_big_sur:  "fee8d40df865286e3e2d1d1f0b0e7f50042d49f9f1b7e53dd1f697bd33a4f50f"
+    sha256 cellar: :any,                 monterey:       "e4353eda968bd35510b880d8a2aa1c2d1385bc1f00ef5e0d1c4d2b5bf6d1840a"
+    sha256 cellar: :any,                 big_sur:        "5633a57b983e0c3993e0f653c0fdf589142e5cea3f55c40009989a4af527f3c1"
+    sha256 cellar: :any,                 catalina:       "a992a4b5b262ec6935125ca18f21207f5948b709859ebd8d7367e802ea236a49"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f00822df96f1337acdf4ce4d5aceddf1f4cadd940bdf9981ce79cb223ae7592d"
   end
 
   keg_only :versioned_formula

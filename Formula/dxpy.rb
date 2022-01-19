@@ -3,21 +3,21 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/70/a1/08769f7ea9acb0ba0f4ae3105f22360d80ecbcabd685779d25fc05357fa8/dxpy-0.316.0.tar.gz"
-  sha256 "c0cbe9da4f66909c96ee27f9e7956d3a4bc905ad5be40a90824276fe5780e38a"
+  url "https://files.pythonhosted.org/packages/f6/90/e2d6d9cc6e9878b617f6bae2d929bf14ed9c92b21a8fad919c6f5c76dd19/dxpy-0.318.1.tar.gz"
+  sha256 "25a6961bd94c9ff6afa93083dff37861dde2b333e80a48b895ebee30943fe136"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "48863a29844a7e437da4fb17bff739a1fc959ca77f2a945cfcd9aa551a58f87b"
-    sha256 cellar: :any,                 arm64_big_sur:  "392652a26d9feae023a0571c84dc9ead4d636a328fd5a061768e61e6a4c9a031"
-    sha256 cellar: :any,                 monterey:       "f40faf6580ec693eeab51db542e9b0adb42ba164ecbb67db5094a4f72954cf98"
-    sha256 cellar: :any,                 big_sur:        "81e8cea88704f20ecd92767f8bb7a916e2412e22f183fd7849e7f027e0f32ca7"
-    sha256 cellar: :any,                 catalina:       "6e117a38cc5940ee402ad9f5868e8808150c974996115d715f9874352572630c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82efb58f7a91efccfd47697920bd2cfd464990a254ec9c3f3f24261aa4696e87"
+    sha256 cellar: :any,                 arm64_monterey: "97e0697e27da684ca5b4f3d324c37f254a1659350278809225c03dc41e78d082"
+    sha256 cellar: :any,                 arm64_big_sur:  "efd9c036a5bb04d4a2210ed76e20a902f1e3313eb9fcf0ce9c63c8caad76a620"
+    sha256 cellar: :any,                 monterey:       "098a8737408774ab811c15731c80266d79d8adaa79ce78c387152582ce5cfea9"
+    sha256 cellar: :any,                 big_sur:        "92b65c7daa8fb9e553ba14199fe8f6a788136c19eecc9fdebf82231de88cea60"
+    sha256 cellar: :any,                 catalina:       "16560e9404f288d054db57c268b66cf60851332f08cb8335d3edacf51158579c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bae2d7898db6ac8e57562f40cb99eb8c1b3b0c47d973421387cab2f6e8fefef"
   end
 
   depends_on "rust" => :build # for cryptography
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "six"
 
   on_macos do
@@ -30,8 +30,8 @@ class Dxpy < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/6a/b4/3b1d48b61be122c95f4a770b2f42fc2552857616feba4d51f34611bd1352/argcomplete-1.12.3.tar.gz"
-    sha256 "2c7dbffd8c045ea534921e63b0be6fe65e88599990d8dc408ac8c542b72a5445"
+    url "https://files.pythonhosted.org/packages/05/f8/67851ae4fe5396ba6868c5d84219b81ea6a5d53991a6853616095c30adc0/argcomplete-2.0.0.tar.gz"
+    sha256 "6372ad78c89d662035101418ae253668445b391755cfe94ea52f1b9d22425b20"
   end
 
   resource "certifi" do
@@ -45,8 +45,8 @@ class Dxpy < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/9f/c5/334c019f92c26e59637bb42bd14a190428874b2b2de75a355da394cf16c1/charset-normalizer-2.0.7.tar.gz"
-    sha256 "e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0"
+    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
+    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
   end
 
   resource "cryptography" do
@@ -60,8 +60,8 @@ class Dxpy < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
-    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
+    url "https://files.pythonhosted.org/packages/47/b6/ea8a7728f096a597f0032564e8013b705aa992a0990becd773dcc4d7b4a7/psutil-5.9.0.tar.gz"
+    sha256 "869842dbd66bb80c3217158e629d6fceaecc3a3166d3d1faee515b05dd26ca25"
   end
 
   resource "pycparser" do
@@ -80,8 +80,8 @@ class Dxpy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/80/be/3ee43b6c5757cabea19e75b8f46eaf05a2f5144107d7db48c7cf3a864f73/urllib3-1.26.7.tar.gz"
-    sha256 "4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"
+    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
+    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
   end
 
   resource "websocket-client" do

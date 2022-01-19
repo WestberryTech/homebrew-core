@@ -30,12 +30,13 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256                               arm64_monterey: "b4c97c3386c3b2e25e960b5bbec4986ddea67b971eff9017165dbb125fb9e791"
-    sha256                               arm64_big_sur:  "b5f92266f19555a24c60f85de052b13cc085044288e5b01026911a5037d6c226"
-    sha256                               monterey:       "51f7341566533f60457c90b9a5c659498ff186b0818d0c13beeeb7808c9fed6e"
-    sha256                               big_sur:        "aa1e83291083e8c15d58a75369877e5541db379143a13ef702768590c7a6d5bd"
-    sha256                               catalina:       "229de4c4575d807495c21a3d7d1746229f8aec13a974fe4bbded0e391e6412c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "467b867a3b2d3f43695cd2f161787e9d609360ca4e6da3da97d9eec8d5530752"
+    rebuild 1
+    sha256 arm64_monterey: "2d179246426328ee69b94a25b8bd4c25caeff0699b5ecb4b3d258fe4efd3673e"
+    sha256 arm64_big_sur:  "9dbb002aa1aab75071fe1a5432fd3ee61378d711aebe0d35d0ca7226a4225451"
+    sha256 monterey:       "198f5312ecfe6fc6437b55e2fb3bb380e8c597ae6fa255f8f7d0be90306e7601"
+    sha256 big_sur:        "d2d4543675948c7adf3f1d4934dc651b864f66d5dad6fb3c8bdcfc6f5eef42e6"
+    sha256 catalina:       "e721b6a3195d2a1e73e4c12d34d0138bc5ebe6a37fb1a8d63ad733316e944c59"
+    sha256 x86_64_linux:   "3717134ab0f56e7eeb167c4f4a993c81329d6c1248dae5ee6e39f59cfdfa0eee"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -89,8 +90,8 @@ class Gcc < Formula
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version_suffix}
+      --prefix=#{opt_prefix}
+      --libdir=#{opt_lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
       --with-gcc-major-version-only
@@ -111,12 +112,12 @@ class Gcc < Formula
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
       args << "--with-system-zlib"
 
-      # Xcode 10 dropped 32-bit support
-      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+      # Xcode 10 dropped 32-bit Intel support
+      args << "--disable-multilib" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1000
 
-      # Workaround for Xcode 12.5 bug on Intel
+      # Workaround for Xcode 12.5 bug on Intel, remove in next version
       # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
-      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
+      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version == 1205
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -124,10 +125,6 @@ class Gcc < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Ensure correct install names when linking against libgcc_s;
-      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
@@ -142,17 +139,16 @@ class Gcc < Formula
 
     mkdir "build" do
       system "../configure", *args
+      system "make"
 
-      if OS.mac?
-        # Use -headerpad_max_install_names in the build,
-        # otherwise updated load commands won't fit in the Mach-O header.
-        # This is needed because `gcc` avoids the superenv shim.
-        system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-        system "make", "install"
-      else
-        system "make"
-        system "make", "install-strip"
-      end
+      # On Linux, strip the binaries
+      install_target = OS.mac? ? "install" : "install-strip"
+
+      # To make sure GCC does not record cellar paths, we configure it with
+      # opt_prefix as the prefix. Then we use DESTDIR to install into a
+      # temporary location, then move into the cellar path.
+      system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
+      mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
       bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc" if Hardware::CPU.intel?

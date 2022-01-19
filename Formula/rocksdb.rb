@@ -1,18 +1,19 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v6.26.1.tar.gz"
-  sha256 "5aeb94677bdd4ead46eb4cefc3dbb5943141fb3ce0ba627cfd8cbabeed6475e7"
+  url "https://github.com/facebook/rocksdb/archive/v6.27.3.tar.gz"
+  sha256 "ee29901749b9132692b26f0a6c1d693f47d1a9ed8e3771e60556afe80282bf58"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
-  head "https://github.com/facebook/rocksdb.git", branch: "master"
+  revision 1
+  head "https://github.com/facebook/rocksdb.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "1089d2ad226fe4cbe606357a714f44a0c47c8d1b41e374ca8ab6b58003d588ce"
-    sha256 cellar: :any,                 arm64_big_sur:  "ea0179f7a5ba653119b6ad0cb788d6eabe9a9e60e9da664d6eeb6801f2232769"
-    sha256 cellar: :any,                 monterey:       "d8e5344ac9d5dad7a019f97df16f4f1b6237c13c2aba5c101336799b5c53404e"
-    sha256 cellar: :any,                 big_sur:        "fcde43a1403f2a7b3d6fbe9568826a5bc7c387327e7ae0c52059c6320d063eeb"
-    sha256 cellar: :any,                 catalina:       "c9d8b156b0c06ebe348fc9a1f51c34d235f09023d63e92f91c80c6fe9eaa4a83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39ba6809d8916dd03f628516d30d1f0a7ac81135aa8fe17414feddebd79c225c"
+    sha256 cellar: :any,                 arm64_monterey: "816b027a2530246f7681f107ac6d4ad0df5a0818bd06097d4b9be6d611d18df0"
+    sha256 cellar: :any,                 arm64_big_sur:  "f2b5379c5f04163d5a84a12dfcb54abf3d120df7ffd415e1524455d9a53eff45"
+    sha256 cellar: :any,                 monterey:       "b69c583b06da21652e043d04fc2a6a8d2b66e649525eeecbbc8d9612b2fb9781"
+    sha256 cellar: :any,                 big_sur:        "f4ffe938c9e14dec2e7c143400ee724720ac0287239fdd0e21676cd6b2c70cae"
+    sha256 cellar: :any,                 catalina:       "cf574fc011d4f65d79c1dc479f5b9bb77edbcc719926bae2190dfc5d6734de10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1a3c85437ee67fb23f98944f487cbdd2e267974150b1d363181a7b8a16a99a6"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,7 @@ class Rocksdb < Formula
 
   def install
     ENV.cxx11
-    args = std_cmake_args + %W[
+    base_args = std_cmake_args + %W[
       -DPORTABLE=ON
       -DUSE_RTTI=ON
       -DWITH_BENCHMARK_TOOLS=OFF
@@ -38,9 +39,25 @@ class Rocksdb < Formula
       -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}
     ]
 
+    # build rocksdb_lite
+    lite_args = base_args + %w[
+      -DROCKSDB_LITE=ON
+      -DARTIFACT_SUFFIX=_lite
+      -DWITH_CORE_TOOLS=OFF
+      -DWITH_TOOLS=OFF
+    ]
+    mkdir "build_lite" do
+      system "cmake", "..", *lite_args
+      system "make", "install"
+    end
+    p = lib/"cmake/rocksdb/RocksDB"
+    ["Targets.cmake", "Targets-release.cmake"].each do |s|
+      File.rename "#{p}#{s}", "#{p}_Lite#{s}"
+    end
+
     # build regular rocksdb
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *base_args
       system "make", "install"
 
       cd "tools" do
@@ -53,18 +70,6 @@ class Rocksdb < Formula
         bin.install "rocksdb_undump"
       end
       bin.install "db_stress_tool/db_stress" => "rocksdb_stress"
-    end
-
-    # build rocksdb_lite
-    args += %w[
-      -DROCKSDB_LITE=ON
-      -DARTIFACT_SUFFIX=_lite
-      -DWITH_CORE_TOOLS=OFF
-      -DWITH_TOOLS=OFF
-    ]
-    mkdir "build_lite" do
-      system "cmake", "..", *args
-      system "make", "install"
     end
   end
 
@@ -89,12 +94,21 @@ class Rocksdb < Formula
                                 "-std=c++11",
                                 *extra_args,
                                 "-lz", "-lbz2",
+                                "-L#{lib}", "-lrocksdb",
+                                "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
+                                "-L#{Formula["lz4"].opt_lib}", "-llz4",
+                                "-L#{Formula["zstd"].opt_lib}", "-lzstd"
+    system "./db_test"
+    system ENV.cxx, "test.cpp", "-o", "db_test_lite", "-v",
+                                "-std=c++11",
+                                *extra_args,
+                                "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb_lite",
                                 "-DROCKSDB_LITE=1",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
                                 "-L#{Formula["lz4"].opt_lib}", "-llz4",
                                 "-L#{Formula["zstd"].opt_lib}", "-lzstd"
-    system "./db_test"
+    system "./db_test_lite"
 
     assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1")
     assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)

@@ -6,16 +6,16 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/db/b8/fe3ea322af7401959b33137e61da32bff45d328e5a495bf35c84748a5a75/pwntools-4.7.0.tar.gz"
   sha256 "74388e28675e7a1929f763df5a1cec6a3d589641049b6cf476bb1c56ec50a88e"
   license "MIT"
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_monterey: "abf134f61d284e22cd44501aabccfa7baa5c2adf5faa6d3aaa48fb10cba15919"
-    sha256 cellar: :any,                 arm64_big_sur:  "5cc358992d6177a428a43659fc69cbd397bd603659d846239f6024c133b0761a"
-    sha256 cellar: :any,                 monterey:       "74ce5219ab986e793cb3b9dba4f0f0f666fd517218a80f4565f9e750f822813d"
-    sha256 cellar: :any,                 big_sur:        "966c6739490a9387afefa0d47ebcd6aa8c6ccd884c285c4a4f167880bbafe339"
-    sha256 cellar: :any,                 catalina:       "882c6972ea268aff52a7d04f558bd5fbae620deed690097c7cf3955ac591560c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e77978ce54b7e18c9a7eed5e4eb099203a3f0f5caa62fcf572a9353c0cd22fe"
+    sha256 cellar: :any,                 arm64_monterey: "71da0aecca0117be61a95a4f5840c4089b248a6c52772a02a0d7c8b0b6714c4d"
+    sha256 cellar: :any,                 arm64_big_sur:  "fadaee139ecf402a2effe644306487c81a5213a15008a53e1476699672a29d9c"
+    sha256 cellar: :any,                 monterey:       "959daa94921531e41c59847f35cfbbda29fae7d0af7cdd934dc45ef5cffcda6f"
+    sha256 cellar: :any,                 big_sur:        "84dc9d0c48a60252ba708c2ca1380f45240345335fe4a19f5fb3a59f82d2acf6"
+    sha256 cellar: :any,                 catalina:       "98d8af0169a5fc057a1304dc46a1c96ea1a6d1befc2dbed83ab60840726ce296"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20b39547cd7d330fa60526f29e6e961442fb37a6ac68dcf6f0c3dd9d8706602f"
   end
 
   depends_on "rust" => :build
@@ -70,8 +70,8 @@ class Pwntools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "idna" do

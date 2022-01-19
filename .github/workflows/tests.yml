@@ -11,7 +11,6 @@ env:
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_CHANGE_ARCH_TO_ARM: 1
-  HOMEBREW_RELOCATE_RPATHS: 1
 
 concurrency:
   group: "tests-${{ github.ref }}"
@@ -29,6 +28,7 @@ jobs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
       deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+      long_pr_count: ${{ steps.count_long_timeout_prs.outputs.count }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -54,6 +54,18 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
+      - name: Show GraphQL Query Response Headers
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          QUERY='query{ repository(owner:\"Homebrew\", name:\"homebrew-core\") { pullRequests(last: 100, states: OPEN, labels: [\"CI-long-timeout\"]) { totalCount } } }'
+          curl \
+            --include \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --request POST \
+            --data "{ \"query\": \"$QUERY\" }" \
+            https://api.github.com/graphql
+
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
@@ -98,6 +110,34 @@ jobs:
             }
 
             if (label_names.includes('CI-long-timeout')) {
+              const labelCountQuery = `query($owner:String!, $name:String!, $label:String!) {
+                repository(owner:$owner, name:$name) {
+                  pullRequests(last: 100, states: OPEN, labels: [$label]) {
+                    totalCount
+                  }
+                }
+              }`;
+              var long_pr_count;
+              try {
+                const response = await github.graphql(
+                  labelCountQuery, {
+                    owner: context.repo.owner,
+                    name: context.repo.repo,
+                    label: 'CI-long-timeout'
+                  }
+                )
+                long_pr_count = response.data.repository.pullRequests.totalCount
+              } catch (error) {
+                // The GitHub API query errored, so fail open and assume 0 long PRs.
+                long_pr_count = 0
+                core.warning('CI-long-timeout label count query failed. Assuming no long PRs.')
+              }
+              const maximum_long_pr_count = 2
+              if (long_pr_count > maximum_long_pr_count) {
+                core.setFailed(`Too many pull requests (${long_pr_count}) with the long-timeout label!`)
+                core.error(`Only ${maximum_long_pr_count} pull requests at a time can use this label.`)
+                core.error('Remove the long-timeout label from this or other PRs (once their CI has completed).')
+              }
               console.log('CI-long-timeout label found. Setting long GitHub Actions timeout.')
               core.setOutput('timeout-minutes', '4320')
             } else {
@@ -113,7 +153,7 @@ jobs:
               console.log('No CI-linux-wheezy label found. Using default Homebrew (Ubuntu 16.04) container.')
               container.image = 'ghcr.io/homebrew/ubuntu16.04:master'
             }
-            container.options = '--user=linuxbrew'
+            container.options = '--user=linuxbrew -e GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED'
             core.setOutput('container', JSON.stringify(container))
 
             const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
@@ -179,7 +219,8 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
-          echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
+          # TODO: remove the line below once set in the runner .env file
+          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
 
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -215,6 +256,12 @@ jobs:
           touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
+
+      - name: Output brew linkage result
+        if: always()
+        run: |
+          cat bottles/linkage_output.txt
+          rm bottles/linkage_output.txt
 
       - name: Output brew bottle result
         if: always()

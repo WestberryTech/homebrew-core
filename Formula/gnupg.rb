@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.3.tar.bz2"
-  sha256 "5789b86da6a1a6752efb38598f16a77af51170a8494039c3842b085032e8e937"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.4.tar.bz2"
+  sha256 "f3468ecafb1d7f9ad7b51fd1db7aebf17ceb89d2efa8a05cf2f39b4d405402ae"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -12,12 +11,13 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "7935ce2295cc17a978ad5d00c0cb34f2969c510e8820f1404f44fd7d3bd585b0"
-    sha256 arm64_big_sur:  "e1f444e61d3e8c00970d2e61d513caf02ab4b2c07c2bd8a2b13dd8265e4c379a"
-    sha256 monterey:       "054b5d03dc3b3e3fb71ec3f8b4c39e250bde24ac4981c5f2c041567e5643be90"
-    sha256 big_sur:        "3854d1939e38f51eee0d471dbb86be5880c583fc43099e04f11b7538318606e0"
-    sha256 catalina:       "a810862dacc767bcece54292cf27854d96c10f028b6fee3bc0ea421aebe8c334"
-    sha256 x86_64_linux:   "05705f2461335835103d19f0451222e129dac8f05c4c8d3e972dba30a119558d"
+    rebuild 1
+    sha256 arm64_monterey: "958e40c9a4115f25318627d18fd2c5e25a7bf630c0eb9b1101474f8af1a5d91c"
+    sha256 arm64_big_sur:  "3d20bf8fa467ce9d677313037ef27901ebd69a73a1f7a4a8c263896cdd690632"
+    sha256 monterey:       "3d91e20de686f91d7918114518f38506e0c561416ac80a725109017469af25f2"
+    sha256 big_sur:        "a15299b64221d69ba4fa0b3ec5937e26e61b8baa6d88a72d4dbab25c1b26582c"
+    sha256 catalina:       "ff269c2042cfb061a1aab07b9472eb5154b2d2c43d02901d3c3f783ca4145748"
+    sha256 x86_64_linux:   "10e8b00b51ae53498850208595817562676987cb1f0876fba4728345d137719a"
   end
 
   depends_on "pkg-config" => :build
@@ -37,14 +37,10 @@ class Gnupg < Formula
     depends_on "libidn"
   end
 
-  # Silence warning about /proc.
-  # Remove with the next release.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/890be5f6af88e7913d177af87a50129049e681bb/gnupg/2.3.3-proc-error.patch"
-    sha256 "c4ee02929a03935121b8a2db01e83fbe046a07f104514b2d1cba453c47464204"
-  end
-
   def install
+    libusb = Formula["libusb"]
+    ENV.append "CPPFLAGS", "-I#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

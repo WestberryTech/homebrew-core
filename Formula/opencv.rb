@@ -1,8 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
-  sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
+  url "https://github.com/opencv/opencv/archive/4.5.4.tar.gz"
+  sha256 "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
   license "Apache-2.0"
   revision 3
 
@@ -12,11 +12,12 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "adc47c29f2bc2e628352fb116aac191d09a9e9a404172d68efc6f521f15cb37a"
-    sha256 arm64_big_sur:  "362e1f291f9095f7344136e76a329cc9111a87c6218d3a6216f53e8e4f5749fa"
-    sha256 big_sur:        "4e65f1661e82f31dd693fcc6f39c44acab6eec4b5cc08a75666136d6c30e9b16"
-    sha256 catalina:       "b166348e4032734e850d85818d9d047d57f0742778118756fbe325df54a9b179"
-    sha256 x86_64_linux:   "ca371a5ceb6ec0ed96a9d0332dd44e40172dc3e33890c089a8a7b15830a06542"
+    sha256 arm64_monterey: "44199cf7982c6990e206d002b22da98481e42d4db371f25371d60dadad9f2106"
+    sha256 arm64_big_sur:  "70ae341c8129b66476214670c5cc35e7042bb274cffb8febf400f2fd8a7369c1"
+    sha256 monterey:       "e22779842a84948276f01d9fadb1c3e817b32b30fce65a459a17d0d8798003b7"
+    sha256 big_sur:        "9bce33f073613ded8b9dfc6bb6fc72286db7a876d7e382735a2343ccc6be3b76"
+    sha256 catalina:       "a7e1e90c460f850c8b45d27d2e9cd87eb047fbd563d03372cf4be7895edabe25"
+    sha256 x86_64_linux:   "b948e0b3a22205e5ca5a48a241daec908edc22a34df259653cfcf7667d961342"
   end
 
   depends_on "cmake" => :build
@@ -41,8 +42,8 @@ class Opencv < Formula
   uses_from_macos "zlib"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
-    sha256 "73da052fd10e73aaba2560eaff10cc5177e2dcc58b27f8aedf7c649e24c233bc"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.4.tar.gz"
+    sha256 "ad74b440b4539619dc9b587995a16b691246023d45e34097c73e259f72de9f81"
   end
 
   def install

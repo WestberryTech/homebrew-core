@@ -1,18 +1,18 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.29.0.tar.gz"
-  sha256 "a0ceb76a58a6ca81a8669a9ef2631fbad41d7c1a27cc0ec738c71c6d71f9751f"
+  url "https://github.com/direnv/direnv/archive/v2.30.3.tar.gz"
+  sha256 "7fb5431b98d57fb8c70218b4a0fab4b08f102790e7a92486f588bf3d5751ac3b"
   license "MIT"
-  head "https://github.com/direnv/direnv.git"
+  head "https://github.com/direnv/direnv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e565d2a681d1b0c1421b0e22430af07897a03d0685b1dd02b1f6f807397d8ea5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7385c6be31697093342964ea909ec42a9e6bdbfa4735344533f1232323f736e"
-    sha256 cellar: :any_skip_relocation, monterey:       "0cf972f44e80cbec09e323f6467d3ae62b2633c04df3c3d99395c56effe0ab97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2fbb90c21a4fa0c7a6e20073fe0497305477a6c9a5ba4dfbedd18119221bd4d3"
-    sha256 cellar: :any_skip_relocation, catalina:       "682ab5b3d43dd5dc11b911e7c4a25725616b738f3be6e7326c649758bd246c65"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20504644555e86b0dadaec87c2712c6a43fc7f5c24cc1da874b9a890b81f9247"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a2bf97696f0e57e713db8f39dcff719fa17e0512b6ad14a7657a1c946943a85"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "41d4f105cdef28417dae6c248a5819709967897071c34ed63fa5432644d944f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "761499a99dc029d5cafe075105827c4897d5e45dd53cfa7bf86ea51fc4f1afaf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73fc3e19b391c97806c44d2f2b38b5ddc28742d656ab6ca013371acc6cabd5bc"
+    sha256 cellar: :any_skip_relocation, catalina:       "77c87b8f6ee51b65514b5688babcd83117b75feb2b40b0489bd0649cdeb3f3cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b18ff46bf3e0b18eace8b2a0754829555a991d58d6fe3f76681a8a057c48a04c"
   end
 
   depends_on "go" => :build

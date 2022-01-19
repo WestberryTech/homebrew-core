@@ -3,8 +3,8 @@ class Asciidoc < Formula
 
   desc "Formatter/translator for text files to numerous formats"
   homepage "https://asciidoc-py.github.io/"
-  url "https://files.pythonhosted.org/packages/c2/d0/5334f7d8205aa11f2e4751f4137466c8d8a36b148dcf3874db87b40ce72e/asciidoc-10.0.2.tar.gz"
-  sha256 "1800699c579038bcf68e760e9358304b69a19ef04c9bf0b4faa76b729dcf7dbf"
+  url "https://files.pythonhosted.org/packages/4b/c0/ded4666a6d7a978b50fda85f44ba7f0939bd92838102769eca91a769aa9f/asciidoc-10.1.1.tar.gz"
+  sha256 "33ac648f7b38fa8712cfdbbfd2465a263fea2dcd106946fcf7d59ae6473b47c5"
   license "GPL-2.0-only"
   head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Asciidoc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59bc4ac9a515e3b9fb04413170253db01735afda37468487bc7c4e05c56cda7d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59bc4ac9a515e3b9fb04413170253db01735afda37468487bc7c4e05c56cda7d"
-    sha256 cellar: :any_skip_relocation, monterey:       "03ab2d49198b047f011cdacdfbb9f08260d4ecab0657b3b74dc99034db6085c7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "03ab2d49198b047f011cdacdfbb9f08260d4ecab0657b3b74dc99034db6085c7"
-    sha256 cellar: :any_skip_relocation, catalina:       "03ab2d49198b047f011cdacdfbb9f08260d4ecab0657b3b74dc99034db6085c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d64213d02fb9f66ef08fb25987477d3d1c0b3e876ba8a74ae2153610a269f1e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc87c367f62194b41a08b6affa82917ef8dd9a8e3c82ce6ec9d286ce15346b79"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc87c367f62194b41a08b6affa82917ef8dd9a8e3c82ce6ec9d286ce15346b79"
+    sha256 cellar: :any_skip_relocation, monterey:       "0159cbcaaadc71372413f3dc1c51a9ccd0b92416ab2dfdcb2d1abca2fac48ccb"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0159cbcaaadc71372413f3dc1c51a9ccd0b92416ab2dfdcb2d1abca2fac48ccb"
+    sha256 cellar: :any_skip_relocation, catalina:       "0159cbcaaadc71372413f3dc1c51a9ccd0b92416ab2dfdcb2d1abca2fac48ccb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c269721f656990bb7523fa39ddc5f077e3a3d858b78375e12432bdc1294a651"
   end
 
   depends_on "docbook"

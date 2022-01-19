@@ -4,7 +4,12 @@ class Ipsumdump < Formula
   url "https://read.seas.harvard.edu/~kohler/ipsumdump/ipsumdump-1.86.tar.gz"
   sha256 "e114cd01b04238b42cd1d0dc6cfb8086a6b0a50672a866f3d0d1888d565e3b9c"
   license "MIT"
-  head "https://github.com/kohler/ipsumdump.git"
+  head "https://github.com/kohler/ipsumdump.git", branch: "master"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?ipsumdump[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_monterey: "1494705fff0bb7937d74557efd7484896a8c87133dad9a4e40ee2ee5b5da67eb"
