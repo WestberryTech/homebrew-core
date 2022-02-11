@@ -1,18 +1,18 @@
 class Tfproviderlint < Formula
   desc "Terraform Provider Lint Tool"
   homepage "https://github.com/bflad/tfproviderlint"
-  url "https://github.com/bflad/tfproviderlint/archive/v0.27.1.tar.gz"
-  sha256 "92bbef65ccc2a2947e5dc8e0cfdf20d0485dbf87a21fbc10c865ff25210fb6a8"
+  url "https://github.com/bflad/tfproviderlint/archive/v0.28.1.tar.gz"
+  sha256 "df66a164256ffbacbb260e445313c0666bb14ce4b8363f123903259ecc0f4eb5"
   license "MPL-2.0"
   head "https://github.com/bflad/tfproviderlint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3313965207d5d734a6bae3cf26ddfa13eacc242de91ba71d59c2df690f580f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f3313965207d5d734a6bae3cf26ddfa13eacc242de91ba71d59c2df690f580f"
-    sha256 cellar: :any_skip_relocation, monterey:       "dcfad98559f94d55cb3f7113336cbdd2891b96f66ebedab2ba75704116e6737f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dcfad98559f94d55cb3f7113336cbdd2891b96f66ebedab2ba75704116e6737f"
-    sha256 cellar: :any_skip_relocation, catalina:       "dcfad98559f94d55cb3f7113336cbdd2891b96f66ebedab2ba75704116e6737f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e5f0cb5c419b1af23d92730e866b56a7693a7871d2e591bad7826df914d87a8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed11a7f3ceed09f207dd9625c2c5d1209aad1c0669b08ea3a526ba01e75cc6d2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed11a7f3ceed09f207dd9625c2c5d1209aad1c0669b08ea3a526ba01e75cc6d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "2e0026ad21a957b1c081f57bcb8d288d25e1d87dc4a306a88574907922ffa6b5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e0026ad21a957b1c081f57bcb8d288d25e1d87dc4a306a88574907922ffa6b5"
+    sha256 cellar: :any_skip_relocation, catalina:       "2e0026ad21a957b1c081f57bcb8d288d25e1d87dc4a306a88574907922ffa6b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "454ab4aa8c42595a9e9d3a6cc3a3658f4d76f3cff47a2e0934cccb34a2f498fb"
   end
 
   depends_on "go" => [:build, :test]

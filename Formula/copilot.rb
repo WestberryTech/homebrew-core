@@ -4,8 +4,8 @@ class Copilot < Formula
   desc "CLI tool for Amazon ECS and AWS Fargate"
   homepage "https://aws.github.io/copilot-cli/"
   url "https://github.com/aws/copilot-cli.git",
-      tag:      "v1.13.0",
-      revision: "cdbd8f904790514c056f6745f8212fb9f8a4179f"
+      tag:      "v1.15.0",
+      revision: "62c9781146ccdc4941d1cf7338833d257af75aac"
   license "Apache-2.0"
   head "https://github.com/aws/copilot-cli.git", branch: "mainline"
 
@@ -15,13 +15,12 @@ class Copilot < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70e5e3bf4cf0a7442203d9bfe4e2bfc20d6c3a1c531b0a918ca297d438a8d153"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4560e82379e7974a9adef2b4d5f099832173fdb1f3723fdfef503f8a5b3066ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc2fe400f8753cb686e3ce44e36d295d5c71188f8c43a9fa9ea92fdb1737e824"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7cd6349a40f556d22160773d80e1a521b8be70a72f728fcbaaff9d09bd4e25b7"
-    sha256 cellar: :any_skip_relocation, catalina:       "c8dbb1307021b03b9f72cdc75109a162633d5e58b4e6fc8491968b5348ad5fe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9167fb1843d6331555af256f28d10413f393b153bf9c671f4ed9bbde265e451b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9b5ccaf69ca9665ad76f0854957d66e6881f81c94356345d913d3ff12a13505"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8575679877b0a41e85562da33eef6650fa4be5273d281fcd1ffc6f9841a95475"
+    sha256 cellar: :any_skip_relocation, monterey:       "665ac8b33882cd0eb91afa007bf47dca9f0f0a60b0db5c64f21f253baf0d827e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a0d715a2ce59f3ce53fbba8a1283aa26ab3af1a19ef885d35920a77062274ced"
+    sha256 cellar: :any_skip_relocation, catalina:       "81d47d6a6704b68a455a2dfa464ce1e00ca15df6e7300370745a45f393e4067e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e50c755638ae7f1034c5f06b002af083105b519ebdfecae67b11cd489fa86b23"
   end
 
   depends_on "go" => :build

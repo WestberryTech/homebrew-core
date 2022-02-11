@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.32.1.tar.gz"
-  sha256 "36665c49bd122f76560b89500c44aae5126edd53c8b57ae126af5e1dfd262ee0"
+  url "https://github.com/prometheus/prometheus/archive/v2.33.1.tar.gz"
+  sha256 "a3ec7bde701b0663e706c718ea58722544c4a3bbb902d89cf64d3b7f34523ad5"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d271c78f3275762c40d37c274091609081a97cf8e9b6aa12f64933dd77398944"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "298fca009f864df152b6be7115bab6d6cbec7c7ca9134813fddbc3f94135504d"
-    sha256 cellar: :any_skip_relocation, monterey:       "21d77a6ab7bab2be48468b4d7f48e92072fd945ceef672273f5cd83ed8c8ba0f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c1bd0c386daf6de30ffbdbaf4725857f53c033324558277cf8176a2784931fbf"
-    sha256 cellar: :any_skip_relocation, catalina:       "f80d7c53f08a3f1d9fd908708340d9cb362c181c873d28c759d26d91208d8d24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97edc1e8344f610aacc86dd6022f7db8fe23120546cf328676b01cc6a7f24008"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b937c31019a3bc68bc037e7ec13f0bd6fdd7e656e557234eb11a440ab1e8813c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca4aba895e28de88950474c5188ee244d8fb4b87532e272c28ee996d3ad05da9"
+    sha256 cellar: :any_skip_relocation, monterey:       "25add7764b9a365a6f9b73c96201d7c8fb93642a05c372956640c7b8a714d9a9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3af21cde5b8a34fd3b225efc7b31a0b2a1eb7c08c4346011cbafdb59e0d9f3f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "34d57fdadd30c61f2488a6e2ca0368cd73e82123c06ca55627b4dbf549ca4425"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "130a9318bdf6e2f528b7653d3ce5a82ac49556301587e592d481242740c7fb5f"
   end
 
   depends_on "go" => :build

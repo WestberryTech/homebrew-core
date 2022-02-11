@@ -2,18 +2,18 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/21/a5/4fa9454fbce20d2ddbffcecaac8621ea900fd7ff98d15983fda8b3a0d027/datasette-0.60.tar.gz"
-  sha256 "59e325aabd66340b83a5d48ffb37d14223a651ce6d2141810be1fa053b1adbbc"
+  url "https://files.pythonhosted.org/packages/26/b8/8e08fc3abed8fb9f88291b53b71b3b43d361800959219f3dab87c0fc8a3d/datasette-0.60.2.tar.gz"
+  sha256 "167b25d3c02f3fbeb98ed1fafc6d5f77e3089c4a415f17a80ea148cbadb52f93"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4c24c1f39a44c7b97f3845718ff37686b18692b5cf0f4c238f391f074438046"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2241a403146795583f7f8849b77ce66a8f83b629b7013ce3c2c69ef6287f878e"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2d27a4468810bf65cc17428ee019f9b4595a3f15a5e8c94397d2e27a332db10"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3936e2aa45adcd1ecb602178f9d9e4f1600c331d922438df07fb8d2c5af8ab37"
-    sha256 cellar: :any_skip_relocation, catalina:       "4c268c7d60146d91b1d7205604bc6deb59c95760bc641231a9301c7a84cfc393"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a6497dd34b80c28856a9cfc8ecea3ad24cc33b4ee58e6dded7555c7ea854ad1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9085f5b102e800c72388a4ae1ffd735ae839dbd79335fb5d9ac705d60b0994e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53eaf48637c6eae356d3802e4d75dea0c015a8a478a90587c42dd81accbeb39b"
+    sha256 cellar: :any_skip_relocation, monterey:       "2f35eae4a7246b644e274fcbe25555d9be2e0757e469283666e1913531753aef"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6855c202869db093f4202d76d9727e12e3f1113fb35e9c388390ceb224eb3123"
+    sha256 cellar: :any_skip_relocation, catalina:       "92639fc48ec336c5d90523dba6a06aa11c904b33b90ddbdfde313f50f9473ee7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de8fca7a838f6c7fc80a15378dccbc746f70a0f660864b63732a57bc7c32d451"
   end
 
   depends_on "python@3.10"
@@ -45,8 +45,8 @@ class Datasette < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/48/44/76b179e0d1afe6e6a91fd5661c284f60238987f3b42b676d141d01cd5b97/charset-normalizer-2.0.10.tar.gz"
-    sha256 "876d180e9d7432c5d1dfd4c5d26b72f099d503e8fcc0feb7532c9289be60fcbd"
+    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
+    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
   end
 
   resource "click" do
@@ -65,13 +65,13 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/61/bf/867a16c12621a77bcd884259baae89fcb88aedf9361ce8b1860cbb07d7f6/httpcore-0.14.4.tar.gz"
-    sha256 "d4305811f604d3c2e22869147392f134796976ff946c96a8cfba87f4e0171d83"
+    url "https://files.pythonhosted.org/packages/f2/46/2c1e32574749d38404c9380d5c0de3f6fba44ceea119cf1536f138e72784/httpcore-0.14.7.tar.gz"
+    sha256 "7503ec1c0f559066e7e39bc4003fd2ce023d01cf51793e3c173b864eb456ead1"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/89/b8/1f5ff09a44a2467f954220ccd849e0dc89b87927d690d49c0df69d183974/httpx-0.21.3.tar.gz"
-    sha256 "7a3eb67ef0b8abbd6d9402248ef2f84a76080fa1c839f8662e6eb385640e445a"
+    url "https://files.pythonhosted.org/packages/59/07/de30dd4bb26131bf34fe82bf721a392ff21e35bb2707ef8cbec954054a23/httpx-0.22.0.tar.gz"
+    sha256 "d8e778f76d9bbd46af49e7f062467e3157a5a3d2ae4876a4bbfd8a51ed9c9cb4"
   end
 
   resource "hupper" do
@@ -125,8 +125,8 @@ class Datasette < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "python-baseconv" do
@@ -160,8 +160,8 @@ class Datasette < Formula
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/b8/68/bdce2f0775162b3939991765588ae755796af6ecac4f5c3d020a92873dc6/uvicorn-0.16.0.tar.gz"
-    sha256 "eacb66afa65e0648fcbce5e746b135d09722231ffffc61883d4fac2b62fbea8d"
+    url "https://files.pythonhosted.org/packages/03/29/87b9741a98b735851001a0ef3c2c8583ebc61df9b235bd5e94f5f166fbbe/uvicorn-0.17.4.tar.gz"
+    sha256 "25850bbc86195a71a6477b3e4b3b7b4c861fb687fb96912972ce5324472b1011"
   end
 
   def install

@@ -3,8 +3,8 @@ class Artifactory < Formula
   homepage "https://www.jfrog.com/artifactory/"
   # v7 is available but does contain a number of pre-builts that need to be avoided.
   # Note that just using the source archive is not sufficient.
-  url "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/6.23.36/jfrog-artifactory-oss-6.23.36.zip"
-  sha256 "b35f2f21344ad1cf230ef61db3275b3b095725a26c367802ee7e2dee6d378ce3"
+  url "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/6.23.38/jfrog-artifactory-oss-6.23.38.zip"
+  sha256 "011adf902fed7f389b829fc715e39e467c7fec53d71795ca9b7e97fafcede45a"
   license "AGPL-3.0-or-later"
 
   livecheck do
@@ -13,7 +13,7 @@ class Artifactory < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9ff73d50b8c353dbc200539374793efbf83e07bf3081b7815a8e41a4b1294753"
+    sha256 cellar: :any_skip_relocation, all: "9f581321ef75ca75e7a207dcd1b4dd6f2890982b64e9bbcc74ebcab12546db0c"
   end
 
   depends_on "openjdk"

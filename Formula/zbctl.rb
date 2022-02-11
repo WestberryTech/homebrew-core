@@ -2,18 +2,18 @@ class Zbctl < Formula
   desc "Zeebe CLI client"
   homepage "https://docs.camunda.io/docs/apis-clients/cli-client/index/"
   url "https://github.com/camunda-cloud/zeebe.git",
-      tag:      "1.3.0",
-      revision: "0f15676b2838d5923907550f8f2f5df369906941"
+      tag:      "1.3.4",
+      revision: "eaebfb524a6ce9bd21670d17fd38d6ee7f1cc49e"
   license "Apache-2.0"
   head "https://github.com/camunda-cloud/zeebe.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7cb70bbf00f1b3032da1072827d41eb00333eb99387b8e7295131925ba9e325"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7cb70bbf00f1b3032da1072827d41eb00333eb99387b8e7295131925ba9e325"
-    sha256 cellar: :any_skip_relocation, monterey:       "13be1a4ba7be054cc187c980ab34a4892225302574538c7dc68a6f04b81c446d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "13be1a4ba7be054cc187c980ab34a4892225302574538c7dc68a6f04b81c446d"
-    sha256 cellar: :any_skip_relocation, catalina:       "13be1a4ba7be054cc187c980ab34a4892225302574538c7dc68a6f04b81c446d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96c0b7496b5d794d14dd2b65877164571ebaa5eeecea7092da1a6d5e7c3ff427"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3739bfa2931d53f991f9abc52d0b3c12ca4c459e17c634df19d692df780a0d51"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3739bfa2931d53f991f9abc52d0b3c12ca4c459e17c634df19d692df780a0d51"
+    sha256 cellar: :any_skip_relocation, monterey:       "a289534edef4e2da948bee894f9cb18efb682607da3ea7a1e3449d46944fab0e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a289534edef4e2da948bee894f9cb18efb682607da3ea7a1e3449d46944fab0e"
+    sha256 cellar: :any_skip_relocation, catalina:       "a289534edef4e2da948bee894f9cb18efb682607da3ea7a1e3449d46944fab0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6ff83198abf8a64855801d9c1f8e3e861e0347e74e9023252a1cf1af4975c71"
   end
 
   depends_on "go" => :build

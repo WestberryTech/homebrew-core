@@ -1,18 +1,17 @@
 class Bingrep < Formula
   desc "Greps through binaries from various OSs and architectures"
   homepage "https://github.com/m4b/bingrep"
-  url "https://github.com/m4b/bingrep/archive/v0.8.5.tar.gz"
-  sha256 "082119e776009b8cb2293b90b49386bfedf2fccaef95130c1f1e3454f6e74e55"
+  url "https://github.com/m4b/bingrep/archive/v0.9.1.tar.gz"
+  sha256 "25db3c1d3e8c8dc9a41c6b87199f320c79b1a2706e8a4f68d2590fce71dabf8a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ecf4ff1474429313f1234518441308205f0a344a018e0380dc36464bfe7b9a3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68702daacc07c6c76ac3f1588a8bf6714af26ee054acdbb01308a2382d53b3a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "50815594f499344c09bf09803b3aba698f1bc3effc1c028c800b5fa85baae8de"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a4024e1291282371002c7af0a35fcb55e929300b0b60a4b2f97dfd0755af396e"
-    sha256 cellar: :any_skip_relocation, catalina:       "bf59cab5aa3c7710fe2910aac21433ff8c10c4101b44df3669783d588178633f"
-    sha256 cellar: :any_skip_relocation, mojave:         "3fde029ce5bc7b15c715543091868082ffcdd8f1be4d661061b8256c0289dcba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b7e69c3e209fd5c7ed4b1918ac822740948462dced68587a87113b0a155293a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed7cfc283a7e589a22b0751e1c416500a59ce073f4d3577e41052d5c28a8d848"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c926b06c7d43b625a339c3088f72f965aec3a3f8428fc4a98f39d87b6c867d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "49ea632d7836a2c89456c0832daabc478268c6a0b321b4f41c8831b20401c725"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f48aa8ad89841d14d4693bdab7819cd77081473f9e4dee3d695e2bef84d94100"
+    sha256 cellar: :any_skip_relocation, catalina:       "d4f99329364718a9b25f71bae476860ada92d4ce378a67746d731df63748a0ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee4cfd308fc82bc518538dbaf2dbe0fea09fec0e965767088b1402f0fbbd9c84"
   end
 
   depends_on "rust" => :build

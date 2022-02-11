@@ -3,8 +3,8 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   # The build system uses git to recover version information
   url "https://github.com/EttusResearch/uhd.git",
-      tag:      "v4.1.0.4",
-      revision: "25d617cad7db69fa04699df5f93ece06b0a61199"
+      tag:      "v4.1.0.5",
+      revision: "6bd0be9cda5db97081e4f3ee3127c45eed21239c"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
@@ -14,12 +14,11 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "70594fad59c2faea1b522830123a22765740fc2ced86e2619ee7c83e70784529"
-    sha256 arm64_big_sur:  "4187dd90c18fa8709dc09087efc235f3fd21db604e082fce43c4d469aa789bc3"
-    sha256 monterey:       "dd58c2cfb90bce1ebdfc1f6af3757da33082124217506569b1469d63de2ce8e9"
-    sha256 big_sur:        "49bcc2c07aef5d7fa61702c3f52265b4d3557dba27a884784a1748c24ce2fafe"
-    sha256 catalina:       "a44e180043a677bfacbba30f7fffb4ecdf42359672cd5336689e44b57934301b"
-    sha256 mojave:         "30abc4dd1774370d969095ef735b05450785ac68b008cdde2e5d22fa634c65e6"
+    sha256 arm64_monterey: "189a96d00eafaf8bf4e91fad49eb7878a2825cb55c52313fbe9640def83d5906"
+    sha256 arm64_big_sur:  "4d43cc1da5488afcb6e05db8df948bccf42dd6c1c96a081a762e9bc9d2372350"
+    sha256 monterey:       "13c5c120c8574c980867c918772705ceb94ace679ce3cf69d1a4c3d10466555c"
+    sha256 big_sur:        "04db68b8d74125c3a8b6cfa24877671755f6a6770dbee94adaa7cb9cf7646759"
+    sha256 catalina:       "ded65b991342dd6e28ecf922cd3131f12fb106115a2986430092ad02a5213703"
   end
 
   depends_on "cmake" => :build
@@ -30,8 +29,8 @@ class Uhd < Formula
   depends_on "python@3.9"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/d1/42/ff293411e980debfc647be9306d89840c8b82ea24571b014f1a35b2ad80f/Mako-1.1.5.tar.gz"
-    sha256 "169fa52af22a91900d852e937400e79f535496191c63712e3b9fda5a9bed6fc3"
+    url "https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz"
+    sha256 "4e9e345a41924a954251b95b4b28e14a301145b544901332e658907a7464b6b2"
   end
 
   def install

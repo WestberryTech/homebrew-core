@@ -1,18 +1,18 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/v2022.01.17.00.tar.gz"
-  sha256 "15599efa59d87d63bcb672dea7ea24cf34102da6f68254368a442493843c985b"
+  url "https://github.com/facebook/fbthrift/archive/v2022.02.07.00.tar.gz"
+  sha256 "0e5fd6a491e6098f81e3cfff25e4d9ad77a14df6e6941427cbe623778b56ecc3"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "de3377d122b01c37dac6d0e490f44a3f3d435aad6aa3269dcd3a204d690b0f4e"
-    sha256 cellar: :any,                 arm64_big_sur:  "d476f5d9e84f411f636c4b9bfe478c5f223125e6db2e9a4d39720e31b07729cc"
-    sha256 cellar: :any,                 monterey:       "ed71ac84c714cffa7b227934f29aa2b0144f1aec1988fe282bd09c8aff2154fe"
-    sha256 cellar: :any,                 big_sur:        "7b799e8c8d3b055865c79944fea4e05b9d1b48ae9187af8ce0f76498af71c222"
-    sha256 cellar: :any,                 catalina:       "9739ddc87e3c585cf9b4cc39651082ec64d7a5aaf46fef793ba05a640b32af45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af3f8d7f93bdeba9469214e115f110df2e9591520ab2e89b693eae43bf5ea96a"
+    sha256 cellar: :any,                 arm64_monterey: "09e6463a17b56b13e0e1ef49f94ccd54de7a421e767dd7c80ed238f3524be6e8"
+    sha256 cellar: :any,                 arm64_big_sur:  "1365d58add760f11e222696f3acf93d6a71c49c859747922a7dc6a96499e2825"
+    sha256 cellar: :any,                 monterey:       "3763ad746768029a44db598116cd3d0ab9791384c200b9d73b52817decacf5de"
+    sha256 cellar: :any,                 big_sur:        "2c943128733b1000fe5004346f2f86e13689526b4376bd8363ac24851d74ba23"
+    sha256 cellar: :any,                 catalina:       "9396676e2b7826163301f9f9fcd1105dc473d151cec289e559f08fa9d3a1df18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a29c892289b5ec1d1b936e5fb8e40e72739747b8329d18f46697faf12beafe28"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -30,14 +30,27 @@ class Fbthrift < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
+  end
+
   on_linux do
     depends_on "gcc@10"
+  end
+
+  fails_with :clang do
+    build 1100
+    cause <<~EOS
+      error: 'asm goto' constructs are not supported yet
+    EOS
   end
 
   fails_with gcc: "5" # C++ 17
   fails_with gcc: "11" # https://github.com/facebook/folly#ubuntu-lts-centos-stream-fedora
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)

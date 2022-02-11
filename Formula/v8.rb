@@ -2,10 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  # revert back to GitHub mirror tar.gz archives once it's synced again
-  url "https://chromium.googlesource.com/v8/v8.git",
-      tag:      "9.7.106.18",
-      revision: "96e2674d6126c2ae64d44024aaa7968c853ac4a2"
+  url "https://github.com/v8/v8/archive/9.8.177.9.tar.gz"
+  sha256 "8d9c4bc813cba7ff5c04cc3fa2c2a5c03a88d1bfcb15411de6381c4b94749ed3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,12 +12,12 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "25e3694c5c27e0ca3d1338cd552bdd34efbbac7c77325d9b8f1968460f6b9577"
-    sha256 cellar: :any,                 arm64_big_sur:  "20bfa3e7f833a49f7c824e3704e1343f659413035972ec1d3298ddbc04a63552"
-    sha256 cellar: :any,                 monterey:       "877709c738c5351b7cfe1bdc7df67421d75677ac88bf54116ea87a41a726b442"
-    sha256 cellar: :any,                 big_sur:        "f509bba8b86ba47e498a3e897141a10bd836222c9babd293a5c11e449aeba82c"
-    sha256 cellar: :any,                 catalina:       "b8036825ab1586cc02c9fa3076d3fa2f082b7ddf65a7a06da7bd45bce856df25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "562a30ce305cdf6b8ec93db784dd612d4540ed080b0ba32e59a3477ce8c21f1f"
+    sha256 cellar: :any,                 arm64_monterey: "122e44b93947e782b559967cfbadcc422b0781bf2507f50b994ab7a629ad735f"
+    sha256 cellar: :any,                 arm64_big_sur:  "089ee12f91861229c1e117c7fbc902a0237615c8d0b28da0c5f926b7e37b3b48"
+    sha256 cellar: :any,                 monterey:       "62a923029fde245b3b18134bcb3dd1fc206914414a70f1e1b06d43557d252962"
+    sha256 cellar: :any,                 big_sur:        "c7b656b746303c9330c1cc4559d55a087984f6205c31e743758234ce14465f3e"
+    sha256 cellar: :any,                 catalina:       "6f9f77e5abb7f8506ca7abe4b064de66f1cde07c796fa29868936780fd75cf7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf2f6c1be0ed185db5401cb8c1bfdcf3508a7f5b1b028ecee5783d9d5272ca0e"
   end
 
   depends_on "ninja" => :build
@@ -39,13 +37,13 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#43
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#43
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "8926696a4186279489cc2b8d768533e61bba73d7"
+        revision: "fc295f3ac7ca4fe7acc6cb5fb052d22909ef3a8f"
   end
 
-  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.7.106.18/DEPS#84
+  # e.g.: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/9.8.177.9/DEPS#84
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "7f36dbc19d31e2aad895c60261ca8f726442bfbb"
@@ -53,17 +51,17 @@ class V8 < Formula
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "cf325916d58a194a935c26a56fcf6b525d1e2bf4"
+        revision: "9cfc74504f0c5093fe6799e70f15bded2423b5b4"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "16f637fbf4ffc3f7a01fa4eceb7906634565242f"
+        revision: "4c5650f68866e3c2e60361d5c4c95c6f335fb64b"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "eedbaf76e49d28465d9119b10c30b82906e606ff"
+        revision: "edf883ad2db9c723b058a6a17a146d68d6343143"
   end
 
   resource "v8/third_party/jinja2" do
@@ -78,7 +76,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "6da1d53b97c89b07e47714d88cab61f1ce003c68"
+        revision: "efd9399ae01364926be2a38946127fdf463480db"
   end
 
   def install
@@ -115,6 +113,7 @@ class V8 < Formula
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+      use_lld:                      false, # upstream use LLD but this leads to build failure on ARM
     }
 
     if OS.linux?

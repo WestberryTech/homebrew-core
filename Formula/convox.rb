@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.2.3.tar.gz"
-  sha256 "737057d18645dbd8d67e1c4923865ec2666b7a79e94049962c1b0cb3f91aa3ab"
+  url "https://github.com/convox/convox/archive/3.3.2.tar.gz"
+  sha256 "3466f069686ce15d4b82cb533521b64a8db2f9dd1f155f72b14010e8e159e656"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,12 +12,12 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "51963f7b2a9d1b737d6b5d6cdab3c0ecb58af9604a88f942d9e56c050a9731f3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b9446ad1a80457d90ca4089c156bcc3916562fb7e5d89868063101cce691d3b"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f72635447deff43e8157ea4afeb0747ba9de989bbc6b2cdd9ac2fbfc2bb8a75"
-    sha256 cellar: :any_skip_relocation, big_sur:        "52fabb38bf63d4d5d7a2b958cd7f116d540c79651e318074b3fe46a2c80c09ad"
-    sha256 cellar: :any_skip_relocation, catalina:       "47721bdc9832f9ad382829173cf71a33bd572febe2391ca3d4fe6005d2c6ccce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f380f08cf12bca7b9acef7a01a99d59aa4b633d2d33d19ea5aec0ae3c92c9a52"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "496dcef3b825678fbb35198d80547a79325165b6c031ad5aa0e06f1b2a1369b2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53030d90e145cb50b266cbf570c3a7d22e3775ccf7ad682e388328bbcdce74b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "d35b94a80905b13ae40cad8b0a26035b5f6c521eddb348237315622a74d02c3a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "fcf5f5ef94b20eae90ff57eeb0fed2aa037e88962be9d352120c846b4f3730f6"
+    sha256 cellar: :any_skip_relocation, catalina:       "2c96b27e474fc9bd3c4b4841a0594c12f55193ae7bbb2e024d2ad4d420884ab5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d6df7a9a909b10dd64367c288e87bced94ea24961c3c130c058e9b152a9e4e"
   end
 
   depends_on "go" => :build
@@ -35,7 +35,7 @@ class Convox < Formula
       -X main.version=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/convox"
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: ldflags), "./cmd/convox"
   end
 
   test do

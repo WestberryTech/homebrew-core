@@ -1,8 +1,8 @@
 class PkgConfigWrapper < Formula
   desc "Easier way to include C code in your Go program"
   homepage "https://github.com/influxdata/pkg-config"
-  url "https://github.com/influxdata/pkg-config/archive/v0.2.10.tar.gz"
-  sha256 "460b389eeccf5e2e073ba3c77c04e19181e25e67e55891c75d6a46de811f60ce"
+  url "https://github.com/influxdata/pkg-config/archive/v0.2.12.tar.gz"
+  sha256 "23b2ed6a2f04d42906f5a8c28c8d681d03d47a1c32435b5df008adac5b935f1a"
   license "MIT"
   head "https://github.com/influxdata/pkg-config.git", branch: "master"
 
@@ -12,12 +12,12 @@ class PkgConfigWrapper < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "642ccc08ee3a39471daa2b1e7f926cee5d173821878bc77d9e298b9c0108b89e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1caaf30307c75b18e9434b8d28b1fa877825a0332192d6b5e555bc6338cbc700"
-    sha256 cellar: :any_skip_relocation, monterey:       "603f840c5a006edaac162f6abc8168683ceae3052e1ffff51a02c67dd0f36f2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a2f979b30b1624461c21b86171e8bb51b2fd944ef50a457c86bc413ba8e215c4"
-    sha256 cellar: :any_skip_relocation, catalina:       "aeb1e7c82bd5e1170fe21c233014efbff92de419207d802d2a919a0d6571d937"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4e9b4ed125406142cc2959c7f05132dd6d103829999fc7f69e43dd093e7eb50"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73e0e3154ccc02d0fccf377426069944d80b112e671471ea93ab852001b3cf45"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0859f0c9900ff75118937dfb5fb4c819ea946cf85b28c26e00ed17471688da2b"
+    sha256 cellar: :any_skip_relocation, monterey:       "dfaba417b6359e63e6a16426f0cbf3368ed111294dadfd63f9b89435c2612003"
+    sha256 cellar: :any_skip_relocation, big_sur:        "68d05c1c5e5310b4bd7a68d6aaad6cedf9190935a47513be58dd85e06909a556"
+    sha256 cellar: :any_skip_relocation, catalina:       "d1a3561a851957ec62856bc5a1407501976c48fe54ef290abe102a3d357207d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61e696135462df386455fd1d33703e5a96f0830eaaee28cc7932c8cd4d93c2f6"
   end
 
   depends_on "go" => :build

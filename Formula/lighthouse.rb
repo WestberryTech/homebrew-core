@@ -1,23 +1,27 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://github.com/sigp/lighthouse"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "b1ae766c0b335e963d7ebd6ab2a02386078a6b2ab688ec5da3604191a4d0d3f4"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v2.1.2.tar.gz"
+  sha256 "53db198ceba81229ec2a7b44e48e20cb211c178d5026c4856636ef97ce5b5834"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e76be0c60e372502f6196e737e2b6bb95338177348c81e448c388f198409cb26"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da72ca40074a9b9fe1c8f6a27e124c8d4cfc9e8d615c946dc52f776bc500cc66"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e3f8a78d2fa3b30686c71e3831c016e390673eb6489ce91ccaae656bed60698"
-    sha256 cellar: :any_skip_relocation, big_sur:        "175904ad8f7c5f407c34168afb001a2ab15ca490d71f70416487073c00c35dde"
-    sha256 cellar: :any_skip_relocation, catalina:       "a97b97e0526557df5640632f1a17bff99d693d6ea307890f8efbbe49bedb1888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acec2b6e051ee53d9837d47c71b6c0428328e1b35779996fd1b3c1fe5939a372"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2834155e6520c697b58a27da27f7cf2729c301832df1b087ee328068a2ca066"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "15a3e92173a3b262e282225caefe3db8e20cc8db2c0f391657b4c3ec545607d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "96beb6c6e3d17685025065307cbd9b21926e0a99312232b580658cdf41be8744"
+    sha256 cellar: :any_skip_relocation, big_sur:        "52384ced9451f10e2658b179e71a11f0586d8987499d889731c14151b49a88fb"
+    sha256 cellar: :any_skip_relocation, catalina:       "182aa62fb0196a285e7600358fe29b59faedba54c5427f21f4cb97884c3fd90e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebf23495555201d5a998fdf0ee2712e3d564d4c94affe1312d17cf6c2d303455"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "llvm" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "./lighthouse")

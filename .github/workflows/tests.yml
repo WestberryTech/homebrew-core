@@ -28,7 +28,6 @@ jobs:
       testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
       added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
       deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
-      long_pr_count: ${{ steps.count_long_timeout_prs.outputs.count }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -54,18 +53,6 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
-      - name: Show GraphQL Query Response Headers
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          QUERY='query{ repository(owner:\"Homebrew\", name:\"homebrew-core\") { pullRequests(last: 100, states: OPEN, labels: [\"CI-long-timeout\"]) { totalCount } } }'
-          curl \
-            --include \
-            --header 'Content-Type: application/json' \
-            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-            --request POST \
-            --data "{ \"query\": \"$QUERY\" }" \
-            https://api.github.com/graphql
-
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
@@ -126,7 +113,7 @@ jobs:
                     label: 'CI-long-timeout'
                   }
                 )
-                long_pr_count = response.data.repository.pullRequests.totalCount
+                long_pr_count = response.repository.pullRequests.totalCount
               } catch (error) {
                 // The GitHub API query errored, so fail open and assume 0 long PRs.
                 long_pr_count = 0
@@ -203,10 +190,11 @@ jobs:
           - runner: ${{needs.setup_tests.outputs.linux-runner}}
             container: ${{fromJson(needs.setup_tests.outputs.container)}}
             workdir: /github/home
+            timeout: 4320
       fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
     runs-on: ${{matrix.runner}}
     container: ${{matrix.container}}
-    timeout-minutes: ${{ (matrix.runner == 'ubuntu-latest' && 360) || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
+    timeout-minutes: ${{ matrix.timeout || fromJson(needs.setup_tests.outputs.timeout-minutes) }}
     defaults:
       run:
         shell: /bin/bash -e {0}
@@ -244,6 +232,18 @@ jobs:
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
+      - name: Output brew linkage result
+        if: always()
+        run: |
+          cat bottles/linkage_output.txt
+          rm bottles/linkage_output.txt
+
+      - name: Output brew bottle result
+        if: always()
+        run: |
+          cat bottles/bottle_output.txt
+          rm bottles/bottle_output.txt
+
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: ${{fromJson(needs.setup_tests.outputs.test-dependents)}}
         run: |
@@ -257,20 +257,8 @@ jobs:
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
-      - name: Output brew linkage result
-        if: always()
-        run: |
-          cat bottles/linkage_output.txt
-          rm bottles/linkage_output.txt
-
-      - name: Output brew bottle result
-        if: always()
-        run: |
-          cat bottles/bottle_output.txt
-          rm bottles/bottle_output.txt
-
       - name: Upload logs
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@main
         with:
           name: logs-${{ matrix.runner }}

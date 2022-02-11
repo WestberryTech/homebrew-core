@@ -1,11 +1,10 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-project-13.0.0.src.tar.xz"
-  sha256 "6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.1/llvm-project-13.0.1.src.tar.xz"
+  sha256 "326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -14,12 +13,12 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a21be708a48d08a6516a7f97529923020ba8ba90bd96a41f3e0c3926633938fe"
-    sha256 cellar: :any,                 arm64_big_sur:  "4d997ba6b45d7304cbe34e3ab445afb2833f9814df9b2346d3af86ac5b3111ea"
-    sha256 cellar: :any,                 monterey:       "73cb83d7aab6d1781eb6e337386935090e80b22bb1086581a107deb495c68df8"
-    sha256 cellar: :any,                 big_sur:        "290c6b4fe4faef9fa8902e24bd1c3df76def38f97d404ca148eb8fb79fe36f59"
-    sha256 cellar: :any,                 catalina:       "95b9200c66bf15afa9bb4bfd57f3ea8d31f8646754d1ab4e42c224ecf063ddd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4a9f80cc2318943e7526808506203ee104af83682e447be00c69243643401c9"
+    sha256 cellar: :any,                 arm64_monterey: "477c5a7aecc0e9d4ae46b0d91a543ff05bfc8dd9425c0164b18b459d58c4f22e"
+    sha256 cellar: :any,                 arm64_big_sur:  "517ca3d47badf7b9f04b3d5f1631a4ec17ff1287a530135b8d1dd4595641b9ed"
+    sha256 cellar: :any,                 monterey:       "975fb76591ea79464eecd4c5aa59a5d02a1191896be2c4c0234fe2947939065f"
+    sha256 cellar: :any,                 big_sur:        "e3ca3e4eef575642d3ee42ae39469967038ee9bc60c4a9b7051518cf365f8541"
+    sha256 cellar: :any,                 catalina:       "d083573fafec26a47b61d23452b552c6598668abf841f4f9a5f21cc68b98d451"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adbd65a1289ce19fef13c039d1424bc789e9b2cce6c2f5a1241eebeeb00501a7"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -129,18 +128,19 @@ class Llvm < Formula
 
     # gcc-5 fails at building compiler-rt. Enable PGO
     # build on Linux when we switch to Ubuntu 18.04.
-    pgo_build = false
-    if OS.mac?
+    pgo_build = if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
       args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
 
-      # Skip the PGO build on HEAD installs or non-bottle source builds
-      pgo_build = build.stable? && build.bottle?
-    end
+      # Apple does this for the components of LLVM they ship
+      args << "-DLLVM_INSTALL_BINUTILS_SYMLINKS=ON"
+      args << "-DLLVM_INSTALL_CCTOOLS_SYMLINKS=ON"
 
-    if OS.linux?
+      # Skip the PGO build on HEAD installs or non-bottle source builds
+      build.stable? && build.bottle?
+    else
       ENV.append "CXXFLAGS", "-fpermissive -Wno-free-nonheap-object"
       ENV.append "CFLAGS", "-fpermissive -Wno-free-nonheap-object"
 
@@ -172,6 +172,8 @@ class Llvm < Formula
 
       # Prevent compiler-rt from building i386 targets, as this is not portable.
       args << "-DBUILTINS_CMAKE_ARGS=-DCOMPILER_RT_DEFAULT_TARGET_ONLY=ON"
+
+      false
     end
 
     llvmpath = buildpath/"llvm"

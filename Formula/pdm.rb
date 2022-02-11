@@ -3,18 +3,18 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/34/0b/c58cc3ecd971a809dd39513c7f5fbd915bbb1e3eaffead26d15c66beddf6/pdm-1.12.6.tar.gz"
-  sha256 "3172844768a353edb23e7b01147d1cbbf8631c8e2e36dfbe02a8201f9ae19da5"
+  url "https://files.pythonhosted.org/packages/b6/08/5225df8919caea6939a6c2cc6608e25bfb16d5f7bb181096487f87385bfc/pdm-1.12.8.tar.gz"
+  sha256 "760f83289d208ddb01d4b58f0087ad2943f937f17dff454e35129d779133a490"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fdbddd045f1d6448f721c20fd0a593e0ff864d5e21e27625156cb148bc5843f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14651f19983354e0a75896b5b8c84a4411ea9679ed425a7cd6da5a981638fb48"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1f80836b78ffae8a67449a0108e37e4bf2a46949227ad8229fc4938860080d3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb5b221b944ecaa6aba42f4309f8bda79c6d4ab05d6ae56186c3e28b121aec4e"
-    sha256 cellar: :any_skip_relocation, catalina:       "e610488fe6690322a7d0f822d117b1ad2af62e2abc5b160e605e9ca101be2861"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "375c9fac286f7fedcd373dc850255acc5207f7690bad1b88fb784e1ee06df4d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c570d7986432b6c2ea7b2c80c6080d6f94ec9ae18adaa5c66b31505c9ee3e831"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cbd1145a5693111a5f645f5dd3acab6587b6ef1c2667cea4b814f0ecf7e80138"
+    sha256 cellar: :any_skip_relocation, monterey:       "f5fb05073fe5973a57c60372fa378efdcf5d0de9626cff9c68e2b38869f26761"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df0839e7ad8284a4f674335d020bd7f5d7d134a44f9254f57ac55f62c177c9dd"
+    sha256 cellar: :any_skip_relocation, catalina:       "e8d5d94a147f3353a16a16df8915f83932967c932ec5e7c1534a952f9fdc9a3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ee7ee15214a9d0912999d7c7f7880c7c9d57ec57e70d87161d020db01005325"
   end
 
   depends_on "python@3.10"
@@ -51,8 +51,8 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/dd/7c/ac07ce6293258f1d186bc85d686984565c0c8ffbd249faa0855cb5d50a52/pdm-pep517-0.9.4.tar.gz"
-    sha256 "da8d85baebd2e4f5bbba1c65dc41813fbe4267775cca33e8ba0d64d22ae5e757"
+    url "https://files.pythonhosted.org/packages/78/b0/797847bec485f269e12780839d73a4f60cf8c85ffda32f4f1d092ff8d64d/pdm-pep517-0.10.2.tar.gz"
+    sha256 "83bb71a7588df69ea0d77dc6524741c3a1af54ad5f421341428de648bfc03a29"
   end
 
   resource "pep517" do
@@ -66,8 +66,8 @@ class Pdm < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "python-dotenv" do
@@ -96,8 +96,8 @@ class Pdm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/0f/96/ee6ba35c61186fbf084cb3077374d50eef36ab59cb8c6513317caa190935/tomlkit-0.8.0.tar.gz"
-    sha256 "29e84a855712dfe0e88a48f6d05c21118dbafb283bb2eed614d46f80deb8e9a1"
+    url "https://files.pythonhosted.org/packages/ba/ce/b140a544f834a1789c0c05be42327e71980b1a36318fc8bed932daee219e/tomlkit-0.9.0.tar.gz"
+    sha256 "5a83672c565f78f5fc8f1e44e5f2726446cc6b765113efd21d03e9331747d9ab"
   end
 
   resource "wheel" do

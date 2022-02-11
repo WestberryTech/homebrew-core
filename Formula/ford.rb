@@ -3,18 +3,18 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/e0/1c/5d81ac365a32d2865dfcda360f5d739ce6f7d98255616a77ad55b930ba03/FORD-6.1.6.tar.gz"
-  sha256 "c286206e6ce8c12f2e00f6c73e3b76dae830dce7b5b6f52a54512585fcfae12a"
+  url "https://files.pythonhosted.org/packages/48/b9/bc941c3a50a8c1d876a74587c60b4ff2767e755bae9a65a13036ec000edf/FORD-6.1.8.tar.gz"
+  sha256 "64535c50f57a0630b642e125f046e74f3603d6d7d2813aed8b5ee46fbbe4f33c"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf5bea9fcd0f6440d4e966fa979c031e1529468432cbf1133115ca164c616a7d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3a897fc8a7e10303c91c641e19cce8bd8a81d0dea05d4354e6c4cff3ba54f9e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "05a5c745c12a57f73d9a5bbcc8e1bde76284ba1c6328b9049e1b57322dc31fad"
-    sha256 cellar: :any_skip_relocation, big_sur:        "acaa3b0927a9d0edcb656752cc081e4e74a917c46b052879233e7323390041fe"
-    sha256 cellar: :any_skip_relocation, catalina:       "d4b9d778d2b4a4e1ecfc2957ce06c888a34c5ecdaa23bd262a42f21bc9f999a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58e51945664270c6182cbc0ee8fbacb78d4750c573db1b29885de956dbc03d42"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fad06f29e46424c8aa3b02691872289001d1e99f729fc9c5801af7ba9783b731"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e5e311c13deea954efc29b96c4dc475d6cf3e67ea6fa7da9e867e04e41d32122"
+    sha256 cellar: :any_skip_relocation, monterey:       "38c6324ac3e7391a7660f12430600dc2c55d7bc4bad5f6682e5f2d7e93c6d37a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "282cae1638f5e448644fd8f0d2fd2511f2794fac8275bc6d8ac0e2c899c3e204"
+    sha256 cellar: :any_skip_relocation, catalina:       "719b5f0b723d6b83117becd007094aaeb92b7a4f669967dffcd6872b49ebca60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47e7c273e058e55a77d86d3bdcdc683f070a83693f97f234bca62eb5c10df5cc"
   end
 
   depends_on "graphviz"
@@ -91,7 +91,7 @@ class Ford < Formula
   def install
     virtualenv_install_with_resources
     doc.install "2008standard.pdf", "2003standard.pdf"
-    pkgshare.install "example-project-file.md"
+    pkgshare.install "example/example-project-file.md"
   end
 
   test do

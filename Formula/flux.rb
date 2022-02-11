@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.149.0",
-      revision: "e401eeca8585c09974e33b6f3c0c0aa2475a8b97"
+      tag:      "v0.154.0",
+      revision: "ee80d230d11c5da9d50b8fa58951d4c61cfc3a8c"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Flux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "44b504f0aa654248e1e9730a6211dcff24ad5021b1135b334cb97e678cac5a52"
-    sha256 cellar: :any,                 arm64_big_sur:  "708b41d45c281bde4578b4b07d331ba23160df38b5d81322218becd92ca81c7f"
-    sha256 cellar: :any,                 monterey:       "fc5c078b8444af4353fdbe8c99d56fe2c9caf5f3e3a3c33f530693eb086cc972"
-    sha256 cellar: :any,                 big_sur:        "639114648895c56b50f326e048b6794b16cc57c35bdd070f79a9b2be2923e833"
-    sha256 cellar: :any,                 catalina:       "73020be911539187e2f84c167b38c09883cf1a9d2b7f00723d66700d705db400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50d1bfae5c53b704d33c38860246b5d8d94041a8fa0ab0d9ea56e64d7eec5f37"
+    sha256 cellar: :any,                 arm64_monterey: "83bba760cc85fa70878e7e25203f33465c633525b9c584a86099030332eef1e5"
+    sha256 cellar: :any,                 arm64_big_sur:  "06777ebb17298dd64c7aed1de40bc2e07989cfcbd953337ac926e4fe2107b2d7"
+    sha256 cellar: :any,                 monterey:       "7953740a15e603f7a2c01424f910b02c7cf7ac3d0b136cbceff5652908d75c7f"
+    sha256 cellar: :any,                 big_sur:        "ea191b7b2f623da5d242fa155c0708abdcab5467bca46f47fbae7e12fcdcb665"
+    sha256 cellar: :any,                 catalina:       "8e5f53edba84354b4410f104e0c5a8b660704832ca0bfcd1d864070c6b42303c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fc654622ca22a53c7a16b31ae193575978cd3e83c984cd9817ab447c5a140db"
   end
 
   depends_on "go" => :build
@@ -31,8 +31,8 @@ class Flux < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/v0.2.10.tar.gz"
-    sha256 "460b389eeccf5e2e073ba3c77c04e19181e25e67e55891c75d6a46de811f60ce"
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.11.tar.gz"
+    sha256 "52b22c151163dfb051fd44e7d103fc4cde6ae8ff852ffc13adeef19d21c36682"
   end
 
   def install

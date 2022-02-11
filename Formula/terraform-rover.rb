@@ -2,29 +2,22 @@ require "language/node"
 class TerraformRover < Formula
   desc "Terraform Visualizer"
   homepage "https://github.com/im2nguyen/rover"
-  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.2.2.tar.gz"
-  sha256 "91dc4ff26e0adafde011db1e6111a8a3c545cddbae1a70c8f4c3abc484b0be0b"
+  url "https://github.com/im2nguyen/rover/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "8d880bdd2a4f0c6817c71d5da4e22c5ba5dafa2cec712101950fce530f20ea12"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3412ce96504fca6f97e7d041c06ea24a83969e03e0a5881b17196821c9a4d14e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4cb3a9c5cc5f962b6cba348de4223ed38d43447ab7d7b1e307de00aa8c83154f"
-    sha256 cellar: :any_skip_relocation, monterey:       "0e6f0533ac17e4171553c1c3451beef2efe7520cabe2e79738312fa2dcdeab0b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57d45f46ff3c9a782680138a46ce2de96e784f40492dda446f3181d6279c969b"
-    sha256 cellar: :any_skip_relocation, catalina:       "37d1af5fad6d3192ba56c1b6ae2b8c0da9f20b96d3f0c09a840d00bd5ef80095"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2186246152a9c36aaf4cbdb54b51ad37bceedca3e268131df54c06e053a43ac5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eb9869e672b22066b7c186dedb0393ba18594cf891d7ff13243613ed8958b6c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdfa617e5a3e4a14b1c5f6a89df7a00d9245915ac06c09ad9ae648f32d8a5920"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cecc4597bd5e26dbf4a4d54727c9ec38fe4e2ac370d0ced7b5bed0d21b2189a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "bf582669d5812b7653e54a21d557262f9f59adf25979bfe7129c196d9296df9f"
+    sha256 cellar: :any_skip_relocation, catalina:       "cda8e2eda157753545a3fe8e23e62edae429d909176f127cdc13a60d297bf329"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18de38ac4aa78e17a731f9914457d52d863fc7c8fd3a9b87627da96d5be9591c"
   end
 
   depends_on "go" => :build
   depends_on "node"
   depends_on "terraform"
-
-  # Update terraform components, remove in next version
-  patch do
-    url "https://github.com/im2nguyen/rover/commit/a2a1e57ffcbedcc9a8d39c2696d4cee84eec8cd6.patch?full_index=1"
-    sha256 "d085834625def68e9ebaaee89a6d077fba12220df5347529412f82c9cc69d7cd"
-  end
 
   def install
     Language::Node.setup_npm_environment

@@ -2,8 +2,8 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      tag:      "v6.2.1",
-      revision: "8cedc5f3a9ef5e18d6da248bef6b5d576674cf16"
+      tag:      "v6.3.3",
+      revision: "24b4ba1679005009200ae89a198bf40c4e11d37b"
   license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Mmctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1194acb3c5be0384b5cb1c2e0cbf37ccd2efaed98d0b4720b4baadd70bfae8e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "accec2d33981741829462cab55fdd5b32de83fba784cdb79ef5ea0581836c223"
-    sha256 cellar: :any_skip_relocation, monterey:       "f16b981809cb5f2c7ab06b9727cb8790cc427747c6df0714583a53b4cf6d9aae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f0866a67a2229164629ca8cf8e790d5e3810e4d05cd9efbc8969827758bbe3a"
-    sha256 cellar: :any_skip_relocation, catalina:       "6c9bb75ead7ed7bb117d89eca0af51c9144a466159514d383e8811d3b606beb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "878436336bbfb975e136e5d280742b549fdec6130cf86bb5e2d7c39688453812"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfb6a19df676636d5680e010618f5b587ae99a5ec1586e4d96aaf3303698c3d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "662eeac5eea909fdd1f3d22677b5fe5b670ddec214645e78ab9c2b8a4e7320df"
+    sha256 cellar: :any_skip_relocation, monterey:       "d22b6f26fa5746e77bf9e119206b66e4ef5603e55c482e355ea531f066115143"
+    sha256 cellar: :any_skip_relocation, big_sur:        "54b8d762b967944d2d5a52f6f6452cda14991f46062e241cae168413b43bcdbe"
+    sha256 cellar: :any_skip_relocation, catalina:       "42fc22365fc99b1052a345b4a1af6a358cbdf73ca15e5b5f1c287dcdd2bbf957"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "133ae113e091f2e29a8629e701c36a6222b9d8436374492635732828d81c9801"
   end
 
   depends_on "go" => :build

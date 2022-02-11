@@ -1,17 +1,16 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.6.tar.gz"
-  sha256 "b60df3ac93b943eb14377019445533b5c451fffd6b1df86187b1b9ac7d6dba6b"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.7.tar.gz"
+  sha256 "657f8ccb5d51323c55ba64fa91da2e5ddb7326189b648f60f5e7323ddc21c42f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_monterey: "b418bafc1442c5f28c8d333f8aa282f7371037a2d4bce1bd901756ab66c8cf3d"
-    sha256 cellar: :any, arm64_big_sur:  "c69e79e50663066064bfa257dffe0043740738ddbe3460e50f4ea66e4ca4ea20"
-    sha256 cellar: :any, monterey:       "7d6e9e6e96983ea03c155cfaa9869d7416d7aebba685837dece49008675b4419"
-    sha256 cellar: :any, big_sur:        "f075e4e91d443eabf19305df8fec19004711dca462bc6f2302c2760cc3a7aeee"
-    sha256 cellar: :any, catalina:       "542ad9e876724b948bd66956316fcffb42b97c3deaec8a26689e5f4bc285a703"
+    sha256 cellar: :any, arm64_monterey: "026a359f528fd8595fb2f7de001dee78f68fddcffd310d3b370afb8752ae07c7"
+    sha256 cellar: :any, arm64_big_sur:  "9025529b512bf776b237071a321d8bf6c5a49984842fd9e52f05465060aa023a"
+    sha256 cellar: :any, monterey:       "de840658d17ffb4a822c3294e7544439cae0e673855ed5e163fc66819e15ffdf"
+    sha256 cellar: :any, big_sur:        "e9ac3922ef255656ae6ccf14856788788a56f30b4b998e48daefdb3d80a8edcb"
+    sha256 cellar: :any, catalina:       "b55955c3522410d2d8b10add00f6cd4f690f2164db784be9e485fdd57f0d32d4"
   end
 
   depends_on "cmake" => :build
@@ -19,6 +18,7 @@ class MoltenVk < Formula
   depends_on xcode: ["11.7", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
+  depends_on :macos # Linux does not have a Metal implementation. Not implied by the line above.
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
@@ -32,37 +32,37 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "8c1c27d5a9b9de8a17f500053bd08c7ca6bba19c"
+        revision: "1dace16d8044758d32736eb59802d171970e9448"
   end
 
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "7c3cb0b12c9965497b08403c82ac1b82846fa7be"
+        revision: "131278458ea8eebe6a6e9c476fbcf71278726e1a"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        revision: "c9706bdda0ac22b9856f1aa8261e5b9e15cd20c5"
+        revision: "2742e959347ae2fac58acd0d022c92a0ff1f24bf"
   end
 
   resource "SPIRV-Tools" do
-    # External/glslang/known_good.json
+    # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "21e3f681e2004590c7865bc8c0195a4ab8e66c88"
+        revision: "45dd184c790d6bfc78a5a74a10c37e888b1823fa"
   end
 
   resource "SPIRV-Headers" do
-    # External/glslang/known_good.json
+    # known_good.json in the glslang repository
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "814e728b30ddd0f4509233099a3ad96fd4318c07"
+        revision: "b42ba6d92faf6b4938e6f22ddd186dbdacc98d78"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "691252756218fcbd1f0f8d7cc14e753123f08940"
+        revision: "bb32aa13d4920261b5086219028ef329605d0126"
   end
 
   def install

@@ -2,27 +2,26 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.57.0-src.tar.gz"
-    sha256 "3546f9c3b91b1f8b8efd26c94d6b50312c08210397b4072ed2748e2bd4445c1a"
+    url "https://static.rust-lang.org/dist/rustc-1.58.1-src.tar.gz"
+    sha256 "a839afdd3625d6f3f3c4c10b79813675d1775c460d14be1feaf33a6c829c07c7"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.58",
-          revision: "b2e52d7cab0a286ee9fcc0c17510b1e72fcb53eb"
+          tag:      "0.59.0",
+          revision: "7f08ace4f1305de7f3b1b0e2f765911957226bd4"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "7095ffb01f86d72954b4d97d0af33cd1920048e523145d02639c39e8d545ded3"
-    sha256 cellar: :any,                 arm64_big_sur:  "8a33101af33e589d2a579aba3a783a7ff3849e0a3d38938113c6dd36e7d01887"
-    sha256 cellar: :any,                 monterey:       "2612f8b7a49c5e7dc1e53b03c7c1e5e77ad38f945859990900e969f17792bb37"
-    sha256 cellar: :any,                 big_sur:        "1cb2b2e0d6e6b642335872ed10c331db90220bf48bcdd6ad5a0c3986af0732d4"
-    sha256 cellar: :any,                 catalina:       "d7c3f7ee469f28e7fc56faf3687102835752dee4e57376d33148ab19af8fe681"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6db491a43bf4b2fde54e080166f9ac7953967d42d98848656d8ccdec774b304"
+    sha256 cellar: :any,                 arm64_monterey: "b5654c7867cd277e4834a6e313c519efe4296a0a6883cb0a876e1c89d2b3755a"
+    sha256 cellar: :any,                 arm64_big_sur:  "6c7c2f297e7e0dcdbeba542168db942bb524885a2e51221891ad69a53988b36f"
+    sha256 cellar: :any,                 monterey:       "04abe4382d060f10d838cb51ab3161d1604c6eafe1c599d4853c2414a92fe675"
+    sha256 cellar: :any,                 big_sur:        "bd4de413f945477bb9f976e747201987545c4940d286418594c1c5f912ecfcea"
+    sha256 cellar: :any,                 catalina:       "e62ad24822a95bc4d5c10c02d2f4b49ee39abc100d04f1b977abfd927b3d3fd2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fdc8c022fc3d2429be936163e5e760b4af5c084635246560126f8296e8653db"
   end
 
   head do
@@ -47,18 +46,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-aarch64-apple-darwin.tar.gz"
-        sha256 "6ed30275214e956ee10b03db87b0b4297948fd102d39896cece01669555047ef"
+        url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-aarch64-apple-darwin.tar.gz"
+        sha256 "2171ecf2c18fadd90588252aa294272aeb740f065772076ef36d04b1b4bfcc4e"
       else
-        url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-apple-darwin.tar.gz"
-        sha256 "cd60c32d0bb0ed59508df96bebb83cf6f85accb9908fb5d63ca95c983a190cf3"
+        url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-x86_64-apple-darwin.tar.gz"
+        sha256 "26129f0e3ecd42e730f62d9c693e1a89aedfe6b7c8108cf970b2f1ed51900fb8"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
-      url "https://static.rust-lang.org/dist/2021-11-01/cargo-1.56.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c896c033bb1f430c4e200ae8af0f74d792e4909a458086b9597f076e1dcc2ab2"
+      url "https://static.rust-lang.org/dist/2021-12-02/cargo-1.57.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2b341034e4c30bede47a432751935549a28e40b566a1fd4b59c824ccd0a26ff6"
     end
   end
 
@@ -124,8 +123,7 @@ class Rust < Formula
     system "#{bin}/rustc", "hello.rs"
     assert_equal "Hello World!\n", `./hello`
     system "#{bin}/cargo", "new", "hello_world", "--bin"
-    assert_equal "Hello, world!",
-                 (testpath/"hello_world").cd { `#{bin}/cargo run`.split("\n").last }
+    assert_equal "Hello, world!", cd("hello_world") { shell_output("#{bin}/cargo run").split("\n").last }
   end
 end
 
@@ -136,10 +134,10 @@ __END__
 
  [[package]]
  name = "compiler_builtins"
--version = "0.1.49"
+-version = "0.1.53"
 +version = "0.1.55"
  source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "20b1438ef42c655665a8ab2c1c6d605a305f031d38d9be689ddfef41a20f3aa2"
+-checksum = "2467ff455350a4df7d02f1ed1449d0279605a763de5d586dcf6aa7d732508bcb"
 +checksum = "c9ac60765140c97aaf531dae151a287646b0805ec725805da9e2a3ee31cd501c"
  dependencies = [
   "cc",

@@ -2,17 +2,17 @@ class SqliteUtils < Formula
   include Language::Python::Virtualenv
   desc "CLI utility for manipulating SQLite databases"
   homepage "https://sqlite-utils.datasette.io/"
-  url "https://files.pythonhosted.org/packages/d1/23/58949f93716d19490f2a0810fca2cbd8eadea1564688f8a3a413df8ac7a7/sqlite-utils-3.22.tar.gz"
-  sha256 "24803ea4d63e2123d2040db2da43fea95fabada80e1af1fe1da69643ae376689"
+  url "https://files.pythonhosted.org/packages/88/ca/721f4b48498b3b7af2127ab07be0b7ab662de1ba24121c4c32292b0a847d/sqlite-utils-3.23.tar.gz"
+  sha256 "04d94e3ff8160c4461e11ced879ce37a0847afba33c8019e449c68784e9b6966"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab3059e8f1184537593882a3d9e1aeb19c90c5b2d4d61c369744d4530df4354f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c63c60c5a2f4ff53e54ebaff7aef49fb7c47f96593785388d938bf77e11b6ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "83b5ba1a18ab1e8f8242f5a88a979470c10755c9c808318c707f234c9472e582"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4466642f6a788055b32b5be046cf912cc406205df6628cf57197c87e6f3f89bd"
-    sha256 cellar: :any_skip_relocation, catalina:       "2e86f1ee6abc0b89e3ebbfc2024d159172f94a0d166df4c9b21ec94edf3c437e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a3a0ab59707c654a5d604ba90d0b835fd5342fe533deef8f9c70899ecf862e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "476e66b4b1c6ff6a0b70bb818e4094fe61bd2009585f6ec3eb912577af907f9b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af76423a5e4e7b50fdd49a1c830a00b1b323cb3071b806e184dc66bff016245e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddc42ce00775715b81108d592e784804ed287872445c18bbd9fe03ef18184c30"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6878d09298b15a3940c08a49b93dcef717c89e293224ff34b12e4c8c44012f63"
+    sha256 cellar: :any_skip_relocation, catalina:       "3c0477a452e9b3ca87826dbd7dc039b9defd12fb0935a1c7e1e11c52d3f4c35c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0524e4fd125e14467f41a9bcdfa52e1f0aaa3a8f6a9c8c562933dddb0527659a"
   end
 
   depends_on "python-tabulate"

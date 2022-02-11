@@ -1,18 +1,18 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/0.0.9.tar.gz"
-  sha256 "eba8b545eb495757980c1599e9aca0e8df231856afce03586cb86e69edd993b4"
+  url "https://github.com/uutils/coreutils/archive/0.0.12.tar.gz"
+  sha256 "a5949f4f64b48ff5282a23f644bdea2e8b9768c81a4e5534747f810932e7d714"
   license "MIT"
-  head "https://github.com/uutils/coreutils.git", branch: "master"
+  head "https://github.com/uutils/coreutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5939867a6cf8dd90d542489ed05b028e00f744984ce862987b2b7c4ecd1b096"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14cc13876964e1f87e48db578e6153b0b6f701f6ddf529038193a0d1e8cfc4c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "96f5cbcae3bbce626796007ff20bafeb5af7a47fcaf3e54bdb37bfc51d5c84b5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "067313e1dd4e6bb488eb2a58671503f7a3dc2ae5879d74f89c47c44c1674998d"
-    sha256 cellar: :any_skip_relocation, catalina:       "71bf2e1dc9dc4d63cb2394a2ba75837ed3ca28ce439fc9f5cd5b429e04de5719"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0536f107e74b972277e57cc8ded93bc9a5b0d84d78fbf5128c24bcb3a932a70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3084db9facb2a19258a58d1f5cfacefc1b3b2a4ca8923487a9478e5e6af3f569"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b17751ee77869f16f83a36b3c544182cc4838bcab483abf8940ce27c6d704e52"
+    sha256 cellar: :any_skip_relocation, monterey:       "369c085a7fa1ff6ae7d415e94ff4309538cb5f1916e57142bb50a79ccfa48779"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f99e14c9d14d71b413de7a78da84bbbc15b06713d9ac725b792e168996beda4e"
+    sha256 cellar: :any_skip_relocation, catalina:       "7c60976056ff93049a39686afbe3b824262f20a3f211c3e69121d8384a9c024d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab7491ba5114e9ec10fe6c4f089393e870f3b65164e15cab24bdfc2efc0639da"
   end
 
   depends_on "make" => :build
@@ -22,13 +22,6 @@ class UutilsCoreutils < Formula
   conflicts_with "coreutils", because: "uutils-coreutils and coreutils install the same binaries"
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "truncate", because: "both install `truncate` binaries"
-
-  # build patch for `failed to select a version for the requirement `uu_stdbuf = "^0.0.8"``
-  # remove in next release
-  patch do
-    url "https://github.com/uutils/coreutils/commit/c5e2515833f8eefc12fe65f0a3ffba7cbfea0ff9.patch?full_index=1"
-    sha256 "e3ca918c02bbb22e280739e80933353c74af8aec54887f0b4343082c4f19dea2"
-  end
 
   def install
     man1.mkpath

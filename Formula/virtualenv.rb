@@ -3,18 +3,18 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/f1/db/4498de0294f0c72a2e0a099d1588e7b55d0c849db740c89978ff73700519/virtualenv-20.13.0.tar.gz"
-  sha256 "d8458cf8d59d0ea495ad9b34c2599487f8a7772d796f9910858376d1600dd2dd"
+  url "https://files.pythonhosted.org/packages/9f/85/a968cda343234cd22265ddea1cb7801e25eb1536081099d7016ca7e105c1/virtualenv-20.13.1.tar.gz"
+  sha256 "e0621bcbf4160e4e1030f05065c8834b4e93f4fcc223255db2a823440aca9c14"
   license "MIT"
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70ec6a67f0120088513cd561535ba207435f75b773d5b16b288be9d7624e77ee"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ed96108b6112bc9ae3a8a266be3f5a31f2b607aa5b2a37ec49b92cf482fcfa9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7af34d45c83a383e34a83d155582ab7199fdb458b3f91557e658c2d664664538"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e4bfdf68ad50042c19de3e35fccdf064a21f978f291bb3027ce718d02ea1e7e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "fced420e54cfc830f15dcb7dbda6a4481da686f89d079636f1b805a0be75b738"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "074a6764ff657a51ab656bb50a120daa7c2af3e1ccc7b60b4d1361edf3c3a2bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "165d03f58847450bba58e6acec45f54b10406bf4150c49498fc742acf5f9b042"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f38cb7a6d8e2feb3a39e57508c6f525857ec8735672d2b512eb285433a77388"
+    sha256 cellar: :any_skip_relocation, monterey:       "c5bb7765c52792b1506d1e1210438e3fb969d97a816ba3bef19a4dc80c82f68e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b11be71b4661ef9f943342f74134ad7d10644f2c53bfd009621e823e8e38a3d3"
+    sha256 cellar: :any_skip_relocation, catalina:       "08ff864a43f2a18333fa92d83d1be047f2e06c0cf9696371bc95103b10261134"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65d96f297af0eab67de1678fe902760edc022b0818da493ccebd12cf231fc4c3"
   end
 
   depends_on "python@3.10"

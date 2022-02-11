@@ -1,18 +1,18 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/v5.1.6.tar.gz"
-  sha256 "52ad3a3776ce320c8add531dbcb2d3b93f2e1f10fcff5ac30178b09ba934d084"
+  url "https://github.com/assimp/assimp/archive/v5.2.1.tar.gz"
+  sha256 "c9cbbc8589639cd8c13f65e94a90422a70454e8fa150cf899b6038ba86e9ecff"
   license :cannot_represent
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "790c05f8a6513c34dc23027baf63e062c513d5ac239909de1051c1af54d4555e"
-    sha256 cellar: :any,                 arm64_big_sur:  "798a33c8c91585acce13419a52665b905ab14806085d41a4eb42c69afb338e61"
-    sha256 cellar: :any,                 monterey:       "95e27885dd0291bbb5a14d1b51669b3c7ac4fd3fd06ea20363e76d0005a36d9f"
-    sha256 cellar: :any,                 big_sur:        "ab53d489c2ab05e8936a4a20f54dc02ded2ab5768b6889abe6c0e1e866fa47e8"
-    sha256 cellar: :any,                 catalina:       "659213cb6fba653c1a0edd5e32821ff5e1ae28edf10a13e80b9d6abacd2631e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "111a95a9081d41ac038247828e652ceb3fb8d47545daadae58b36d463f2c0e5b"
+    sha256 cellar: :any,                 arm64_monterey: "44c4e13b16d7cffa948df7c1442c0c7be054911b7f9b6e161bc3f0987bd7cdaa"
+    sha256 cellar: :any,                 arm64_big_sur:  "139aa86482fa6d1f320c77b36847a836ca110d2c5c115f43dac125478182637d"
+    sha256 cellar: :any,                 monterey:       "e8403630f88560db95a5e085341c9db76753872216d886fceb80a0140d60dfde"
+    sha256 cellar: :any,                 big_sur:        "9162c3861e6efb53bb302a40327806befca6c2cadffac36161254c3161f23f53"
+    sha256 cellar: :any,                 catalina:       "4f9449dd1cc9acc476256cbc95da35f0e3fe389ff5b8229c61dd82ca18dac45a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4d451693a60fdecbf7c4f797389ac3eb01c01cdf79c46affd05f56f2635a6d5"
   end
 
   depends_on "cmake" => :build

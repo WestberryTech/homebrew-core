@@ -3,17 +3,17 @@ class Sqlfluff < Formula
 
   desc "SQL linter and auto-formatter for Humans"
   homepage "https://docs.sqlfluff.com/"
-  url "https://files.pythonhosted.org/packages/9d/29/820c992cbda9415566b3c9b7e8965d61d6709bb37fc12c4cd3226d3cac7d/sqlfluff-0.9.1.tar.gz"
-  sha256 "e9769c2a952f069b18b5ed190cb158876fa5d7a1aa4e0a0e7e66087019d802fe"
+  url "https://files.pythonhosted.org/packages/56/ec/c2dab62cd9518be12fdcd6ecf848f27d60322d98c66c13c4b402acc3aa63/sqlfluff-0.10.0.tar.gz"
+  sha256 "01867a9b8b9f5e88546e5ad178b3e72d6d9a4275c687943f99d75a1f266c2c72"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c18eadb1870a9c11d66339c1c4812ede454ba2be2ce3ccacf133739d72e3c16f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c60d8f9d6d9f96c52e5260c3be288f9bd169d6dccd5d7befb5454b23ad40ab7"
-    sha256 cellar: :any_skip_relocation, monterey:       "1458a3a58068dfaca0aff2746d7031679097fe74e92b6904accc8b41128f7ab1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "13b260d374f7e7284bbe2d5cb703db0eca20761f93c53425d74b6646334c7def"
-    sha256 cellar: :any_skip_relocation, catalina:       "bc5ef2126132697b181f1317971c13f2a30224b1acc270f2149a33d0aa7dd0f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0ba4896b1a08a3f768bd75d81718a736c8053e0d85fc93450504b56182fbfa2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c959a8d9addb0e62f169e6398a6e252d02025a0aba8b7a701f51e3e2175e2bee"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e024ae3430c91109527824cd34399da9111fcd2cbc0548bac431c54cd9db2884"
+    sha256 cellar: :any_skip_relocation, monterey:       "e05583a7a5734e0749e8bb2e5c229e3d37ea007b1f07e980d0cba6910b191ff4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8bc62cd5525dbe83b81aa4fbb50a050f600b43e26952203fb0e766d8557f178a"
+    sha256 cellar: :any_skip_relocation, catalina:       "7a1a00ced8d5b811466058a52a1f7092d8d767f3c674406c57404e1854361223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb5e8ec92463c8ee73de196671969d30998e8e06757763c81458571c0d6907d2"
   end
 
   depends_on "python@3.10"
@@ -89,13 +89,13 @@ class Sqlfluff < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/ab/61/1a1613e3dcca483a7aa9d446cb4614e6425eb853b90db131c305bd9674cb/pyparsing-3.0.6.tar.gz"
-    sha256 "d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"
+    url "https://files.pythonhosted.org/packages/d6/60/9bed18f43275b34198eb9720d4c1238c68b3755620d20df0afd89424d32b/pyparsing-3.0.7.tar.gz"
+    sha256 "18ee9022775d270c55187733956460083db60b37d0d0fb357445f3094eed3eea"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/4b/24/7d1f2d2537de114bdf1e6875115113ca80091520948d370c964b88070af2/pytest-6.2.5.tar.gz"
-    sha256 "131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"
+    url "https://files.pythonhosted.org/packages/68/89/31bf5c9b68f4a99e9c0bfd16131e9756f02b861466d96fae45a168751801/pytest-7.0.0.tar.gz"
+    sha256 "dad48ffda394e5ad9aa3b7d7ddf339ed502e5e365b1350e0af65f4a602344b11"
   end
 
   resource "PyYAML" do
@@ -104,8 +104,8 @@ class Sqlfluff < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/97/cd/93ad08b2f97ec95da0bd860380ce0ac7481eaccc760356ee11eda369c048/regex-2021.11.10.tar.gz"
-    sha256 "f341ee2df0999bfdf7a95e448075effe0db212a59387de1a70690e4acb03d4c6"
+    url "https://files.pythonhosted.org/packages/4c/75/b5b60055897d78882da8bc4c94609067cf531a42726df2e44ce69e8ec7a9/regex-2022.1.18.tar.gz"
+    sha256 "97f32dc03a8054a4c4a5ab5d761ed4861e828b2c200febd4e46857069a483916"
   end
 
   resource "tblib" do
@@ -116,6 +116,11 @@ class Sqlfluff < Formula
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
+
+  resource "tomli" do
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "tqdm" do

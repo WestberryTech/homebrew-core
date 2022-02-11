@@ -1,17 +1,17 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v3.5.0.tar.gz"
-  sha256 "9ea9c150856f3fe1916e87ea636d58001ee40f14e9bd5b079b2d441c72673ae3"
+  url "https://github.com/pressly/goose/archive/v3.5.2.tar.gz"
+  sha256 "295667d9f784d73be3a4728d4d1a4caf30f826892073c76983ea2ed8bd368c0f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dda1576e717341e3962002901164c94dab4a34c51416696fb268de838735bcc5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9952f6a72f01ace913ad6782d598bfa72ca721e5ff751a88841681131141f92b"
-    sha256 cellar: :any_skip_relocation, monterey:       "49638e9e10f889bdadc07f7a68f022c78e671589a44775df929f67b430182e92"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0befd9144c84fa729006829bd62826036fdbe903af42ca78b9bb0ea1f3f8724d"
-    sha256 cellar: :any_skip_relocation, catalina:       "46cd1e2b2e4af854f9379b9275703641b7be6f8a4ac05be6d876d12291e983fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "272d77d3f8445cf9a255a2b4308435833c1915b744927443ae430d0459340e0a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8c8d256f4798ea90d90c2391596b1e0894dede53ac48fa83e8310efe5153683"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fcc9aad5c035bd9ad73bc1e7dbad0471f11b273c4a81d5f0411806969987817"
+    sha256 cellar: :any_skip_relocation, monterey:       "117fc550382e79ba46fa25cb7271092be4fc8985d54dd62464db34e6e316602f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f28448c63ec85b699975b74a3d1f36ef92bce182553c5fd717666b6a8daa33dc"
+    sha256 cellar: :any_skip_relocation, catalina:       "8bda3d2463277881f286c9d706b6acb3f59fff0d202b256dc395f385f71053b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13e380915742156334659ee1856db44460541d87dc2fa3c81cf9cf3209882d1c"
   end
 
   depends_on "go" => :build

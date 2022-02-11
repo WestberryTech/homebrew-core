@@ -4,8 +4,8 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v1.0.1",
-      revision: "6ad7dbd424a5be32c0d4f3e61590fa6c1de3cb83"
+      tag:      "v1.0.8",
+      revision: "a6836be251e216f9967183a7551cc6ccb2a60382"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,12 +14,12 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "8f8f01b581dcdea7f91875d191b1187fd95eeded7be2671018d9f8b0a14e8375"
-    sha256 cellar: :any,                 arm64_big_sur:  "3af49039db1521a9467b273de7b9f12ba99a5716d9e253d3faa0ffe5382a5b2b"
-    sha256 cellar: :any,                 monterey:       "19f941f7a43c4a0d508cc4434acb581741d82c0909ec77f66dd8be2844844404"
-    sha256 cellar: :any,                 big_sur:        "330543fa5e81fae0b58e1e3e3b4019ab57738dcd96df20681082230648b13534"
-    sha256 cellar: :any,                 catalina:       "8cd36802787e33d60b30da2e3e70d6f77e5e4069343bd83e40e11f892633bb8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3974da7c2105f57542ebe2920c9a2e4fa3cb482901081dc17e19c8e479b05450"
+    sha256 cellar: :any,                 arm64_monterey: "9fb33ff6e74279012e5d391ec47ed52aeca5588a013cc9f65896cc29aaa5b82c"
+    sha256 cellar: :any,                 arm64_big_sur:  "2721c4980c1e09a83ca8ca6f1d0e5ee6cb8c95d07269f3933b73609122ec2761"
+    sha256 cellar: :any,                 monterey:       "4a82d217b82d0a624a359b8be229786543d62c1b80e2c3f8bafae66298a34798"
+    sha256 cellar: :any,                 big_sur:        "b5b21636214f558111908abc90e869d362cc176659b83d1bcdaf58c05fc8c80a"
+    sha256 cellar: :any,                 catalina:       "9a718db425f20936967ce3c349250a0ca512b92c219a3cf0f3a20f10248de918"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f22087ba88278c10f232358634b1463946a379178dc901271c9495e31746821"
   end
 
   depends_on "cmake" => :build

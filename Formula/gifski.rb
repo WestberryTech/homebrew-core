@@ -1,22 +1,23 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/1.6.3.tar.gz"
-  sha256 "4cef85a40868de3ef2fa7d46dda892c16dad492610f143efa129e41fa9248403"
+  url "https://github.com/ImageOptim/gifski/archive/1.6.4.tar.gz"
+  sha256 "1bcc1bdbfdb206f44de75662ee5a8a8c61d336c04cb62457e02c9fa8456f3928"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d2f48383c782e29fec795109736994263b2fa13a833e7b06f0d4aec059b94dd4"
-    sha256 cellar: :any,                 arm64_big_sur:  "90435bb91b3eca7563d170280fbeec00d63b327944d801df9b01c2fa8d69905c"
-    sha256 cellar: :any,                 monterey:       "8d9ce7d5f4b1eff1c1179b57ffcf9dd2ebfc6e4e4dc3d8beb731bd842524c390"
-    sha256 cellar: :any,                 big_sur:        "32dd8049617f50f57d99bf620100adf227ed0291392ec89634a40f4acbeffc0a"
-    sha256 cellar: :any,                 catalina:       "08f6564b51434509465b7fe9efe7f8ef30b9eeadd0827f1e9ae194c510e40f56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5a2179f6750dbd3140cc799f78076bd182c9083ec82ef5f1967c6f72f68a7fe"
+    sha256 cellar: :any,                 arm64_monterey: "59840cc6d34510cbde228cedbae08d270effbd2c427748cb98b0685154effb55"
+    sha256 cellar: :any,                 arm64_big_sur:  "06a4710d0902483c75377e7fffadb47cf28577ad32c2c6ac6cbb398ae07fc972"
+    sha256 cellar: :any,                 monterey:       "6995c7396bf11196d20f76b55d50aa1680942de8f05ac20da05fad1aa4f933d2"
+    sha256 cellar: :any,                 big_sur:        "4060dcb4e64572d843ebdb8c6cdeeef011fb7e586844c61fb11b0ca70bd02239"
+    sha256 cellar: :any,                 catalina:       "e3e324b67bee1677e69d327669082a7a2bb4593e5a3aa6f3d76fc6a1d41f1f36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad6ec536a7c531cc186390da8b099148d0fc01119f25408c72fa245e31821daf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@4"
 
   uses_from_macos "llvm" => :build
 

@@ -1,24 +1,24 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.18.0/step_0.18.0.tar.gz"
-  sha256 "fe0cd35b86588435c975f65002fe9cecaf08595a1f5551fed3548d472dea7200"
+  url "https://github.com/smallstep/cli/releases/download/v0.18.1/step_0.18.1.tar.gz"
+  sha256 "88347013784eae1eed7622b3a35805db2eeef7df52dcd044bb89fc325deee9fe"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c42599530d8a064770f84c733533a5eb32b9d934a0df1cf1435453ab56159dc1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2759a0ad98cd7508832f6ce8badd6dea2f79485bef5919ab6f4944b2916acbd6"
-    sha256 cellar: :any_skip_relocation, monterey:       "dfb6c1dd9d096a9869a4154ae7b88f656f3155b826b8e4c19769987eb3a3c3e8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e48f110754a6aaa22a86b11b591fdf65baf99467ec71bc0d0f3a16db9887ffd7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5ef8054e17ce61fd327d2bff88106b6b9134c52ec565c6f13978e0c4dad41738"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35960f161393594a4a78256631a7b805bb4c9c0bdef1cafe41d99692cb4ce930"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f11e2186f957ab82e4f4926319526bf6f7936e1f43f8920c0ff76ef62634712"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9609fb4fbc5407e97da42ca52aebf5fe1b314d9137f821650581ce8e6b5158ed"
+    sha256 cellar: :any_skip_relocation, monterey:       "381bfbce82de1dc79fd73411cc64ef805126c244fc5bda390659dafbef1334ad"
+    sha256 cellar: :any_skip_relocation, big_sur:        "19fd69dfe0e5f2fb42cbd9a566ce54e76309977b2bf19d0f789853f5facef813"
+    sha256 cellar: :any_skip_relocation, catalina:       "ce3df7a221f0189eb507d933bbed03c4e9a3adfacbec0aeb20aff87c8f970b21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "825df571c32c36a42e42903cc84333bb4c7505b3c1e8f6a07666ec2b7c9bc0a6"
   end
 
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.18.0/step-ca_0.18.0.tar.gz"
-    sha256 "c683893c926fb997791fbc62d03a9ea6411840d75c2970044ae8e7cf42c9cd14"
+    url "https://github.com/smallstep/certificates/releases/download/v0.18.1/step-ca_0.18.1.tar.gz"
+    sha256 "06bc91161cb755e5b74814a3d92e08027182af1ee23f882480b897211359bdbc"
   end
 
   def install
