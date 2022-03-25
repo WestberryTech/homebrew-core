@@ -1,17 +1,17 @@
 class Gopass < Formula
   desc "Slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://github.com/gopasspw/gopass"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.13.1/gopass-1.13.1.tar.gz"
-  sha256 "45a98b9057cdb5924c65a56e13dd4587842220ab117809579f4b2a23dae8b6b1"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.14.0/gopass-1.14.0.tar.gz"
+  sha256 "832aabe92da82216b77af5745e10d24a4edbd50afcfc85b5ef2221353ca3cab7"
   license "MIT"
   head "https://github.com/gopasspw/gopass.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3587e2e88e01175e3fa73c103c4f50428940f6906a3f3dad6984607cfb4b3134"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5de403b19064c98d0fb0e0a1fc670120df648948208080658f84ed34f7e11f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9808fe3c3fd7b8b57140d21a434b8099cb3c1f8f9a14c6c91abbd5ddc52cb9b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8c7a4bad9b2903edc69d25e5faaf870cf206fea770114fb6296b246a8fa69519"
-    sha256 cellar: :any_skip_relocation, catalina:       "3c96913d714f532eae8ada362adf6a10f350ca8a763748d4019ac763060dab97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dfec55ef0e25dd099968015b388040ed66aa08dd6cda14a9543378e1f135428c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d85290e894034c48b37e68fb535ef6d7e704d8189ee85829482f2bf65fcdefae"
+    sha256 cellar: :any_skip_relocation, monterey:       "e06660691da28415d7196ed68023f17ca81f20066428ca3d2d435d5540f46edf"
+    sha256 cellar: :any_skip_relocation, big_sur:        "73fa712790bcabf1bbac670860b62c3cdd8fb68fde77b4294578c5a5e1280e6e"
+    sha256 cellar: :any_skip_relocation, catalina:       "ba6ba6de4cb9a7595ec441f1ea4a956c4457536700eb5a98bd24c990f1b7ee9d"
   end
 
   depends_on "go" => :build
@@ -23,6 +23,11 @@ class Gopass < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
+
+    bash_completion.install "bash.completion" => "gopass.bash"
+    fish_completion.install "fish.completion" => "gopass.fish"
+    zsh_completion.install "zsh.completion" => "_gopass"
+    man1.install "gopass.1"
   end
 
   test do

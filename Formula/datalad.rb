@@ -3,15 +3,15 @@ class Datalad < Formula
 
   desc "Data distribution geared toward scientific datasets"
   homepage "https://www.datalad.org"
-  url "https://files.pythonhosted.org/packages/98/3c/f2415717f02a76de699b353425e1c41a2c7f9df127b788bd36f97275bff6/datalad-0.15.5.tar.gz"
-  sha256 "e569494a5bd4e0f100013ec30529d5ac02e78ba476a75fc533c0d89c0e5473bc"
+  url "https://files.pythonhosted.org/packages/e0/eb/8489ff6aace6713952ba4e4fe890eb41c1e1dde7df002957ab2a68e05b82/datalad-0.15.6.tar.gz"
+  sha256 "34dd86fb6d73b946ed0e38f039f58534f19f22e1e9c4f4ac9aac039aa97b35aa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "71bff4fe2d01120e1d4b0be72043de23ab0d715c4dbc5a3bb927ec27c22f0fb5"
-    sha256 cellar: :any_skip_relocation, big_sur:      "65ed6e7ebcc5e599ed4f83bbbeb2456873decc1c8e5f1f82e224a73136a49282"
-    sha256 cellar: :any_skip_relocation, catalina:     "4387440057a60b7388c17a5bd1759651dbd5aa03f0d5504d9363a9d6839ab6e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "1ddd918d8ba3c898ccaa7a43f2bad9d439695f1777af5abc47415185ba5c5c87"
+    sha256 cellar: :any_skip_relocation, monterey:     "0d7d7ff4549f1e56254551e6fa95e6c11bbd5320d3e850e99a99a03398c0d1ab"
+    sha256 cellar: :any_skip_relocation, big_sur:      "fd62747e68391bd4ed98b7cc82556897941124ed6d0e0f742507a36fdf3b19bd"
+    sha256 cellar: :any_skip_relocation, catalina:     "7cb297468f66599d1e98241fae4af23d9362b977a8f1436d417d23641e138d89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7ab55ccdb3edfdb2bcaa726fe6bd5fb2a1bfae4e08446b3235b14763ff0c095e"
   end
 
   depends_on "git-annex"
@@ -50,8 +50,8 @@ class Datalad < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "Deprecated" do
@@ -60,8 +60,8 @@ class Datalad < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
+    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
   end
 
   resource "fasteners" do
@@ -75,8 +75,8 @@ class Datalad < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/f5/11/2634362bfe1db5e7d5cd92cd6d1be023005d00062dcf1c0bdb6699ed5e13/humanize-3.14.0.tar.gz"
-    sha256 "60dd8c952b1df1ad83f0903844dec50a34ba7a04eea22a6b14204ffb62dbb0a4"
+    url "https://files.pythonhosted.org/packages/db/08/dbe660b435f7dcc9cd78c928cabba90e3088c10b2a90843c102cc3671154/humanize-4.0.0.tar.gz"
+    sha256 "ee1f872fdfc7d2ef4a28d4f80ddde9f96d36955b5d6b0dac4bdeb99502bddb00"
   end
 
   resource "idna" do
@@ -85,8 +85,8 @@ class Datalad < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/f8/41/8ffb059708359ea14a3ec74a99a2bf0cd44a0c983a0c480d9eb7a69438bb/importlib_metadata-4.10.1.tar.gz"
-    sha256 "951f0d8a5b7260e9db5e41d429285b5f451e928479f19d80818878527d36e95e"
+    url "https://files.pythonhosted.org/packages/73/0f/def168c6162596051dcc6acaffc4984ec742eb0c79ce02e51ddc11772b1c/importlib_metadata-4.11.2.tar.gz"
+    sha256 "b36ffa925fe3139b2f6ff11d6925ffd4fa7bc47870165e3ac260ac7b4f91e6ac"
   end
 
   resource "iso8601" do

@@ -1,15 +1,17 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v3.22.0/libqalculate-3.22.0.tar.gz"
-  sha256 "533ec2fc3550b44a562e4ff93f2bb21332c802c60d13ae1323bfa54ffe5d57f6"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v4.1.0/libqalculate-4.1.0.tar.gz"
+  sha256 "d943e5285bdc0b3cd77b8f7a10391d7c753fc19b0ddd48e5d4179decf709d6ff"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_monterey: "dc1d55f6e15c83b805115f537749d2f0a5e25a8d9be59b707d8bb6e6981bc367"
-    sha256 arm64_big_sur:  "0f90a9aba8beb819f4a200b023cf9193849ad974411c29803f706d1830b39140"
-    sha256 big_sur:        "04690ae693a307c9cd858bcf5c2ea139930840a26312734e61dfa2c5d5a8ecaf"
-    sha256 catalina:       "6eaced3c40f631eadefb39fa05f1fa7b8fde2266b3fc8b9505e6de2a75b7183b"
+    sha256 arm64_monterey: "8dc382a92e7576d2759f1221edbe700be0f35c5bdcf04c090bf1eeede54919e5"
+    sha256 arm64_big_sur:  "a7432784871c69b39bf020a67ad1a54da501c18d39fbe81c181b0a07376f40a4"
+    sha256 monterey:       "3c8f1def4eff72d19b079f7468e301e292c0b26b855b38128b09767f1a754af8"
+    sha256 big_sur:        "3d4dd5a0685bf6853624648432dbb6d24a9ad060585358e63161a810c292d309"
+    sha256 catalina:       "2da6f88c87a8c2e75e67065e4efcbd6b035bf9ce7b2f4bfe11b6fb12cf118dad"
+    sha256 x86_64_linux:   "4d46f33bfc53d6daad6adf99248c5366e74670351e2104fde60a1427b4a6b310"
   end
 
   depends_on "intltool" => :build
@@ -19,7 +21,11 @@ class Libqalculate < Formula
   depends_on "mpfr"
   depends_on "readline"
 
+  uses_from_macos "perl" => :build
+  uses_from_macos "curl"
+
   def install
+    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

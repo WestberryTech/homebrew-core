@@ -2,28 +2,24 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.12.2",
-      revision: "af0d66fd0aa363e9a7b0164f3a94ba36252fe60f"
+      tag:      "1.13.2",
+      revision: "91533d04e894ff86b80acd6d7a4517b144f9e19a"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef1bb48ebfe4f758920564545a41de5fc75ef4cc86cc0d1e1c9620e56fe4e536"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef1bb48ebfe4f758920564545a41de5fc75ef4cc86cc0d1e1c9620e56fe4e536"
-    sha256 cellar: :any_skip_relocation, monterey:       "c288cd0a2e944ef46e44e2b68479baf163cad3c689938c7fe3c373eeed8ea40e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c288cd0a2e944ef46e44e2b68479baf163cad3c689938c7fe3c373eeed8ea40e"
-    sha256 cellar: :any_skip_relocation, catalina:       "c288cd0a2e944ef46e44e2b68479baf163cad3c689938c7fe3c373eeed8ea40e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cce2eb92bfe080812fe08ac0fc81c603ed59d622a70ffad40c5fd28e855ae362"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cce2eb92bfe080812fe08ac0fc81c603ed59d622a70ffad40c5fd28e855ae362"
+    sha256 cellar: :any_skip_relocation, monterey:       "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
+    sha256 cellar: :any_skip_relocation, catalina:       "916147387e88be3f4dc1e4a783d1becc717a0c6d2f345a7b5a9096adfa933da8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a54d4949398540a678972bd6aef26704976b55379dc0ee25631845253e0b3435"
   end
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
-  # Fix https://github.com/istio/istio/issues/35831
-  # remove in next release
-  patch do
-    url "https://github.com/istio/istio/commit/6d9c69f10431bca2ee2beefcfdeaad5e5f62071b.patch?full_index=1"
-    sha256 "47e175fc0ac5e34496c6c0858eefbc31e45073dad9683164f7a21c74dbaa6055"
-  end
+  uses_from_macos "curl" => :build
 
   def install
     ENV["VERSION"] = version.to_s

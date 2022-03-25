@@ -1,8 +1,8 @@
 class Lean < Formula
   desc "Theorem prover"
   homepage "https://leanprover-community.github.io/"
-  url "https://github.com/leanprover-community/lean/archive/v3.39.0.tar.gz"
-  sha256 "8fb54fcf3cf43b47bda09a2941237519e4dfb23d580eec6eba1b394fdbd46494"
+  url "https://github.com/leanprover-community/lean/archive/v3.41.0.tar.gz"
+  sha256 "1147d5cc990ea1d8c3a39df8e895a6401b12fe545dac984206fc024db3650f69"
   license "Apache-2.0"
   head "https://github.com/leanprover-community/lean.git", branch: "master"
 
@@ -20,12 +20,12 @@ class Lean < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "ee80bfa3c711ce9ddb31e48ddc29316e7cc0e53d9192c443f47221760e640b2f"
-    sha256 cellar: :any,                 arm64_big_sur:  "6bae3ab4c53145f275dbf121e88f7d53db01edf3ddb8e390d1c767b8740a6a2d"
-    sha256 cellar: :any,                 monterey:       "31cb8e3eb8b12c0808b8513ec8856d2118528192fc473ba4e0dcd91fb0f9f2a8"
-    sha256 cellar: :any,                 big_sur:        "3bdd15dab0d81a28abd515bf9699db1220fa0e658af4ba6ba797c80d196eac08"
-    sha256 cellar: :any,                 catalina:       "029a3b2367fbeca9dd3baa0bd0bb88eb5cfbece6cc45e1c335255adaf33440f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8ba6db0394ecfb7f8a5821f7a2a383c1c5186a4c0811f9326af4506003db560"
+    sha256 cellar: :any,                 arm64_monterey: "e8e216c5cb0d4256f9ff0aba3bbc1082b5c0561a3faedfce45d8d09b89f4c1aa"
+    sha256 cellar: :any,                 arm64_big_sur:  "77e133cf7b5dc915a060463052204692c1574de0ea16db2814cb1e5c91000864"
+    sha256 cellar: :any,                 monterey:       "62c1c694df08ff40079650639e0868890a898d172adc45b4d92e5ccd5aef6aff"
+    sha256 cellar: :any,                 big_sur:        "6aba51e50f11072a0f1f5eac281a63712d9a99eecad8f2eb33aa73fb76db451e"
+    sha256 cellar: :any,                 catalina:       "b67d23339d7489e3381e67a4c1dc675bb012255bff6075085edb82e11e1fdb06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "055a52d6d18cb5c867ea1317bbf404fc83b6cf2ce71fc49c2b2f7326e03a24b9"
   end
 
   depends_on "cmake" => :build

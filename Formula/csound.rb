@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.17.0",
       revision: "f5b4258794a82c99f7d85f1807c6638f2e80ccac"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 3
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -14,11 +14,11 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "1d88baa0fd231f32f8c781de1cb1f6171e61f0fce6a6c4f57ac6230ef83fa056"
-    sha256 arm64_big_sur:  "98d99dd13d7dafa803d1ad78c6981b3f8444ffdc3710aecf03293a58fa19db60"
-    sha256 monterey:       "9d2581375ec142229d4cae9ac8b22810b4901a93386ed75df1df4a829318b361"
-    sha256 big_sur:        "91cc6037680ba3dc8021f3627ce70d2b4577f4292519d811be7e158c65667117"
-    sha256 catalina:       "4ef08888599afb3ed78d0e6a2ec2387c42a8b14d89781d3e76d599d0061e6347"
+    sha256 arm64_monterey: "2af21215b56880ab0d737e7d96df88b4e444fa52543c263c451353cf884ba8ad"
+    sha256 arm64_big_sur:  "30760817d9583a8f7ef9a18dac9df6d9cb9e638aebeb2311860e147d380b4661"
+    sha256 monterey:       "2316cabfc712919d579f9a2480d65c2debd2da7c447bf25f95c3f55e363a39dc"
+    sha256 big_sur:        "e610402a3edbde76e02f024e3533830940b119a21ac33852bad2fbb05725381b"
+    sha256 catalina:       "a5dfb98316ed7a38ad7f9a69f4480eda82a735737d883c3f68c3edd632edb736"
   end
 
   depends_on "asio" => :build
@@ -54,8 +54,8 @@ class Csound < Formula
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
-    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
+    url "https://github.com/Ableton/link/archive/Link-3.0.4.tar.gz"
+    sha256 "c7bb6f75ec805e1314d0181332285c3b3d7a81c9ec7d962b54f727283dac442a"
   end
 
   resource "csound-plugins" do

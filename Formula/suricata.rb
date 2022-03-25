@@ -11,10 +11,12 @@ class Suricata < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e222dd787408ebc39be3189d74fff39ae3be004fa1395b66c6900e45076eab72"
-    sha256 big_sur:       "a59ee562882071a98eba9116e1175787cd57749bbf21fdece37098048de0f24a"
-    sha256 catalina:      "aca8a07601138f8a12b9b378ff20bed7471e5413416555f2bf8439f2817f356f"
-    sha256 x86_64_linux:  "27222b9a2b55c48251ed492bae1ae573dab98a92593b6555dc58bb62e0ae1221"
+    sha256 arm64_monterey: "ba6f04da9dbc52d5c4ba3bd4441a498648191f43144fbcce4e2e79bb79eb04c9"
+    sha256 arm64_big_sur:  "e222dd787408ebc39be3189d74fff39ae3be004fa1395b66c6900e45076eab72"
+    sha256 monterey:       "222252c72f9f6be9393618fdbd2b83dd1e2deefbc9c0f2babea219cc4158747c"
+    sha256 big_sur:        "a59ee562882071a98eba9116e1175787cd57749bbf21fdece37098048de0f24a"
+    sha256 catalina:       "aca8a07601138f8a12b9b378ff20bed7471e5413416555f2bf8439f2817f356f"
+    sha256 x86_64_linux:   "27222b9a2b55c48251ed492bae1ae573dab98a92593b6555dc58bb62e0ae1221"
   end
 
   depends_on "pkg-config" => :build
@@ -54,12 +56,10 @@ class Suricata < Formula
   end
 
   def install
-    python3 = Formula["python@3.9"].opt_bin/"python3"
-    xy = Language::Python.major_minor_version python3
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor"/Language::Python.site_packages("python3")
     resources.each do |r|
       r.stage do
-        system python3, *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -81,15 +81,22 @@ class Suricata < Formula
       --with-libnet-libraries=#{libnet.opt_lib}
     ]
 
-    args << if OS.mac?
-      "--enable-ipfw"
+    if OS.mac?
+      args << "--enable-ipfw"
+      # Workaround for dyld[98347]: symbol not found in flat namespace '_iconv'
+      ENV.append "LIBS", "-liconv" if MacOS.version >= :monterey
     else
       args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
-      "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
     system "./configure", *args
-    system "make", "install-full"
+    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
+    # pkg_resources.DistributionNotFound: The 'suricata-update==1.2.3' distribution was not found
+    # Remove when deprecated distutils installation is no longer used
+    with_env(SETUPTOOLS_USE_DISTUTILS: "stdlib") do
+      system "make", "install-full"
+    end
 
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 

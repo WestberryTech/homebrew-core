@@ -1,31 +1,36 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.7.0.tar.gz"
-  sha256 "d2c101d3b6ed5a0ee1e764c749bd869a2ce8f6d5563a5e2938dc3c32ad1375c7"
+  url "https://github.com/GitTools/GitVersion/archive/5.9.0.tar.gz"
+  sha256 "ff67f91ed4ea5a208b9be37f9b52d76e20d3b8f63f5f6c407bf51a8c4f652446"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "da4483fe73a5085dd3a54034bdac7a17e12710c18ca53e90fe1386a188cb6946"
-    sha256 cellar: :any,                 catalina:     "106a5e3b8ac1e69809bbd4e86733bcab971f2f35fed40a2a7197f9b57d28a039"
-    sha256 cellar: :any,                 mojave:       "b5d5943589f696a3bbcdb61d0827374cd45e5903203a3e574f40bf2c19c16da1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "029c5c10ede90c0f116a12fe47af0d2e9b0da43542b70117c5eae946756f24df"
+    sha256 cellar: :any,                 arm64_monterey: "d920a0c9ae1322ef7de0cbe88a0a67b34acfeff19abc9569c4405a3c9d319061"
+    sha256 cellar: :any,                 arm64_big_sur:  "d4e807ed7268f6b70493b49e98d5d4c79af7b50622d7e1362970341be09cbf90"
+    sha256 cellar: :any,                 monterey:       "c70832a9c59c1b0c8fed72434ae8d75517c612a8f65c2ccb892d2f647b88d434"
+    sha256 cellar: :any,                 big_sur:        "77a7ccdff16cdbe9bc97bb2507008aade43780147fa3ecb93ca78723b51941da"
+    sha256 cellar: :any,                 catalina:       "2eabafaae6dbaa06f58617d1049388fc4d5113e1324ae948cc90bce1f8ca4b68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "102a4b40a448529506fcf40e689ad5853943d45bac6ed9f414f45e3298756512"
   end
 
-  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
 
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
-    system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj",
-           "--configuration", "Release",
-           "--framework", "net#{Formula["dotnet"].version.major_minor}",
-           "--output", libexec,
-           "--runtime", "#{os}-x64",
-           "--self-contained", "false",
-           "/p:PublishSingleFile=true"
+    args = %W[
+      --configuration Release
+      --framework net#{Formula["dotnet"].version.major_minor}
+      --output #{libexec}
+      --runtime #{os}-#{arch}
+      --no-self-contained
+      -p:PublishSingleFile=true
+    ]
+    args << "-p:OsxArm64=true" if OS.mac? && Hardware::CPU.arm?
 
+    system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj", *args
     env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{Formula["dotnet"].opt_libexec}}" }
     (bin/"gitversion").write_env_script libexec/"gitversion", env
   end

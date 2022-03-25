@@ -2,18 +2,18 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.17.0",
-      revision: "93708bd74e909e57ed5d9bea3cf2065f4cc43af3"
+      tag:      "v8.1.0",
+      revision: "da4d9c00179e062b6d88c9dbe07d89b3d195d9d0"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b2ceaa0f71828345bcf5fb8e5c70d1cf64d51507a20bfdb9f81c262f333398"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "855cb1614cd6ca7f31241f1dbc57d5707e64543f56bcd843d85e2c4b067f8017"
-    sha256 cellar: :any_skip_relocation, monterey:       "70f790c3f9649ab78e5e6935708ec03e55d0bd83257b5dfcdcf4e5a2b821ab4d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7d76b3a0dda75b48461c51dc637595a4b779ccc2dd09f9d71116b7cf03287e1"
-    sha256 cellar: :any_skip_relocation, catalina:       "4375da87ad4488c40524a93d7d62acb7c598fdd521df62bba018f96cc9955a21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b03ab6c2410170ced1a7065dc30ac22a25c31301d4974ed978c20278c6263c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a015c013ca48e190a61d911974a2ce2ec0e7d8424c0d194d65cfc3b40aff938"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c414eaa9107f87a73f048ebbb0a63502cbbc0a6acba5e31d7481d2d12c55d047"
+    sha256 cellar: :any_skip_relocation, monterey:       "85f1a010828f90830cb2560391f54315cf31d34b5d3e209925efc655ca6968da"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a87862f10f744e3c32b765fe8e645db2cbfedd6d21f8e4599de23105bc3aad97"
+    sha256 cellar: :any_skip_relocation, catalina:       "45e13aceb18d11a059a428ab1f8945aefce8551307043b30c99e04c1449606d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edc27b0e2051d361b751b3a9b34b18b2ef441a3d8b250094cb9ea84021553f6b"
   end
 
   depends_on "go" => :build
@@ -73,7 +73,14 @@ class Metricbeat < Formula
                              testpath/"data"
     end
 
-    sleep 30
-    assert_predicate testpath/"data/metricbeat", :exist?
+    sleep 15
+
+    output = JSON.parse((testpath/"data/meta.json").read)
+    assert_includes output, "first_start"
+
+    (testpath/"data").glob("metricbeat-*.ndjson") do |file|
+      s = JSON.parse(file.read.lines.first.chomp)
+      assert_match "metricbeat", s["@metadata"]["beat"]
+    end
   end
 end

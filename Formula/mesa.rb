@@ -3,24 +3,24 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-21.3.6.tar.xz"
-  sha256 "96bb761fd546e9aa41d025fcc025225c5668443839dae21e3731959beb096736"
+  url "https://mesa.freedesktop.org/archive/mesa-22.0.0.tar.xz"
+  sha256 "e6c41928b5b9917485bd67cec22d15e62cad7a358bf4c711a647979987601250"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "b9896161e14b443b182c7567af486efcbf7c8fe29ccb4814328f188cc4ad707f"
-    sha256 arm64_big_sur:  "632481e11f5986db8f61f626b0d31c841edaae883df4c331d82a303ff2dff08c"
-    sha256 monterey:       "22b341ac896fa08be156ccdd58a744e4c86deb5931648c5d855d876f17298402"
-    sha256 big_sur:        "cf87cfe21f2bce354ef149458e3a5a861798a24296413aa49ca6fc7139882c49"
-    sha256 catalina:       "64e828a3749dd133d9afc791421ea97c1b1361e9d6a985cd2a790cf880c4159d"
-    sha256 x86_64_linux:   "a7528d2c25c73653b7a055ee217e163e276d2dc72896f5f83f46820ec3542028"
+    sha256 arm64_monterey: "ccd69837a6e473545a71a90c168f83ad94b20f1114d8da57795df1ba76655e83"
+    sha256 arm64_big_sur:  "092551f8ffb774a2bef10212eac9903ad12159b18e0b486fb441f3cbbbb43a55"
+    sha256 monterey:       "18afc3b56a67e8777b69d4c6964c02139e2dcc1ef49a3924c61a4015182d8d89"
+    sha256 big_sur:        "790dbf50e343450732121d098d83984cff86da452dac5da1c2b77bed75467c84"
+    sha256 catalina:       "829fee2298309b07fcb5d564b01fc636e1c7a4f6f4c3af9d9a78472ab811938b"
+    sha256 x86_64_linux:   "1a63726d52eb48d33dccce9fb114286fd76c3d87a99b745a9f0ffebab39b4193"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on "expat"
   depends_on "gettext"
   depends_on "libx11"
@@ -69,9 +69,9 @@ class Mesa < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin"
 
-    venv_root = libexec/"venv"
+    venv_root = buildpath/"venv"
     venv = virtualenv_create(venv_root, "python3")
     venv.pip_install resource("Mako")
 
@@ -84,14 +84,13 @@ class Mesa < Formula
         args << "-Dplatforms=x11,wayland"
         args << "-Dglx=auto"
         args << "-Ddri3=true"
-        args << "-Ddri-drivers=auto"
         args << "-Dgallium-drivers=auto"
         args << "-Dgallium-omx=disabled"
         args << "-Degl=true"
         args << "-Dgbm=true"
         args << "-Dopengl=true"
-        args << "-Dgles1=true"
-        args << "-Dgles2=true"
+        args << "-Dgles1=enabled"
+        args << "-Dgles2=enabled"
         args << "-Dgallium-xvmc=disabled"
         args << "-Dvalgrind=false"
         args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"

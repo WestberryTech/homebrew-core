@@ -5,15 +5,16 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-7.0.0/apache-arrow-7.0.0.tar.gz"
   sha256 "e8f49b149a15ecef4e40fcfab1b87c113c6b1ee186005c169e5cdf95d31a99de"
   license "Apache-2.0"
+  revision 3
   head "https://github.com/apache/arrow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "668e69fba3ffbf72ecfb042838b8c3fd12e7289e09dd67978c61777240724c6d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4c70aa32c8b8cc783b7a1b39d4970c43be3d4b598cfbf128cfd2ecb1a678664a"
-    sha256 cellar: :any,                 monterey:       "3cdd724fede35624965bd121a3eae6488e863fbacce3a74e32ff5643776d2519"
-    sha256 cellar: :any,                 big_sur:        "e2b0ada7578093175186f7ab9118db2a2ee4c0d4a3dc084690480ef6317213e0"
-    sha256 cellar: :any,                 catalina:       "55991f188503361ae4e29c5be2b06d284719f5fbe8b6d25ef1a59668dd872045"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "262a5c5c35427627a7903418f1fa6a2ce5a98c35de324de118f058a1374212e3"
+    sha256 cellar: :any,                 arm64_monterey: "0950c6b79f6f7267b75153c23dcc65a8e4a21e4b86cda96abe47d922edfcd031"
+    sha256 cellar: :any,                 arm64_big_sur:  "aca040291b5f967e1b3cc3d9fdcbbddfc3607d5bebb309ee69d377d3f971592f"
+    sha256 cellar: :any,                 monterey:       "341aa2016177f45fa41f408a6cde71f1eb579e0ee4dc126cae5c6f0b25a86003"
+    sha256 cellar: :any,                 big_sur:        "758c087aa09c6a7b89a14ee6a89b360ddecb8b6c8effe23bc7c14c182a75a721"
+    sha256 cellar: :any,                 catalina:       "27f817b21119560e954c960e58ea3f4d029cd024de8490f0dfe1333e50d9b534"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad458dec29530961c6ebb3922aa774cae1c4139e7003716599f473649f1fc082"
   end
 
   depends_on "boost" => :build
@@ -44,6 +45,10 @@ class ApacheArrow < Formula
   def install
     # https://github.com/Homebrew/homebrew-core/issues/76537
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
+
+    # https://github.com/Homebrew/homebrew-core/issues/94724
+    # https://issues.apache.org/jira/browse/ARROW-15664
+    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O2"
 
     # link against system libc++ instead of llvm provided libc++
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib

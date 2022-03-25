@@ -1,11 +1,10 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0239.tar.gz"
-  version "0.239"
-  sha256 "120b4d679283ab2c7102b40fefc5165bfd9b8242fbbd5f9977d381cb65051d87"
+  url "https://github.com/mamedev/mame/archive/mame0241.tar.gz"
+  version "0.241"
+  sha256 "008b8b9fd0cfbea63bc589ab4e9e5af6d63f865c6edf6e6378352e4dbfcb47ff"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
@@ -19,12 +18,12 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "5e79b70c5818881c1f3eeeec31b5c7e5d1473565427bbc8acdc2744428713fb0"
-    sha256 cellar: :any,                 arm64_big_sur:  "005aaa3df3e5d9628c4ea2148e4b54f70a98269204f1923f216ee8c5cff44c42"
-    sha256 cellar: :any,                 monterey:       "c10313d6bed643ef5eeed1d0cd7dc26471977afa6df473d466689881e1c3248c"
-    sha256 cellar: :any,                 big_sur:        "ad56b4b489ea00f452fc4a8eab239013392faa045e6a971071be5cd18aca1645"
-    sha256 cellar: :any,                 catalina:       "6d389a9ac33b49ea0360fa2a31eccb7b7db7464d7449051d5c09456703827fc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37f1b92fc2898443dd272e2d4bd7c8a9e09dfbfd0693a6115b7a2313651477ce"
+    sha256 cellar: :any,                 arm64_monterey: "99a75723ee5258e113a6a968bad58d60e59a1c547f2a681a7fea2fe3fd7cd333"
+    sha256 cellar: :any,                 arm64_big_sur:  "2b98738cb09ca919c9a5c813a44c55e1a3b3ce3e20fb8abb8a20608845cebb58"
+    sha256 cellar: :any,                 monterey:       "1c208717e6463364c960e76d81b3acb4124f7f6683607abf15fc9c37c1337789"
+    sha256 cellar: :any,                 big_sur:        "9c8ff2039590b465bd1dd0d9b81b71ef30b1c933f7888ce336c762ec1676643f"
+    sha256 cellar: :any,                 catalina:       "44d0a7bdee8cbaa9d5b9dcec00e912aed18a3dd0cacecc01a95a4bb107900ed0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e21bc16018f5671de8173d768e31ae29213995d36da1d08d1cc06e1816372f6"
   end
 
   depends_on "glm" => :build

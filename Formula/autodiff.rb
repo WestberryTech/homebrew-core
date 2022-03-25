@@ -1,22 +1,30 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.6.5.tar.gz"
-  sha256 "252ced0f4e892e9957c67fe8bb1c9edd5636f121a8481abc0a0cec9a4c465484"
+  url "https://github.com/autodiff/autodiff/archive/v0.6.7.tar.gz"
+  sha256 "1345021d74bfd34e74a58d98f4e0e16cc4666b6cd18628af0ba642a6521aadfa"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f383a9380292ebd0780141f13d09b74fca197a76c86e2f699ec66bd4c11eb340"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba45df80dee6bf1e5c00cb4c8d52d66be260fbad9ead68dff18274fcdb9cf118"
-    sha256 cellar: :any_skip_relocation, monterey:       "15c1c82af7b202a39db7f824e02597de9aff35866be4483115b9ff26fec0818c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8542aa380961c401581f79dfdebc8494818924c3e0ee9e6fe9a7bbe0a607df45"
-    sha256 cellar: :any_skip_relocation, catalina:       "4e48bc6bc5af21478837be025b58ad50fa2f032870dc6cf52d2249cfa3cf762b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73545e43853feedf25b02eea8001a489bb351b6da0a8cf4d982163522caae518"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc281d0e3235051a65704a385e037ccff5e73f6d95b08087b2c01cd274b0cf18"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce05ae2babf5af15cebe2c92142ffac7a616646a33247ebcbcfcdd065323036b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "03b6c61d9c6566630449b08af22c14378925fb49352a38412b40c44ca88e3ebc"
+    sha256 cellar: :any_skip_relocation, catalina:       "a4121ba580e4b4842f67b27bac57cfced23d81d7b253ab7117a14d4c8997a8d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ee18662b1c50d43e8386f8752a942c2886fb13b86ac292afee25b1fbe8cd9d"
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.10" => :build
   depends_on "eigen"
   depends_on "pybind11"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DAUTODIFF_BUILD_TESTS=off"

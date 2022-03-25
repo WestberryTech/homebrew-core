@@ -1,26 +1,23 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj.org/"
-  url "https://github.com/OSGeo/PROJ/releases/download/8.2.1/proj-8.2.1.tar.gz"
-  sha256 "76ed3d0c3a348a6693dfae535e5658bbfd47f71cb7ff7eb96d9f12f7e068b1cf"
+  url "https://github.com/OSGeo/PROJ/releases/download/9.0.0/proj-9.0.0.tar.gz"
+  sha256 "0620aa01b812de00b54d6c23e7c5cc843ae2cd129b24fabe411800302172b989"
   license "MIT"
+  revision 1
+  head "https://github.com/OSGeo/proj.git", branch: "master"
 
   bottle do
-    sha256 arm64_monterey: "62cb9712728f6564c3a16dbc0ff0039018190140006a116d859f33d74b25ae97"
-    sha256 arm64_big_sur:  "14de62fb7c0938043e569eeb2bfe0a5f9bc210a1e01cc0fdc6cd5bd1a39fd582"
-    sha256 monterey:       "6e01afdab9239b4acade4884b58b0e7e27621caecdfb8d8f21edc7d77f8c0d42"
-    sha256 big_sur:        "bf91fd3fb71763f796699e3cf8dcfc477c31cc6f9fd579fec6a489d82c7fbcf0"
-    sha256 catalina:       "f6af4ae5830d82a9c9c4aa6f36d91a8949bd025b46a3d778c3ad8a7cdf63c854"
-    sha256 x86_64_linux:   "402f0a4d03f0fc03f8ee6faa81dd13bf7e207d3df58de2790c9e51e950ac1725"
+    sha256 arm64_monterey: "58ce84c1dc63d800c94e58067d9f2d7301f452bd8134fe791db78fc00c2615c0"
+    sha256 arm64_big_sur:  "98c31d3b575a377f35d5885929f4cb61f7d21095779b5625f20c7f55adf0e124"
+    sha256 monterey:       "315d797132bb902a916fd1e9eb57ca7850139146ab9ae4a758f97ef7bfabe508"
+    sha256 big_sur:        "0e064f7d05a6ca33a0dd143962d50e2d16b637683a60e55e632a4e3bfc011937"
+    sha256 catalina:       "9d75b4764248ff7603addf35ae66c93c36231b3915def05e2851d6b296d698f0"
+    sha256 x86_64_linux:   "8adc516f2ac3b02e6f8f78a4776b698606276111f0fec2568dd0f125071d6b15"
   end
 
-  head do
-    url "https://github.com/OSGeo/proj.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
@@ -39,10 +36,12 @@ class Proj < Formula
 
   def install
     (buildpath/"nad").install resource("datumgrid")
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "static"
+    lib.install Dir["static/lib/*.a"]
   end
 
   test do

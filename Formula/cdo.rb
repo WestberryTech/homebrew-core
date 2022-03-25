@@ -1,8 +1,8 @@
 class Cdo < Formula
   desc "Climate Data Operators"
   homepage "https://code.mpimet.mpg.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/26676/cdo-2.0.3.tar.gz"
-  sha256 "25520260ccb4e5324c27fa2160dfafc8152b180dd7f0133bd80425df3ef7c65a"
+  url "https://code.mpimet.mpg.de/attachments/download/26823/cdo-2.0.5.tar.gz"
+  sha256 "edeebbf1c3b1a1f0c642dae6bc8c7624e0c54babe461064dc5c7daca4a5b0dce"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,12 +11,12 @@ class Cdo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "11265316f9d416cd681a9f26ad4b5039c7f2183cff4fa9dd6042267b28ee6f77"
-    sha256 cellar: :any,                 arm64_big_sur:  "e8755e1d69ded41b5412483288549accc560d33d66ad15159da00b18b82a7898"
-    sha256 cellar: :any,                 monterey:       "c0dc95130f6e089c0024c48444ca5ba84662df54b84a529aad2b59f0651e9e5f"
-    sha256 cellar: :any,                 big_sur:        "130c01eb36be886b4fca7800af26f9df9a6bba820d50d3245f847e6fe597a358"
-    sha256 cellar: :any,                 catalina:       "ffce788f133146b31e3ab4b4e4ed0577f5eb8ec562899e983d05bba898a9fe04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c890ffd9329c1e62cc19251190136aafedb7636019ef2d590a8b7c260258ccf3"
+    sha256 cellar: :any,                 arm64_monterey: "c8e44109302f3df59a64b9e4c39ee08e20cc689dc1ed58b1200e34d8f21bfb6f"
+    sha256 cellar: :any,                 arm64_big_sur:  "a6e18d68b0493c0c63fea9da676fe1193fd2067c0af9f56b3f505ffe86f4c650"
+    sha256 cellar: :any,                 monterey:       "c631f31c13b9e89f8ebb58593d797807e7ba488df3234dbeecd751a248d12d67"
+    sha256 cellar: :any,                 big_sur:        "99ec7a933825e61b784c0032452b9bf48f758c0734b5b1700d56dedf6b32d10f"
+    sha256 cellar: :any,                 catalina:       "c789280330be3f3a2dbf6fa24289f53513397965c05d26e8938b517a9e58c3aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21220a85269fefc5fba4d8e70c3fe814ed3d1edadec508f823bf96beacbcd231"
   end
 
   depends_on "eccodes"

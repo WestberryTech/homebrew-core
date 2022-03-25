@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.19.0/node-v14.19.0.tar.xz"
-  sha256 "e92e846300e6117547d37ea8d5bd32244c19b2fcefcb39e1420a47637f45030c"
+  url "https://nodejs.org/dist/v14.19.1/node-v14.19.1.tar.xz"
+  sha256 "e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "9bad5bdd2bae49ff3ebc655ca544a83530b7d371a4f0e8746433ec17ee897dc1"
-    sha256 cellar: :any,                 arm64_big_sur:  "47b71ec5330898f974cc8420b45acd608bc02d59268f03049e58cdf2abd7845e"
-    sha256 cellar: :any,                 monterey:       "d05d7edad7b64f6a2b0f341b441d3c41f72c0c1dd079c09ffc40f68f6e0909b4"
-    sha256 cellar: :any,                 big_sur:        "a31a0cf53ca25fab5c8c7231b4cd451805b301e9d35d10185a53f448ec2f3c47"
-    sha256 cellar: :any,                 catalina:       "10556b2a07aadd2341c94d50f894bfc95af5fabaff5ec62ca7731638fe45ba1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1c6c1f79e15d4d628e28adcbbdf05c4c7ddadb1a419e34a3e2efd87047cc059"
+    sha256 cellar: :any,                 arm64_monterey: "b40b066d32d9fbb21a951706a57cdb849ef71bde1d3609f1fea8b9c0839b2948"
+    sha256 cellar: :any,                 arm64_big_sur:  "783321851bcd89037838653d3f93f9475e45b19cff5623bfd95236e92ce4cd9d"
+    sha256 cellar: :any,                 monterey:       "f26ed399312abf65e601b65f2691628b61416dc5029737b4ffeaa8aa7936206c"
+    sha256 cellar: :any,                 big_sur:        "ce8641bb1c3f21741bc9febf72c06eba4691f58ed82d0858775fab350d27a22e"
+    sha256 cellar: :any,                 catalina:       "ced3b35b9617887e2de6daaf433a4b2d0040c5d8a2a5a9542cacf8e7f74e7690"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7ffb157896a7868e80add0dc0de015d8dc216dada3d0b9c5ac852536d779d3f"
   end
 
   keg_only :versioned_formula

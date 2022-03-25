@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v17.5.0/node-v17.5.0.tar.xz"
-  sha256 "9b24e6830576c57ee36ba48333def8be575232987b4da939568b7b89f773cdc3"
+  url "https://nodejs.org/dist/v17.8.0/node-v17.8.0.tar.xz"
+  sha256 "7981144faf674292eff7e075f640a7084ebd927be11d1af78ff76741b6364e4b"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "a5d10ff8903676a3cf156a42314ec20c786cc18a9dff89c42f0b7d639451d5e0"
-    sha256 cellar: :any,                 arm64_big_sur:  "5ef04164ea5cb7e5a37119413c4950b4052c077cb01e5f80f0f13a0dfb3995fb"
-    sha256 cellar: :any,                 monterey:       "378c69d9cb2c683eaaebe700ac622a5a8c6913b799fbadd3e0997a839b6a125d"
-    sha256 cellar: :any,                 big_sur:        "47cf05de7bb1ad28a9be17ab35165381202b4b3a5ad476b6adf3b3bfdf5961ef"
-    sha256 cellar: :any,                 catalina:       "e7835d304de7ecdade6a87bf9102062860b2d52b6c491f8770591b4ae250cdda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf2c23575a73ab4f879583bc38ba820c5b94376052c8d88a900daeb77563e7e3"
+    sha256 cellar: :any,                 arm64_monterey: "394470305ca6da985cd29995f2bdbd3cfd4110683b094138af3f15ee5088a3f7"
+    sha256 cellar: :any,                 arm64_big_sur:  "5b746d1c2b660747750d9dee6dc96bdbbbc9bf8c40477ad21f5efb5303710edd"
+    sha256 cellar: :any,                 monterey:       "39d39e0ebe45654a49de673e19e65b837e0f44851329ad5171b8a7f5cefbac72"
+    sha256 cellar: :any,                 big_sur:        "6e6ec3da23f3980aed2a65fc8b56c0065e4e0fbf4817c0ac31275359d6ddc5cb"
+    sha256 cellar: :any,                 catalina:       "334ee091ff3df3d8ddc2c74aceebfcf983e6437c33c33e8f300dc29fb764f2d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "124454186ae9c17a8e2baf7733bb4e3a139ba0987d34eddf2d43c86afd4b2d59"
   end
 
   depends_on "pkg-config" => :build
@@ -52,15 +52,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-8.4.1.tgz"
-    sha256 "e008d48f53009f644321c342cd2598d6fd1157424a55a9663f722c0ef0686498"
-  end
-
-  # Fixes node incorrectly building vendored OpenSSL when we want system OpenSSL.
-  # https://github.com/nodejs/node/pull/40965
-  patch do
-    url "https://github.com/nodejs/node/commit/65119a89586b94b0dd46b45f6d315c9d9f4c9261.patch?full_index=1"
-    sha256 "7d05debcfaf7bcbce75e28e3e5b2a329fe9bbb80f25b7b721e1b23f20db4dc40"
+    url "https://registry.npmjs.org/npm/-/npm-8.5.5.tgz"
+    sha256 "904faa2d36ff2e0db55e9912e33742d43510bac9b40b27c0a2ceb225ffc57566"
   end
 
   def install
@@ -175,8 +168,8 @@ class Node < Formula
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :exist?, "npm must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-    system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "ref-napi" unless head?
+    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "npm@latest"
+    system HOMEBREW_PREFIX/"bin/npm", *npm_args, "install", "ref-napi" unless head?
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
     assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")

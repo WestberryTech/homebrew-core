@@ -2,21 +2,30 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.36.0",
-      revision: "189a55291c18ac850277134d2b8f3eaa2c4f7a1d"
+      tag:      "v1.37.0",
+      revision: "db0414e6646f54ce7d22a7eba65182c12284f162"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7483c78a9adbacd146d8cc962c6252fcb950a30b69ef118cb6a3a61a2c1ec4b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4edc59e15b3ff5caffe62e9777ff3408df4b603fb99723a0a971802fbb43fa46"
-    sha256 cellar: :any_skip_relocation, monterey:       "31c5b2bd9b914423c3f9f9be07fb07c52c0f40a15321290b5888541951cb32b0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "143fbcdb66b4a87ce02d12c7f053fbd3808b2c2b33eafa1e652fa8be6101cf46"
-    sha256 cellar: :any_skip_relocation, catalina:       "e7f6f99de9e79aa880d19ecfe92024ec3ec21a10e9fcf187b5c99ee6ab009616"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb9024fb72316ddb2ce768f92436ab0502fae31c9c2920e16deb6f6717b10f32"
+  # This uses the `GithubLatest` strategy to work around an old `v2.2.3` tag
+  # that is always seen as newer than the latest version. If Skaffold ever
+  # reaches version 2.2.3, we can switch back to the `Git` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "go" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18ba881d3e429dab74d1284c4def55093c382aceb221a9f7d5ada58d26074c99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8cfe25543feb08e02aabb29e3da0507fd452c53e879f3ab5275bb7bc7d203ffc"
+    sha256 cellar: :any_skip_relocation, monterey:       "381582a89e9dcfad88003904f1ee97e04004cfa2e790a9ad205bf42ae219ee16"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e725ed40eef956916491b268832ef3c1ec98a7b088d8f9d55e5545429728bc85"
+    sha256 cellar: :any_skip_relocation, catalina:       "d0b3df3a2d486a0659b59524929c1f039d3399062a66bfeaac92262e3851b59e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c98b914ea8004c5e9c2d7be0222e90c27c1e00e055d5d519ab452556995b387b"
+  end
+
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "make"

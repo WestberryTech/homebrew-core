@@ -5,6 +5,7 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.2.1/apache-couchdb-3.2.1.tar.gz"
   sha256 "11de2d1c3a5b317017a7459ec3f76230d5c43aba427a1e71ca3437845874acf8"
   license "Apache-2.0"
+  revision 2
 
   livecheck do
     url :homepage
@@ -12,8 +13,10 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "d9cf6a2a9391564687d13d399483531a16b359b58e7e360e9bb5e07077a4b5ff"
-    sha256 cellar: :any, catalina: "d3143b2e8fde79e0cec1472d9318988f32dd4337c742f25b98e41c43f01d39f0"
+    sha256 cellar: :any,                 monterey:     "bd42975d1094c79bd8fd085267e920c7aa60b1271512c286ed3d0081073b9a79"
+    sha256 cellar: :any,                 big_sur:      "0e88d8d596cb77003f76a0a2962327ddfe79b150c137698c29dc3d1a5c6bc526"
+    sha256 cellar: :any,                 catalina:     "e1227886bab7e206f51afaea3d4ddf58f07bc491f4df3ba5fe152c5246a36be7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d855bb5a722a550d8a4e7a9d9f711f9c306c790948af8ef9d39e7bf2527b334"
   end
 
   depends_on "autoconf" => :build
@@ -24,12 +27,29 @@ class Couchdb < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "spidermonkey"
+  # NOTE: Check for supported `spidermonkey` versions when updating at
+  # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
+  depends_on "spidermonkey@78"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   conflicts_with "ejabberd", because: "both install `jiffy` lib"
 
+  fails_with :gcc do
+    version "5"
+    cause "mfbt (and Gecko) require at least gcc 6.1 to build."
+  end
+
   def install
-    system "./configure"
+    spidermonkey = Formula["spidermonkey@78"]
+    inreplace "src/couch/rebar.config.script" do |s|
+      s.gsub! "-I/usr/local/include/mozjs", "-I#{spidermonkey.opt_include}/mozjs"
+      s.gsub! "-L/usr/local/lib", "-L#{spidermonkey.opt_lib} -L#{HOMEBREW_PREFIX}/lib"
+    end
+
+    system "./configure", "--spidermonkey-version", spidermonkey.version.major
     system "make", "release"
     # setting new database dir
     inreplace "rel/couchdb/etc/default.ini", "./data", "#{var}/couchdb/data"

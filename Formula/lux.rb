@@ -1,18 +1,18 @@
 class Lux < Formula
   desc "Fast and simple video downloader"
   homepage "https://github.com/iawia002/lux"
-  url "https://github.com/iawia002/lux/archive/v0.12.0.tar.gz"
-  sha256 "f5bcbe1039219a299908fdd5a540052ef603ff5c8c21c0d64f44c53132c41cdd"
+  url "https://github.com/iawia002/lux/archive/v0.14.0.tar.gz"
+  sha256 "3d485c9703851f3fb5cdee9b029b5b6855f84bfd29b44cae310a031a6fa8c00f"
   license "MIT"
   head "https://github.com/iawia002/lux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b74c6842567e63a373ae138e919298930773e84358fdf732b6ee06b4aa8476a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "99fd27cbc911377b60c376fc991f532be082c8b825c4e4ea1368d3d7fdea3187"
-    sha256 cellar: :any_skip_relocation, monterey:       "a94769da2053182cfa2620b1314829d2a2dac564f5c7be269216ce2251ae616c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4070d8a638416e31faa2aac747a445b969f2a0479710d5a0184aced5e03e9a5a"
-    sha256 cellar: :any_skip_relocation, catalina:       "703ca74cee2903b74281bd88a091d1f425a2c6d1739b44a930dd0d640b6b9ec0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3eb6f7a80fb704c89f3ce1607a356b2e31b9c43e0a1dead6a1b6cf7ddd5542"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f580049bd8033547af807289952deccb1435752511e0cff46562a2e0ee0f710f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4ec0c44a43b989408ca3bf89b1372dcc510080a4485dfbde8e6fe171184711ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ca33d92a5aebb2374c5f4905591cc5ac1205d8186eb5d23e7c61b8a85ddd681"
+    sha256 cellar: :any_skip_relocation, big_sur:        "383a81d4b43aa2a2591c4bfe791ed29dcab48682ec012f7e09eb252cf3e92ab7"
+    sha256 cellar: :any_skip_relocation, catalina:       "04df6baff952484442ba52c9e5f658ad588e5ff0b3d76818f8ad5cc46ad0b0f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9731bb27deb30763d11090536359db7cb40d42fbfcc7d589f1b1ad6450ce59e"
   end
 
   depends_on "go" => :build

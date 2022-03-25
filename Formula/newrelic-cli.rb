@@ -1,18 +1,18 @@
 class NewrelicCli < Formula
   desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
-  url "https://github.com/newrelic/newrelic-cli/archive/v0.41.21.tar.gz"
-  sha256 "39ba575a6541bcb2a1ff5c66426f46091c33fc006202226294237ec4aab4178b"
+  url "https://github.com/newrelic/newrelic-cli/archive/v0.44.2.tar.gz"
+  sha256 "db36badf98ac69e27b441ff871ca644a64a4aee8d37832380473166b5b68d8a3"
   license "Apache-2.0"
   head "https://github.com/newrelic/newrelic-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ef895b2494f21a0b9da9374459b16b64c382b6ecdcb9906dc2ce54764aae936"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a675ad879de8f57585fd8277593c7aa2378fdb854699bfb87d035e61ec72c89f"
-    sha256 cellar: :any_skip_relocation, monterey:       "11ae2f08908691ceccc6cc706accdb759976610a2086b8b8ecc2ffc2749a3dc7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dce1ae0f7417c66774120ec0de09ce9cc7e4527bf234a7cad21911984d5f0dbf"
-    sha256 cellar: :any_skip_relocation, catalina:       "083e636ec190f3ddaf7019cf89fcb0b96150c46f5e76ea527368569fce33817f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ed12599e56f74c659a4cf98ac1301d307c94d5ba1f70fb0ef31390e69b185ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15e4145f5621fab8a8bfa46899f51fb6104cf9fd66e84a83ad65f5e9461dd726"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22f6caa7a74d57af89f6dfc66bdc9f2a45f88201b6dbc7b34ad2c3305993bdaf"
+    sha256 cellar: :any_skip_relocation, monterey:       "53c4b26e37422abbe93cd71f93f54f48fcdf79faea65486e9da7c3be431221d4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "93aa5085678d59c7e4c9c50885610875a9f3fb7e235be262678f89a3726c39af"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d11612287f99ea46704cc82c75267d6b87a71981639647485627af1622d6f4a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcb23fa8ed2f9a6dd26211130411774b64a38de584f115bb54dac5565cdc06b1"
   end
 
   depends_on "go" => :build

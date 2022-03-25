@@ -1,10 +1,9 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v4.2.0.tar.gz"
-  sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
+  url "https://github.com/CGNS/CGNS/archive/v4.3.0.tar.gz"
+  sha256 "7709eb7d99731dea0dd1eff183f109eaef8d9556624e3fbc34dc5177afc0a032"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
@@ -13,12 +12,11 @@ class Cgns < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "3f77ff338091758fdef490782b0fb95b0775d58f505dfb60ac8919f2ecde027f"
-    sha256               arm64_big_sur:  "990a1aa3109f6738e6f35317bbbea723281d1c1ac4ca79ad59eee7c6e86f7ab2"
-    sha256 cellar: :any, monterey:       "97c8085d3cd8040ec1afdc770de90444dfd566e4dfb4845d3f47751b5b8b0942"
-    sha256               big_sur:        "ea9d83f6f0d4385054814f42152993db58582e7acd5dbde4b667aa5c7242207d"
-    sha256               catalina:       "517dfe99a307d2f4d96aa4931707596a6862bcd30b64a798375bcd7ec40cc232"
-    sha256               mojave:         "ee6e9edeb0e1b7d7b630501dd2e76091354a05e0f31c2850ca2288ed159445ce"
+    sha256 cellar: :any, arm64_monterey: "057bb4d7e50bc286171fa587de69efb9ce454b7fe7ab6bff425b7c8368b5b010"
+    sha256 cellar: :any, arm64_big_sur:  "db527fa7c0a2f0ead35df1392540897c71209d2a4bc1ea2e1cdb045a5d951ac3"
+    sha256 cellar: :any, monterey:       "16bb4d982bc42a946eeea3190340d91948aeb264ea3f9a9279a86bae77e891bc"
+    sha256 cellar: :any, big_sur:        "828170fcea5d6707fed2f5428c762ba57d75a36120bec5a4547543cc7df26995"
+    sha256 cellar: :any, catalina:       "b47c62791fb05f0038d712448c93de085f0101fcbbf89bee19602422a36e3887"
   end
 
   depends_on "cmake" => :build

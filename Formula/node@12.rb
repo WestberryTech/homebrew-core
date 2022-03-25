@@ -1,8 +1,8 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.22.10/node-v12.22.10.tar.xz"
-  sha256 "ad4c8891d54a2c9bb6af436956deead5986b9698b06e6c6d616de429cfb5393a"
+  url "https://nodejs.org/dist/v12.22.11/node-v12.22.11.tar.xz"
+  sha256 "5e81da26fd5b1f89714483abaa68e3da304523e4334c78c49bfa7a03ee78d6f1"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT12 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d855774f6d428e2e6d258eaf88fa60a941b6d2c9ecca3596d4156f35e7896dbe"
-    sha256 cellar: :any,                 arm64_big_sur:  "676b39ab4e74c531287956cc4e5478c7c4a22581584edb88d76b7623ab70f811"
-    sha256 cellar: :any,                 monterey:       "888cba85ca478f974dd0d8f6abd2de3e93f009fc40cb01584a609d0c4ea7b998"
-    sha256 cellar: :any,                 big_sur:        "d6470997250871edc042834db307e7c302ebad0b1b9bbca771ecd5ec0e188314"
-    sha256 cellar: :any,                 catalina:       "dd9dae6bc8610ea18d8533c627dc335bb372688b04404d7a7316ecc9ce9037aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4aafe9d8d830131e245b11fd5d969e9e4e17f37b57389ffa35599e9e8c00178c"
+    sha256 cellar: :any,                 arm64_monterey: "74e8d718cceb3b87aac313cf8dfe132d5812e946e2efe94f49fc8faa741afe7e"
+    sha256 cellar: :any,                 arm64_big_sur:  "c7937d97b9153942b13190cc4be5a6c6d23024fbb0f0f6a04b32a092cb1bad75"
+    sha256 cellar: :any,                 monterey:       "962e9e27d8cfc5360ab635182511faf5e0b22016245258451c9c05668513a403"
+    sha256 cellar: :any,                 big_sur:        "8fabc1ac5be9616306e01b9173a58f4771cc92b0f4b032ed2e16600783f9daf0"
+    sha256 cellar: :any,                 catalina:       "39358fe7ffc1ef43b6b48d0da190eb9835e9aaccc8985aa8017ebcbdd12095ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb678687b40ea0f29c70af2ba56fbd11f8065380634a490e33a30756764c25c7"
   end
 
   keg_only :versioned_formula

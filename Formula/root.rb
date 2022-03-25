@@ -1,11 +1,24 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.24.06.source.tar.gz"
-  sha256 "907f69f4baca1e4f30eeb4979598ca7599b6aa803ca046e80e25b6bbaa0ef522"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
+
+  stable do
+    url "https://root.cern.ch/download/root_v6.26.00.source.tar.gz"
+    sha256 "5fb9be71fdf0c0b5e5951f89c2f03fcb5e74291d043f6240fb86f5ca977d4b31"
+
+    # ROOT 6.26.00 doesn't support installation in directories starting with a
+    # dot (.linuxbrew, for example) - two commit merge
+    patch do
+      url "https://github.com/root-project/root/commit/6802514256e948582c26ad938c2c34f22b2d1bc3.patch?full_index=1"
+      sha256 "7988fa9e842c821c9be681c0e783dc299ecc74805750a4323e2921da26e7fc5b"
+    end
+    patch do
+      url "https://github.com/root-project/root/commit/efc67e432206771fe934ad7763529cf3621696a1.patch?full_index=1"
+      sha256 "b3ca4e06abd9c69315433717ae3a75677d8175cb53b8731c93f655634df1e22c"
+    end
+  end
 
   livecheck do
     url "https://root.cern.ch/download/"
@@ -13,12 +26,12 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "4486615e37da793dea1ff7fa73416988dd11d6597aed6f14eeeb8fe18d6cf88a"
-    sha256 arm64_big_sur:  "486e5d4cc0857645d1a4198e7e3e06e4a78acc71d11b7c2c7877e4315c14298f"
-    sha256 monterey:       "24199045f6de3ce88197a82a02e02428a624305f9c44fdc5786d579ebe94dd3e"
-    sha256 big_sur:        "761ba42f4e215b1908b9d9fa7d0a6409001d8464d93fe4abdae943591c9b53c1"
-    sha256 catalina:       "3da0ffd885eaabc9e22459917e62e755eb2d907f3f76f530bba214b00016085a"
-    sha256 x86_64_linux:   "5a2ea4436a286f7e869c072a0cb570d399de2b254050187fb8c1a0a3ee9d7c3f"
+    sha256 arm64_monterey: "50ea1ca18152fb8588c8b216953f5efea00b20526891a8eebefb72c7af8273d6"
+    sha256 arm64_big_sur:  "49e6c8e34d1af857ad63d7a3cf578560c10ab94aa93925e3b0c929e9de8b4bbe"
+    sha256 monterey:       "61ee0c42ee69f490cfd4b27b7afacdeab356a132902fa5608f182dbd15d56449"
+    sha256 big_sur:        "5f259765fecc033c89064cb18d651a4769f58da8bfc4b88d78a116d0557664ac"
+    sha256 catalina:       "66024796ddf23cc069083358635018f73e000c6b25a03e9dc6eb48c2ab117295"
+    sha256 x86_64_linux:   "49217866650958d6e4d00f8d893d8a5a5edab74f31909af25e81794325d057a2"
   end
 
   depends_on "cmake" => :build
@@ -54,8 +67,10 @@ class Root < Formula
 
   skip_clean "bin"
 
+  fails_with gcc: "5"
+
   def install
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root"
 
     inreplace "cmake/modules/SearchInstalledSoftware.cmake" do |s|
       # Enforce secure downloads of vendored dependencies. These are
@@ -69,6 +84,7 @@ class Root < Formula
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_CXX_STANDARD=17
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Dbuiltin_glew=OFF
@@ -90,9 +106,6 @@ class Root < Formula
       -Dxrootd=ON
       -GNinja
     ]
-
-    cxx_version = (MacOS.version < :mojave) ? 14 : 17
-    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
     # Homebrew now sets CMAKE_INSTALL_LIBDIR to /lib, which is incorrect
     # for ROOT with gnuinstall, so we set it back here.
@@ -154,7 +167,7 @@ class Root < Formula
       }
     EOS
     flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
-    flags << "-Wl,-rpath,#{lib}/root" if OS.linux?
+    flags << "-Wl,-rpath,#{lib}/root"
     shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
 

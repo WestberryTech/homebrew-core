@@ -3,17 +3,17 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/5f/e2/b8bbdca54f8f49065670f100d64d17d4e26c014805905cc9c67e5b7d0ca4/twarc-2.9.2.tar.gz"
-  sha256 "a881b8fba287e457b99ef2ce9db60b16b0e8303a3b077f1dd6ec0ce4ad54b5db"
+  url "https://files.pythonhosted.org/packages/60/8b/bb674291306e702b6909d88839e2430112ddae5f7e7c65f3985c8edf6e83/twarc-2.10.0.tar.gz"
+  sha256 "5dbab8d2efe5ba4d512ab6b2b41ef11fa8e3c155cb96806dae2df80b44accf19"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae94b5251a7ed02810f1b08b8c6443e726adf74b3a0862678b8601aae6f88d67"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "94e3852bd470684e8dc8f533563d3d3045a05f7fd8cec8d21dba1c43a4e34951"
-    sha256 cellar: :any_skip_relocation, monterey:       "f99c90b91a1fbf43c1b947cdb5d444dc1691b461da56f1ac420da14b4659cacf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f4bec3c8de68b7044dcdcbd95c69eda3bb84dc9cc871c658639e596c84138ff4"
-    sha256 cellar: :any_skip_relocation, catalina:       "e9adb22e9b6361a4a15a30696fd63956c068c851e528f40b1cd6821d48fae8a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc5ffb81c0618bbb4512617b50cdbee96e9662800e42998ddfe72e179c959085"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b533eadf9b92fdc577ec3abba5792a8d1668d7739bc67151192e057d90213e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cb86176e0332eefca77c645d01b9ff35b7fb845a80d5353501cde45a96be9e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "68356aae15cfd459026c7d8b4a3c23ccc71c1fd55cbdf21afcb21517b97682de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b804ed662f21ba50fce071e4c324ce3eef5433b93d834973ece08157e03e3866"
+    sha256 cellar: :any_skip_relocation, catalina:       "a246a6a7bbf5faab7ab690e82de76d22c146c997c2b9130b99325d242b1e4d41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d1ccdc9f5c082935801fc173c18bd55466c0e9b59e4a88c76e17de6fef7a254"
   end
 
   depends_on "python@3.10"
@@ -25,13 +25,13 @@ class Twarc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f4/09/ad003f1e3428017d1c3da4ccc9547591703ffea548626f47ec74509c5824/click-8.0.3.tar.gz"
-    sha256 "410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b"
+    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
+    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
   end
 
   resource "click-config-file" do
@@ -50,8 +50,8 @@ class Twarc < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/f5/11/2634362bfe1db5e7d5cd92cd6d1be023005d00062dcf1c0bdb6699ed5e13/humanize-3.14.0.tar.gz"
-    sha256 "60dd8c952b1df1ad83f0903844dec50a34ba7a04eea22a6b14204ffb62dbb0a4"
+    url "https://files.pythonhosted.org/packages/db/08/dbe660b435f7dcc9cd78c928cabba90e3088c10b2a90843c102cc3671154/humanize-4.0.0.tar.gz"
+    sha256 "ee1f872fdfc7d2ef4a28d4f80ddde9f96d36955b5d6b0dac4bdeb99502bddb00"
   end
 
   resource "idna" do
@@ -80,13 +80,13 @@ class Twarc < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install

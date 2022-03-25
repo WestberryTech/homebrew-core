@@ -1,17 +1,17 @@
 class Mongocli < Formula
   desc "MongoDB CLI enables you to manage your MongoDB in the Cloud"
-  homepage "https://github.com/mongodb/mongocli"
-  url "https://github.com/mongodb/mongocli/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "3bb212eea09836f73daa715f203e3074a88fcac5bf60ccec7579ede8b9dd0a57"
+  homepage "https://github.com/mongodb/mongodb-atlas-cli"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/mongocli/v1.23.1.tar.gz"
+  sha256 "34f4aaef8bae5fa848b7091c760af6c659a2a7e3c5a5d00d0ebda18cd0117ea4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c92ce39199f55347e48c3ab18dfa13cc524a725654af8fe446c33607ef84062"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d472e20348905da057c88d9c6e69815e09f76bb7cc45fb0d6ab082755292be0"
-    sha256 cellar: :any_skip_relocation, monterey:       "90c338b68f87ee30f9eadbb8bcacae3b079a70e805cda8343dad073f4c664824"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4b83976f2af0aad98d4374e80042be7c9dc7c7b28ad0211fff35a45fed698d28"
-    sha256 cellar: :any_skip_relocation, catalina:       "18a9d3e5c96071d43637bc2ad25152cafc8159ad2c0d8a24a51f5e64a966bfcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c50080a1f8f7344994079a6255be7e14fccfa2c5b65039c79f8f61f900e9075"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7f1f06b80b65f92fea77e0b39fe1d00443a66f1b30d0c734c8eab75e5120a3f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "adc7fdb8752684214c010319ee7020c90a36710c1807112b91d8e3ad2dd95b3b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4c6f99c90fb7092b4ca5f91433a9d7ba2097d989561a85d0d1ddc9d70416b5b8"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ad194a907fed89132c0ad1965ca0d025212d977ee684d37f6b04334c6a5a5f69"
+    sha256 cellar: :any_skip_relocation, catalina:       "cce730578c3b5db4458795a38e6e4de2054c28add6646bcf0afbb0d12b433532"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "783d363825cbe2efc02cd1576816227e92316bf9cabbc5130d2524a68a65145b"
   end
 
   depends_on "go" => :build

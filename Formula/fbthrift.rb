@@ -1,18 +1,18 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/v2022.02.07.00.tar.gz"
-  sha256 "0e5fd6a491e6098f81e3cfff25e4d9ad77a14df6e6941427cbe623778b56ecc3"
+  url "https://github.com/facebook/fbthrift/archive/v2022.03.21.00.tar.gz"
+  sha256 "7310d177b3ba2827912b7307b30da6e6da0d6afbe419b261a0fc4e63a26c1c54"
   license "Apache-2.0"
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "09e6463a17b56b13e0e1ef49f94ccd54de7a421e767dd7c80ed238f3524be6e8"
-    sha256 cellar: :any,                 arm64_big_sur:  "1365d58add760f11e222696f3acf93d6a71c49c859747922a7dc6a96499e2825"
-    sha256 cellar: :any,                 monterey:       "3763ad746768029a44db598116cd3d0ab9791384c200b9d73b52817decacf5de"
-    sha256 cellar: :any,                 big_sur:        "2c943128733b1000fe5004346f2f86e13689526b4376bd8363ac24851d74ba23"
-    sha256 cellar: :any,                 catalina:       "9396676e2b7826163301f9f9fcd1105dc473d151cec289e559f08fa9d3a1df18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a29c892289b5ec1d1b936e5fb8e40e72739747b8329d18f46697faf12beafe28"
+    sha256 cellar: :any,                 arm64_monterey: "b4f4cc6897ff57a72bb0986bc0f888c0e4b4f5e3336d56add52f46c594040fdc"
+    sha256 cellar: :any,                 arm64_big_sur:  "123a529f1f1b43fb03c730eb0bd35df6d70ec39237a2b2907ba5e207fca87767"
+    sha256 cellar: :any,                 monterey:       "ad5dc1dfdda46732acbe17357039d17850da657fb3dc654a1cd7f2ff01e3dbed"
+    sha256 cellar: :any,                 big_sur:        "3827baa7a4ca3c69bfc3c39a76e8807df198eaaf15097e654284674b0f01fd70"
+    sha256 cellar: :any,                 catalina:       "40ea82bd37d7b4ef068e8c524067bab922aaa4529c5e7cf122c52d05115a98b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faa70c144caf3b8075032e87e7e8d7f2277e0f1d78b5a87976a4c122269e68b4"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+

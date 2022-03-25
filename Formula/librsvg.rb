@@ -1,17 +1,17 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.52/librsvg-2.52.5.tar.xz"
-  sha256 "407cbbab518137ea18a3f3220bea180fbee75f3e5bd6ba10a7a862c1a6f74d82"
+  url "https://download.gnome.org/sources/librsvg/2.52/librsvg-2.52.8.tar.xz"
+  sha256 "bade8eda74f2d7efb414e9bae53004806e1fa7dc05f04cad59b74eb1a5756962"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256                               arm64_monterey: "83e2f0abdc61c62986ce60cb243c9996ddc14321fab83b64af9beb0483e0e72f"
-    sha256                               arm64_big_sur:  "9b7b6b18890cdee1a4f227774556995eb6a6e84ac3b9dcdd62d7938300f9b113"
-    sha256                               monterey:       "25e4b29b4599cbb0dfac01c03aa55d35ef331c0d05c5bbfdad8d24008b0532cf"
-    sha256                               big_sur:        "7d56a8e320e894e04cb9e78a8923cb483f02fc5a3ba1eb8bc473c7affe38d74e"
-    sha256                               catalina:       "9c6702f2d5a0031e8b13f176cfedb3dfbfee5767190cc263a2fe36a3946ae799"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809043724ce46d0d12d642b94c3c91a36b175566db853b716eb663c5af684c39"
+    sha256                               arm64_monterey: "329012ae8855a987804b8de3fd6aa2e2a0d43cf1a2524da67a8a7b11bd0df97b"
+    sha256                               arm64_big_sur:  "b6ea5a817ff63c865c02db080ef474926ddd49e8f89ca4017da13de0abc22a65"
+    sha256                               monterey:       "f36427d1112775836175132d5316b95d693c7ac7cc8347f39cccc7a24f72d739"
+    sha256                               big_sur:        "f59a0fdfca3a229b131ff37bfb46d7f3af668fb6e81d4a8453af84f4f9fd3c6f"
+    sha256                               catalina:       "e9e9a1529b58c0839d165ec4101214aabacd424821534ac39036aa9989ee8a9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b17b560b0d30470cad93284b6239a09c1313aa94e2f2eee9bb3a351ab2300153"
   end
 
   depends_on "gobject-introspection" => :build

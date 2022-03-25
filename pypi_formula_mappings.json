@@ -5,7 +5,7 @@
   "ansible": {
     "extra_packages": [
       "apache-libcloud", "boto3", "dnspython", "docker", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
-      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-neutronclient",
+      "openshift", "passlib", "pexpect", "proxmoxer", "pysphere3", "python-consul", "python-neutronclient",
       "pywinrm", "requests-credssp", "shade", "zabbix-api"
     ],
     "exclude_packages": ["six"]
@@ -150,7 +150,9 @@
     "exclude_packages": ["six"]
   },
   "gimme-aws-creds": {
-    "exclude_packages": ["six"]
+    "package_name": "gimme-aws-creds",
+    "exclude_packages": ["six"],
+    "extra_packages": ["pyobjc-framework-LocalAuthentication", "SecretStorage", "jeepney"]
   },
   "git-remote-codecommit": {
     "exclude_packages": ["six"]
@@ -293,6 +295,9 @@
     "exclude_packages": ["numpy", "six"]
   },
   "pywhat": {
+    "exclude_packages": ["six"]
+  },
+  "rbtools": {
     "exclude_packages": ["six"]
   },
   "regipy": {
@@ -464,6 +469,9 @@
     "exclude_packages": ["tabulate", "six"]
   },
   "stormssh": {
+    "exclude_packages": ["six"]
+  },
+  "streamlink": {
     "exclude_packages": ["six"]
   },
   "tarsnapper": {

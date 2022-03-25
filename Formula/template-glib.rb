@@ -3,6 +3,7 @@ class TemplateGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
   url "https://download.gnome.org/sources/template-glib/3.34/template-glib-3.34.0.tar.xz"
   sha256 "216bef6ac3607666b8ca72b936467f7020ce6421c02755c301d079576c9c3dfd"
+  license "LGPL-2.1-or-later"
   revision 2
 
   bottle do
@@ -13,6 +14,7 @@ class TemplateGlib < Formula
     sha256 cellar: :any, catalina:       "9076cc6161b090edf56b7ffdb0dcb31f3590c5b359b3e74fb78c1c0119b2c256"
     sha256 cellar: :any, mojave:         "b5cbd61d31bcf899a1940b0e0c00b2a788a6dc1316d90847a0668973525a6048"
     sha256 cellar: :any, high_sierra:    "4e0560a1eb5ac91fdd4ea3dc89086f0b50cc65d68c32c3c8bb4fa49e0d05454d"
+    sha256               x86_64_linux:   "c6817c5156f3ca6917d529ab1c8c75e259d72df8b49ea0ecd4cd079212514b7f"
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
@@ -21,6 +23,8 @@ class TemplateGlib < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
+
+  uses_from_macos "flex"
 
   def install
     mkdir "build" do
@@ -57,11 +61,15 @@ class TemplateGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ltemplate_glib-1.0
-      -Wl,-framework
-      -Wl,CoreFoundation
     ]
+    if OS.mac?
+      flags += %w[
+        -lintl
+        -Wl,-framework
+        -Wl,CoreFoundation
+      ]
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

@@ -3,29 +3,29 @@ class Jinja2Cli < Formula
 
   desc "CLI for the Jinja2 templating language"
   homepage "https://github.com/mattrobenolt/jinja2-cli"
-  url "https://files.pythonhosted.org/packages/0c/df/c16c1757b0cd37c282be4f7bb2addcdf3514272d180ae2ed290a5d2472cd/jinja2-cli-0.8.1.tar.gz"
-  sha256 "fb1173811ed5b54205c65131374f342fcb924a5123af53a65fe1ffa7eb40bf19"
+  url "https://files.pythonhosted.org/packages/a4/22/c922839761b311b72ccc95c2ca2239311a3e80916458878962626f96922a/jinja2-cli-0.8.2.tar.gz"
+  sha256 "a16bb1454111128e206f568c95938cdef5b5a139929378f72bb8cf6179e18e50"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2c27fed222d1b4d9fd23854b30559a8d0b5a520d8f08410f2b3be48758f21e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2959f96e55b3d8e3f9030db4ac9d6c8c5ba06e51a1411dd854dcd7765ee46619"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a68d03e07b8c6c0c6a70ec8bf40f70efd96aa0b0af1e51a1e3c860f9989a2f2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5084fb300d9dbc82aa6a7438f8eafe65595d637b537e18851fbbd4d2b4ab2d11"
-    sha256 cellar: :any_skip_relocation, catalina:       "5e58a0cd15e7e8e2fa144ee3ad83a4c9ecb702ba7ded94c463bb9ed59a22a42d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7d85123642611a753faffec7b98fb20ceec023aa550f0f27bc11bce1633749"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d15c574661a2a28a9474ab16fde2e4d47987d4f7b7915e76c38ecfe09409c779"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95b2246e33ed7fcfb0cf0452e624997e96c38f6c708b5eb9c6c17b6f82735562"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b99f3649702d5e1529d6015b444fe6204676194d3da43dd65bc535c027ac00b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "56521fe9ca80ffa1d4bca8ba522ef1eefe6fb4f4d87a135c81cc93cd94487a91"
+    sha256 cellar: :any_skip_relocation, catalina:       "ccaeed2da13e56248c3da0beabc6575e67a5c7055c60931311206488e3a8fabd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77a81b6935066677a44a744e9fa1d979f1e3241f5975bb3a462de208722947e7"
   end
 
   depends_on "python@3.10"
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/1f/93/99a76d0fa1a8fc14442a6421abee323f8d15964979336eabd2a1834e9118/Jinja2-3.1.0.tar.gz"
+    sha256 "a2f09a92f358b96b5f6ca6ecb4502669c4acb55d8733bbb2b2c9c4af5564c605"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   def install

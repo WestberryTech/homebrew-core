@@ -1,10 +1,9 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://libvirt.org/"
-  url "https://libvirt.org/sources/libvirt-7.10.0.tar.xz"
-  sha256 "cb318014af097327928c6e3d72922e3be02a3e6401247b2aa52d9ab8e0b480f9"
+  url "https://libvirt.org/sources/libvirt-8.1.0.tar.xz"
+  sha256 "3c6c43becffeb34a3f397c616206aa69a893ff8bf5e8208393c84e8e75352934"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f157ec2148e509becfcfa7d2f093a40f2ddef006687a1a503a984a56c20149a9"
-    sha256 arm64_big_sur:  "ae5b59937198b088873ea400c601ba99b2930e08186b960b0a0a3338e69afc0e"
-    sha256 monterey:       "5f3e532a6f37cc24b9ff38bdfa1ab6deb76a6079af8008504fdc03deae7bb0b4"
-    sha256 big_sur:        "6c475624430a0251278ba2e08b49ad0bc59f0634033a4914b62ef854fcb2ed1a"
-    sha256 catalina:       "f4bf14b1d3e236a5d71de7cf1b8801adc8bd2b05181ad197975c01adbaa28edc"
-    sha256 x86_64_linux:   "6626249198109787d347375c988bf5374677e30ea0bcdd4042de170bae35bb54"
+    sha256 arm64_monterey: "c4e68bfb88bcdb629ed55718a00ea5cc1934f3ecaa01380d7ccedc6007e2e809"
+    sha256 arm64_big_sur:  "d471f8003e5a936a149b857b9c215141d06a7dee771a735d9c0f095da370e33a"
+    sha256 monterey:       "dea823676f80f465ac06f06e78834b97422f3d5c512b16d3775649b6c418af7b"
+    sha256 big_sur:        "9a1610a93e02a4f404a038f688a4e3c3ecc208e9e986465a57295580704f5926"
+    sha256 catalina:       "1764ac765f2d3424378685e8843c3cb95263cea07f3b29f4380a3f6c48c15576"
+    sha256 x86_64_linux:   "91aad643da2f74af8f2b550f80f0f6f3c921acc2de6078eb2495a0950343b542"
   end
 
   depends_on "docutils" => :build
@@ -45,27 +44,12 @@ class Libvirt < Formula
   end
 
   on_linux do
+    depends_on "gcc"
     depends_on "libtirpc"
+    depends_on "linux-headers@5.16"
   end
 
-  # Don't generate accelerator command line on macOS
-  #
-  # This makes it once again possible to use the
-  #
-  #   <qemu:commandline>
-  #     <qemu:arg value='-machine'/>
-  #     <qemu:arg value='q35,accel=hvf'/>
-  #   </qemu:commandline>
-  #
-  # workaround to enable hardware acceleration.
-  #
-  # Drop once proper HVF support is added to libvirt.
-  #
-  # https://gitlab.com/libvirt/libvirt/-/issues/147
-  patch do
-    url "https://gitlab.com/abologna/libvirt/-/commit/da138afc3609a92d473fddcffa54b2020759f986.diff"
-    sha256 "4eb3c9f0ca140a4d8eb5002acde0b6f1234011f82df7d8cc85252be35e8a5cff"
-  end
+  fails_with gcc: "5"
 
   def install
     mkdir "build" do

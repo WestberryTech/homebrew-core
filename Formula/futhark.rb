@@ -1,18 +1,18 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.21.5.tar.gz"
-  sha256 "4a7d5f5d0de94e33c622e8383e66272ce26ad1e5719bef72111e615f990182f9"
+  url "https://github.com/diku-dk/futhark/archive/v0.21.8.tar.gz"
+  sha256 "830579b3e45b97a2e9e1ca423a271d311fb84ebf1b2a9f1ed4063d2408ac2dca"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc1d9696ea1bea68156ad54ba4cc95752d4310e2d343da2eb6fd002e56b61b94"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e6dcda6e90479f9e233d9872ced2b8785f7fee36cf153e896bbda0fcbd8cd15"
-    sha256 cellar: :any_skip_relocation, monterey:       "002b435e5456323e4c3841b3e148e85dfbf0fed53868225edb359ec10aa2c3a6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "64df312443527f5fb45b436efdb8424fcee6005c865739f83199549c9f6392e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "8dcdbf2e64380e15e5dfc82272ed9b039da0de39dbbcb13959f3380d41c744ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcda13fab2d7194bc8896bf4339bc0de299f4d4c95ad87364ca7959a8231fdd8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f9fcd9ce6e1b97e455d2b6a20218af81ab42683da0cbb0d9ca4c0956a6cfdc16"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3f9ae83e9946620fee7d10475e70e9ca0e99db4246ab0a6dce619be23009219d"
+    sha256 cellar: :any_skip_relocation, monterey:       "997eb22d3e5567baaabc387653d386e5dbbd1997dd3d6b2395a9f4704e5ea092"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c880dd6a021db998e4ba2a4b564ee4f302d32bd21f5f41ec7a6230a7e79ebe58"
+    sha256 cellar: :any_skip_relocation, catalina:       "734f31827152c84ccd4482524f935638525a1af4a087eae7188ab293f27902f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f39b77348e06c4bc4be9465a636d661ce7dd9a273a95ba6d665412d1e380a969"
   end
 
   depends_on "cabal-install" => :build

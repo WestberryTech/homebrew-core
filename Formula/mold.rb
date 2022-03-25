@@ -1,22 +1,21 @@
 class Mold < Formula
   desc "Modern Linker"
   homepage "https://github.com/rui314/mold"
-  url "https://github.com/rui314/mold/archive/v1.0.3.tar.gz"
-  sha256 "488c12058b4c7c77bff94c6f919e40b2f12c304214e2e0d7d4833c21167837c0"
+  url "https://github.com/rui314/mold/archive/v1.1.1.tar.gz"
+  sha256 "47c5ddfe60beffc01da954191c819d78924e4d1eb96aeebfa24e1862cb3a33f9"
   license "AGPL-3.0-only"
   head "https://github.com/rui314/mold.git", branch: "main"
 
   bottle do
-    sha256 arm64_monterey: "b6d0872dc4e78f4d0fdfbc9ab76cf26dc5268e0ee29f15307c1d9cd0a2107494"
-    sha256 arm64_big_sur:  "1dd8464a8856c146cddfec7f2077c6cf70a18967f091e136aaee5d9345544165"
-    sha256 monterey:       "2120612b7735e17adbce710adef6be309383fac0d4a8fb35b1c3f09b8b14649d"
-    sha256 big_sur:        "7689c4e59a576512baa9ba5e4ecee6d45217a1efba6b0333e935aec9c8044951"
-    sha256 catalina:       "f426e485c2a9416c73e5a41e79c12ecaaede5baf62a4ae89906969c9347af108"
-    sha256 x86_64_linux:   "e3fc5dbe542dea1d5c55bd2e8668b6f16be51f0a99dcd633f812e2bbbc1668ef"
+    sha256 arm64_monterey: "54fd2aa58e34b16de07e43bf7fca4278069547fc9adc41cdbb4fe5f476735a45"
+    sha256 arm64_big_sur:  "9cbd6a16091a5bec3dfe781c55b54e538c9b4b325f72ec14de85ead7e300115b"
+    sha256 monterey:       "dad283ead1dda3d5209091fbe0b07633745eaf2fe85faf242dfa2b35e9c11994"
+    sha256 big_sur:        "55adb693ed2aa555defde2ed7d8749aba94ff7ad5d36450c5c3f86569af18e1d"
+    sha256 catalina:       "71d2a690281992686f844b4faee02108afbd42d2e577f1f1898ee22836c462d1"
+    sha256 x86_64_linux:   "ebdebec0ea664c0106e27c19d54aaff04337f8747fdc3a39c28b990493aca1f6"
   end
 
   depends_on "tbb"
-  depends_on "xxhash"
   uses_from_macos "zlib"
 
   on_macos do
@@ -48,13 +47,12 @@ class Mold < Formula
       LTO=1
       SYSTEM_MIMALLOC=1
       SYSTEM_TBB=1
-      SYSTEM_XXHASH=1
     ]
     args << "STRIP=true" if OS.mac?
     system "make", *args, "install"
 
     inreplace buildpath.glob("test/*/*.sh") do |s|
-      s.gsub!('mold="$(pwd)', "mold=\"#{bin}")
+      s.gsub!(/^mold=.+?((?:ld64\.)?mold)"?$/, "mold=\"#{bin}/\\1\"")
       s.gsub!(/"?\$mold"?-wrapper/, lib/"mold/mold-wrapper", false)
     end
     pkgshare.install "test"
@@ -77,9 +75,18 @@ class Mold < Formula
 
     system ENV.cc, linker_flag, "test.c"
     system "./a.out"
-    return if OS.mac?
+    # Lots of tests fail on ARM Big Sur for some reason.
+    return if MacOS.version == :big_sur && Hardware::CPU.arm?
 
-    system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
-    system "./test"
+    if OS.mac?
+      cp_r pkgshare/"test", testpath
+      # Remove some failing tests.
+      untested = %w[headerpad* pagezero-size basic response-file]
+      testpath.glob("test/macho/{#{untested.join(",")}}.sh").map(&:unlink)
+      (testpath/"test/macho").children.each { |t| system t }
+    else
+      system bin/"mold", "-run", ENV.cc, "test.c", "-o", "test"
+      system "./test"
+    end
   end
 end

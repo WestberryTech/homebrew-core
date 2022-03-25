@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.33.1.tar.gz"
-  sha256 "a3ec7bde701b0663e706c718ea58722544c4a3bbb902d89cf64d3b7f34523ad5"
+  url "https://github.com/prometheus/prometheus/archive/v2.34.0.tar.gz"
+  sha256 "76bb5afff1a9be179b99afe624fae73d5c23a27976f2bcb2dc663d1942e87e22"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Prometheus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b937c31019a3bc68bc037e7ec13f0bd6fdd7e656e557234eb11a440ab1e8813c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca4aba895e28de88950474c5188ee244d8fb4b87532e272c28ee996d3ad05da9"
-    sha256 cellar: :any_skip_relocation, monterey:       "25add7764b9a365a6f9b73c96201d7c8fb93642a05c372956640c7b8a714d9a9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3af21cde5b8a34fd3b225efc7b31a0b2a1eb7c08c4346011cbafdb59e0d9f3f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "34d57fdadd30c61f2488a6e2ca0368cd73e82123c06ca55627b4dbf549ca4425"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "130a9318bdf6e2f528b7653d3ce5a82ac49556301587e592d481242740c7fb5f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae862e0dd8ca43e833717b393b88944c5b6d36d3c05d737364b4ca8f23fb9aac"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "491f0e82bcf3042d2e776515646e05d1ed115bd8f754ffad7e5891ef4cbc8909"
+    sha256 cellar: :any_skip_relocation, monterey:       "86bbf44a53b8475915031171090257bf3894a3f65a16e54b0cc86976f1e4c236"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ebfb0dbf6449e17ceb7db548a1f98f4fdbcad50b1f09850a1687b4c695c08f3"
+    sha256 cellar: :any_skip_relocation, catalina:       "712c4f66fcbe179d770ecc74b8d7f1ffa84bccb7e3c4e949a1a3f81ef34ee083"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "584036bab89255f6541ab6c61b19961981651b04f36386fbe65903b3b7aeef72"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class CloudflareWrangler < Formula
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/wrangler"
-  url "https://github.com/cloudflare/wrangler/archive/v1.19.8.tar.gz"
-  sha256 "2773715502a13cb98e55767e8d7d5793bb1bc4c6cac6c7160db2404ba1c900c2"
+  url "https://github.com/cloudflare/wrangler/archive/v1.19.11.tar.gz"
+  sha256 "55fd07190523d03e9a8bc5509e3aee21852979e2833f9d73c4c7f7d9f82d8724"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/cloudflare/wrangler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eeb7fa2d33204be11331b840bb49ceeca3857dbd095effea44238f332384988f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "14ebb018edee7d1205a0fdd19411df77852e72244606173e4b8ff485b4b452f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa394d9fc846966ce31f21bb35db8d97ce36ff9410f553b852a54b3176c0b234"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4b4c3500ec219e73bbd17781c75dd4bc9518350e14417fc47e377bbb4a6f0906"
-    sha256 cellar: :any_skip_relocation, catalina:       "d9ce4eb4b7dbff8993cd5a3a08899b3791ec2592d6c04364a5b35b011640afa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1f0489ec047b35a63fb63fb0405d6891c3d82d791f0a68bb4a4afa464c417bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9303d4d1affe68788231a3b5a666f8012cb7a5ffd3ee45f28ec6afa042e6ae91"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e721f9691be4d5f7073415e4268c0dabee4ad69268b146c17817b2c455836814"
+    sha256 cellar: :any_skip_relocation, monterey:       "e415c7b043184724fdd801644e3c4818e5a87800cc72fc903efaedb9270abfac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6a7ffa18ffdd625af922e2c1107f6acd91394ab214e532eabe7a312bad68bf97"
+    sha256 cellar: :any_skip_relocation, catalina:       "cc2d5c18f10add11051f523bb0b9f470fa31cee268f3261cdb359c8b373a67bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e02772057edb9c22e089c3947fe5710015edf4297e4c4ae11dce9d95e66a2abf"
   end
 
   depends_on "rust" => :build

@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      tag:      "v0.11.0",
-      revision: "67220edaaef4a938fe5fba85d793bfee59db3256"
+      tag:      "v0.12.1",
+      revision: "da2b9bd71aa5d02203be5a0b67f8a9116e8535f5"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -16,15 +16,16 @@ class Ipfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2ff080a3e25cc5f6ad62948039dbaaaebe1be58cf553de6ea1989d69a8a2241"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3bf45662b9350f70b706bd22e8018a3975d16b3aec29b97b07c02990ef24d953"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ff1a3d219552f778912f08ad791800d43b2600f0e39a8b0a966db48b8c67069"
-    sha256 cellar: :any_skip_relocation, big_sur:        "241568d148a8a0b4701820b8ce11a186fc7d6302174f3cbc27d69961f7e2d634"
-    sha256 cellar: :any_skip_relocation, catalina:       "03a432f02fe5b35016e839733c6669612a5555b3af20a8e9c5f5da1b46bc9d64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "778cd577024337b5f730272c5a8a06b9640050514cd6d4ed333d29436851acbc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b05d86148b5d741f53cdbb8658cd2b6d42b47afea9a69ded9d5b082bd50e1724"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5c4b8b4bfa9461256ff2c7218c40916e9513250afb5a1c70707e91abaa9cbf26"
+    sha256 cellar: :any_skip_relocation, monterey:       "572f8d61c77b1d01e0f4adbe419b920669a8db46955ac98af684606234b0f01e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5eca26d4afc1bf304562bf71c71b5d39da4d9c4396563bab302d3d726f40e274"
+    sha256 cellar: :any_skip_relocation, catalina:       "ffa21879fa0c12be217b84991d27c1cb09ee5a234e3e7e531b788be7f7d5a478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "630453b5bb5748ed4d8d1d1b8561980f14f75c7b1c65f583594468c61efe86e0"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 on the next release, if possible.
+  depends_on "go@1.17" => :build
 
   def install
     system "make", "build"

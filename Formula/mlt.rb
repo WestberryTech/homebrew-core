@@ -4,14 +4,14 @@ class Mlt < Formula
   url "https://github.com/mltframework/mlt/releases/download/v7.4.0/mlt-7.4.0.tar.gz"
   sha256 "17c19843ffdbca66777aaadf39acb11829fd930eaded92f768cbcb8ae59a5f37"
   license "LGPL-2.1-only"
-  revision 2
+  revision 4
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "90da35634d99fdc9d29eb921e13d444f0fe9a3ced4ba2e83a2b3378c3cb67f8a"
-    sha256 cellar: :any, big_sur:       "aa8ecfb467b2d2d0963c95a62008b24c91b285319a44c245aef6c91edd0b57bd"
-    sha256 cellar: :any, catalina:      "930332fecb1ad269581a75f17a89bd3e56ebe2ca1c705a4342d1293bbd8a330a"
-    sha256               x86_64_linux:  "c5d66c6b67a37304ebe7ded0bc6d4b4867fbd32b1ee0213fe7f62b7ce2cb0b9d"
+    sha256 arm64_big_sur: "134fce14fc1a84429b9612ea8de0efeee380ce553025682e0c63e02a1f239b1a"
+    sha256 big_sur:       "efe2661c2906b0a9d3c50f9d79c3b03f174ce93a68bcf731fbc8210092d46656"
+    sha256 catalina:      "12d78ae602fef7cfdd2ac81c9daa2156f912dc52be9a492f1c63502cdee3c8e1"
+    sha256 x86_64_linux:  "4701398d6369a88c79790db45992a4259eee83e41f040eef14523d2642cda485"
   end
 
   depends_on "cmake" => :build
@@ -37,13 +37,17 @@ class Mlt < Formula
   fails_with gcc: "5"
 
   def install
+    rpaths = [rpath]
+    rpaths << "@loader_path/../../lib" if OS.mac?
+
     args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
       -DGPL=ON
       -DGPL3=ON
       -DMOD_OPENCV=ON
       -DMOD_JACKRACK=OFF
       -DMOD_SDL1=OFF
+      -DRELOCATABLE=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args

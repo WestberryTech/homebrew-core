@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4259"
-  version "10.86.30"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4274"
+  version "10.86.31"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,12 +16,12 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "240231b04c7e5313ec09348bbace41f42f60c830db87e9c58de9b81161183b24"
-    sha256 cellar: :any,                 arm64_big_sur:  "2162ffeedbab83e8881a5a7a37cd3c23d180620c5133585d563bd75f158ca641"
-    sha256 cellar: :any,                 monterey:       "24ad598a420d4351496dc9721c3f5d6e0aa29208ba084bf18247263419f61c68"
-    sha256 cellar: :any,                 big_sur:        "7db324c629d80aaa8d66d39a05859aea348489266182bc7ef7346982744acec5"
-    sha256 cellar: :any,                 catalina:       "1b45efa29b3651583c544163aec57ca0a1464293cdb3706dbd4900b55d6551bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4398f1911d5860d094b04984865d5090ca950314e757109d2d7a5f3738b8c9b1"
+    sha256 cellar: :any,                 arm64_monterey: "a88b4f76eab9b8a0019916513ac200f0b12ea4890c07e7c1a54813864d854262"
+    sha256 cellar: :any,                 arm64_big_sur:  "0f3a70dd877861cba30868809fc6d127068d0bc26edadeaa4d4c7d7b4f6086a3"
+    sha256 cellar: :any,                 monterey:       "06091d0a0756c97af3c2742e2583da78b9b3ad015dadab50f2baa6e3aefdcb88"
+    sha256 cellar: :any,                 big_sur:        "f5a3a66fa96f6214993b016445b8f05c385209c38cacb8f4bc76cd853333d279"
+    sha256 cellar: :any,                 catalina:       "39f1c3367985eea2ff1678225f9acc1717d1d5373c65eb44bfa77bf916d8f129"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35ce7514415b575a919e6934ad0705e8d2a4e8d130726d16f4c3746eb37089c3"
   end
 
   depends_on "jasper"

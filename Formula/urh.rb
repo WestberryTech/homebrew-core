@@ -1,17 +1,18 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/06/d8/f140e9c0f592134580819b959121b47bce042694168032bf8b219d39c977/urh-2.9.2.tar.gz"
-  sha256 "e4fac51af73a69eeca25d9a12b777677b3b983de8537a2025ba698e20e6a56af"
+  url "https://files.pythonhosted.org/packages/c2/3d/9cbaac6d7101f50c408ac428d9e37668916a4a3e22292f38748b230239e0/urh-2.9.3.tar.gz"
+  sha256 "037b91bb87a113ac03d0695e0c2b5cce35d0886469b3ef46ba52d2342c8cfd8c"
   license "GPL-3.0-only"
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "f932d73089bd4efbec62d2d043c6a971518a9f92a6f54640862b4bf06a5d2d7a"
-    sha256 cellar: :any, arm64_big_sur:  "09dc76c4ab1a6fade85309ced90029fadec5e323768c4bf373f016b25c5aef73"
-    sha256 cellar: :any, big_sur:        "9e250394aeddc6784c732b991f583ad6cdac03888c3f3e7ff477c8cfda2a7856"
-    sha256 cellar: :any, catalina:       "6a0dd1e02d615789893fbf96ef3d1bc127dd927033fbfc0d6a42945c55d22070"
-    sha256 cellar: :any, mojave:         "8c61a1fb6e05c52a17c4bd2d5b22fe2b3de41e4fb8cf4199de4eceef2bd661dc"
+    sha256 cellar: :any,                 arm64_monterey: "c541e2eee24dd5b11d20c9c8c59fc5c5a31d934fa58038524a310a7d131e6c5c"
+    sha256 cellar: :any,                 arm64_big_sur:  "7cb2a96967b453339d7bf47445abf22399fb6900d7ede305a0cb9dd622953569"
+    sha256 cellar: :any,                 monterey:       "afe0587832e4d5041a9d5975f691fbb0a4b609bf12adfeb057258992b0f54d88"
+    sha256 cellar: :any,                 big_sur:        "8653525fefc409c7622ee4591835173a374e40e829ee52d33a8483bd2d7a714d"
+    sha256 cellar: :any,                 catalina:       "e263908dd7c7266bd93a1975b3b93a932dd2d69efd21a57d017bd7c56015f46b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57cd6923d7797e268e7170363caa29d23e54a83664b6a1faca3a7719108e1037"
   end
 
   depends_on "pkg-config" => :build

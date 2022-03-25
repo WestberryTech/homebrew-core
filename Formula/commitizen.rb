@@ -3,18 +3,18 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/b5/10/76f20499fd4966014ae742156efb94a9a37867fd1348f670463d33cf3cfe/commitizen-2.20.5.tar.gz"
-  sha256 "abc14650e79b5366d200c5fcf484e4389337c05aaef0285d09329cc367eab836"
+  url "https://files.pythonhosted.org/packages/c0/6e/6d70a43139f506a4d53e6596ca786008cfb7e19e2e7add167d04ef8947ca/commitizen-2.21.2.tar.gz"
+  sha256 "64fda8d9d679d2d3d2422c028cb641602fb672560a5485bee9773259f9c4f07c"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9552466e91b4540f8a11fae0845687e286c19717e28fb9bc64bec4b944772a5f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a45bdd33d99073625a70b73c58d3ecac57d781a6dc9f60b883456a78d163552c"
-    sha256 cellar: :any_skip_relocation, monterey:       "6edc6b58e5956b6904d43555781879113aa893a6d761a8427d3e2204ef663427"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b9ebed845eb5ec006443162a40f2420c66cc5042a48812caf330cac94079eec"
-    sha256 cellar: :any_skip_relocation, catalina:       "c851f1a1a2a88f44dd26167acbe3d1d90546ad56330307fb28e1229437f00e95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f58750be75ec81de94ad492d8387abf767c986c443a9f615476669bd468b458"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4112cfbccd1f14243b8f643bc43eba5ec3fe75755e5b88ff8624a3147d98511a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d4c94ece0cf7d114e22446a37696294367f95c67948ad2f835b1d8bc1fe500a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "90a6d897bd9530af34579646e63d3b0fb2c5d4bf1fbfe2f18adbc64acbc2a16b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "533c4606995aa3eb1aed62604e5579cac79f28c8311ba8867ad35e17f66ad50c"
+    sha256 cellar: :any_skip_relocation, catalina:       "44b1a9341ff521b807ca8a254242677cbeea032910cf1a93927ccec1e0ae7deb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "242fecc715880ff84caf5c64e28dc27e628ad511f9badc6e717064809c02b03a"
   end
 
   depends_on "python@3.10"
@@ -40,8 +40,8 @@ class Commitizen < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/62/0f/52c009332fdadd484e898dc8f2acca0663c1031b3517070fd34ad9c1b64e/MarkupSafe-2.1.0.tar.gz"
+    sha256 "80beaf63ddfbc64a0452b841d8036ca0611e049650e20afcb882f5d3c266d65f"
   end
 
   resource "packaging" do
@@ -50,8 +50,8 @@ class Commitizen < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/1b/1e/09b545d3608a8092c34132972ec1078d3356381a2c8553fd71d2ed6036a3/prompt_toolkit-3.0.26.tar.gz"
-    sha256 "a51d41a6a45fd9def54365bca8f0402c8f182f2b6f7e29c74d55faeb9fb38ac4"
+    url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
+    sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
   end
 
   resource "pyparsing" do
@@ -75,13 +75,13 @@ class Commitizen < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/ba/ce/b140a544f834a1789c0c05be42327e71980b1a36318fc8bed932daee219e/tomlkit-0.9.0.tar.gz"
-    sha256 "5a83672c565f78f5fc8f1e44e5f2726446cc6b765113efd21d03e9331747d9ab"
+    url "https://files.pythonhosted.org/packages/c7/f0/cc387a2ff7da8f9450d6af4c108bed1f9b7289695330b6b5f412ebc8d6aa/tomlkit-0.10.0.tar.gz"
+    sha256 "d99946c6aed3387c98b89d91fb9edff8f901bf9255901081266a84fb5604adcd"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
-    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
+    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
+    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
   end
 
   resource "wcwidth" do

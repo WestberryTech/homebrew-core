@@ -1,26 +1,13 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://vgmstream.org"
-  version "r1702"
+  url "https://github.com/vgmstream/vgmstream.git",
+      tag:      "r1721",
+      revision: "f2f0b3f84a9a93fc2623736e738df16a6050901e"
+  version "r1721"
   license "ISC"
   version_scheme 1
   head "https://github.com/vgmstream/vgmstream.git", branch: "master"
-
-  stable do
-    url "https://github.com/vgmstream/vgmstream.git",
-        tag:      "r1702",
-        revision: "a76ac04dcd41f1926a721e626657397bd9656a74"
-
-    # patches for fixing macOS build error, remove them at next release
-    patch do
-      url "https://github.com/vgmstream/vgmstream/commit/04b5a1f098f348c4c438ada85ee86f5a9abce2ff.patch?full_index=1"
-      sha256 "37d5d9567435eda96bf4e51b5abbac1677391e08daf4e50b1d7edc6996772919"
-    end
-    patch do
-      url "https://github.com/vgmstream/vgmstream/commit/f9230158d953dfb0fb14a2a57052a8460a5d43dd.patch?full_index=1"
-      sha256 "10ff07d7c6f48275af235d720f279ef62d444c88cde78f2fecaf065e120d134d"
-    end
-  end
 
   livecheck do
     url :stable
@@ -29,12 +16,12 @@ class Vgmstream < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "af643dfc03fec86043c11237e5d37cb2361950cd790996fd9dc5c2e8679993fc"
-    sha256 cellar: :any,                 arm64_big_sur:  "ab0f747f8e4d16fe25eb2705bfbfda69bd60b99615d811cf58b13be15d43ed25"
-    sha256 cellar: :any,                 monterey:       "ac7fe6850d70179edd15a5f0c791bfcbba90434d5051b85bd86cb34656c93102"
-    sha256 cellar: :any,                 big_sur:        "37496780f4f66b8f0abb1da2e94a02535e128b8d3c80308656c6366702f82832"
-    sha256 cellar: :any,                 catalina:       "c08665d1213fc63ce37aecd5e9d0fd01383c2c7ddffb3d0460336f690f304092"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa68bd410e8c05d727d42614a8d2a394cdb639d5ff3c207ba4faecff55d7341"
+    sha256 cellar: :any,                 arm64_monterey: "0b8177e17308a4f8a185c3b1eba077dd03fd826dcc3cff9bb6354bd6e4b54329"
+    sha256 cellar: :any,                 arm64_big_sur:  "1d77b314ec191484a9a6c7c782191be9666bb7ed7fdfaa7c34cb195244457181"
+    sha256 cellar: :any,                 monterey:       "485b40895cf228ea7bf4eb9c6e96f5a115548e2b9a2249609797f409e7465d9a"
+    sha256 cellar: :any,                 big_sur:        "b808158bbf9ef50acd280853da0f5449bead4e740799449c76c2f7957d54bddd"
+    sha256 cellar: :any,                 catalina:       "b584b6efaadefba88b907ebd946cab0f5078f68c6c6e300a93cdc9c366c3b6de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1061e3d73b5a30248dd565a1d6821a4f1956aaa9c061011ad25e0218926c349"
   end
 
   depends_on "autoconf" => :build

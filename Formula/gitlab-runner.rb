@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v14.7.0",
-      revision: "98daeee0966d3e43b93eb548df6c1454fbd39709"
+      tag:      "v14.9.1",
+      revision: "bd40e3da0ba8b9632f8e8d73c2fbff447ab037b3"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "main"
 
@@ -13,15 +13,16 @@ class GitlabRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6105f6eba593ea0cd7226bd7cc1a314db3354b93f21c3f4a0583d4ce962ddda0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebba1ab08a748ad83a99b77322d86d6d4164400d3d8991a37b570afbe11112fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "aed754e255e21e56bc4c83a2dc56ff66ad472881a7325948c74911a7d75238e0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77c0581327b05a41d1ed9d65d9804d6d7d731915b12b917f18b91bb9fbd025e8"
-    sha256 cellar: :any_skip_relocation, catalina:       "98824a56d5b1a0017d53cc8e78039dfd5bcf62954ce0d661ae9cd6c42ee05bdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "523f495be3c260ec4b02a284be168210a4ef8a85fc73c69d047cf49849640cfa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d0c68325966520de9485d07c9549a236f9bd5a80c1087f911b305d44b311fd8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e3e948a1d62ca3502575cdea2c7577b0fb5e07ad1f1d8e83ca80380b71d10d26"
+    sha256 cellar: :any_skip_relocation, monterey:       "eac49b2f076eeeb17c74af7c6bbaf15469a5133db04e6beea6390c97cd189b6b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "37702efc42cf09900c0297586b0f392bf418ff07232fa311e82732b8d708b0bd"
+    sha256 cellar: :any_skip_relocation, catalina:       "35919030e9553dbc62ab7f44e53f38ad73fb9b97dfdad804bd44fd80a8ba0656"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf559f0674f998f16f59cec102372f2a386311f93cdac53fe95c328e44b5ff40"
   end
 
-  depends_on "go" => :build
+  # Bump to 1.18 when x/sys is updated (likely 14.9).
+  depends_on "go@1.17" => :build
 
   def install
     proj = "gitlab.com/gitlab-org/gitlab-runner"
@@ -41,6 +42,7 @@ class GitlabRunner < Formula
     working_dir ENV["HOME"]
     keep_alive true
     macos_legacy_timers true
+    process_type :interactive
   end
 
   test do

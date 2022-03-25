@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.4.1/gdal-3.4.1.tar.xz"
-  sha256 "332f053516ca45101ef0f7fa96309b64242688a8024780a5d93be0230e42173d"
+  url "https://download.osgeo.org/gdal/3.4.2/gdal-3.4.2.tar.xz"
+  sha256 "16baf03dfccf9e3f72bb2e15cd2d5b3f4be0437cdff8a785bceab0c7be557335"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -12,11 +11,12 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3e0605bfd13304fca41e3d2218abe035985194f1a7700ed6e9e3230b5dee1f30"
-    sha256 arm64_big_sur:  "e699a2d2099e03d7607032282c95c7dc356741ca0314a56be6d5a354fa86af49"
-    sha256 big_sur:        "5e7de5faae3dec4aa610bcbb299499c2f64aa226b6471a2e5c55f753bc3b2bac"
-    sha256 catalina:       "bd2f49ebad61505017daa2c0cbd88f88af7da58cf323787222fadb509f68d42b"
-    sha256 x86_64_linux:   "97f3fad9261e5fda2bb44b28c68026c08040ebc277179382e95ad52ed7125ac3"
+    sha256 arm64_monterey: "d69db3a479cfa43e7a9b468a7d4a0dd515af95554fdddc65570203f1e4516d6c"
+    sha256 arm64_big_sur:  "9764254c68b41fadab6a27e2586303996a501e24b256e9078d6b28aa002c4c60"
+    sha256 monterey:       "25b695c16205fb572f7c640bfd740ee1f6c3df60cb3752fc205ed0e43a34e4b7"
+    sha256 big_sur:        "0efe30c85ddddb95ccf9a4d2a577794ce8cd8a0c4edde0cf7ccd71b317eea425"
+    sha256 catalina:       "0a63aeaf2995c1a8923ffb93f23606cb63d3bebedd5cc8c1c92b2c7dbeda91d5"
+    sha256 x86_64_linux:   "e904e8a89edc553e188190395f4a8515b3efb4000047a089476149a1b594431c"
   end
 
   head do
@@ -48,11 +48,11 @@ class Gdal < Formula
   depends_on "poppler-qt5"
   depends_on "proj@7"
   depends_on "python@3.9"
-  depends_on "sqlite" # To ensure compatibility with SpatiaLite
-  depends_on "unixodbc" # macOS version is not complete enough
+  depends_on "sqlite"
+  depends_on "unixodbc"
   depends_on "webp"
   depends_on "xerces-c"
-  depends_on "xz" # get liblzma compression algorithm library from XZutils
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "curl"
@@ -157,6 +157,7 @@ class Gdal < Formula
       ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
+    ENV.append "CXXFLAGS", "-std=c++17" # poppler-qt5 uses std::optional
     system "./configure", *args
     system "make"
     system "make", "install"

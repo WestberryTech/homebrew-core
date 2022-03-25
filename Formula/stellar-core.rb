@@ -2,15 +2,18 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v18.2.0",
-      revision: "b63c1622e695276a908033022b106ef8fd42155c"
+      tag:      "v18.4.0",
+      revision: "13ef7c0f3ae85306ddb8633702c649c8f6ee94bb"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "83dc45e9db1b5981ed5960cd7368aa93d12a91ad0d7c57a310a98fbbe5ae395a"
-    sha256 cellar: :any, big_sur:       "5370feb4f95248952bcb674798077f9832685a27c53a290ae112216f0755513f"
-    sha256 cellar: :any, catalina:      "256f91735275e90f55e0fe0781a3b2fbb630978a12774daef1d8e144830f95b7"
+    sha256 cellar: :any,                 arm64_monterey: "0d345d8e571beb4937082694c062a553e9fb0bddbf5cc79a3c5ff8661938a6eb"
+    sha256 cellar: :any,                 arm64_big_sur:  "665e205c4d9c4ba444ed43f94d8ccc5f898becbd29e2068fbae9c0f52664e6eb"
+    sha256 cellar: :any,                 monterey:       "92bd2a6c61961089a8308ce68d23cef5288e8ca86e9a73e62c53c344f3983ab1"
+    sha256 cellar: :any,                 big_sur:        "1e01e46e0d0ddd087caafa140a1a738b38ba0ca7271c7443a999f5edc659acb2"
+    sha256 cellar: :any,                 catalina:       "f4b8f02dca775eaf9dded2504d62f72933ff5fcef8875b2a90ae81698c2323ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6cc582b0bb8a2636bb071bfaba8abe0ae0f7536f9459d07069364befff4f5ad"
   end
 
   depends_on "autoconf" => :build
@@ -29,12 +32,22 @@ class StellarCore < Formula
 
   on_linux do
     depends_on "gcc"
+    depends_on "libunwind"
   end
 
-  # Needs libraries at runtime:
-  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found
-  # Upstream has explicitly stated gcc-5 is too old: https://github.com/stellar/stellar-core/issues/1903
-  fails_with gcc: "5"
+  # https://github.com/stellar/stellar-core/blob/master/INSTALL.md#build-dependencies
+  fails_with :gcc do
+    version "7"
+    cause "Requires C++17 filesystem"
+  end
+
+  # Fix GCC error: xdrpp/marshal.cc:24:59: error: 'size' is not a constant expression.
+  # Remove when release has updated `xdrpp` submodule.
+  patch do
+    url "https://github.com/xdrpp/xdrpp/commit/b4979a55fe19b1fd6b716f6bd2400d519aced435.patch?full_index=1"
+    sha256 "5c74c40b0e412c80d994cec28e9d0c2d92d127bc5b9f8173fd525d2812513073"
+    directory "lib/xdrpp"
+  end
 
   def install
     system "./autogen.sh"

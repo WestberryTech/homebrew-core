@@ -3,17 +3,17 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/61/42/3d09ddbd44aa72bed204a2cca32c79c0521078ba5cf27ac0024058d98e88/ocrmypdf-13.3.0.tar.gz"
-  sha256 "20682c9603e6264dc33e3e4f4cb13bec661f8c670f9f688371b87c5fd2fc95e1"
+  url "https://files.pythonhosted.org/packages/94/6f/a9c8beed3aca6ade311016461bf2789d976d64f2890374d485f06f53f959/ocrmypdf-13.4.1.tar.gz"
+  sha256 "201ed2f589f851be73908fce35fbb6fb05e4739289d3cd8765f9519f49ea1cd9"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "49683ec3c25f8c0b7c2aa12a3ad95238be24e48dd2450a65e535415c224b62f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "83f48e7c31f8e23614b90815f44478e74edf8145f79c42c82b02f513eb74832f"
-    sha256 cellar: :any,                 monterey:       "d4ec71a2f573e7b07bf268a5b7848b5a8b47b95939b5525e4bec37b2e455c2cc"
-    sha256 cellar: :any,                 big_sur:        "88dc2750923781647cfc459cabeef265a9694c83763ec5ba0d42762a20d9c2df"
-    sha256 cellar: :any,                 catalina:       "9c248fd7c45e8236357397a07e9520a5414277881b7a7096eed3182029b9e828"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8eac05cc2d113d55116651a53818464fea134080229592a918d29bb6b6ca3a7"
+    sha256 cellar: :any,                 arm64_monterey: "c68e4716d211d184268641beabc5065563571b91e059900fd64f13b5a7da9a6d"
+    sha256 cellar: :any,                 arm64_big_sur:  "b3958722704177ae6c71d04a04b53ee436bd48f8b671fc10d3284886a0386576"
+    sha256 cellar: :any,                 monterey:       "3123a96a34d83bdf6063f9b022c4b69f6aa22481c5d86cfad6f0905e6c3f8458"
+    sha256 cellar: :any,                 big_sur:        "c2e53f15920cd7c9968d77c0cebc9812957caa3596ba58931ed73d423319327e"
+    sha256 cellar: :any,                 catalina:       "2e96ef0449df0d4844a044c6d0a117fb14df4ebc51e94210906cd0735c728705"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "412a536333cdf991be06c58ca14f3cc77fa1fba5aafac18c648db7b446090dd5"
   end
 
   depends_on "pkg-config" => :build
@@ -70,8 +70,8 @@ class Ocrmypdf < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/84/74/4a97db45381316cd6e7d4b1eb707d7f60d38cb2985b5dfd7251a340404da/lxml-4.7.1.tar.gz"
-    sha256 "a1613838aa6b89af4ba10a0f3a972836128801ed008078f8c1244e65958f1b24"
+    url "https://files.pythonhosted.org/packages/3b/94/e2b1b3bad91d15526c7e38918795883cee18b93f6785ea8ecf13f8ffa01e/lxml-4.8.0.tar.gz"
+    sha256 "f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23"
   end
 
   resource "packaging" do
@@ -85,8 +85,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/b4/a5/6487992141abc6133a1c59ca7389d761177f156b00364b79199d1c3307c0/pikepdf-4.4.1.tar.gz"
-    sha256 "c25d4c7673f9588d1f98bca498db98ba675070dc89ffffe50b3b124d4a005df9"
+    url "https://files.pythonhosted.org/packages/2a/12/11349bb3789fa5120691c2c2da11dfe3cc2b9bc4ee538c4745c5477b68ec/pikepdf-5.0.1.tar.gz"
+    sha256 "5fae9eeb7a0120d466fb219aea643a94a1423d68ee9171639a44cf0329ebe7aa"
   end
 
   resource "pluggy" do
@@ -105,13 +105,13 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/d9/18/8215e8c2d16148c2c9b04e7329bdb43ae33819cdd1f73a79cd6e264bad4f/reportlab-3.6.6.tar.gz"
-    sha256 "dd1cdb62dc123f5859ca514eb639f70660bdc818c95fb0ee2370a175a0e20ce4"
+    url "https://files.pythonhosted.org/packages/50/c7/f80ab0ff9c7f7dc0b537fad0ee929ea5e56091b3f72de8e04ab3e02086b6/reportlab-3.6.8.tar.gz"
+    sha256 "dc7657fcb0bc3e485c3c869a44dddb52d711356a01a456664b7bef827222c982"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   def install

@@ -1,18 +1,18 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/v0.92.1.tar.gz"
-  sha256 "ac698634f62f397ea0df5bfcbb4ba523743aa5a0f52c06aef9b261224d173883"
+  url "https://github.com/gohugoio/hugo/archive/v0.95.0.tar.gz"
+  sha256 "a3d80e3614c8755b664469b3dd5e4503efdad62b10b78653bfbf25363ce09b5a"
   license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f183cf1c0aa22d1bc11839e2a1ce221cac87687616e4131fdba0f248f0562181"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0eb38eac79fa9c192260eeffa2d538ec26d3ce52e864d8ea8522b96ceadbd761"
-    sha256 cellar: :any_skip_relocation, monterey:       "93a67b3259d2765281a166269f3bb82489aff423abdf2291dbab10e284ff6d07"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9ed5f8f4cad8aa8f817f6cc674e977983da1d9801893bca067974a18132c62c7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d90d931f2a5c22c754f847f00330d135b2ab0fc49a6213d8bf04c055a513242"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af83001d0ca9e03007cafe6b420b778719ef456fa3e44981e2807aca5a7aae73"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fe41619731a0fc4a7ed886dbe7d96bdc3bdc99b7451e2f47931acac8b83d6f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da9cf92eefb63abda9c60842c408e1a09256deb876e015d6b2dd5cf180d6de35"
+    sha256 cellar: :any_skip_relocation, monterey:       "722d5ce5c632d42c01087bea9756b3de9bba31cd67f0faafd571de36fd66c6be"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c6418fd4df0c75ce01571eb40275a575c186bf043fe0473789270690d0d2c93f"
+    sha256 cellar: :any_skip_relocation, catalina:       "9aea80d223d932c6f752ac9660dbc9a2ae366f1545241b5e288ce31bed63be20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a398fdce8410d04e469d051f2a425a705f14667e75829a2bc001fe85b7a683"
   end
 
   depends_on "go" => :build

@@ -3,17 +3,17 @@ class Mypy < Formula
 
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
-  url "https://files.pythonhosted.org/packages/4b/b2/9c71fd84086e96518b1d7a940788d704d3a67aead3e3a7ff9bf8e9b5746d/mypy-0.931.tar.gz"
-  sha256 "0038b21890867793581e4cb0d810829f5fd4441aa75796b53033af3aa30430ce"
+  url "https://files.pythonhosted.org/packages/e3/7b/3fa271e904b0e8689fb0f0083a43a8bf84b9b47b8f3f5a36e0ee2c064eb4/mypy-0.942.tar.gz"
+  sha256 "17e44649fec92e9f82102b48a3bf7b4a5510ad0cd22fa21a104826b5db4903e2"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19560f740bae822c5b5a6430538aa9f14399749cbb465d786e8cee1915e2bbc7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5313ed2cd5b3b4396993eed603759c32f23dc826a01855d26af002bb06345e5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "f46562646480761daa5f8ef749346dbb013cac158bd73503b60e6624d3de9e59"
-    sha256 cellar: :any_skip_relocation, big_sur:        "24e64862e3f6ac8372365d23b4b89921e00b36dfb3a7a4c1635b0eef6ed4b019"
-    sha256 cellar: :any_skip_relocation, catalina:       "cf3dc1cc55d2e29d1c3956d7a2111bd589d441d8c44b257666ffe35b0bec212a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da3ec090ece5e64e988d5a8d8a4937a17f3a4521404a304734d825c3c90305c8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6da20c53f768f86a98b3f44663ab57a89f02f57fd72703f157d952b3ee72f563"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a1106c8dbeeb9f9386e7133ee079a3542b535a057f65938502406aa6d4232eb"
+    sha256 cellar: :any_skip_relocation, monterey:       "be550539b724ebc1df677ea9760c929159fe698d8a313c41bf6f92360d26892b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "e928518c1889b1bedc242135c18f3b94460959b5f9a4a23c6423572f114f287c"
+    sha256 cellar: :any_skip_relocation, catalina:       "e24f0562537a5729d21c1dcc42233d12b9c6f9d5c96038c762929a18a54267cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9966b917abab81ab34166bb86ad6b4897614103f768a7b05a8c4f3b734cc7312"
   end
 
   depends_on "python@3.10"
@@ -24,13 +24,13 @@ class Mypy < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/3d/6e/d290c9bf16159f02b70c432386aa5bfe22c2857ff460591912fd907b61f6/tomli-2.0.0.tar.gz"
-    sha256 "c292c34f58502a1eb2bbb9f5bbc9a5ebc37bee10ffb8c2d6bbdfa8eb13cc14e1"
+    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
+    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0d/4a/60ba3706797b878016f16edc5fbaf1e222109e38d0fa4d7d9312cb53f8dd/typing_extensions-4.0.1.tar.gz"
-    sha256 "4ca091dea149f945ec56afb48dae714f21e8692ef22a395223bcd328961b6a0e"
+    url "https://files.pythonhosted.org/packages/b1/5a/8b5fbb891ef3f81fc923bf3cb4a578c0abf9471eb50ce0f51c74212182ab/typing_extensions-4.1.1.tar.gz"
+    sha256 "1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42"
   end
 
   def install

@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      tag:      "v1.17.0",
-      revision: "704b02a9ba86e85f43edb1b20457859e9eedc6e6"
+      tag:      "v1.18.1",
+      revision: "707240f006ecfc0bc86e5c21f6874d302992d598"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
@@ -13,12 +13,12 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb905bb19cb31a78b969d7d05dcd1bc8e8123f496c81318ad7ab50fce71d9d4b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0ba510e0e019b30bc15c2e9ee9d9e75210497c5ff6a96772d0783e4f73ac65c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "1abe5db599b295dc2e97e8a61406885d0ca95b3a7340d75197795142149ee794"
-    sha256 cellar: :any_skip_relocation, big_sur:        "daa252ea2d46e0882a53c34a915987fa0c35074b95e7b42e73b1cbe10496f6f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "ccaf29456a18c8192dcdbc1ddbabb1e9f1f2312d45d3281f6c9eca89efae300a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55f2b34baeab84ff0a852e8127a85cbc239e58b3250e5559520563f1ecd43a85"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6df7b51695d5e7f5f6e5899ae03c753461d819378d640ea32d64836b4a76e45"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1d9ba3d9c6105d32d7231d90f4a96bc95b5b6addf8db640ea849ae31637bd391"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d23c3c4351308671358b722a2be0c331e3bdec56446de9b163e211bbe34c045"
+    sha256 cellar: :any_skip_relocation, big_sur:        "40062d22fa65727634dfe2de82a6b92a0a6878b8341d2f66bf0c7fa3adfee833"
+    sha256 cellar: :any_skip_relocation, catalina:       "a2b33d5e6a30266afd8f64a9162c16787ee2c95d7135d23a4f8a381cf84dc223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af68385551bb3a265cbe3aa57c4e5f84a24ab9be1eeee764aa5f68d5e1d1c1e5"
   end
 
   depends_on "go"

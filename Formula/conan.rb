@@ -3,18 +3,18 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/db/d3/72ff3147003d570a42f1a55bf4ba92009d26efaa10d8347f8e377044939a/conan-1.45.0.tar.gz"
-  sha256 "c2039f500dccb418cd9763ba62ba1f1801b04cdb77c1c47d0b2ceb54bab79d04"
+  url "https://files.pythonhosted.org/packages/77/c9/0df4985bb7457629d1d65daea70beb8453c4ddeedad5f42ff7dde14d6d34/conan-1.46.2.tar.gz"
+  sha256 "01f9dc2e6fc180db934a05e2bc20892d55d2af396173139663a4f15d54aa7f61"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c0c19d1467447cc4c70937883f6e957a46d7da960df5012506e943a79d7b3b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1c3ac10e456ea818916fb914db3de1b8d0c331ab4d3b5b5d0d4737d6b24e02eb"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2c0fa5fa4c395fe5a6cc1599fa2135bdd81457b38dfa12a9af4931b43f45379"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7592d97208fbfa47fd40743557a59f5b2ee82b8112132e017133c86061237aa7"
-    sha256 cellar: :any_skip_relocation, catalina:       "dfd8fad5ecec46300285081ce5e0820aee958cedd98e5f7de827d6b2700ecfba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e4110ffe2ca0b3c4c4842193ebc2f976ed6d03e8eacfd476c4bf115232dab4f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43b527db462b6d4816be028294b3e87a3dd3a7ad931530192c0da5650fc23f89"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6367c3449174873322bd61d624830d54002fa7ec7aad186d566dd41bc5e6929"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d77288bd59bff26ce936a5dc311305a7feae951e070dc3563c6d2f92733c259"
+    sha256 cellar: :any_skip_relocation, big_sur:        "71c9c4d1e2aaef84a63768af64fb2b3d75f3fb054aaf887a4c93e75c5b1b3d2e"
+    sha256 cellar: :any_skip_relocation, catalina:       "c7108875125f15f6b72cb781f8614ec28e9eee5a872db866b66e83f74a745240"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce55a3c37e05e5141dd3e5961cb1875263560185a9b3d83552197dd4f82901de"
   end
 
   depends_on "pkg-config" => :build
@@ -35,8 +35,8 @@ class Conan < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e8/e8/b6cfd28fb430b2ec9923ad0147025bf8bbdf304b1eb3039b69f1ce44ed6e/charset-normalizer-2.0.11.tar.gz"
-    sha256 "98398a9d69ee80548c762ba991a4728bfc3836768ed226b3945908d1a688371c"
+    url "https://files.pythonhosted.org/packages/56/31/7bcaf657fafb3c6db8c787a865434290b726653c912085fbd371e9b92e1c/charset-normalizer-2.0.12.tar.gz"
+    sha256 "2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"
   end
 
   resource "colorama" do
@@ -45,8 +45,8 @@ class Conan < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
-    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
+    url "https://files.pythonhosted.org/packages/b5/7e/ddfbd640ac9a82e60718558a3de7d5988a7d4648385cf00318f60a8b073a/distro-1.7.0.tar.gz"
+    sha256 "151aeccf60c216402932b52e40ee477a939f8d58898927378a02abbe852c1c39"
   end
 
   resource "fasteners" do
@@ -65,8 +65,8 @@ class Conan < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
-    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   resource "node-semver" do
@@ -110,13 +110,13 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/e3/c1/b3e42d5b659ca598508e2a9ef315d5eef0a970f874ef9d3b38d4578765bd/tqdm-4.62.3.tar.gz"
-    sha256 "d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"
+    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
+    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b0/b1/7bbf5181f8e3258efae31702f5eab87d8a74a72a0aa78bc8c08c1466e243/urllib3-1.26.8.tar.gz"
-    sha256 "0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c"
+    url "https://files.pythonhosted.org/packages/1b/a5/4eab74853625505725cefdf168f48661b2cd04e7843ab836f3f63abf81da/urllib3-1.26.9.tar.gz"
+    sha256 "aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
   end
 
   def install

@@ -1,17 +1,18 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.8.2.tar.gz"
-  sha256 "03bab7f17078e1d57c0122eb68acf3a19bf8f6f37397a2730b89d87bd9bdd4dd"
+  url "https://github.com/lima-vm/lima/archive/v0.9.1.tar.gz"
+  sha256 "fbf7d8181c7c9b1e12c4db017acd72b60ff5e34ed9df0fc40a767a17261ce50a"
   license "Apache-2.0"
+  head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb374b15373ee9f028f288e34ad49048aaaa7ee45ed8b83887787b5d2d4a05c2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9a759b7a697ae4e87cd384455651d719be277ef77dfa0561c3d0a669ae70ff7"
-    sha256 cellar: :any_skip_relocation, monterey:       "12f7990864d9f21fbd438b696b76e9d86b58d0536cd82d780d4d389fb7f43379"
-    sha256 cellar: :any_skip_relocation, big_sur:        "20d0b7a95a5ed53c32f3527ffddd640876a9d036d63cb2936daca56d4236845c"
-    sha256 cellar: :any_skip_relocation, catalina:       "84007dd2066c5de2b626e3e9d83b3fff8b3464b52bd703fee6c8dea2154f1bbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0cab7ca1f5c537f179385186d491bf29d339d9db5dab2fc12f1f1d33fb8ef2a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "980ed1038f56923a830b2016c14bb1693b3cfd483e4902b95b124e9c58b936b6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e9819038a44a85734b55c7cf880797bf1f99ff672b0874c74e152e3640b4c9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "14ae542f9998529ed0952cef4c74ea6bd28a99fbe15655e81421dfc7964ec114"
+    sha256 cellar: :any_skip_relocation, big_sur:        "cfe45877c3777db3633c52967df098a5d6abcbe04ec0afa5f84fc112faf1d8a5"
+    sha256 cellar: :any_skip_relocation, catalina:       "0d35c0b10d4892034f7a9717b239457b099aa35415e228fb5ae79f93012f21fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bde2974f9446d7a4ba2b7d3c3f9e6af74f3eff3d823c079bf0ea1bd6b00630e"
   end
 
   depends_on "go" => :build

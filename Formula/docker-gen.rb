@@ -1,17 +1,17 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/jwilder/docker-gen"
-  url "https://github.com/jwilder/docker-gen/archive/0.8.2.tar.gz"
-  sha256 "4a616727869840344eda89d87df6ff09d31f38133eddaf051d481299bef7e63a"
+  url "https://github.com/jwilder/docker-gen/archive/0.8.4.tar.gz"
+  sha256 "5aa3f69f365a1f2120e70bd74cb29153a5a148181856d832f06179052e0d8646"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e670b38ee0bf43c75b43b0ad6e2416acf29af2fea19782d31c513e73b31e4b0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ff15a3f0cde3c608f89e86020045dbe47a38c82ed2078a760208b78cbc0e663f"
-    sha256 cellar: :any_skip_relocation, monterey:       "807f968afc90f52297ac1bb6953b87631a829dbccbe63ae418968c15f3d3dd11"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cca0a7a05288e3c4da58f0ce21dacd2cf8ecc0252d38e6052c1ef064f9c7cf6d"
-    sha256 cellar: :any_skip_relocation, catalina:       "10b4fe71565f1feff2bc50a1109cc01c6d569f9888ad337464fa06faa7b9f0eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2669fff11633b691ec14c68ef203116fb7259bd93cfd68e91335b4b83638e95f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e88c7e2a6b51893a39c2e0d952746d1c9f7870063839c5cacbbbaf771e304a42"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8aefc8f208ed87db3c948f57eebdf5e11aedd67f86c8dd54fbc3f64149c9182"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba57d8f480799a37d6a0445e8fe1a3976dbbe6d1772b437f5ff775be601673c5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d63f28cca9ef8820cfd6c6111e0bf5c28f7343e33bb2049cd9a4fbaf75addf97"
+    sha256 cellar: :any_skip_relocation, catalina:       "342c503ffb4ee5e8a2722148ea3ac48555f84cae55cd4da9e1c73acd01ffd568"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bbb25452a6a7451c198ee3d3fb37a265e4135adda85e87b23e0754ad351b757a"
   end
 
   depends_on "go" => :build

@@ -4,9 +4,15 @@ class Podman < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/containers/podman/archive/v3.4.4.tar.gz"
-    sha256 "718c9e1e734c2d374fcf3c59e4cc7c1755acb954fc7565093e1d636c04b72e3a"
-
+    url "https://github.com/containers/podman/archive/v4.0.2.tar.gz"
+    sha256 "cac4328b0a5e618f4f6567944e255d15fad3e1f7901df55603f1efdd7aaeda95"
+    # This patch is needed to allow proper booting of the machine as well
+    # as volume mounting with 9p on darwin. It is already merged upstream
+    # and can be removed at Podman 4.1.
+    patch do
+      url "https://github.com/containers/podman/commit/cdb6deb148f72cad9794dec176e4df1b81d31d08.patch?full_index=1"
+      sha256 "10d1383f4179fd4af947f554677c301dc64c53c13d2f0f59aa7b4d370de49fcf"
+    end
     resource "gvproxy" do
       url "https://github.com/containers/gvisor-tap-vsock/archive/v0.3.0.tar.gz"
       sha256 "6ca454ae73fce3574fa2b615e6c923ee526064d0dc2bcf8dab3cca57e9678035"
@@ -15,12 +21,12 @@ class Podman < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8272a253e9cfcf0cf7195b030224b225ac0fdf3c85b65b2f46d3d0a3243f465d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6a30a4bd37114951e39c1379465151c2e7717c25101968f1ff56bea6943bf5f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5ca8fca094186a1f55b6295430aa2257c7328f187d6e66a926673b9c1378307"
-    sha256 cellar: :any_skip_relocation, big_sur:        "df6c3831dd67059236a9939b6d9ba51b0c6aa8f0835bcaf9942ca59fca085b6e"
-    sha256 cellar: :any_skip_relocation, catalina:       "cab8c60ba95ef720f5db1eafb4ff6b7e27e78550618c461985fc57e2995c0c38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5292a602dbe54d82e224f2350a91e183919c35ecb7ddde71e60ebb8b91df84e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c657ea70f1ad41e79cb869f1fa3921b3138e8d2dfb4b28bcee038aaf872b9973"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8b1a8c93b2145b1e9325523ae509b592fcb3b7d00b57ddcdb8a8bf20974be2f"
+    sha256 cellar: :any_skip_relocation, monterey:       "8bcecedc15e1e467319440529e269d16e5eb6ed652817f39602ebb4fe2904696"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ad4a1c14ba0ee1de7bf8cd73a1a631eb3d8753536c44ae49503f914a432e3139"
+    sha256 cellar: :any_skip_relocation, catalina:       "87d1dfea218f0de9bcf2abc7198d3b73cfd4f12398d70787d292281977259458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f14ce9713781868a0c17f83b7affe88dbc739c72d19c6e61a10a820b7fdc347c"
   end
 
   head do
@@ -47,6 +53,7 @@ class Podman < Formula
     if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
       bin.install_symlink bin/"podman-remote" => "podman"
+      bin.install "bin/#{os}/podman-mac-helper" => "podman-mac-helper"
     else
       bin.install "bin/podman-remote"
     end
@@ -56,12 +63,7 @@ class Podman < Formula
       libexec.install "bin/gvproxy"
     end
 
-    if build.head?
-      system "make", "podman-remote-#{os}-docs"
-    else
-      system "make", "install-podman-remote-#{os}-docs"
-    end
-
+    system "make", "podman-remote-#{os}-docs"
     man1.install Dir["docs/build/remote/#{os}/*.1"]
 
     bash_completion.install "completions/bash/podman"

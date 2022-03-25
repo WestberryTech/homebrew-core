@@ -3,18 +3,18 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-9.3.0.tgz"
-  sha256 "6d1f2d02a64ae8d3538c28101dd5d98077eb7d4758d5825e1211f70b95bff292"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-9.13.0.tgz"
+  sha256 "f81c7d48a24c7f18bc0f012f7dca6e790a4c25e544f8a542ac7697f9ed755b65"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5907b3af0e0395672016a40b48b288023081f6fb15ca9e28a5bb8e82aa73bf5b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5907b3af0e0395672016a40b48b288023081f6fb15ca9e28a5bb8e82aa73bf5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "f70fc9bc9be2631922807d80178322853dba806314b586bf82eebb3ebe06b6cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f70fc9bc9be2631922807d80178322853dba806314b586bf82eebb3ebe06b6cc"
-    sha256 cellar: :any_skip_relocation, catalina:       "f70fc9bc9be2631922807d80178322853dba806314b586bf82eebb3ebe06b6cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da8d6bebbfe5c4320b52f8bf90992f6bd7e7e55309042fbfdf1981093bc4a2a1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b04cd58f497da046af0c2bd8fdcb2b87c568da1589c6ce6ef98fe643106885a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b04cd58f497da046af0c2bd8fdcb2b87c568da1589c6ce6ef98fe643106885a"
+    sha256 cellar: :any_skip_relocation, monterey:       "d0431aac03692d693e017914cb0f5f06011b44f7c00bf4f04e4c9247d31d925a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "d0431aac03692d693e017914cb0f5f06011b44f7c00bf4f04e4c9247d31d925a"
+    sha256 cellar: :any_skip_relocation, catalina:       "d0431aac03692d693e017914cb0f5f06011b44f7c00bf4f04e4c9247d31d925a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "718ef3725a611ac13a5609596594cc769aa6eaf52a2848e0b6f578bc527f90db"
   end
 
   depends_on "node"
