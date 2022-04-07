@@ -1,8 +1,8 @@
 class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (complex)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.16.3.tar.gz"
-  sha256 "eff44c7e7f12991dc7d2b627c477807a215ce16c2ce8a1c78aa8237ddacf6ca5"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.16.5.tar.gz"
+  sha256 "7de8570eeb94062752d82a83208fc2bafc77b3f515023a4c14d8ff9440e66cac"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,11 +10,13 @@ class PetscComplex < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "9a35fda3229955fd76eece024ae46b0e3700d1e40748e21750570dd474165109"
-    sha256 arm64_big_sur:  "2ca006232614720bfbbbe19f7d54d50926dcedcbbd8c7fb29d62afce102571e8"
-    sha256 monterey:       "39e6bae966707379f42460826ecea25628238c9f2ad6fdd783bcd73391573960"
-    sha256 big_sur:        "8007b5eb1cb4082b0094d82ca64b63a627da279d63ea82cec7500f585dbc65de"
-    sha256 catalina:       "b121f72407ba40815b13f12960494920208efab169eaf7de70a24a994305fe40"
+    rebuild 1
+    sha256 arm64_monterey: "5e3e8a01a0e82d929d8ee7119f958f38e71217fc16f3ddae66b5709c179eddf8"
+    sha256 arm64_big_sur:  "2d22065446cfdde1a24c421dfa5cd8ccf69e17cc04f487dbfc52c67b63810a5a"
+    sha256 monterey:       "964c00713ff82b2807b3f4736edaf63b77e36e40ad6f2341d61b34cb04edb5ba"
+    sha256 big_sur:        "c8c2a70e4dda8f427973f6af204b95821577b3829cd1885bb9a1a558aa43c35d"
+    sha256 catalina:       "ee72e59bfcc8fb8c094b1e49c4bc063ae9d8db0e11483155bee018d2e0a96685"
+    sha256 x86_64_linux:   "cb9bee5b7c8563ec017abf14a38358058a8dc6d0c42d3f10db892667cb92f736"
   end
 
   depends_on "hdf5"
@@ -44,16 +46,15 @@ class PetscComplex < Formula
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
 
-    if OS.mac?
-      inreplace lib/"petsc/conf/petscvariables", Superenv.shims_path, ""
-    elsif File.readlines("#{lib}/petsc/conf/petscvariables").grep(Superenv.shims_path.to_s).any?
-      inreplace lib/"petsc/conf/petscvariables", Superenv.shims_path, ""
+    if OS.mac? || File.foreach("#{lib}/petsc/conf/petscvariables").any? { |l| l[Superenv.shims_path.to_s] }
+      inreplace lib/"petsc/conf/petscvariables", "#{Superenv.shims_path}/", ""
     end
   end
 
   test do
-    test_case = "#{share}/petsc/examples/src/ksp/ksp/tutorials/ex1.c"
-    system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc", "-o", "test"
+    flags = %W[-I#{include} -L#{lib} -lpetsc]
+    flags << "-Wl,-rpath,#{lib}" if OS.linux?
+    system "mpicc", share/"petsc/examples/src/ksp/ksp/tutorials/ex1.c", "-o", "test", *flags
     output = shell_output("./test")
     # This PETSc example prints several lines of output. The last line contains
     # an error norm, expected to be small.

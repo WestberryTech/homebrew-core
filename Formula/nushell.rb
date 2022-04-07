@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.44.0.tar.gz"
-  sha256 "94bb003fd05b604a174a686c40286fef460bc06616a7d273c387a54a07576ecc"
+  url "https://github.com/nushell/nushell/archive/0.60.0.tar.gz"
+  sha256 "9b9deb8e42cf18ccf328833a4d051fc14cef0be468afc3b0dbde6657deb9f079"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,12 +13,13 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "55b4c2b4217b6e57ac905fb4d5ccd01f023f2eab61a6fc48a591fc46752e4b2b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "68375be184031009b9ba3f70f88329c4b30b01e2c33f7b7b5fb7eab2c3e9d877"
-    sha256 cellar: :any_skip_relocation, monterey:       "d95cf2c196375b7a7bd7af0da22e67dafd99f7b751bbf73ec0dfd7fe2b4bba56"
-    sha256 cellar: :any_skip_relocation, big_sur:        "44a3ae04dda52e4e50ca739324852b9f470345d4e5e72311e7ad861ec9c13eeb"
-    sha256 cellar: :any_skip_relocation, catalina:       "d574f9a36d9f381e2dec16d19145653af8198b06a4b7c0a0fbc4875c8e54bdd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19bcbcbb435742a69e5806f09e5b8199fc224d70cfc218fdbb83965cb9a05c56"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_monterey: "c21a554eb2a7fbeecce61d2af8b46d7fccf4fb061fafbf40bc30f5232e61130d"
+    sha256 cellar: :any,                 arm64_big_sur:  "55a730ec582e5c5ddfe8e9fba399a14314a497616f030820a22362eaa74850a9"
+    sha256 cellar: :any,                 monterey:       "cd8aa5b6ad2a0b33d2e0433d7faee456095bba2e886210c818af61552ce91ed5"
+    sha256 cellar: :any,                 big_sur:        "5fb7a1396649e9c6912fa8db926fecb2b4128162251cbdef1e33a1f54a7887c3"
+    sha256 cellar: :any,                 catalina:       "96121aebedca7a9ef255ee85bcd9fac594c8b70e4728d8df6a108f12bffa08ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8e75cdf8761cdb345df6d8e300ccfbe4e64fa0dd7dcd565b2916b658030fbed"
   end
 
   depends_on "rust" => :build
@@ -34,10 +35,16 @@ class Nushell < Formula
 
   def install
     system "cargo", "install", "--features", "extra", *std_cargo_args
+
+    buildpath.glob("crates/nu_plugin_*").each do |plugindir|
+      next unless (plugindir/"Cargo.toml").exist?
+
+      system "cargo", "install", *std_cargo_args(path: plugindir)
+    end
   end
 
   test do
     assert_match "homebrew_test",
-      pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar" : "homebrew_test"}\' | from json | get bar')
+      pipe_output("#{bin}/nu -c \'{ foo: 1, bar: homebrew_test} | get bar\'", nil)
   end
 end

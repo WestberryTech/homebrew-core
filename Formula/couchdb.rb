@@ -5,7 +5,7 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.2.1/apache-couchdb-3.2.1.tar.gz"
   sha256 "11de2d1c3a5b317017a7459ec3f76230d5c43aba427a1e71ca3437845874acf8"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
@@ -13,10 +13,12 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "bd42975d1094c79bd8fd085267e920c7aa60b1271512c286ed3d0081073b9a79"
-    sha256 cellar: :any,                 big_sur:      "0e88d8d596cb77003f76a0a2962327ddfe79b150c137698c29dc3d1a5c6bc526"
-    sha256 cellar: :any,                 catalina:     "e1227886bab7e206f51afaea3d4ddf58f07bc491f4df3ba5fe152c5246a36be7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "7d855bb5a722a550d8a4e7a9d9f711f9c306c790948af8ef9d39e7bf2527b334"
+    sha256 cellar: :any,                 arm64_monterey: "11ba7ea770ea7359365e9e4beb0460dc0380e8987daa770298007eedd8bbee97"
+    sha256 cellar: :any,                 arm64_big_sur:  "c07a1521fc8fd0604f591f0b66521ee13cd1e4950962b34adbb73ea0963937ad"
+    sha256 cellar: :any,                 monterey:       "4c87b357fbda61414e199e63836cc71550385b287a75693fa8abeb87af2056e3"
+    sha256 cellar: :any,                 big_sur:        "39891fec49abfd7ff6fbc78f0e3ecc5ddb34511be02dc4bdf76e0661dda2779d"
+    sha256 cellar: :any,                 catalina:       "db22c5a177fa73c0180b95920a99000a0a257dcd55a2fe1544fd7215fa3b4b67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "939c7c053656690df36b7c2ad9d19cda20154caad4ac16acaa2a1a7eab58b92e"
   end
 
   depends_on "autoconf" => :build
@@ -27,9 +29,9 @@ class Couchdb < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  # NOTE: Check for supported `spidermonkey` versions when updating at
+  # NOTE: Supported `spidermonkey` versions are hardcoded at
   # https://github.com/apache/couchdb/blob/#{version}/src/couch/rebar.config.script
-  depends_on "spidermonkey@78"
+  depends_on "spidermonkey"
 
   on_linux do
     depends_on "gcc"
@@ -42,8 +44,15 @@ class Couchdb < Formula
     cause "mfbt (and Gecko) require at least gcc 6.1 to build."
   end
 
+  # Add support for SpiderMonkey 91esr. Remove in the next release.
+  # PR ref: https://github.com/apache/couchdb/pull/3842
+  patch do
+    url "https://github.com/apache/couchdb/commit/cb6aff46b65b68fd48293971a11c29633a0e21ff.patch?full_index=1"
+    sha256 "c32bc73937dd598cfc433a44098823e069665e6c85e8ec24f6da2ba56b42b02a"
+  end
+
   def install
-    spidermonkey = Formula["spidermonkey@78"]
+    spidermonkey = Formula["spidermonkey"]
     inreplace "src/couch/rebar.config.script" do |s|
       s.gsub! "-I/usr/local/include/mozjs", "-I#{spidermonkey.opt_include}/mozjs"
       s.gsub! "-L/usr/local/lib", "-L#{spidermonkey.opt_lib} -L#{HOMEBREW_PREFIX}/lib"

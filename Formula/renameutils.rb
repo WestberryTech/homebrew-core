@@ -3,6 +3,7 @@ class Renameutils < Formula
   homepage "https://www.nongnu.org/renameutils/"
   url "https://download.savannah.gnu.org/releases/renameutils/renameutils-0.12.0.tar.gz"
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
+  license "GPL-3.0-or-later"
   revision 3
 
   livecheck do
@@ -36,6 +37,9 @@ class Renameutils < Formula
   end
 
   def install
+    # Work around build failure on Apple Silicon due to trying to use deprecated stat64.
+    # io-utils.c:93:19: error: variable has incomplete type 'struct stat64'
+    ENV["ac_cv_func_lstat64"] = "no" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-packager=Homebrew"

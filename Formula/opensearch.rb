@@ -1,22 +1,22 @@
 class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
-  url "https://github.com/opensearch-project/OpenSearch/archive/1.3.0.tar.gz"
-  sha256 "9ab025597532348ea7404eb43cce629f668eff17f23e9fb736a0089049c9b295"
+  url "https://github.com/opensearch-project/OpenSearch/archive/1.3.1.tar.gz"
+  sha256 "1a368a9057eede7a0c20792cbae72a7b1bbcbbbee7ebb3fc3c6bb7782a7bd345"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "224c8ff598137a4c119ac3b2a1cb515d8a2abaaf5d8f29c68378e833781d7963"
-    sha256 cellar: :any_skip_relocation, big_sur:      "224c8ff598137a4c119ac3b2a1cb515d8a2abaaf5d8f29c68378e833781d7963"
-    sha256 cellar: :any_skip_relocation, catalina:     "224c8ff598137a4c119ac3b2a1cb515d8a2abaaf5d8f29c68378e833781d7963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "12e5abcf7a3dd83c5de6283c3d4839ad9b93191760f43390e3679e12f23b4236"
+    sha256 cellar: :any_skip_relocation, monterey:     "cf84778e6ec1b476640697735bcad761f0594b6c3b4a931c2841440b19aa31d0"
+    sha256 cellar: :any_skip_relocation, big_sur:      "cf84778e6ec1b476640697735bcad761f0594b6c3b4a931c2841440b19aa31d0"
+    sha256 cellar: :any_skip_relocation, catalina:     "cf84778e6ec1b476640697735bcad761f0594b6c3b4a931c2841440b19aa31d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ac5d9a44a6f2577800a443da819f9de9d5c0e9d71c45c149102cc61876e2e82e"
   end
 
   depends_on "gradle@6" => :build
   depends_on "openjdk"
 
   def install
-    system "gradle", ":distribution:archives:no-jdk-darwin-tar:assemble"
+    system "gradle", "-Dbuild.snapshot=false", ":distribution:archives:no-jdk-darwin-tar:assemble"
 
     mkdir "tar" do
       # Extract the package to the tar directory
@@ -93,7 +93,7 @@ class Opensearch < Formula
                                 "-Epath.data=#{testpath}/data",
                                 "-Epath.logs=#{testpath}/logs"
     end
-    sleep 20
+    sleep 60
     output = shell_output("curl -s -XGET localhost:#{port}/")
     assert_equal "opensearch", JSON.parse(output)["version"]["distribution"]
 

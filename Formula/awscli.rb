@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.4.28.tar.gz"
-  sha256 "0cc55c3cd3e68027f6cd52b727f142484e623555b5e65ca93d4806ae1437dcca"
+  url "https://github.com/aws/aws-cli/archive/2.5.3.tar.gz"
+  sha256 "198ccbdab619a673107610937837f0dd007516036e974b94eeb98ba6e95c04b0"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "fe477acd7a43ae7e09e6647a682c2513bb5b6cfe84e20fc59fb62286679b56c9"
-    sha256 cellar: :any,                 arm64_big_sur:  "4ed540b8ea2050b6b085dbc51d981024ffb5049f08041571d1c5d27b6e16a714"
-    sha256 cellar: :any,                 monterey:       "49179f732624fb197e1a50ee8be38752c3556e019a527bd98348eb65d29659a4"
-    sha256 cellar: :any,                 big_sur:        "8ef695bf84c5fdffeebecdfe4fb8837a7e06bf62024009efb05c28cf5851b983"
-    sha256 cellar: :any,                 catalina:       "d57013403504f527a677a334534135c663921ca59f7ef052ebc010d552ea71b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcb4a74f3948810d77a54fed8b47c61718fe66c8e1a661266cd4d308ea07235f"
+    sha256 cellar: :any,                 arm64_monterey: "f3c4ee1c27539ddf9ba6918f2dc9d958823ca2f4bc6435fc3437732697106305"
+    sha256 cellar: :any,                 arm64_big_sur:  "83eb8d16f16861cb81522d27a7bfa41b8e52191a8732bf3df97d3f8ba53fe933"
+    sha256 cellar: :any,                 monterey:       "928bd848a809cf5d86212a81db17d116050c1a2c89a6596debc1cb6462d01b08"
+    sha256 cellar: :any,                 big_sur:        "505896d5f49d582457cd33144ffbc79d398453c7b8e3fc63f4a2b02d66b20210"
+    sha256 cellar: :any,                 catalina:       "d0a95f4f88ef43877788c8808f891a242818475f0fc2c539c8c58930f7f5e7e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d76669cd043425eed5922861271864b582befc46d318719a683fb8619f4a55bd"
   end
 
   depends_on "cmake" => :build
@@ -25,9 +25,8 @@ class Awscli < Formula
   uses_from_macos "groff"
 
   # Python resources should be updated based on setup.cfg. One possible way is:
-  # 1. Download source tarball
-  # 2. At top of source directory, run `pipgrip . --sort`
-  # 3. Ignore `six`. Update all other PyPI packages
+  # 1. Run `pipgrip 'awscli @ #{url}' --sort`
+  # 2. Ignore `six`. Update all other PyPI packages
 
   resource "awscrt" do
     url "https://files.pythonhosted.org/packages/56/3f/4ab8b2d37abc367983a4cbd0d4fc00053af0b725698d8e936672b9cdf881/awscrt-0.13.5.tar.gz"

@@ -3,18 +3,18 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/a3/e3/8d427e9b5a8ab74f22946d2c33ff4345589e16a32eea186f45d022ad41ac/FORD-6.1.10.tar.gz"
-  sha256 "3d4e4e9eb043a42d85479534797d89081d030d24dba37b1d91874e4df9d9e486"
+  url "https://files.pythonhosted.org/packages/e5/f2/96f77514ac210f235e936f4c5676082041b554fc04573b67345ed4ff71e7/FORD-6.1.11.tar.gz"
+  sha256 "feb9a88040e717e84c632e4b023904ab36a463fc9a8ff80c8c7f86454e5d8043"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9968a33847df90850bb5f8315a7aae53e6e1aa94c1409866687b4fe9b91761cd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c1b222d03b76874c94e6a5a2b9d0b012caf324e527b640d316e7000b9ca232a"
-    sha256 cellar: :any_skip_relocation, monterey:       "76a924b8812e458c7036a00f1455031ecd0db9c8e6fd30ad82b67dd4a7e428db"
-    sha256 cellar: :any_skip_relocation, big_sur:        "54335c9aadab389c6fa0e763b479822814238a8f3474433222f44ee15370b07a"
-    sha256 cellar: :any_skip_relocation, catalina:       "88e2945ac3e0ed04ec3b4cd8e3b88e527d34d074ca35413d1b69992f13016104"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "669aadaccc00ffa7f7b4aa396f285a54248ecd94c403cb1faef9a0b6c2b81d5d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b80604113421a307d4671a6c6c6cd37455c8a36319f04ad02139c77fe4d6339d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ba8db183d04e8d4bd100f0cbebc53e5702ba589f711ec11661258fea8ee96b9"
+    sha256 cellar: :any_skip_relocation, monterey:       "9f8b4a7d91b36c33a8ec40563cddfd7253ac2dd43d33b6f2fc2d1354cc1374ac"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8af8a8f5e4e18ad5c0b852ea57f651fcbf272948e1c756751d788be538f9bb79"
+    sha256 cellar: :any_skip_relocation, catalina:       "dd000dcec30f5160699f5fec098a4143c84d3ef2d658011c796f7456a467b8a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6425b45bf22ed09a0f68703bd7aa9826051bfb6d535fcc20a2d1551d8e18af0f"
   end
 
   depends_on "graphviz"
@@ -39,8 +39,8 @@ class Ford < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "Markdown" do
@@ -79,13 +79,13 @@ class Ford < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/98/2a/838de32e09bd511cf69fe4ae13ffc748ac143449bfc24bb3fd172d53a84f/tqdm-4.64.0.tar.gz"
+    sha256 "40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/94/64/3115548d41cb001378099cb4fc6a6889c64ef43ac1b0e68c9e80b55884fa/zipp-3.7.0.tar.gz"
-    sha256 "9f50f446828eb9d45b267433fd3e9da8d801f614129124863f9c51ebceafb87d"
+    url "https://files.pythonhosted.org/packages/cc/3c/3e8c69cd493297003da83f26ccf1faea5dd7da7892a0a7c965ac3bcba7bf/zipp-3.8.0.tar.gz"
+    sha256 "56bf8aadb83c24db6c4b577e13de374ccfb67da2078beba1d037c17980bf43ad"
   end
 
   def install

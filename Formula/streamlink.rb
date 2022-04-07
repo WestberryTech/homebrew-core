@@ -6,23 +6,23 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/67/97/22af99220a108d24eb635c9f1693ea52e1ffe5b0c93098dae7258c2a6a4d/streamlink-3.2.0.tar.gz"
   sha256 "9770d2d83844c5378a73e14130dcb760abc856566caa0a41fc5b97a0ded5d926"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6010094144e61f3525d5fbc5b4fc6f6aefb2101c4f7337ba8949fca3b9761e6b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0b9b2fdd22a34ef4c05a685c1abf096492d8b6e9d8c4886a5ea16b46d04de46d"
-    sha256 cellar: :any_skip_relocation, monterey:       "ea4f92a852ddc8f8bd44381ecd7ee01827d5055fad4a2de1d8e2572f1d443a86"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b31f2453901fc8d7450b4e2a94198deb379c273daee78800095130daf478fff1"
-    sha256 cellar: :any_skip_relocation, catalina:       "4b7a501f0525f51e158bb9c021235296c3f0e8417a18aa61f065d0ac7cd3379b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1e612be09a34e1d3ed11a5f7cba26e80c0c27b3adf88c81dc2c7c0b0d237918"
+    sha256 cellar: :any,                 arm64_monterey: "61127495501705add28e12af859151b1470f06df0223f125bdc3fa438b26dd52"
+    sha256 cellar: :any,                 arm64_big_sur:  "ee513268c33b259c109b8847e4ebe2c31530259ee2e46a1761543a38d8c64f66"
+    sha256 cellar: :any,                 monterey:       "18a31b125c5726d4d75bbcded583db4826ef303cdeecce788b4afbf071dcd37c"
+    sha256 cellar: :any,                 big_sur:        "c1f4b1fbed1b9a9f37841fafadd218eec4740fff8bdda094e9d0c05e6611f3f1"
+    sha256 cellar: :any,                 catalina:       "f74627590bd9aca1f65a0c8688e1d2fadf6308c99a96fcdfdcb1dd33dc1bae8f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d67cf70b82d9fad24a4a3ba89f75f6e32bb655fe3b5a26257742bc93d698b9"
   end
 
+  depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
   depends_on "python@3.10"
   depends_on "six"
 
   uses_from_macos "libffi"
-  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
   on_linux do
@@ -92,5 +92,9 @@ class Streamlink < Formula
   test do
     system "#{bin}/streamlink", "https://vimeo.com/189776460", "360p", "-o", "video.mp4"
     assert_match "video.mp4: ISO Media, MP4 v2", shell_output("file video.mp4")
+    output = shell_output("#{bin}/streamlink -l debug 'https://ok.ru/video/3388934659879'")
+    assert_match "Available streams:", output
+    refute_match "error", output
+    refute_match "Could not find metadata", output
   end
 end

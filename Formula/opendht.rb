@@ -1,17 +1,17 @@
 class Opendht < Formula
-  desc "C++14 Distributed Hash Table implementation"
+  desc "C++17 Distributed Hash Table implementation"
   homepage "https://github.com/savoirfairelinux/opendht"
-  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.3.5.tar.gz"
-  sha256 "fd762832ec82094f9b95a21a6ee54b082db2c81a5860dd24cf0599810df8b1a3"
+  url "https://github.com/savoirfairelinux/opendht/archive/refs/tags/2.4.0.tar.gz"
+  sha256 "4ecc41014add4f9165163072fff2fe72e4f4dd542b799c5baf181ec69c858942"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "da2867537d1958222ced6a433334f1b1a64d1cecb3f93fdd582c47ac1ea91be9"
-    sha256 cellar: :any,                 arm64_big_sur:  "8218db30d61f5bc3333d4fb6b5cc7b07ab9bb8b1715c06ad2b7a2b5a52762a7c"
-    sha256 cellar: :any,                 monterey:       "68fddec31a75ad5a9cf38f1cf3d10ba0ec6e72e6cdec81f08be118aeb6519d1c"
-    sha256 cellar: :any,                 big_sur:        "4c067c43b6d3c302393d72a61bcef851e24bd35f8186b7ec397c4f7f0aa247a1"
-    sha256 cellar: :any,                 catalina:       "b371304a02708d5eb597296706775ad18ed67b361d0e63faa560424553878f0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5de124feb505f57d33c081ac42401ee79505714834e10c5934e122ac0e8d85c"
+    sha256 cellar: :any,                 arm64_monterey: "e52c964ad81c338f401e4b291406c1fe2ce63340661294f10acff61612eb2b50"
+    sha256 cellar: :any,                 arm64_big_sur:  "a291ba71d6ae75df8efee0d05e35a78b8ff6e6712afc2c74dc1ffd76b1a111a9"
+    sha256 cellar: :any,                 monterey:       "d2bf5a2d95dc4a210e0e836fe5b4da21c9843f6921b6d106fca9e7e4451706c4"
+    sha256 cellar: :any,                 big_sur:        "7d82f3e24cde6aad0a834a1c3830eee8c32746d1d812f74414615ff1fa31835b"
+    sha256 cellar: :any,                 catalina:       "441ac4e81dc49438410de99af317fe1ac93190af9f5f366ec0c656804287f3d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0628e6a79543d5f554910a7669f911e9503d308a17dc025209feb1e2e733415"
   end
 
   depends_on "cmake" => :build
@@ -22,6 +22,12 @@ class Opendht < Formula
   depends_on "msgpack-cxx"
   depends_on "nettle"
   depends_on "readline"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -47,7 +53,7 @@ class Opendht < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++14", "-L#{lib}", "-lopendht", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-lopendht", "-o", "test"
     system "./test"
   end
 end

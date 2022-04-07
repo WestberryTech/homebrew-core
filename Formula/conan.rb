@@ -3,18 +3,18 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/77/c9/0df4985bb7457629d1d65daea70beb8453c4ddeedad5f42ff7dde14d6d34/conan-1.46.2.tar.gz"
-  sha256 "01f9dc2e6fc180db934a05e2bc20892d55d2af396173139663a4f15d54aa7f61"
+  url "https://files.pythonhosted.org/packages/60/57/c0eac1c53769333c3b39e1d5819689c81d0e565e0ecdf86bcf6cd0502e2f/conan-1.47.0.tar.gz"
+  sha256 "c0f066be1871ae23a9dbe7465929ae38f221531b7025f85cdd56d4790c1816be"
   license "MIT"
   head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43b527db462b6d4816be028294b3e87a3dd3a7ad931530192c0da5650fc23f89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6367c3449174873322bd61d624830d54002fa7ec7aad186d566dd41bc5e6929"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d77288bd59bff26ce936a5dc311305a7feae951e070dc3563c6d2f92733c259"
-    sha256 cellar: :any_skip_relocation, big_sur:        "71c9c4d1e2aaef84a63768af64fb2b3d75f3fb054aaf887a4c93e75c5b1b3d2e"
-    sha256 cellar: :any_skip_relocation, catalina:       "c7108875125f15f6b72cb781f8614ec28e9eee5a872db866b66e83f74a745240"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce55a3c37e05e5141dd3e5961cb1875263560185a9b3d83552197dd4f82901de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ce9d67bbd43b237e74cbd82ccf8dc471b8e3cb15483824d60a1f79186fa53c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae3eb9c464bc2acae9af2b87a3bf2419995684c1ee28638d3ca003fad62d01fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "eab4f2c2fdb18def536481999e79d5761ed75e5cb83ea543b47de88cf3dc27d0"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dd7df7345f4f756ebb723601431eb16d9ab957524aed617ca88cab3a8335dfb6"
+    sha256 cellar: :any_skip_relocation, catalina:       "4436f306b55c571e266025b6e200dacfcb00c30af1bc75ca341362791db85add"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "218a471e635a83492aed105375a212a76c40aed7dc1aecb6893a6e81208dc9fe"
   end
 
   depends_on "pkg-config" => :build
@@ -60,8 +60,8 @@ class Conan < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/91/a5/429efc6246119e1e3fbf562c00187d04e83e54619249eb732bb423efa6c6/Jinja2-3.0.3.tar.gz"
-    sha256 "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"
+    url "https://files.pythonhosted.org/packages/89/e3/b36266381ae7a1310a653bb85f4f3658c462a69634fa9b2fef76252a50ed/Jinja2-3.1.1.tar.gz"
+    sha256 "640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"
   end
 
   resource "MarkupSafe" do
@@ -110,8 +110,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
+    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
   end
 
   resource "urllib3" do

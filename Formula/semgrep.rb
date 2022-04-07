@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.85.0",
-      revision: "40841051f43e87117143e6f15e033440196d2e44"
+      tag:      "v0.86.5",
+      revision: "86d2e183892ca27cdf7a67d839cd3d59130c2274"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,12 +15,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "103c8ccb23951e9d4fad7d2f2a4b8c41d2bc5d05192c77902d5f92043da2da76"
-    sha256 cellar: :any, arm64_big_sur:  "ae59677144696f1ed16ca4396c29f58736f77eb71fc1fa8f38002ef14388bbaa"
-    sha256 cellar: :any, monterey:       "d42c82cf8977d92abc5e09c4de9f101a2543c27b39eb309c4ee59e737509b74c"
-    sha256 cellar: :any, big_sur:        "5e8c0fe209cb50169be84c5d8f347a3d134ab9c5583478b482619d46190dd547"
-    sha256 cellar: :any, catalina:       "fb652da5aca61b541a297c96a5bf5d4ff139a382603efd0740be04bd6dc8ddc6"
-    sha256               x86_64_linux:   "97e990bd1ec0d205401079a5c5fea718d32f9262c908f4793111b8c69ac800d5"
+    sha256 cellar: :any, arm64_monterey: "e2e04e3acd155f6c57f1514e03c15d6b0c0dff25c403029b945cad3262491ffc"
+    sha256 cellar: :any, arm64_big_sur:  "1895a35de0d7ea9c168fbd6514fb3501559376df1c073885dbe51449e1d6fb91"
+    sha256 cellar: :any, monterey:       "e3b592618f2dbe640d9443ac95609fe55f634c97c16c2287ca6b8658cdc4dbd4"
+    sha256 cellar: :any, big_sur:        "5bb6449a76a9ca78c55d88c6e4872540caa86affb0ed5f6550a7a1fddde2b544"
+    sha256 cellar: :any, catalina:       "96bacc8403c512be522a4dd1baf37a79b90b499e50bf9a235e64ab55df6c8941"
+    sha256               x86_64_linux:   "7a8b77488a1365b298f02f8b1150fda61c7e0d2bab7d8514c068f22b6f91f10b"
   end
 
   depends_on "cmake" => :build
@@ -47,6 +47,11 @@ class Semgrep < Formula
     sha256 "626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"
   end
 
+  resource "boltons" do
+    url "https://files.pythonhosted.org/packages/ad/1f/6c0608d86e0fc77c982a2923ece80eef85f091f2332fc13cbce41d70d502/boltons-21.0.0.tar.gz"
+    sha256 "65e70a79a731a7fe6e98592ecfb5ccf2115873d01dbc576079874629e5c90f13"
+  end
+
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/bd/ef/6273bba9e5bc615aab4997159eeaddfe03c825eeabe2942c39e91be5afec/bracex-2.2.1.tar.gz"
     sha256 "1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21"
@@ -63,8 +68,8 @@ class Semgrep < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/dd/cf/706c1ad49ab26abed0b77a2f867984c1341ed7387b8030a6aa914e2942a0/click-8.0.4.tar.gz"
-    sha256 "8458d7b1287c5fb128c90e23381cf99dcde74beaf6c7ff6384ce84d6fe090adb"
+    url "https://files.pythonhosted.org/packages/45/2b/7ebad1e59a99207d417c0784f7fb67893465eef84b5b47c788324f1b4095/click-8.1.0.tar.gz"
+    sha256 "977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"
   end
 
   resource "click-option-group" do
@@ -80,6 +85,16 @@ class Semgrep < Formula
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
+  end
+
+  resource "face" do
+    url "https://files.pythonhosted.org/packages/ae/ab/2b18c4815f3db1e04bce325271fefda55d0893738ea84e3a655218944b03/face-20.1.1.tar.gz"
+    sha256 "7d59ca5ba341316e58cf72c6aff85cca2541cf5056c4af45cb63af9a814bed3e"
+  end
+
+  resource "glom" do
+    url "https://files.pythonhosted.org/packages/3f/d1/69432deefa6f5283ec75b246d0540097ae26f618b915519ee3824c4c5dd6/glom-22.1.0.tar.gz"
+    sha256 "1510c6587a8f9c64a246641b70033cbc5ebde99f02ad245693678038e821aeb5"
   end
 
   resource "idna" do
@@ -133,8 +148,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/cb/a5/803a55cae355bc2402492c6a1c23dc08117844e4a1c3a293b0ea19bca6fa/tqdm-4.63.0.tar.gz"
-    sha256 "1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd"
+    url "https://files.pythonhosted.org/packages/3c/77/e75fb048907ccc065030bf7d9d2d1441247e4e234dbfceb5466207190962/tqdm-4.63.1.tar.gz"
+    sha256 "4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d"
   end
 
   resource "urllib3" do

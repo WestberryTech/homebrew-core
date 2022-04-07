@@ -1,16 +1,16 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-4.1.0.tgz"
-  sha256 "4f0e5aa6ae5be84cf497fc3699a22f1ec17e9710759d627a74a11763271e2510"
+  url "https://registry.npmjs.org/code-server/-/code-server-4.2.0.tgz"
+  sha256 "bc8a450af38e8a937146a5c2e84ca3fb0cb99be2ff8f3a445ec5e9705068b324"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_monterey: "984f3070138600afb99d89dce861cfbd5cb930db48053a4779293c851a999377"
-    sha256 cellar: :any, arm64_big_sur:  "96746096b2efdf0139874df821db6947924788156bf4ae44fe9a67e6538cdf8a"
-    sha256 cellar: :any, monterey:       "4f6b5ef1ac015003daafbaa781b8b55ea0e6b76560d928df23fa4fac62f87742"
-    sha256 cellar: :any, big_sur:        "8fb769d31eadcb11f88cfc0cf2e2666c04d4ec4d4cdfa31ce44a81914229796c"
-    sha256 cellar: :any, catalina:       "a91151dff53840d5d44520357d8fcf7aa3e9c04e1162540d4a22be7232e8815a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44811ea7ef463c3271738c8e1d6ddf3c61bad7f242aa646703903b968ce7698a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c40829a209da88bfcf07273bd5d712fd027d6bbd48c5f0e66cf9a6c71e6b078"
+    sha256 cellar: :any_skip_relocation, monterey:       "8579502faadeeeeee97ac91782b0251ec910c5c06ef1f4128c1be2b3e5b11332"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f2974febc7bde87cc1b0b620952a47af60df10dcad876a641b91ba257da0e0b"
+    sha256 cellar: :any_skip_relocation, catalina:       "7b3c83e1be28e553ba44925969cdf35cbe8717862c9e029e7bc9437bbc5dc83b"
   end
 
   depends_on "bash" => :build
@@ -30,7 +30,7 @@ class CodeServer < Formula
     system "yarn", "--production", "--frozen-lockfile"
     # @parcel/watcher bundles all binaries for other platforms & architectures
     # This deletes the non-matching architecture otherwise brew audit will complain.
-    prebuilds = buildpath/"vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds"
+    prebuilds = buildpath/"lib/vscode/node_modules/@parcel/watcher/prebuilds"
     (prebuilds/"darwin-x64").rmtree if Hardware::CPU.arm?
     (prebuilds/"darwin-arm64").rmtree if Hardware::CPU.intel?
     libexec.install Dir["*"]

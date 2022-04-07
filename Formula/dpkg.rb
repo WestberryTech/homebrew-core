@@ -4,10 +4,9 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.2.tar.xz"
-  sha256 "b8fc67fca696c6bea2f40f737c80574d53384db25202f72effc7e4de4662e1ac"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.6.tar.xz"
+  sha256 "060b62c0f63268f207513fdbca70c9c4a473164fa015c79ae4292ce8ddd6b42f"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/dpkg/"
@@ -15,12 +14,12 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "f69a2633d05624777455b6bff9ffeb61606cf05e886636a9eda46a9f1f40d26e"
-    sha256 arm64_big_sur:  "3cff0af9cb6874911696e949c52e7c0449f4445c760e52a2dac2dd8596d195fe"
-    sha256 monterey:       "0f37925e1bc18de34d1cb11b48d76ca6855694ad903b6a58e3eeb202dc7de08d"
-    sha256 big_sur:        "e1e55252404b083374c6c419e28ef134fb52fd9160224a87a1ab85427d1e114a"
-    sha256 catalina:       "9edba09e54acd1239a82c16376b0e6579665f5b9b37cdab28e5362445f9312f8"
-    sha256 x86_64_linux:   "e9c4d2055667bb315e969e92aa0215a421a720ceb17993f1764216e237fb3a7c"
+    sha256 arm64_monterey: "94af14bb83659c61b97df3be1266c8cfaf16bf4b49bfeeff2e85d569ad793873"
+    sha256 arm64_big_sur:  "c67fc8e314f773ec7bcbfa61181e7b836c46d2beac45bb1c01cbd1c8bedf7ffb"
+    sha256 monterey:       "59f5a3e624096cd4d9b682cea3f48a1db9d3907858e778127aee3eff9ecad2ff"
+    sha256 big_sur:        "e9b886a6da5792df1a21a27ed83c28c6cbf28a59aabea02ae969af01668037ff"
+    sha256 catalina:       "5c345f1f2fb99f2452292204bea2a03b35efd11afb1b3c0de05af3bb4a93d73c"
+    sha256 x86_64_linux:   "b3ecfd490eeda36ccc94d05daa689362a80017697f7d734b662f89bebdef62ee"
   end
 
   depends_on "pkg-config" => :build
@@ -36,14 +35,6 @@ class Dpkg < Formula
 
   on_linux do
     keg_only "not linked to prevent conflicts with system dpkg"
-  end
-
-  # enables fully-qualified tool paths needed for config below
-  # review for deletion when new version is released
-  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1007816
-  patch do
-    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=1007816;filename=dpkg.diff;msg=5"
-    sha256 "66b0cb11813df2b6135345afe40a4570058048bab880229e76d3d22a48d8f818"
   end
 
   patch :DATA

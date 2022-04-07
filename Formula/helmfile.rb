@@ -1,17 +1,17 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.143.3.tar.gz"
-  sha256 "ec0dcf2335e06100979c00ff4a5da964931776f4c528bf2d546a63c3cb83bb61"
+  url "https://github.com/roboll/helmfile/archive/v0.144.0.tar.gz"
+  sha256 "fc767d10ec21ca464caaefd309f410d96685a985090c237907a22bd983112c62"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4876e8fe1d90e1948fcd53016ce12f63784946db8cc1fe5bcc6bfa3e04617681"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5bfce7329410d0692550f82ee5460009d4b521a23a8a42fa3c844b46ac9a370b"
-    sha256 cellar: :any_skip_relocation, monterey:       "6fb4de7e675f5b642ef4519f8534fa9928654d506330b60b8857441260af5cf9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ddedff48bc5c100b8d5766a88553bc3934615b5900274aa2e5e1feeae8b72aea"
-    sha256 cellar: :any_skip_relocation, catalina:       "d0b2f3d5b78ac9c81055b2191142ba1e839c66f31026654de1efbdd3ca17940a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a35ecba4cf6a49f76961b23d624754da8e7169c6c7b3ad34a1ad1e480cfefc19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1590692c9f2abaa461d3efa8d48b72fe1fee5e1c652724b4f7ce4a5ab3616f35"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19103ce6a9762ee2cd1a4543461d519c4037783bcb168466dff8be5391fbb896"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ef56c0a9486b873d14eae8b0b0e66fba2d40b54e958d384afe2eb875b7efc8f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4571b0303c58fe93278a2fae1576146afecbf0dde9b384d598a565bb52d6a9a8"
+    sha256 cellar: :any_skip_relocation, catalina:       "9608ee96d6b2844a3bfa52219c56a73ff8eb4ca8ba13d242bf96f31225c12e07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ae4fb50bea0ba92e62741ce5bd59c772ceecf69c5e75cb0be0dc0c2890c4c2a"
   end
 
   depends_on "go" => :build

@@ -4,6 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.4.2/gdal-3.4.2.tar.xz"
   sha256 "16baf03dfccf9e3f72bb2e15cd2d5b3f4be0437cdff8a785bceab0c7be557335"
   license "MIT"
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -11,16 +12,16 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "d69db3a479cfa43e7a9b468a7d4a0dd515af95554fdddc65570203f1e4516d6c"
-    sha256 arm64_big_sur:  "9764254c68b41fadab6a27e2586303996a501e24b256e9078d6b28aa002c4c60"
-    sha256 monterey:       "25b695c16205fb572f7c640bfd740ee1f6c3df60cb3752fc205ed0e43a34e4b7"
-    sha256 big_sur:        "0efe30c85ddddb95ccf9a4d2a577794ce8cd8a0c4edde0cf7ccd71b317eea425"
-    sha256 catalina:       "0a63aeaf2995c1a8923ffb93f23606cb63d3bebedd5cc8c1c92b2c7dbeda91d5"
-    sha256 x86_64_linux:   "e904e8a89edc553e188190395f4a8515b3efb4000047a089476149a1b594431c"
+    sha256 arm64_monterey: "1f19e91cde3daab43439daae1bfa1e683e2b1e48ddcd482bec48142e8cb9fcf1"
+    sha256 arm64_big_sur:  "af56486b2e2a8c75632313b441bb1ede7f00c73909d1fe4c85b8c179aa35fee2"
+    sha256 monterey:       "129166194b16927cebc37f0a7d10a053cd28bdbb4932fbcb52d4bf437dc4e4b6"
+    sha256 big_sur:        "86c8ecc02a33cb1f5365b44dedfbaaca0a0f676bd93f767b499d467fbbbb45d6"
+    sha256 catalina:       "ffef8d180141d53941537f156683babb91ff5680262b5a4e39274c386c85b65f"
+    sha256 x86_64_linux:   "948244b9910c433c97438d32bf3f9502eb6adcdf4f9d211080235e6c1743fcd7"
   end
 
   head do
-    url "https://github.com/OSGeo/gdal.git"
+    url "https://github.com/OSGeo/gdal.git", branch: "master"
     depends_on "doxygen" => :build
   end
 
@@ -46,7 +47,7 @@ class Gdal < Formula
   depends_on "openjpeg"
   depends_on "pcre2"
   depends_on "poppler-qt5"
-  depends_on "proj@7"
+  depends_on "proj"
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "unixodbc"
@@ -96,7 +97,7 @@ class Gdal < Formula
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-pcre2=yes",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-proj=#{Formula["proj@7"].opt_prefix}",
+      "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
       "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",

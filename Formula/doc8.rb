@@ -3,40 +3,40 @@ class Doc8 < Formula
 
   desc "Style checker for Sphinx documentation"
   homepage "https://github.com/PyCQA/doc8"
-  url "https://files.pythonhosted.org/packages/76/04/3f70faf4ad8d9bcc5f6a2ee27e4cad48fd3a1ed80f3ce40fc9334f268e2d/doc8-0.10.1.tar.gz"
-  sha256 "376e50f4e70a1ae935416ddfcf93db35dd5d4cc0e557f2ec72f0667d0ace4548"
+  url "https://files.pythonhosted.org/packages/31/86/c681a7f2f685c05ed7a8f2f6e0df340309322ee527b6d0a664cd816f2fa0/doc8-0.11.1.tar.gz"
+  sha256 "6dbcb5472efd332763ffb2862b4fdeec40c8a6fdc6bb67e68713ad749ca5808c"
   license "Apache-2.0"
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3899ff9e0fda13a433015a2f5309d3f2477c78e6e2798713420340645c716909"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b90d196888743f9f9c8410dc7f55c5e713d02d84bd5283f3b750657d9c5e50c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "f50a2ce5fdb1cdb9691e0fa6e632dfa5471c6c0a807cd51cae51c2c0e0fbbe61"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14b3d14f8ecb4356eb55f28ee566e3e418f8fae8a2ba52efeba23033abc69f86"
-    sha256 cellar: :any_skip_relocation, catalina:       "f07d4456b1d8b5f272f1d05754f7074cea76741c31e4cd8dc941bb09bd23c9c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "040d934c7cac72e0ccc2b7591a11b5d7867e768d2bd0247d15bd1b8b7ec6af92"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "699d6b976b06f3b2705d6d1a1c8166331e89e376be75ec07f17bd5df33da84b9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1fbabc390c8119c79afc4b72a2a9abb6b5f275e6c61787fea1f69c73e92cacf9"
+    sha256 cellar: :any_skip_relocation, monterey:       "271c5ff297e13e37006bb37bfb95b4428f0013df22a9c485d72fd1dd8e327aba"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7763e1672103814df4bcd042fe950c553d0c0f244654beab9dc6ed777d5bb338"
+    sha256 cellar: :any_skip_relocation, catalina:       "1d038842c16dd3765748a65155d12c44ba544a9914afe3d138e1fc1bc208eb2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "606cedee41d916cb4f3c2dc6a6bfc4325cb9812c57e472059a669fea83e15bef"
   end
 
   depends_on "python@3.10"
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/61/d7/8b2786f10b73e546aa9a85c2791393a6f475a16771b8028c7fb93d6ac8ce/docutils-0.18.tar.gz"
-    sha256 "c1d5dab2b11d16397406a282e53953fe495a46d69ae329f55aa98a5c4e3c5fbb"
+    url "https://files.pythonhosted.org/packages/57/b1/b880503681ea1b64df05106fc7e3c4e3801736cf63deffc6fa7fc5404cf5/docutils-0.18.1.tar.gz"
+    sha256 "679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06"
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/69/7e/e420b9b6b06f9597827571e871f9492512701497971a4cf3f4638c03bc7a/pbr-5.7.0.tar.gz"
-    sha256 "4651ca1445e80f2781827305de3d76b3ce53195f2227762684eb08f17bc473b7"
+    url "https://files.pythonhosted.org/packages/51/da/eb358ed53257a864bf9deafba25bc3d6b8d41b0db46da4e7317500b1c9a5/pbr-5.8.1.tar.gz"
+    sha256 "66bc5a34912f408bb3925bf21231cb6f59206267b7f63f3503ef865c1a292e25"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
-    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
+    url "https://files.pythonhosted.org/packages/94/9c/cb656d06950268155f46d4f6ce25d7ffc51a0da47eadf1b164bbf23b718b/Pygments-2.11.2.tar.gz"
+    sha256 "4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"
   end
 
   resource "restructuredtext-lint" do
-    url "https://files.pythonhosted.org/packages/45/69/5e43d0e8c2ca903aaa2def7f755b97a3aedc5793630abbd004f2afc3b295/restructuredtext_lint-1.3.2.tar.gz"
-    sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
+    url "https://files.pythonhosted.org/packages/48/9c/6d8035cafa2d2d314f34e6cd9313a299de095b26e96f1c7312878f988eec/restructuredtext_lint-1.4.0.tar.gz"
+    sha256 "1b235c0c922341ab6c530390892eb9e92f90b9b75046063e047cacfb0f050c45"
   end
 
   resource "stevedore" do

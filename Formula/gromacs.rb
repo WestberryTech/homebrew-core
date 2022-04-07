@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2022.tar.gz"
   sha256 "fad60d606c02e6164018692c6c9f2c159a9130c2bf32e8c5f4f1b6ba2dda2b68"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
@@ -11,12 +12,12 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_monterey: "3d35e4ea1e4c7fa4fdcde54ab2e8d282696ed75af001700ec5a9bae2bbe3e4b4"
-    sha256 arm64_big_sur:  "ba2a9c53c317c3638bb7bd016dbea1628c2ec59dca48a551e7bec097a0b6394d"
-    sha256 monterey:       "bcb3b9d29162c3770a3c3483f3fe21ee4b2b28f45f87ba9454ecccafcb785573"
-    sha256 big_sur:        "2bfd158e1a9b084e8702d6896fa7e1c727649f56bb0d49a4c4e7f4b9c3a7a827"
-    sha256 catalina:       "0a2c0708b2f776e2f1426c3eed1eb28b1da752c1c5e7f9cba812b8416f99a6c1"
-    sha256 x86_64_linux:   "61eb1c4f9ddac25ccf24715ecfab900025c15c775f819b86b1a48f40b6f6d3b9"
+    sha256 arm64_monterey: "e9c87eb92459096a6a0f4cf89c47075637e1904ae9f205f56eb27208dad141a0"
+    sha256 arm64_big_sur:  "74134dc0e7e267593eda877ad503ff36e215b1bf4ea5da2e32dac906972a0e86"
+    sha256 monterey:       "aa60790d16e246834976e5e0955bdc5972f44f1f2b59139cdfeaa546d36c6d1c"
+    sha256 big_sur:        "a6eba7ec465c7752848e66df7b32ae278a2812274acd1647c5ddd5cb4826193e"
+    sha256 catalina:       "85553daeaaac3af070b7b38ae6deedc65a1103dc25c04d426037fa386e184140"
+    sha256 x86_64_linux:   "488185332e2ca9e16efa2ceb5fd367ab62f6ad4ab506841d9457a22f97226ce9"
   end
 
   depends_on "cmake" => :build
@@ -50,11 +51,15 @@ class Gromacs < Formula
 
     inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}",
-                                             "-DGMX_VERSION_STRING_OF_FORK=#{tap.user}"
-      system "make", "install"
-    end
+    args = %W[
+      -DGROMACS_CXX_COMPILER=#{cxx}
+      -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
+    ]
+    # Force SSE2/SSE4.1 for compatibility when building Intel bottles
+    args << "-DGMX_SIMD=#{MacOS.version.requires_sse41? ? "SSE4.1" : "SSE2"}" if Hardware::CPU.intel? && build.bottle?
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     bash_completion.install "build/scripts/GMXRC" => "gromacs-completion.bash"
     bash_completion.install bin/"gmx-completion-gmx.bash" => "gmx-completion-gmx.bash"

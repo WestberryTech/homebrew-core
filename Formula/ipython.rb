@@ -3,25 +3,24 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/fb/09/3501e84f146738e509d2ce98b862542b0f1e3448634e116b83acd7cb0c74/ipython-8.1.1.tar.gz"
-  sha256 "8138762243c9b3a3ffcf70b37151a2a35c23d3a29f9743878c33624f4207be3d"
+  url "https://files.pythonhosted.org/packages/24/65/7f9da61ec569eb4e96081ef802755295a213141908be2958c6771db4b04c/ipython-8.2.0.tar.gz"
+  sha256 "70e5eb132cac594a34b5f799bd252589009905f05104728aea6a403ec2519dc1"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "d581d7ba526e3d3d235f27f180dad22a8d286187b814344cb47361c2e2d12ff9"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b869c3014d53f5abb84c1cfdba8cdcbf26b7f60c91c1ce1ca58a3e3412b1750"
-    sha256 cellar: :any,                 monterey:       "9742e8015dcb98bb815da8ed790a49483230b68901289ea4f4d3005c87faf172"
-    sha256 cellar: :any,                 big_sur:        "e8cedd0c8836ac1137abc03aa8b60d22647f01a5e0ba3f38f27cbd8e431e5a78"
-    sha256 cellar: :any,                 catalina:       "77076fae84f977232d8412d7691e9a17846335d262669328bef4883832b23672"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58b8755c28f4758409f7d042417eadd737e341ce8a3025b14f72383133e66bc9"
+    sha256 cellar: :any,                 arm64_monterey: "f3a3055fe18a6076fffa12faf17f2da4d929e42b1b9cfda12b92703448879675"
+    sha256 cellar: :any,                 arm64_big_sur:  "d9dc0b491830a60256e159782d63a53e4d007e8d5d9becdd400eac89d8e219b7"
+    sha256 cellar: :any,                 monterey:       "5d08a54dc83fd661474ceae79361e984db25eac44d61aedcd5cac89f844fe564"
+    sha256 cellar: :any,                 big_sur:        "4d1ab1f5e26fca484a3f3104342e33ae3b5b9a4dfd02c7ffbf324a4ba74ef066"
+    sha256 cellar: :any,                 catalina:       "54bf070c554cdcd742b8b0fccec6902ecdeb2698a65b3ccdb4ed3f4fe67822a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8125050f03d0ffb8bcd76b0155cfa22c1bd1fc1c14912b03420119a3091fb685"
   end
 
   depends_on "python@3.10"
   depends_on "six"
   depends_on "zeromq"
 
-  # use resources from ipykernel (which includes ipython)
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/e9/bc/2d2c567fe5ac1924f35df879dbf529dd7e7cabd94745dc9d89024a934e76/appnope-0.1.2.tar.gz"
     sha256 "dd83cd4b5b460958838f6eb3000c660b1f9caf2a5b1de4264e941512f603258a"
@@ -58,8 +57,8 @@ class Ipython < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/e0/22/d6c7267ebf529853bfc786eea6840c24164634d008d4a58ec4ddf0f8a633/ipykernel-6.9.1.tar.gz"
-    sha256 "f95070a2dfd3147f8ab19f18ee46733310813758593745e07ec18fb08b409f1d"
+    url "https://files.pythonhosted.org/packages/e7/b2/0db7e5e7c2de514de42f9a95a09b421d18b7cd6f4a69af19f4cf46c48d13/ipykernel-6.9.2.tar.gz"
+    sha256 "4c3cc8cb359f2ead70c30f5504971c0d285e2c1c699d2ce9af0216fe9c9fb17c"
   end
 
   resource "jedi" do
@@ -105,6 +104,11 @@ class Ipython < Formula
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/37/34/c34c376882305c5051ed7f086daf07e68563d284015839bfb74d6e61d402/prompt_toolkit-3.0.28.tar.gz"
     sha256 "9f1cd16b1e86c2968f2519d7fb31dd9d669916f515612c269d14e9ed52b51650"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/47/b6/ea8a7728f096a597f0032564e8013b705aa992a0990becd773dcc4d7b4a7/psutil-5.9.0.tar.gz"
+    sha256 "869842dbd66bb80c3217158e629d6fceaecc3a3166d3d1faee515b05dd26ca25"
   end
 
   resource "ptyprocess" do

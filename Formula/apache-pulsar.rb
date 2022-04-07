@@ -1,17 +1,17 @@
 class ApachePulsar < Formula
   desc "Cloud-native distributed messaging and streaming platform"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.9.1/apache-pulsar-2.9.1-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.9.1/apache-pulsar-2.9.1-src.tar.gz"
-  sha256 "e219a0b38645c64888ec031516afab0ca3248c194aaaf7bdc1d08aff4537e1f9"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.9.2/apache-pulsar-2.9.2-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.9.2/apache-pulsar-2.9.2-src.tar.gz"
+  sha256 "66cf22136488aabe443d92284fbb3edb15e1b9d8a64cf498b36236f75af29bbc"
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, monterey:     "9b2b9a5bf391f15fe75853541570aea36a6d9a1d1b54ba670aa787a383efba3c"
-    sha256 cellar: :any_skip_relocation, big_sur:      "30d713f34fe9074fb582068cca80e13aefddc508219a0d045e11ecae050d9a2f"
-    sha256 cellar: :any_skip_relocation, catalina:     "b82051dede75c221887ece7e961e483fb38a9831ed1c2405cab3959d2749c768"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e8aab2331d721486ea7ad5bcf4df54158f4184e6a88593ff85b4e12a45f22a45"
+    sha256 cellar: :any_skip_relocation, monterey:     "e0db8c6b3a3565dbff3778b0ab4e526ee1821e1679c326043502936a4c0304cd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "c2cd45e0f5ccd01a5d33e674bd99ee71f9c0cf9a04f9797590a369afbc7605ac"
+    sha256 cellar: :any_skip_relocation, catalina:     "c7cffc9c7f31d10d51d15ee6ca515d20c17e9429395ab5288f71d13174c65614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb8b8a862e1fe14691c28f40a23c3304346c7e67693f798ff2372818ed165710"
   end
 
   depends_on "autoconf" => :build

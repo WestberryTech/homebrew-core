@@ -1,18 +1,17 @@
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
-  url "https://github.com/esimov/triangle/archive/v1.2.3.tar.gz"
-  sha256 "28296d6b469c212967192f236c8139de1e315d23113f108eec641ce5e39553b5"
+  url "https://github.com/esimov/triangle/archive/v1.2.5.tar.gz"
+  sha256 "e7b729601023620aaba3707db80aeeeee06286e131095da25d248a8325d2c549"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "563d4012a2846639399afbee7a3e075ce9fb0579beedf8dd8106406e61775838"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "704b24d681e71a55c8c6d3888524ace351bb8240cefddf91060f8d6ead3fbf08"
-    sha256 cellar: :any_skip_relocation, monterey:       "42f96ab8e1bb5879b0e0be8fd44ac830c6f8bc5f96866205ee50c6608dec6cec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0b51538505ae028c96c122c565345e97257aef8103614afb14ecce0e5feeafe7"
-    sha256 cellar: :any_skip_relocation, catalina:       "5d3948f4093b5bc4f9b5410643eafd26a1d7c1bc87a2eb5ed7126447a46a675b"
-    sha256 cellar: :any_skip_relocation, mojave:         "a2549fdd2296b72dc857cfc4fcb89f07f4cf71f2419133ddb06eef63e3c7a7f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dd51ff7e1d80c1107c0c95b854db0168fda43a65a7e4bfca3201ad3d949e7ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d271336d258f7b6e7aaa4b6ab02c8b212cd7da270d5e3165f8bc08d933e2ffc"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a1e9e261e512bbac21587bf240e2ff1dbad618136113338fbb509d50facc2a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "b35a46733330343bcc1f97f763f4f35f580c1285042b13248b4b70dbebe1d136"
+    sha256 cellar: :any_skip_relocation, big_sur:        "34b54850c650f6c92276b9b06afa3b39701b5a2dd732b0eb9b6172f1a09cdda7"
+    sha256 cellar: :any_skip_relocation, catalina:       "013e43ccdf7f8af67aa680faad3e2655cf7cbd44a08e5a459260eff43225d25f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58a213dc45b97b2bf52c5403f52cdae98793da95dd1ac5b9bbaa6fe56197c346"
   end
 
   # Bump to 1.18 on the next release, if possible.

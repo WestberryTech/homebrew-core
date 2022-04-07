@@ -6,8 +6,8 @@ class Sslyze < Formula
   license "AGPL-3.0-only"
 
   stable do
-    url "https://files.pythonhosted.org/packages/9b/84/8f3b381bc74a36f4f3bd39171d0bc597db083123d897143fb8500f33084e/sslyze-5.0.2.tar.gz"
-    sha256 "9023e7b43745c07fdc4f525aadbd1a86620c4c7f1a89cf048c25acd2cdda130f"
+    url "https://files.pythonhosted.org/packages/b7/1b/dcf21b1f6b2bd3a0a5bafa7de91a5807cda93b8ceec9dbb593267966f099/sslyze-5.0.3.tar.gz"
+    sha256 "258cca18f6b01ab4419acc356a73e1443fe24174e0fd9b7b46448d823a5c7dc0"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/4.0.2.tar.gz"
@@ -16,10 +16,10 @@ class Sslyze < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 monterey:     "9568627719f1adfc44ef488926ca8e46e2e38942ddd8bc1762fd427e571432b2"
-    sha256 cellar: :any,                 big_sur:      "2102b7b50e1e623973a85dd5efb9d40ae3e0e884ead8436fdb4b95f34d4647d0"
-    sha256 cellar: :any,                 catalina:     "0f2ec359b36a09111e1342818dab16f66b4cfffe63abb5ca7488e01e764ac1f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "cfae7c001afea0db38100c595cfc0fcaae35890314b539c844a5608234037ca6"
+    sha256 cellar: :any,                 monterey:     "3c669d78e696b79eb1fc3f4773e23f16697303dcd4cd654d3cdc6650a8894ea7"
+    sha256 cellar: :any,                 big_sur:      "123e47b23c6e77da43e30186ab6b18869d4f2b163d9f4f785db8f774800b1dc5"
+    sha256 cellar: :any,                 catalina:     "527edd3733f6b7ed3643f8929318a746b5ac28c5000ac0e19d0706e9bc01ce5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "69f556a849cae8daee06e63da570f888204a59d21fae3967be42d2679aadcb5c"
   end
 
   head do
@@ -42,8 +42,8 @@ class Sslyze < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/f9/4b/1cf8e281f7ae4046a59e5e39dd7471d46db9f61bb564fddbff9084c4334f/cryptography-36.0.1.tar.gz"
-    sha256 "53e5c1dc3d7a953de055d77bef2ff607ceef7a2aac0353b5d630ab67f7423638"
+    url "https://files.pythonhosted.org/packages/10/a7/51953e73828deef2b58ba1604de9167843ee9cd4185d8aaffcb45dd1932d/cryptography-36.0.2.tar.gz"
+    sha256 "70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"
   end
 
   resource "pycparser" do
@@ -52,8 +52,8 @@ class Sslyze < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/b9/d2/12a808613937a6b98cd50d6467352f01322dc0d8ca9fb5b94441625d6684/pydantic-1.8.2.tar.gz"
-    sha256 "26464e57ccaafe72b7ad156fdaa4e9b9ef051f69e175dbbb463283000c05ab7b"
+    url "https://files.pythonhosted.org/packages/60/a3/23a8a9378ff06853bda6527a39fe317b088d760adf41cf70fc0f6110e485/pydantic-1.9.0.tar.gz"
+    sha256 "742645059757a56ecd886faf4ed2441b9c0cd406079c2b4bee51bcc3fbcd510a"
   end
 
   resource "tls-parser" do

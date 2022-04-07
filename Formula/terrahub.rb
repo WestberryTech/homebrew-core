@@ -3,8 +3,8 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.5.6.tgz"
-  sha256 "a9d6eda1ccc5acb317a62e97d40aac47ba00f8fcbcc9f40ff456d6350b86c463"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.5.8.tgz"
+  sha256 "a1b98f21b4a95306ef9e74d59c6499fd746fee9dc004aed3b82dd894cec2e93f"
   license "MPL-2.0"
 
   livecheck do
@@ -13,12 +13,12 @@ class Terrahub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "789268e0bba0906de4628714931d067d6fa90c8cd5a3f04987546227aa8490fe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "789268e0bba0906de4628714931d067d6fa90c8cd5a3f04987546227aa8490fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "14e33898a766960658e4c91ab8f86b95259593ee7002a08fc1a9ec7a4383b940"
-    sha256 cellar: :any_skip_relocation, big_sur:        "14e33898a766960658e4c91ab8f86b95259593ee7002a08fc1a9ec7a4383b940"
-    sha256 cellar: :any_skip_relocation, catalina:       "14e33898a766960658e4c91ab8f86b95259593ee7002a08fc1a9ec7a4383b940"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "789268e0bba0906de4628714931d067d6fa90c8cd5a3f04987546227aa8490fe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5eb2821ae0075619bc476a56836b3f4b93d7b91ace86470143d0ce00fa05b025"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5eb2821ae0075619bc476a56836b3f4b93d7b91ace86470143d0ce00fa05b025"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c95dc4d14eae7f22b99f69ce74c549f5bcb6d7c24ccc8d779556b06b4c0e2e7"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5c95dc4d14eae7f22b99f69ce74c549f5bcb6d7c24ccc8d779556b06b4c0e2e7"
+    sha256 cellar: :any_skip_relocation, catalina:       "5c95dc4d14eae7f22b99f69ce74c549f5bcb6d7c24ccc8d779556b06b4c0e2e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb2821ae0075619bc476a56836b3f4b93d7b91ace86470143d0ce00fa05b025"
   end
 
   depends_on "node"
