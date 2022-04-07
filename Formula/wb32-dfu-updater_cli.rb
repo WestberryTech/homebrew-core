@@ -1,8 +1,8 @@
 class Wb32DfuUpdaterCli < Formula
   desc "USB programmer"
   homepage "https://github.com/WestberryTech/wb32-dfu-updater"
-  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/v0.0.3.tar.gz"
-  sha256 "91865293c08368a8778789656b4a2c2e792c0a2b7238b42147d201e506c5de50"
+  url "https://github.com/WestberryTech/wb32-dfu-updater/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "2b1c5b5627723067168af9740cb25c5c179634e133e4ced06028462096de5699"
   license "Apache-2.0"
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "master"
 
@@ -24,9 +24,9 @@ class Wb32DfuUpdaterCli < Formula
   test do
     printing_message = <<~EOS
       wb32-dfu-updater ver: #{version}
-      libusb version #{Formula["libusb"].version} (11584)
-      ----------------------------------------
+      libusb version #{Formula["libusb"].version}
+      
     EOS
-    assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli --list")
+    assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli -V")
   end
 end
