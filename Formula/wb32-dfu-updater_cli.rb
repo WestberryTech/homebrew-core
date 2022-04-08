@@ -24,8 +24,7 @@ class Wb32DfuUpdaterCli < Formula
   test do
     printing_message = <<~EOS
       No DFU capable USB device available
-
     EOS
-    assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli -U 111.bin")
+    assert_match printing_message, shell_output(bin/"wb32-dfu-updater_cli -U 111.bin", result = 74)
   end
 end
