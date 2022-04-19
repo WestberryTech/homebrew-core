@@ -12,10 +12,6 @@ class Wb32DfuUpdaterCli < Formula
   def install
     args = std_cmake_args
 
-    libusb = Formula["libusb"]
-    args << "-DLIBUSB_INCLUDE_DIRS=#{libusb.opt_include}/libusb-1.0"
-    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib/shared_library("libusb-1.0")}"
-
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
